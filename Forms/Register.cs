@@ -52,5 +52,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             login.Show();
             this.Hide();
         }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

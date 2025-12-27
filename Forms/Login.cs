@@ -60,11 +60,41 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             }
         }
 
-        private void btnRegisterHere_Click(object sender, EventArgs e)
+        private void lblRegisterHere_Click(object sender, EventArgs e)
         {
             Register register = new Register();
             register.Show();
             this.Hide();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
