@@ -181,7 +181,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
 
         private void btnEditSubject_Click_1(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (dgvSubjects.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Please select a record to update.");
@@ -214,7 +215,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
 
 
             }
-
+        
         private void btnDeleteSubject_Click(object sender, EventArgs e)
         {
             if (dgvSubjects.SelectedRows.Count == 0)

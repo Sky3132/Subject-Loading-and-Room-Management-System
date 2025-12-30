@@ -31,21 +31,27 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacultyLoading));
             this.label2 = new System.Windows.Forms.Label();
             this.lblSubjectId = new System.Windows.Forms.Label();
-            this.dgvSubjects = new System.Windows.Forms.DataGridView();
+            this.dgvLoading = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSubjectName = new System.Windows.Forms.TextBox();
             this.txtSubjectId = new System.Windows.Forms.TextBox();
-            this.btnSearchSubjectL = new System.Windows.Forms.Button();
-            this.btnSearchFaculty = new System.Windows.Forms.Button();
+            this.btnSearchLoad = new System.Windows.Forms.Button();
             this.btnCancelLoad = new System.Windows.Forms.Button();
             this.btnRemoveLoad = new System.Windows.Forms.Button();
             this.btnEditLoad = new System.Windows.Forms.Button();
             this.btnSaveLoad = new System.Windows.Forms.Button();
-            this.btnAddLoad = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).BeginInit();
+            this.lblFacultyID = new System.Windows.Forms.Label();
+            this.txtFacultyId = new System.Windows.Forms.TextBox();
+            this.lblFacultyName = new System.Windows.Forms.Label();
+            this.txtFacultyName = new System.Windows.Forms.TextBox();
+            this.lblSection = new System.Windows.Forms.Label();
+            this.txtSection = new System.Windows.Forms.TextBox();
+            this.txtSearchLoad = new System.Windows.Forms.TextBox();
+            this.lblFacultyMembers = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoading)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,9 +61,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 122);
+            this.label2.Location = new System.Drawing.Point(86, 141);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 15);
+            this.label2.Size = new System.Drawing.Size(101, 18);
             this.label2.TabIndex = 22;
             this.label2.Text = "Subject Name";
             // 
@@ -65,19 +72,22 @@
             // 
             this.lblSubjectId.AutoSize = true;
             this.lblSubjectId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectId.Location = new System.Drawing.Point(63, 86);
+            this.lblSubjectId.Location = new System.Drawing.Point(86, 93);
+            this.lblSubjectId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubjectId.Name = "lblSubjectId";
-            this.lblSubjectId.Size = new System.Drawing.Size(61, 15);
+            this.lblSubjectId.Size = new System.Drawing.Size(97, 18);
             this.lblSubjectId.TabIndex = 20;
-            this.lblSubjectId.Text = "Subject Id";
+            this.lblSubjectId.Text = "Subject Code";
             // 
-            // dgvSubjects
+            // dgvLoading
             // 
-            this.dgvSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSubjects.Location = new System.Drawing.Point(12, 289);
-            this.dgvSubjects.Name = "dgvSubjects";
-            this.dgvSubjects.Size = new System.Drawing.Size(776, 149);
-            this.dgvSubjects.TabIndex = 19;
+            this.dgvLoading.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLoading.Location = new System.Drawing.Point(16, 356);
+            this.dgvLoading.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvLoading.Name = "dgvLoading";
+            this.dgvLoading.RowHeadersWidth = 51;
+            this.dgvLoading.Size = new System.Drawing.Size(1035, 183);
+            this.dgvLoading.TabIndex = 19;
             // 
             // panel3
             // 
@@ -85,17 +95,19 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(-3, -1);
+            this.panel3.Location = new System.Drawing.Point(-9, -1);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(806, 63);
+            this.panel3.Size = new System.Drawing.Size(1075, 78);
             this.panel3.TabIndex = 15;
             // 
             // imgBackToMain2
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
+            this.imgBackToMain2.Location = new System.Drawing.Point(967, 16);
+            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(4);
             this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
+            this.imgBackToMain2.Size = new System.Drawing.Size(108, 48);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgBackToMain2.TabIndex = 33;
             this.imgBackToMain2.TabStop = false;
@@ -107,138 +119,212 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(277, 21);
+            this.label1.Location = new System.Drawing.Point(369, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 26);
+            this.label1.Size = new System.Drawing.Size(294, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "FACULTY LOADING";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(557, 86);
+            this.pictureBox1.Location = new System.Drawing.Point(779, 106);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(204, 187);
+            this.pictureBox1.Size = new System.Drawing.Size(272, 230);
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
             // txtSubjectName
             // 
-            this.txtSubjectName.Location = new System.Drawing.Point(167, 122);
+            this.txtSubjectName.Location = new System.Drawing.Point(71, 163);
+            this.txtSubjectName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(162, 20);
+            this.txtSubjectName.Size = new System.Drawing.Size(132, 22);
             this.txtSubjectName.TabIndex = 23;
             // 
             // txtSubjectId
             // 
-            this.txtSubjectId.Location = new System.Drawing.Point(167, 86);
+            this.txtSubjectId.Location = new System.Drawing.Point(71, 115);
+            this.txtSubjectId.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubjectId.Name = "txtSubjectId";
-            this.txtSubjectId.Size = new System.Drawing.Size(162, 20);
+            this.txtSubjectId.Size = new System.Drawing.Size(132, 22);
             this.txtSubjectId.TabIndex = 21;
             // 
-            // btnSearchSubjectL
+            // btnSearchLoad
             // 
-            this.btnSearchSubjectL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnSearchSubjectL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchSubjectL.Location = new System.Drawing.Point(397, 233);
-            this.btnSearchSubjectL.Name = "btnSearchSubjectL";
-            this.btnSearchSubjectL.Size = new System.Drawing.Size(95, 40);
-            this.btnSearchSubjectL.TabIndex = 25;
-            this.btnSearchSubjectL.Text = "Search Subject";
-            this.btnSearchSubjectL.UseVisualStyleBackColor = false;
-            // 
-            // btnSearchFaculty
-            // 
-            this.btnSearchFaculty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnSearchFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFaculty.Location = new System.Drawing.Point(279, 233);
-            this.btnSearchFaculty.Name = "btnSearchFaculty";
-            this.btnSearchFaculty.Size = new System.Drawing.Size(95, 40);
-            this.btnSearchFaculty.TabIndex = 18;
-            this.btnSearchFaculty.Text = "Search Faculty";
-            this.btnSearchFaculty.UseVisualStyleBackColor = false;
+            this.btnSearchLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnSearchLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchLoad.Location = new System.Drawing.Point(451, 113);
+            this.btnSearchLoad.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchLoad.Name = "btnSearchLoad";
+            this.btnSearchLoad.Size = new System.Drawing.Size(105, 35);
+            this.btnSearchLoad.TabIndex = 18;
+            this.btnSearchLoad.Text = "Search";
+            this.btnSearchLoad.UseVisualStyleBackColor = false;
+            this.btnSearchLoad.Click += new System.EventHandler(this.btnSearchLoad_Click);
             // 
             // btnCancelLoad
             // 
             this.btnCancelLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnCancelLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelLoad.Location = new System.Drawing.Point(167, 233);
+            this.btnCancelLoad.Location = new System.Drawing.Point(312, 287);
+            this.btnCancelLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelLoad.Name = "btnCancelLoad";
-            this.btnCancelLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnCancelLoad.Size = new System.Drawing.Size(127, 49);
             this.btnCancelLoad.TabIndex = 17;
             this.btnCancelLoad.Text = "Cancel";
             this.btnCancelLoad.UseVisualStyleBackColor = false;
+            this.btnCancelLoad.Click += new System.EventHandler(this.btnCancelLoad_Click);
             // 
             // btnRemoveLoad
             // 
             this.btnRemoveLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRemoveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveLoad.Location = new System.Drawing.Point(279, 167);
+            this.btnRemoveLoad.Location = new System.Drawing.Point(447, 287);
+            this.btnRemoveLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveLoad.Name = "btnRemoveLoad";
-            this.btnRemoveLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnRemoveLoad.Size = new System.Drawing.Size(127, 49);
             this.btnRemoveLoad.TabIndex = 14;
             this.btnRemoveLoad.Text = "Remove";
             this.btnRemoveLoad.UseVisualStyleBackColor = false;
+            this.btnRemoveLoad.Click += new System.EventHandler(this.btnRemoveLoad_Click);
             // 
             // btnEditLoad
             // 
             this.btnEditLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnEditLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditLoad.Location = new System.Drawing.Point(167, 167);
+            this.btnEditLoad.Location = new System.Drawing.Point(177, 287);
+            this.btnEditLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditLoad.Name = "btnEditLoad";
-            this.btnEditLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnEditLoad.Size = new System.Drawing.Size(127, 49);
             this.btnEditLoad.TabIndex = 13;
             this.btnEditLoad.Text = "Edit";
             this.btnEditLoad.UseVisualStyleBackColor = false;
+            this.btnEditLoad.Click += new System.EventHandler(this.btnEditLoad_Click);
             // 
             // btnSaveLoad
             // 
             this.btnSaveLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSaveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveLoad.Location = new System.Drawing.Point(53, 233);
+            this.btnSaveLoad.Location = new System.Drawing.Point(42, 287);
+            this.btnSaveLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveLoad.Name = "btnSaveLoad";
-            this.btnSaveLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnSaveLoad.Size = new System.Drawing.Size(127, 49);
             this.btnSaveLoad.TabIndex = 16;
             this.btnSaveLoad.Text = "Save";
             this.btnSaveLoad.UseVisualStyleBackColor = false;
+            this.btnSaveLoad.Click += new System.EventHandler(this.btnSaveLoad_Click);
             // 
-            // btnAddLoad
+            // lblFacultyID
             // 
-            this.btnAddLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnAddLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddLoad.ForeColor = System.Drawing.Color.Black;
-            this.btnAddLoad.Location = new System.Drawing.Point(53, 167);
-            this.btnAddLoad.Name = "btnAddLoad";
-            this.btnAddLoad.Size = new System.Drawing.Size(95, 40);
-            this.btnAddLoad.TabIndex = 12;
-            this.btnAddLoad.Text = "Add";
-            this.btnAddLoad.UseVisualStyleBackColor = false;
-            this.btnAddLoad.Click += new System.EventHandler(this.btnAddLoad_Click);
+            this.lblFacultyID.AutoSize = true;
+            this.lblFacultyID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacultyID.Location = new System.Drawing.Point(274, 91);
+            this.lblFacultyID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFacultyID.Name = "lblFacultyID";
+            this.lblFacultyID.Size = new System.Drawing.Size(73, 18);
+            this.lblFacultyID.TabIndex = 26;
+            this.lblFacultyID.Text = "Faculty ID";
+            // 
+            // txtFacultyId
+            // 
+            this.txtFacultyId.Location = new System.Drawing.Point(247, 113);
+            this.txtFacultyId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFacultyId.Name = "txtFacultyId";
+            this.txtFacultyId.Size = new System.Drawing.Size(132, 22);
+            this.txtFacultyId.TabIndex = 27;
+            // 
+            // lblFacultyName
+            // 
+            this.lblFacultyName.AutoSize = true;
+            this.lblFacultyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacultyName.Location = new System.Drawing.Point(260, 141);
+            this.lblFacultyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFacultyName.Name = "lblFacultyName";
+            this.lblFacultyName.Size = new System.Drawing.Size(99, 18);
+            this.lblFacultyName.TabIndex = 28;
+            this.lblFacultyName.Text = "Faculty Name";
+            // 
+            // txtFacultyName
+            // 
+            this.txtFacultyName.Location = new System.Drawing.Point(247, 163);
+            this.txtFacultyName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFacultyName.Name = "txtFacultyName";
+            this.txtFacultyName.Size = new System.Drawing.Size(132, 22);
+            this.txtFacultyName.TabIndex = 29;
+            // 
+            // lblSection
+            // 
+            this.lblSection.AutoSize = true;
+            this.lblSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSection.Location = new System.Drawing.Point(151, 206);
+            this.lblSection.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSection.Name = "lblSection";
+            this.lblSection.Size = new System.Drawing.Size(147, 18);
+            this.lblSection.TabIndex = 30;
+            this.lblSection.Text = "Program/Department";
+            // 
+            // txtSection
+            // 
+            this.txtSection.Location = new System.Drawing.Point(154, 228);
+            this.txtSection.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSection.Name = "txtSection";
+            this.txtSection.Size = new System.Drawing.Size(144, 22);
+            this.txtSection.TabIndex = 31;
+            // 
+            // txtSearchLoad
+            // 
+            this.txtSearchLoad.Location = new System.Drawing.Point(580, 119);
+            this.txtSearchLoad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchLoad.Name = "txtSearchLoad";
+            this.txtSearchLoad.Size = new System.Drawing.Size(143, 22);
+            this.txtSearchLoad.TabIndex = 32;
+            // 
+            // lblFacultyMembers
+            // 
+            this.lblFacultyMembers.AutoSize = true;
+            this.lblFacultyMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacultyMembers.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblFacultyMembers.Location = new System.Drawing.Point(598, 296);
+            this.lblFacultyMembers.Name = "lblFacultyMembers";
+            this.lblFacultyMembers.Size = new System.Drawing.Size(162, 25);
+            this.lblFacultyMembers.TabIndex = 33;
+            this.lblFacultyMembers.Text = "Faculty Members";
+            this.lblFacultyMembers.Click += new System.EventHandler(this.lblFacultyMembers_Click);
             // 
             // FacultyLoading
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnSearchSubjectL);
+            this.ClientSize = new System.Drawing.Size(1057, 554);
+            this.Controls.Add(this.lblFacultyMembers);
+            this.Controls.Add(this.txtSearchLoad);
+            this.Controls.Add(this.txtSection);
+            this.Controls.Add(this.lblSection);
+            this.Controls.Add(this.txtFacultyName);
+            this.Controls.Add(this.lblFacultyName);
+            this.Controls.Add(this.txtFacultyId);
+            this.Controls.Add(this.lblFacultyID);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtSubjectName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSubjectId);
             this.Controls.Add(this.lblSubjectId);
-            this.Controls.Add(this.dgvSubjects);
-            this.Controls.Add(this.btnSearchFaculty);
+            this.Controls.Add(this.dgvLoading);
+            this.Controls.Add(this.btnSearchLoad);
             this.Controls.Add(this.btnCancelLoad);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSaveLoad);
-            this.Controls.Add(this.btnAddLoad);
             this.Controls.Add(this.btnRemoveLoad);
             this.Controls.Add(this.btnEditLoad);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FacultyLoading";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FacultyLoading";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubjects)).EndInit();
+            this.Load += new System.EventHandler(this.FacultyLoading_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoading)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
@@ -251,19 +337,25 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblSubjectId;
-        private System.Windows.Forms.DataGridView dgvSubjects;
+        private System.Windows.Forms.DataGridView dgvLoading;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtSubjectName;
         private System.Windows.Forms.TextBox txtSubjectId;
-        private System.Windows.Forms.Button btnSearchSubjectL;
-        private System.Windows.Forms.Button btnSearchFaculty;
+        private System.Windows.Forms.Button btnSearchLoad;
         private System.Windows.Forms.Button btnCancelLoad;
         private System.Windows.Forms.Button btnRemoveLoad;
         private System.Windows.Forms.Button btnEditLoad;
         private System.Windows.Forms.Button btnSaveLoad;
-        private System.Windows.Forms.Button btnAddLoad;
         private System.Windows.Forms.PictureBox imgBackToMain2;
+        private System.Windows.Forms.Label lblFacultyID;
+        private System.Windows.Forms.TextBox txtFacultyId;
+        private System.Windows.Forms.Label lblFacultyName;
+        private System.Windows.Forms.TextBox txtFacultyName;
+        private System.Windows.Forms.Label lblSection;
+        private System.Windows.Forms.TextBox txtSection;
+        private System.Windows.Forms.TextBox txtSearchLoad;
+        private System.Windows.Forms.Label lblFacultyMembers;
     }
 }

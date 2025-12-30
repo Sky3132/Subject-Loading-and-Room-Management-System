@@ -1,33 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Schooldb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=desktop-rfr1dk9;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=pogitayo;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.log_in" Member="log_ins">
     <Type Name="log_in">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.register" Member="registers">
     <Type Name="register">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tblDepartment" Member="tblDepartments">
     <Type Name="tblDepartment">
       <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ProgramID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="tblDepartment_tblsubject" Member="tblsubjects" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblsubject" />
-      <Association Name="tblProgram_tblDepartment" Member="tblProgram" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblProgram" IsForeignKey="true" />
+      <Association Name="tblDepartment_tblFaculty" Member="tblFaculties" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblFaculty" />
+      <Association Name="tblDepartment_tblProgram" Member="tblPrograms" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblProgram" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFaculty" Member="tblFaculties">
+    <Type Name="tblFaculty">
+      <Column Name="FacultyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MaxLoad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblFaculty_tblFacultyLoading" Member="tblFacultyLoadings" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFacultyLoading" />
+      <Association Name="tblDepartment_tblFaculty" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFacultyLoading" Member="tblFacultyLoadings">
+    <Type Name="tblFacultyLoading">
+      <Column Name="LoadID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FacultyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="offeringId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="tblFacultyLoading_tblSchedule" Member="tblSchedules" ThisKey="LoadID" OtherKey="LoadID" Type="tblSchedule" />
+      <Association Name="tblFaculty_tblFacultyLoading" Member="tblFaculty" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFaculty" IsForeignKey="true" />
+      <Association Name="tblsubjectOffering_tblFacultyLoading" Member="tblsubjectOffering" ThisKey="offeringId" OtherKey="offeringId" Type="tblsubjectOffering" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblProgram" Member="tblPrograms">
     <Type Name="tblProgram">
       <Column Name="ProgramID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProgramName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="tblProgram_tblDepartment" Member="tblDepartments" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblDepartment" />
+      <Column Name="ProgramName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblProgram_tblsubject" Member="tblsubjects" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblsubject" />
+      <Association Name="tblDepartment_tblProgram" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSchedule" Member="tblSchedules">
+    <Type Name="tblSchedule">
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DayOfWeek" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="tblFacultyLoading_tblSchedule" Member="tblFacultyLoading" ThisKey="LoadID" OtherKey="LoadID" Type="tblFacultyLoading" IsForeignKey="true" />
+      <Association Name="tblRoom_tblSchedule" Member="tblRoom" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblsubject" Member="tblsubjects">
@@ -37,9 +74,10 @@
       <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="LectureUnits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="LaboratoryUnits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Units" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tblsubject_tblsubjectOffering" Member="tblsubjectOfferings" ThisKey="subjectId" OtherKey="subjectId" Type="tblsubjectOffering" />
-      <Association Name="tblDepartment_tblsubject" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
+      <Association Name="tblProgram_tblsubject" Member="tblProgram" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblProgram" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblsubjectOffering" Member="tblsubjectOfferings">
@@ -48,7 +86,24 @@
       <Column Name="Semester" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SchoolYear" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="subjectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblsubjectOffering_tblFacultyLoading" Member="tblFacultyLoadings" ThisKey="offeringId" OtherKey="offeringId" Type="tblFacultyLoading" />
       <Association Name="tblsubject_tblsubjectOffering" Member="tblsubject" ThisKey="subjectId" OtherKey="subjectId" Type="tblsubject" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRooms" Member="tblRooms">
+    <Type Name="tblRoom">
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RoomType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblRoom_tblSchedule" Member="tblSchedules" ThisKey="RoomID" OtherKey="RoomID" Type="tblSchedule" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.Admin_Login" Method="Admin_Login">

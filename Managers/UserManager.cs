@@ -12,7 +12,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
 {
     public class UserManager
     {
-        private string connectionString = @"Data Source=DESKTOP-RFR1DK9;Initial Catalog=Schooldb;Integrated Security=True";
+        private string connectionString = @"Data Source=pogitayo;Initial Catalog=Schooldb;Integrated Security=True";
        
         public bool Register(string username, string password) 
         {

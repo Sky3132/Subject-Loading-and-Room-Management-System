@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FacultyMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FacultyMembers.Designer.cs">
+      <DependentUpon>FacultyMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ConnectionString.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -79,6 +85,7 @@
       <DependentUpon>SubjectOffering.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="Models\FacultyMemberModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Forms\Register.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,9 @@
     <Compile Include="Models\Subjects.cs" />
     <EmbeddedResource Include="Forms\FacultyLoading.resx">
       <DependentUpon>FacultyLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FacultyMembers.resx">
+      <DependentUpon>FacultyMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
