@@ -130,7 +130,6 @@ C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyMembers.resources
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
@@ -143,3 +142,4 @@ C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
+C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config

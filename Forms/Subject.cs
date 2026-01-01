@@ -232,7 +232,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
                 // This is where you'd check if the subject is linked to a schedule
                 _subjectManager.ValidateDelete(subjectId);
 
-                // 4. Perform Delete
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     db.DeleteSubject(subjectId);
@@ -270,31 +269,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
                 MessageBox.Show("No match record found.", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private void txtSearch_KeyUp_1(object sender, KeyEventArgs e)
-        {
-
-            string searchValue = txtSearch.Text.Trim().ToLower();
-
-            foreach (DataGridViewRow row in dgvSubjects.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    cell.Style.BackColor = Color.White;
-                }
-
-                if (!string.IsNullOrEmpty(searchValue))
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchValue))
-                        {
-                            cell.Style.BackColor = Color.Yellow; 
-                        }
-                    }
-                }
-
-            }
-        }
 
         private void lblSubjectOffering_Click(object sender, EventArgs e)
         {    
@@ -302,14 +276,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             subject.Show();
             this.Hide();
         }
-
-        private void cmbProgram_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-      
-        }
-
-
 
         private void cmbDepartment_SelectionChangeCommitted_1(object sender, EventArgs e)
         {

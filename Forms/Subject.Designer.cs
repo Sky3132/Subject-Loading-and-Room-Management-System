@@ -253,7 +253,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(181, 22);
             this.txtSearch.TabIndex = 18;
-            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp_1);
             // 
             // lblSubjectOffering
             // 
@@ -324,7 +323,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.cmbProgram.Name = "cmbProgram";
             this.cmbProgram.Size = new System.Drawing.Size(185, 24);
             this.cmbProgram.TabIndex = 27;
-            this.cmbProgram.SelectedIndexChanged += new System.EventHandler(this.cmbProgram_SelectedIndexChanged);
             // 
             // Subject
             // 
