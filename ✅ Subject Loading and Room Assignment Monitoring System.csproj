@@ -47,13 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core Models\RoomModel.cs" />
+    <Compile Include="Core Models\ScheduleModel.cs" />
+    <Compile Include="Core Models\SubjectModel.cs" />
+    <Compile Include="Core Models\SubjectOfferingModel.cs" />
+    <Compile Include="Core Models\UserModel.cs" />
     <Compile Include="Forms\FacultyMembers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FacultyMembers.Designer.cs">
       <DependentUpon>FacultyMembers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ConnectionString.cs" />
+    <Compile Include="Interfaces\IFacultyManager.cs" />
+    <Compile Include="Interfaces\IRoomManager.cs" />
+    <Compile Include="Interfaces\IScheduleManager.cs" />
+    <Compile Include="Interfaces\ISubjectManager.cs" />
+    <Compile Include="Interfaces\IUserManager.cs" />
+    <Compile Include="Managers\FacultyManager.cs" />
+    <Compile Include="Managers\RoomManager.cs" />
+    <Compile Include="Managers\ScheduleManager.cs" />
+    <Compile Include="Core Models\ConnectionString.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,9 +97,9 @@
     <Compile Include="Forms\SubjectOffering.Designer.cs">
       <DependentUpon>SubjectOffering.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SubjectManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
-    <Compile Include="Models\FacultyMemberModels.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Core Models\FacultyMemberModels.cs" />
     <Compile Include="Forms\Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,7 +115,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="PassHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Subjects.cs" />
     <EmbeddedResource Include="Forms\FacultyLoading.resx">
       <DependentUpon>FacultyLoading.cs</DependentUpon>
     </EmbeddedResource>

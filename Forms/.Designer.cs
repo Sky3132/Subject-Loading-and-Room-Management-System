@@ -34,8 +34,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnAcademicTerms = new System.Windows.Forms.Button();
             this.btnDepartments = new System.Windows.Forms.Button();
             this.btnTimeslots = new System.Windows.Forms.Button();
             this.btnSchedules = new System.Windows.Forms.Button();
@@ -54,10 +52,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(13, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(471, 32);
+            this.label1.Size = new System.Drawing.Size(370, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "SCHOOL MANAGEMENT SYSTEM";
             // 
@@ -68,9 +65,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1075, 78);
+            this.panel1.Size = new System.Drawing.Size(806, 63);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -79,55 +75,27 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.panel2.Controls.Add(this.btnDashboard);
-            this.panel2.Controls.Add(this.btnAcademicTerms);
             this.panel2.Controls.Add(this.btnDepartments);
             this.panel2.Controls.Add(this.btnTimeslots);
             this.panel2.Controls.Add(this.btnSchedules);
             this.panel2.Controls.Add(this.btnRooms);
             this.panel2.Controls.Add(this.btnFacultyLoading);
             this.panel2.Controls.Add(this.btnSubject);
-            this.panel2.Location = new System.Drawing.Point(-1, 78);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(-1, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 479);
+            this.panel2.Size = new System.Drawing.Size(170, 389);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Location = new System.Drawing.Point(17, 412);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(191, 49);
-            this.btnDashboard.TabIndex = 8;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            // 
-            // btnAcademicTerms
-            // 
-            this.btnAcademicTerms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnAcademicTerms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcademicTerms.Location = new System.Drawing.Point(17, 353);
-            this.btnAcademicTerms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAcademicTerms.Name = "btnAcademicTerms";
-            this.btnAcademicTerms.Size = new System.Drawing.Size(191, 49);
-            this.btnAcademicTerms.TabIndex = 6;
-            this.btnAcademicTerms.Text = "Academic Terms";
-            this.btnAcademicTerms.UseVisualStyleBackColor = false;
             // 
             // btnDepartments
             // 
             this.btnDepartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnDepartments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDepartments.Location = new System.Drawing.Point(17, 297);
-            this.btnDepartments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDepartments.Location = new System.Drawing.Point(13, 11);
             this.btnDepartments.Name = "btnDepartments";
-            this.btnDepartments.Size = new System.Drawing.Size(191, 49);
+            this.btnDepartments.Size = new System.Drawing.Size(143, 40);
             this.btnDepartments.TabIndex = 5;
-            this.btnDepartments.Text = "Departments";
+            this.btnDepartments.Text = "Dashboard";
             this.btnDepartments.UseVisualStyleBackColor = false;
             this.btnDepartments.Click += new System.EventHandler(this.btnDepartments_Click);
             // 
@@ -135,34 +103,32 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             this.btnTimeslots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnTimeslots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimeslots.Location = new System.Drawing.Point(17, 240);
-            this.btnTimeslots.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimeslots.Location = new System.Drawing.Point(13, 241);
             this.btnTimeslots.Name = "btnTimeslots";
-            this.btnTimeslots.Size = new System.Drawing.Size(191, 49);
+            this.btnTimeslots.Size = new System.Drawing.Size(143, 40);
             this.btnTimeslots.TabIndex = 4;
-            this.btnTimeslots.Text = "Timeslots";
+            this.btnTimeslots.Text = "Academic Terms";
             this.btnTimeslots.UseVisualStyleBackColor = false;
             // 
             // btnSchedules
             // 
             this.btnSchedules.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSchedules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedules.Location = new System.Drawing.Point(17, 183);
-            this.btnSchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSchedules.Location = new System.Drawing.Point(13, 195);
             this.btnSchedules.Name = "btnSchedules";
-            this.btnSchedules.Size = new System.Drawing.Size(191, 49);
+            this.btnSchedules.Size = new System.Drawing.Size(143, 40);
             this.btnSchedules.TabIndex = 3;
             this.btnSchedules.Text = "Schedules";
             this.btnSchedules.UseVisualStyleBackColor = false;
+            this.btnSchedules.Click += new System.EventHandler(this.btnSchedules_Click);
             // 
             // btnRooms
             // 
             this.btnRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRooms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRooms.Location = new System.Drawing.Point(17, 127);
-            this.btnRooms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRooms.Location = new System.Drawing.Point(13, 149);
             this.btnRooms.Name = "btnRooms";
-            this.btnRooms.Size = new System.Drawing.Size(191, 49);
+            this.btnRooms.Size = new System.Drawing.Size(143, 40);
             this.btnRooms.TabIndex = 2;
             this.btnRooms.Text = "Rooms";
             this.btnRooms.UseVisualStyleBackColor = false;
@@ -171,10 +137,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             this.btnFacultyLoading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnFacultyLoading.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFacultyLoading.Location = new System.Drawing.Point(17, 70);
-            this.btnFacultyLoading.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFacultyLoading.Location = new System.Drawing.Point(13, 103);
             this.btnFacultyLoading.Name = "btnFacultyLoading";
-            this.btnFacultyLoading.Size = new System.Drawing.Size(191, 49);
+            this.btnFacultyLoading.Size = new System.Drawing.Size(143, 40);
             this.btnFacultyLoading.TabIndex = 1;
             this.btnFacultyLoading.Text = "Faculty Loading";
             this.btnFacultyLoading.UseVisualStyleBackColor = false;
@@ -186,10 +151,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.btnSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubject.ForeColor = System.Drawing.Color.Black;
-            this.btnSubject.Location = new System.Drawing.Point(17, 14);
-            this.btnSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubject.Location = new System.Drawing.Point(13, 57);
             this.btnSubject.Name = "btnSubject";
-            this.btnSubject.Size = new System.Drawing.Size(191, 49);
+            this.btnSubject.Size = new System.Drawing.Size(143, 40);
             this.btnSubject.TabIndex = 0;
             this.btnSubject.Text = "Subject";
             this.btnSubject.UseVisualStyleBackColor = false;
@@ -197,14 +161,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -226,9 +189,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
         private System.Windows.Forms.Button btnRooms;
         private System.Windows.Forms.Button btnFacultyLoading;
         private System.Windows.Forms.Button btnTimeslots;
-        private System.Windows.Forms.Button btnAcademicTerms;
         private System.Windows.Forms.Button btnDepartments;
         private System.Windows.Forms.Button btnSubject;
-        private System.Windows.Forms.Button btnDashboard;
     }
 }

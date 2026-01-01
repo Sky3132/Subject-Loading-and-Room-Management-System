@@ -157,4 +157,6 @@ SELECT * FROM register;
 SELECT * FROM tblDepartment;
 SELECT * FROM tblProgram;
 SELECT * FROM tblsubject;
-SELECT * FROM tblsubjectOffering;
+SELECT * FROM tblsubjectOffering
+SELECT * FROM tblFaculty;
+SELECT * FROM tblFacultyLoading;

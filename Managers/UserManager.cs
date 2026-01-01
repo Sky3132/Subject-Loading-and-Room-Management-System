@@ -12,12 +12,12 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
 {
     public class UserManager
     {
-        private string connectionString = @"Data Source=pogitayo;Initial Catalog=Schooldb;Integrated Security=True";
-       
-        public bool Register(string username, string password) 
+        private string connectionString = @"Data Source=DESKTOP-RFR1DK9;Initial Catalog=Schooldb;Integrated Security=True";
+
+        public bool Register(string username, string password)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
-            { 
+            {
                 con.Open();
                 string query = "SELECT COUNT(*) FROM log_in WHERE Username=@username";
                 using (SqlCommand cmd = new SqlCommand(query, con))
@@ -32,13 +32,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
                 }
                 string insertQuery = "INSERT INTO log_in (Username, Password) VALUES (@username, @password)";
                 using (SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);
-                        cmd.ExecuteNonQuery();
-                    }
-                
-                    return true;
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
             }
         }
     }
