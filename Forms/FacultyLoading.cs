@@ -125,12 +125,19 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 if (!int.TryParse(txtFacultyId.Text, out int fID))
                 {
-                    MessageBox.Show("Please enter a valid Faculty ID.");
+                    MessageBox.Show("Please enter a valid numeric Faculty ID.");
                     return;
                 }
 
-                // Apply the same .ToString() fix here for the comparison
-                // Use .Trim() to remove any accidental spaces and handle the numeric comparison correctly
+                // --- NEW VALIDATION CHECK ---
+                // Check if the Faculty ID actually exists in the Faculty table
+                var facultyExists = db.tblFaculties.Any(f => f.FacultyID == fID);
+                if (!facultyExists)
+                {
+                    MessageBox.Show("Invalid Faculty ID. This ID does not exist in the system.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 var offering = db.tblsubjectOfferings.FirstOrDefault(o =>
                     o.tblsubject.Code.ToString().Trim() == txtSubjectId.Text.Trim());
 
@@ -156,11 +163,17 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 record.Section = txtSection.Text;
                 record.Status = "Approved";
 
-                db.SubmitChanges();
-                MessageBox.Show("Faculty Load saved successfully!");
-
-                ClearFields();
-                LoadDataGrid();
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Faculty Load saved successfully!");
+                    ClearFields();
+                    LoadDataGrid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while saving: " + ex.Message);
+                }
             }
         }
 
@@ -254,6 +267,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 SearchData(searchTerm);
             }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
