@@ -51,6 +51,12 @@
     <Compile Include="Core Models\ScheduleModel.cs" />
     <Compile Include="Core Models\SubjectModel.cs" />
     <Compile Include="Core Models\UserModel.cs" />
+    <Compile Include="Forms\Class schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Class schedule.Designer.cs">
+      <DependentUpon>Class schedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FacultyMembers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,12 @@
     </Compile>
     <Compile Include="Forms\Rooms.Designer.cs">
       <DependentUpon>Rooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Schedules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Schedules.Designer.cs">
+      <DependentUpon>Schedules.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IFacultyManager.cs" />
     <Compile Include="Interfaces\IRoomManager.cs" />
@@ -127,6 +139,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="PassHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Class schedule.resx">
+      <DependentUpon>Class schedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FacultyLoading.resx">
       <DependentUpon>FacultyLoading.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms.resx">
       <DependentUpon>Rooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Schedules.resx">
+      <DependentUpon>Schedules.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Subject.resx">
       <DependentUpon>Subject.cs</DependentUpon>
