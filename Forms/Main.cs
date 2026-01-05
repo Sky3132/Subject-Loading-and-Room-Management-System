@@ -30,24 +30,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.Hide();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btnRooms_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDepartments_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            Rooms roomassign = new Rooms();
+            roomassign.Show();
+            this.Hide();
         }
     }
 }

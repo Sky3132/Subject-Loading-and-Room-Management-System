@@ -22,14 +22,63 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private void FacultyLoading_Load(object sender, EventArgs e)
         {
             dgvLoading.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            FillComboBoxes();
             LoadDataGrid();
         }
 
-        private void imgBackToMain2_Click(object sender, EventArgs e)
+        private void FillComboBoxes()
         {
-            Main main = new Main();
-            main.Show();
-            this.Hide();
+            using (DataClasses1DataContext db = new DataClasses1DataContext())
+            {
+                // 1. Populate Faculty
+                cmbFaculty.DataSource = db.tblFaculties
+                    .Select(f => new { f.FacultyID, Name = f.FirstName + " " + f.LastName }).ToList();
+                cmbFaculty.DisplayMember = "Name";
+                cmbFaculty.ValueMember = "FacultyID";
+                cmbFaculty.SelectedIndex = -1;
+
+                // 2. Populate Subject Offerings
+                cmbSubject.DataSource = db.tblsubjectOfferings
+                    .Select(o => new { o.offeringId, Title = o.tblsubject.Code + " - " + o.tblsubject.Title }).ToList();
+                cmbSubject.DisplayMember = "Title";
+                cmbSubject.ValueMember = "offeringId";
+                cmbSubject.SelectedIndex = -1;
+
+                // 3. Populate Department (The Parent)
+                // This will trigger the SelectedIndexChanged event if an item is selected
+                cmbDepartment.DataSource = db.tblDepartments.ToList();
+                cmbDepartment.DisplayMember = "DepartmentName";
+                cmbDepartment.ValueMember = "DepartmentID";
+                cmbDepartment.SelectedIndex = -1;
+
+                // 4. Ensure Program is empty at start
+                cmbProgram.DataSource = null;
+            }
+        }
+
+        // --- NEW EVENT FOR FILTERING PROGRAMS ---
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // We check if an ID is actually selected
+            if (cmbDepartment.SelectedValue != null && cmbDepartment.SelectedValue is int deptId)
+            {
+                using (DataClasses1DataContext db = new DataClasses1DataContext())
+                {
+                    // Filter programs by the selected DepartmentID
+                    var programList = db.tblPrograms
+                        .Where(p => p.DepartmentID == deptId)
+                        .ToList();
+
+                    cmbProgram.DataSource = programList;
+                    cmbProgram.DisplayMember = "ProgramName";
+                    cmbProgram.ValueMember = "ProgramID";
+                    cmbProgram.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                cmbProgram.DataSource = null;
+            }
         }
 
         public void LoadDataGrid()
@@ -58,95 +107,16 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             }
         }
 
-        public void SearchData(string searchTerm)
-        {
-            using (DataClasses1DataContext db = new DataClasses1DataContext())
-            {
-                var data = from load in db.tblFacultyLoadings
-                               // We create a variable for the full name to make searching easier
-                           let fullName = load.tblFaculty.FirstName + " " + load.tblFaculty.LastName
-                           where fullName.Contains(searchTerm) ||
-                                 load.tblsubjectOffering.tblsubject.Code.ToString().Contains(searchTerm) ||
-                                 load.Section.Contains(searchTerm)
-                           select new
-                           {
-                               load.LoadID,
-                               Faculty = fullName,
-                               SubjectCode = load.tblsubjectOffering.tblsubject.Code,
-                               SubjectTitle = load.tblsubjectOffering.tblsubject.Title,
-                               Units = (load.tblsubjectOffering.tblsubject.LectureUnits) +
-                                       (load.tblsubjectOffering.tblsubject.LaboratoryUnits),
-                               load.Section,
-                               load.Status,
-                               load.FacultyID,
-                               OfferingID = load.offeringId
-                           };
-
-                dgvLoading.DataSource = data.ToList();
-            }
-        }
-
-        // --- NEW: AUTO-LOOKUP FACULTY ---
-        private void txtFacultyId_TextChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(txtFacultyId.Text, out int fID))
-            {
-                using (DataClasses1DataContext db = new DataClasses1DataContext())
-                {
-                    var faculty = db.tblFaculties.FirstOrDefault(f => f.FacultyID == fID);
-                    txtFacultyName.Text = faculty != null ? $"{faculty.FirstName} {faculty.LastName}" : "Not Found";
-                }
-            }
-            else { txtFacultyName.Clear(); }
-        }
-
-        // --- NEW: AUTO-LOOKUP SUBJECT ---
-        private void txtSubjectCode_TextChanged(object sender, EventArgs e)
-        {
-            using (DataClasses1DataContext db = new DataClasses1DataContext())
-            {
-                // We add .ToString() to the Code because the database column is an Integer
-                var offering = db.tblsubjectOfferings.FirstOrDefault(o => o.tblsubject.Code.ToString() == txtSubjectId.Text);
-
-                if (offering != null)
-                {
-                    txtSubjectName.Text = offering.tblsubject.Title;
-                }
-                else
-                {
-                    txtSubjectName.Text = "Invalid Code";
-                }
-            }
-        }
-
         private void btnSaveLoad_Click(object sender, EventArgs e)
         {
+            if (cmbFaculty.SelectedValue == null || cmbSubject.SelectedValue == null || cmbProgram.SelectedValue == null)
+            {
+                MessageBox.Show("Please complete all selections (Faculty, Subject, and Program).");
+                return;
+            }
+
             using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
-                if (!int.TryParse(txtFacultyId.Text, out int fID))
-                {
-                    MessageBox.Show("Please enter a valid numeric Faculty ID.");
-                    return;
-                }
-
-                // --- NEW VALIDATION CHECK ---
-                // Check if the Faculty ID actually exists in the Faculty table
-                var facultyExists = db.tblFaculties.Any(f => f.FacultyID == fID);
-                if (!facultyExists)
-                {
-                    MessageBox.Show("Invalid Faculty ID. This ID does not exist in the system.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var offering = db.tblsubjectOfferings.FirstOrDefault(o =>
-                    o.tblsubject.Code.ToString().Trim() == txtSubjectId.Text.Trim());
-
-                if (offering == null)
-                {
-                    MessageBox.Show("Subject Code not found.");
-                    return;
-                }
-
                 tblFacultyLoading record;
                 if (selectedLoadID == 0)
                 {
@@ -158,23 +128,31 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     record = db.tblFacultyLoadings.First(l => l.LoadID == selectedLoadID);
                 }
 
-                record.FacultyID = fID;
-                record.offeringId = offering.offeringId;
-                record.Section = txtSection.Text;
+                record.FacultyID = (int)cmbFaculty.SelectedValue;
+                record.offeringId = (int)cmbSubject.SelectedValue;
+
+                // Saving the name of the program to the Section column
+                record.Section = cmbProgram.Text;
                 record.Status = "Approved";
 
-                try
-                {
-                    db.SubmitChanges();
-                    MessageBox.Show("Faculty Load saved successfully!");
-                    ClearFields();
-                    LoadDataGrid();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while saving: " + ex.Message);
-                }
+                db.SubmitChanges();
+                MessageBox.Show("Saved successfully!");
+                ClearFields();
+                LoadDataGrid();
             }
+        }
+
+        private void btnEditLoad_Click(object sender, EventArgs e)
+        {
+            if (selectedLoadID == 0)
+            {
+                MessageBox.Show("Please select a record from the table first.");
+                return;
+            }
+
+            // Just move focus to the first field. 
+            // The CellClick already filled the data for you!
+            cmbSubject.Focus();
         }
 
         private void dgvLoading_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -182,50 +160,104 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvLoading.Rows[e.RowIndex];
+
+                // 1. Store the ID of the record we are currently viewing/editing
                 selectedLoadID = Convert.ToInt32(row.Cells["LoadID"].Value);
 
-                txtFacultyId.Text = row.Cells["FacultyID"].Value?.ToString();
-                txtSubjectId.Text = row.Cells["SubjectCode"].Value?.ToString();
-                txtSection.Text = row.Cells["Section"].Value?.ToString();
+                // 2. Update Faculty ComboBox using the hidden FacultyID column
+                if (row.Cells["FacultyID"].Value != null)
+                {
+                    cmbFaculty.SelectedValue = row.Cells["FacultyID"].Value;
+                }
 
-                btnSaveLoad.Text = "Update";
-            }
-        }
+                // 3. Update Subject ComboBox using the hidden OfferingID column
+                if (row.Cells["OfferingID"].Value != null)
+                {
+                    cmbSubject.SelectedValue = row.Cells["OfferingID"].Value;
+                }
 
-        private void btnRemoveLoad_Click(object sender, EventArgs e)
-        {
-            if (dgvLoading.CurrentRow == null) return;
-
-            int idToDelete = (int)dgvLoading.CurrentRow.Cells["LoadID"].Value;
-
-            if (MessageBox.Show("Remove this assignment?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+                // 4. Update Department and Program (The Cascading Part)
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
-                    var record = db.tblFacultyLoadings.FirstOrDefault(l => l.LoadID == idToDelete);
-                    if (record != null)
+                    // Get the Program Name (stored in the 'Section' column of your grid)
+                    string programName = row.Cells["Section"].Value?.ToString();
+
+                    // Find the Program in the database to get its Department link
+                    var programRecord = db.tblPrograms.FirstOrDefault(p => p.ProgramName == programName);
+
+                    if (programRecord != null)
                     {
-                        db.tblFacultyLoadings.DeleteOnSubmit(record);
-                        db.SubmitChanges();
+                        // This triggers the cmbDepartment_SelectedIndexChanged event automatically
+                        cmbDepartment.SelectedValue = programRecord.DepartmentID;
+
+                        // Now we can select the specific Program ID
+                        cmbProgram.SelectedValue = programRecord.ProgramID;
                     }
                 }
-                LoadDataGrid();
-                ClearFields();
+
+                // 5. Change Save button text to "Update" to indicate we are in Edit Mode
+                btnSaveLoad.Text = "Update";
             }
         }
 
         private void ClearFields()
         {
             selectedLoadID = 0;
-            txtFacultyId.Clear();
-            txtSubjectId.Clear();
-            txtFacultyName.Clear();
-            txtSubjectName.Clear();
-            txtSection.Clear();
+            cmbFaculty.SelectedIndex = -1;
+            cmbSubject.SelectedIndex = -1;
+            cmbDepartment.SelectedIndex = -1; // Reset Dept
+            cmbProgram.DataSource = null;     // Clear Program
             btnSaveLoad.Text = "Save";
         }
 
+        public void SearchData(string searchTerm)
+        {
+            using (DataClasses1DataContext db = new DataClasses1DataContext())
+            {
+                var data = from load in db.tblFacultyLoadings
+                               // Convert Code and Name to strings for searching
+                           let firstName = load.tblFaculty.FirstName ?? ""
+                           let lastName = load.tblFaculty.LastName ?? ""
+                           let fullName = firstName + " " + lastName
+
+                           // Use SqlFunctions or Convert to String for numeric columns
+                           let subjectCode = load.tblsubjectOffering.tblsubject.Code.ToString()
+                           let programName = load.Section ?? ""
+
+                           where fullName.Contains(searchTerm) ||
+                                 subjectCode.Contains(searchTerm) ||
+                                 programName.Contains(searchTerm)
+
+                           select new
+                           {
+                               load.LoadID,
+                               Faculty = fullName,
+                               SubjectCode = subjectCode,
+                               SubjectTitle = load.tblsubjectOffering.tblsubject.Title,
+                               Units = (load.tblsubjectOffering.tblsubject.LectureUnits) +
+                                       (load.tblsubjectOffering.tblsubject.LaboratoryUnits),
+                               Section = load.Section,
+                               load.Status,
+                               FacultyID = load.FacultyID,
+                               OfferingID = load.offeringId
+                           };
+
+                dgvLoading.DataSource = data.ToList();
+
+                // Ensure columns stay hidden
+                if (dgvLoading.Columns["FacultyID"] != null) dgvLoading.Columns["FacultyID"].Visible = false;
+                if (dgvLoading.Columns["OfferingID"] != null) dgvLoading.Columns["OfferingID"].Visible = false;
+            }
+        }
+
         private void btnCancelLoad_Click(object sender, EventArgs e) => ClearFields();
+
+        private void imgBackToMain2_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Hide();
+        }
 
         private void lblFacultyMembers_Click(object sender, EventArgs e)
         {
@@ -234,44 +266,59 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.Hide();
         }
 
-        private void btnEditLoad_Click(object sender, EventArgs e)
+        private void btnRemoveLoad_Click(object sender, EventArgs e)
         {
-            if (dgvLoading.CurrentRow != null)
+            if (selectedLoadID == 0)
             {
-                DataGridViewRow row = dgvLoading.CurrentRow;
-                selectedLoadID = Convert.ToInt32(row.Cells["LoadID"].Value);
-
-                txtFacultyId.Text = row.Cells["FacultyID"].Value?.ToString();
-                // Use SubjectCode because that's what the user types into txtSubjectId
-                txtSubjectId.Text = row.Cells["SubjectCode"].Value?.ToString();
-                txtSection.Text = row.Cells["Section"].Value?.ToString();
-
-                btnSaveLoad.Text = "Update";
+                MessageBox.Show("Please select a record from the list to remove.");
+                return;
             }
-            else
+
+            // 2. Ask for confirmation to prevent accidental deletion
+            DialogResult result = MessageBox.Show("Are you sure you want to remove this faculty load?",
+                "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Please select a record from the list first.");
+                try
+                {
+                    using (DataClasses1DataContext db = new DataClasses1DataContext())
+                    {
+                        // 3. Find the record in tblFacultyLoadings
+                        var recordToDelete = db.tblFacultyLoadings.SingleOrDefault(l => l.LoadID == selectedLoadID);
+
+                        if (recordToDelete != null)
+                        {
+                            db.tblFacultyLoadings.DeleteOnSubmit(recordToDelete);
+                            db.SubmitChanges();
+
+                            MessageBox.Show("Faculty load removed successfully.");
+
+                            // 4. Refresh the UI
+                            ClearFields();
+                            LoadDataGrid();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting record: " + ex.Message);
+                }
             }
         }
 
         private void btnSearchLoad_Click(object sender, EventArgs e)
         {
-            string searchTerm = txtSearchLoad.Text.Trim();
+            string term = txtSearchLoad.Text.Trim();
 
-            if (string.IsNullOrEmpty(searchTerm))
+            if (string.IsNullOrEmpty(term))
             {
-                // If the search box is empty, just reload everything
                 LoadDataGrid();
             }
             else
             {
-                SearchData(searchTerm);
+                SearchData(term);
             }
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

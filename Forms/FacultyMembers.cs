@@ -6,13 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using __Subject_Loading_and_Room_Assignment_Monitoring_System.Models;
+// Import the Managers namespace to use FacultyManager
+using __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers;
 
 namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class FacultyMembers : Form
     {
-        // Initialize connection string class
         ConnectionString connect = new ConnectionString();
+        // Initialize the FacultyManager to handle validation rules
+        FacultyManager _facultyMgr = new FacultyManager();
 
         public FacultyMembers()
         {
@@ -21,8 +24,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private void FacultyMembers_Load(object sender, EventArgs e)
         {
-            // Set selection mode to full row for easier editing
             dgvFaculty.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFaculty.AutoGenerateColumns = true;
 
             LoadComboBoxes();
             LoadFaculty();
@@ -32,64 +35,58 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connect.connection))
+                using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
-                    string query = "SELECT f.FacultyID, f.FirstName, f.LastName, d.DepartmentName, f.MaxLoad, f.DepartmentID " +
-                                   "FROM tblFaculty f LEFT JOIN tblDepartment d ON f.DepartmentID = d.DepartmentID";
+                    var facultyList = from f in db.tblFaculties
+                                      join d in db.tblDepartments on f.DepartmentID equals d.DepartmentID
+                                      select new
+                                      {
+                                          ID = f.FacultyID,
+                                          FirstName = f.FirstName,
+                                          LastName = f.LastName,
+                                          Department = d.DepartmentName,
+                                          CurrentLoad = db.tblFacultyLoadings
+                                              .Where(load => load.FacultyID == f.FacultyID)
+                                              .Sum(load => (int?)(load.tblsubjectOffering.tblsubject.LectureUnits +
+                                                                 load.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0,
+                                          MaxLoad = f.MaxLoad ?? 18,
+                                          DepartmentID = f.DepartmentID
+                                      };
 
-                    SqlDataAdapter da = new SqlDataAdapter(query, con);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    dgvFaculty.DataSource = dt;
-
-                    // --- COLUMN VISIBILITY SETTINGS ---
-                    if (dgvFaculty.Columns["FacultyID"] != null)
-                    {
-                        dgvFaculty.Columns["FacultyID"].Visible = true; // NOW VISIBLE
-                        dgvFaculty.Columns["FacultyID"].HeaderText = "Faculty ID";
-                        dgvFaculty.Columns["FacultyID"].DisplayIndex = 0; // Moves to first column
-                    }
+                    dgvFaculty.DataSource = facultyList.ToList();
 
                     if (dgvFaculty.Columns["DepartmentID"] != null)
                         dgvFaculty.Columns["DepartmentID"].Visible = false;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading faculty: " + ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show("Error loading faculty: " + ex.Message); }
         }
 
         public void SearchFaculty(string searchTerm)
         {
-            try
+            using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
-                using (SqlConnection con = new SqlConnection(connect.connection))
-                {
-                    // We reuse the same query as LoadFaculty
-                    string query = "SELECT f.FacultyID, f.FirstName, f.LastName, d.DepartmentName, f.MaxLoad, f.DepartmentID " +
-                                   "FROM tblFaculty f LEFT JOIN tblDepartment d ON f.DepartmentID = d.DepartmentID";
+                var filtered = from f in db.tblFaculties
+                               join d in db.tblDepartments on f.DepartmentID equals d.DepartmentID
+                               where f.FirstName.Contains(searchTerm) || f.LastName.Contains(searchTerm)
+                               select new
+                               {
+                                   ID = f.FacultyID,
+                                   FirstName = f.FirstName,
+                                   LastName = f.LastName,
+                                   Department = d.DepartmentName,
+                                   CurrentLoad = db.tblFacultyLoadings
+                                        .Where(l => l.FacultyID == f.FacultyID)
+                                        .Sum(l => (int?)(l.tblsubjectOffering.tblsubject.LectureUnits +
+                                                        l.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0,
+                                   MaxLoad = f.MaxLoad ?? 18,
+                                   DepartmentID = f.DepartmentID
+                               };
 
-                    SqlDataAdapter da = new SqlDataAdapter(query, con);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                dgvFaculty.DataSource = filtered.ToList();
 
-                    // Apply the filter to the DataTable
-                    // This searches ID, First Name, Last Name, and Department Name
-                    DataView dv = dt.DefaultView;
-                    dv.RowFilter = string.Format("FirstName LIKE '%{0}%' OR LastName LIKE '%{0}%' OR DepartmentName LIKE '%{0}%' OR Convert(FacultyID, 'System.String') LIKE '%{0}%'", searchTerm);
-
-                    dgvFaculty.DataSource = dv.ToTable();
-
-                    // Keep DepartmentID hidden after search
-                    if (dgvFaculty.Columns["DepartmentID"] != null)
-                        dgvFaculty.Columns["DepartmentID"].Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Search failed: " + ex.Message);
+                if (dgvFaculty.Columns["DepartmentID"] != null)
+                    dgvFaculty.Columns["DepartmentID"].Visible = false;
             }
         }
 
@@ -104,108 +101,103 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             }
         }
 
-        // Logic for the ADD button
         private void btnFmembersAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtFmemberFname.Text) || cmbDepartment.SelectedValue == null)
+                // 1. Pack UI data into the Model
+                FacultyMember newMember = new FacultyMember
                 {
-                    MessageBox.Show("Please fill up the First Name and select a Department.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                    FirstName = txtFmemberFname.Text,
+                    LastName = txtFmemberLname.Text,
+                    DepartmentID = cmbDepartment.SelectedValue != null ? Convert.ToInt32(cmbDepartment.SelectedValue) : 0,
+                    MaxLoad = string.IsNullOrEmpty(txtMaxLoad.Text) ? 18 : Convert.ToInt32(txtMaxLoad.Text)
+                };
 
+                // 2. USE THE MANAGER: Validate the data before saving
+                // This will throw an exception if names are null or department is invalid
+                _facultyMgr.Validate(newMember);
+
+                // 3. Save to Database if validation passes
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
-                    int deptID = Convert.ToInt32(cmbDepartment.SelectedValue);
-                    int mLoad = string.IsNullOrEmpty(txtMaxLoad.Text) ? 18 : Convert.ToInt32(txtMaxLoad.Text);
-
-                    tblFaculty newFaculty = new tblFaculty
+                    tblFaculty dbEntry = new tblFaculty
                     {
-                        FirstName = txtFmemberFname.Text,
-                        LastName = txtFmemberLname.Text,
-                        DepartmentID = deptID,
-                        MaxLoad = mLoad
+                        FirstName = newMember.FirstName,
+                        LastName = newMember.LastName,
+                        DepartmentID = newMember.DepartmentID,
+                        MaxLoad = newMember.MaxLoad
                     };
 
-                    db.tblFaculties.InsertOnSubmit(newFaculty);
+                    db.tblFaculties.InsertOnSubmit(dbEntry);
                     db.SubmitChanges();
 
                     MessageBox.Show("Faculty added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearFields();
                     LoadFaculty();
+                    ClearFields();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Any 'throw new Exception' from FacultyManager will be caught here
+                MessageBox.Show(ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        // Logic for the EDIT button
         private void btnEditMember_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dgvFaculty.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Please select a record from the table to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
+                if (dgvFaculty.SelectedRows.Count == 0) return;
 
-                if (string.IsNullOrWhiteSpace(txtFmemberFname.Text) || cmbDepartment.SelectedValue == null)
-                {
-                    MessageBox.Show("Please ensure Name and Department are provided.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                int facultyID = Convert.ToInt32(dgvFaculty.SelectedRows[0].Cells["ID"].Value);
 
-                int facultyID = Convert.ToInt32(dgvFaculty.SelectedRows[0].Cells["FacultyID"].Value);
+                // 1. Pack UI data for validation
+                FacultyMember updatedData = new FacultyMember
+                {
+                    FirstName = txtFmemberFname.Text,
+                    LastName = txtFmemberLname.Text,
+                    DepartmentID = cmbDepartment.SelectedValue != null ? Convert.ToInt32(cmbDepartment.SelectedValue) : 0
+                };
+
+                // 2. USE THE MANAGER: Validate the updated data
+                _facultyMgr.Validate(updatedData);
 
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     var faculty = db.tblFaculties.FirstOrDefault(f => f.FacultyID == facultyID);
                     if (faculty != null)
                     {
-                        faculty.FirstName = txtFmemberFname.Text;
-                        faculty.LastName = txtFmemberLname.Text;
-                        faculty.DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
-
-                        if (int.TryParse(txtMaxLoad.Text, out int mLoad))
-                            faculty.MaxLoad = mLoad;
-                        else
-                            faculty.MaxLoad = 18;
+                        faculty.FirstName = updatedData.FirstName;
+                        faculty.LastName = updatedData.LastName;
+                        faculty.DepartmentID = updatedData.DepartmentID;
+                        faculty.MaxLoad = int.TryParse(txtMaxLoad.Text, out int mLoad) ? mLoad : 18;
 
                         db.SubmitChanges();
                         MessageBox.Show("Updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearFields();
                         LoadFaculty();
+                        ClearFields();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Update failed: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        // Logic for clicking a cell in the Grid
         private void dgvFaculty_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvFaculty.Rows[e.RowIndex];
-
-                // Fill text fields
-                txtFacultyId.Text = row.Cells["FacultyID"].Value?.ToString();
+                txtFacultyId.Text = row.Cells["ID"].Value?.ToString();
                 txtFmemberFname.Text = row.Cells["FirstName"].Value?.ToString();
                 txtFmemberLname.Text = row.Cells["LastName"].Value?.ToString();
                 txtMaxLoad.Text = row.Cells["MaxLoad"].Value?.ToString();
 
-                // Fill ComboBox by ID (Better than .Text)
                 if (row.Cells["DepartmentID"].Value != null)
-                {
                     cmbDepartment.SelectedValue = row.Cells["DepartmentID"].Value;
-                }
             }
         }
 
@@ -213,9 +205,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             if (dgvFaculty.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("Are you sure you want to delete this faculty member?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Delete this faculty?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int facultyID = Convert.ToInt32(dgvFaculty.SelectedRows[0].Cells["FacultyID"].Value);
+                    int facultyID = Convert.ToInt32(dgvFaculty.SelectedRows[0].Cells["ID"].Value);
                     using (DataClasses1DataContext db = new DataClasses1DataContext())
                     {
                         var faculty = db.tblFaculties.FirstOrDefault(f => f.FacultyID == facultyID);
@@ -249,7 +241,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private void btnSearchMember_Click(object sender, EventArgs e)
         {
-            // Assuming your search textbox is named txtSearchMember or txtSearchLoad
             SearchFaculty(txtSearchMembers.Text.Trim());
         }
     }

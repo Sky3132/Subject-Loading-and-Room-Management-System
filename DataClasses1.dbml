@@ -42,6 +42,7 @@
       <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="tblFacultyLoading_tblSchedule" Member="tblSchedules" ThisKey="LoadID" OtherKey="LoadID" Type="tblSchedule" />
+      <Association Name="tblFacultyLoading_tblRoomAssignment" Member="tblRoomAssignments" ThisKey="LoadID" OtherKey="LoadID" Type="tblRoomAssignment" />
       <Association Name="tblFaculty_tblFacultyLoading" Member="tblFaculty" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFaculty" IsForeignKey="true" />
       <Association Name="tblsubjectOffering_tblFacultyLoading" Member="tblsubjectOffering" ThisKey="offeringId" OtherKey="offeringId" Type="tblsubjectOffering" IsForeignKey="true" />
     </Type>
@@ -90,20 +91,34 @@
       <Association Name="tblsubject_tblsubjectOffering" Member="tblsubject" ThisKey="subjectId" OtherKey="subjectId" Type="tblsubject" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblRooms" Member="tblRooms">
-    <Type Name="tblRoom">
-      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RoomName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="RoomType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="tblRoom_tblSchedule" Member="tblSchedules" ThisKey="RoomID" OtherKey="RoomID" Type="tblSchedule" />
-    </Type>
-  </Table>
   <Table Name="dbo.Users" Member="Users">
     <Type Name="User">
       <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="RoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRooms" Member="tblRooms">
+    <Type Name="tblRoom">
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RoomType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Capacity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblRoom_tblSchedule" Member="tblSchedules" ThisKey="RoomID" OtherKey="RoomID" Type="tblSchedule" />
+      <Association Name="tblRoom_tblRoomAssignment" Member="tblRoomAssignments" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoomAssignment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRoomAssignment" Member="tblRoomAssignments">
+    <Type Name="tblRoomAssignment">
+      <Column Name="AssignmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblFacultyLoading_tblRoomAssignment" Member="tblFacultyLoading" ThisKey="LoadID" OtherKey="LoadID" Type="tblFacultyLoading" IsForeignKey="true" />
+      <Association Name="tblRoom_tblRoomAssignment" Member="tblRoom" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.Admin_Login" Method="Admin_Login">

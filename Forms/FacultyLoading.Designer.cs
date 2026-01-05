@@ -29,55 +29,42 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacultyLoading));
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblSubjectId = new System.Windows.Forms.Label();
+            this.lblSubject = new System.Windows.Forms.Label();
             this.dgvLoading = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtSubjectName = new System.Windows.Forms.TextBox();
-            this.txtSubjectId = new System.Windows.Forms.TextBox();
             this.btnSearchLoad = new System.Windows.Forms.Button();
             this.btnCancelLoad = new System.Windows.Forms.Button();
             this.btnRemoveLoad = new System.Windows.Forms.Button();
             this.btnEditLoad = new System.Windows.Forms.Button();
             this.btnSaveLoad = new System.Windows.Forms.Button();
-            this.lblFacultyID = new System.Windows.Forms.Label();
-            this.txtFacultyId = new System.Windows.Forms.TextBox();
-            this.lblFacultyName = new System.Windows.Forms.Label();
-            this.txtFacultyName = new System.Windows.Forms.TextBox();
+            this.lblFaculty = new System.Windows.Forms.Label();
             this.lblSection = new System.Windows.Forms.Label();
-            this.txtSection = new System.Windows.Forms.TextBox();
             this.txtSearchLoad = new System.Windows.Forms.TextBox();
             this.lblFacultyMembers = new System.Windows.Forms.Label();
+            this.cmbSubject = new System.Windows.Forms.ComboBox();
+            this.cmbFaculty = new System.Windows.Forms.ComboBox();
+            this.cmbProgram = new System.Windows.Forms.ComboBox();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoading)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
+            // lblSubject
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(86, 141);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 18);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Subject Name";
-            // 
-            // lblSubjectId
-            // 
-            this.lblSubjectId.AutoSize = true;
-            this.lblSubjectId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectId.Location = new System.Drawing.Point(86, 93);
-            this.lblSubjectId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSubjectId.Name = "lblSubjectId";
-            this.lblSubjectId.Size = new System.Drawing.Size(97, 18);
-            this.lblSubjectId.TabIndex = 20;
-            this.lblSubjectId.Text = "Subject Code";
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubject.Location = new System.Drawing.Point(52, 91);
+            this.lblSubject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(137, 18);
+            this.lblSubject.TabIndex = 20;
+            this.lblSubject.Text = "Subject Code - Title";
             // 
             // dgvLoading
             // 
@@ -88,6 +75,7 @@
             this.dgvLoading.RowHeadersWidth = 51;
             this.dgvLoading.Size = new System.Drawing.Size(1035, 183);
             this.dgvLoading.TabIndex = 19;
+            this.dgvLoading.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoading_CellClick);
             // 
             // panel3
             // 
@@ -100,7 +88,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1075, 78);
             this.panel3.TabIndex = 15;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // imgBackToMain2
             // 
@@ -137,22 +124,6 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
-            // txtSubjectName
-            // 
-            this.txtSubjectName.Location = new System.Drawing.Point(71, 163);
-            this.txtSubjectName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(132, 22);
-            this.txtSubjectName.TabIndex = 23;
-            // 
-            // txtSubjectId
-            // 
-            this.txtSubjectId.Location = new System.Drawing.Point(71, 115);
-            this.txtSubjectId.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSubjectId.Name = "txtSubjectId";
-            this.txtSubjectId.Size = new System.Drawing.Size(132, 22);
-            this.txtSubjectId.TabIndex = 21;
-            // 
             // btnSearchLoad
             // 
             this.btnSearchLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
@@ -160,7 +131,7 @@
             this.btnSearchLoad.Location = new System.Drawing.Point(451, 113);
             this.btnSearchLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchLoad.Name = "btnSearchLoad";
-            this.btnSearchLoad.Size = new System.Drawing.Size(105, 35);
+            this.btnSearchLoad.Size = new System.Drawing.Size(105, 34);
             this.btnSearchLoad.TabIndex = 18;
             this.btnSearchLoad.Text = "Search";
             this.btnSearchLoad.UseVisualStyleBackColor = false;
@@ -209,7 +180,7 @@
             // 
             this.btnSaveLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSaveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveLoad.Location = new System.Drawing.Point(42, 287);
+            this.btnSaveLoad.Location = new System.Drawing.Point(43, 287);
             this.btnSaveLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveLoad.Name = "btnSaveLoad";
             this.btnSaveLoad.Size = new System.Drawing.Size(127, 49);
@@ -218,62 +189,27 @@
             this.btnSaveLoad.UseVisualStyleBackColor = false;
             this.btnSaveLoad.Click += new System.EventHandler(this.btnSaveLoad_Click);
             // 
-            // lblFacultyID
+            // lblFaculty
             // 
-            this.lblFacultyID.AutoSize = true;
-            this.lblFacultyID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFacultyID.Location = new System.Drawing.Point(274, 91);
-            this.lblFacultyID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFacultyID.Name = "lblFacultyID";
-            this.lblFacultyID.Size = new System.Drawing.Size(73, 18);
-            this.lblFacultyID.TabIndex = 26;
-            this.lblFacultyID.Text = "Faculty ID";
-            // 
-            // txtFacultyId
-            // 
-            this.txtFacultyId.Location = new System.Drawing.Point(247, 113);
-            this.txtFacultyId.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFacultyId.Name = "txtFacultyId";
-            this.txtFacultyId.Size = new System.Drawing.Size(132, 22);
-            this.txtFacultyId.TabIndex = 27;
-            // 
-            // lblFacultyName
-            // 
-            this.lblFacultyName.AutoSize = true;
-            this.lblFacultyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFacultyName.Location = new System.Drawing.Point(260, 141);
-            this.lblFacultyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFacultyName.Name = "lblFacultyName";
-            this.lblFacultyName.Size = new System.Drawing.Size(99, 18);
-            this.lblFacultyName.TabIndex = 28;
-            this.lblFacultyName.Text = "Faculty Name";
-            // 
-            // txtFacultyName
-            // 
-            this.txtFacultyName.Location = new System.Drawing.Point(247, 163);
-            this.txtFacultyName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFacultyName.Name = "txtFacultyName";
-            this.txtFacultyName.Size = new System.Drawing.Size(132, 22);
-            this.txtFacultyName.TabIndex = 29;
+            this.lblFaculty.AutoSize = true;
+            this.lblFaculty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaculty.Location = new System.Drawing.Point(52, 134);
+            this.lblFaculty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFaculty.Name = "lblFaculty";
+            this.lblFaculty.Size = new System.Drawing.Size(126, 18);
+            this.lblFaculty.TabIndex = 26;
+            this.lblFaculty.Text = "Faculty ID - Name";
             // 
             // lblSection
             // 
             this.lblSection.AutoSize = true;
             this.lblSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSection.Location = new System.Drawing.Point(151, 206);
+            this.lblSection.Location = new System.Drawing.Point(52, 184);
             this.lblSection.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(147, 18);
+            this.lblSection.Size = new System.Drawing.Size(66, 18);
             this.lblSection.TabIndex = 30;
-            this.lblSection.Text = "Program/Department";
-            // 
-            // txtSection
-            // 
-            this.txtSection.Location = new System.Drawing.Point(154, 228);
-            this.txtSection.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSection.Name = "txtSection";
-            this.txtSection.Size = new System.Drawing.Size(144, 22);
-            this.txtSection.TabIndex = 31;
+            this.lblSection.Text = "Program";
             // 
             // txtSearchLoad
             // 
@@ -286,33 +222,73 @@
             // lblFacultyMembers
             // 
             this.lblFacultyMembers.AutoSize = true;
-            this.lblFacultyMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFacultyMembers.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblFacultyMembers.Location = new System.Drawing.Point(598, 296);
+            this.lblFacultyMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacultyMembers.ForeColor = System.Drawing.Color.Blue;
+            this.lblFacultyMembers.Location = new System.Drawing.Point(580, 298);
             this.lblFacultyMembers.Name = "lblFacultyMembers";
             this.lblFacultyMembers.Size = new System.Drawing.Size(162, 25);
             this.lblFacultyMembers.TabIndex = 33;
             this.lblFacultyMembers.Text = "Faculty Members";
             this.lblFacultyMembers.Click += new System.EventHandler(this.lblFacultyMembers_Click);
             // 
+            // cmbSubject
+            // 
+            this.cmbSubject.FormattingEnabled = true;
+            this.cmbSubject.Location = new System.Drawing.Point(234, 90);
+            this.cmbSubject.Name = "cmbSubject";
+            this.cmbSubject.Size = new System.Drawing.Size(151, 24);
+            this.cmbSubject.TabIndex = 34;
+            // 
+            // cmbFaculty
+            // 
+            this.cmbFaculty.FormattingEnabled = true;
+            this.cmbFaculty.Location = new System.Drawing.Point(234, 133);
+            this.cmbFaculty.Name = "cmbFaculty";
+            this.cmbFaculty.Size = new System.Drawing.Size(151, 24);
+            this.cmbFaculty.TabIndex = 35;
+            // 
+            // cmbProgram
+            // 
+            this.cmbProgram.FormattingEnabled = true;
+            this.cmbProgram.Location = new System.Drawing.Point(234, 183);
+            this.cmbProgram.Name = "cmbProgram";
+            this.cmbProgram.Size = new System.Drawing.Size(151, 24);
+            this.cmbProgram.TabIndex = 36;
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Location = new System.Drawing.Point(52, 228);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(77, 16);
+            this.lblDepartment.TabIndex = 37;
+            this.lblDepartment.Text = "Department";
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(234, 225);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(151, 24);
+            this.cmbDepartment.TabIndex = 38;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+            // 
             // FacultyLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 554);
+            this.Controls.Add(this.cmbDepartment);
+            this.Controls.Add(this.lblDepartment);
+            this.Controls.Add(this.cmbProgram);
+            this.Controls.Add(this.cmbFaculty);
+            this.Controls.Add(this.cmbSubject);
             this.Controls.Add(this.lblFacultyMembers);
             this.Controls.Add(this.txtSearchLoad);
-            this.Controls.Add(this.txtSection);
             this.Controls.Add(this.lblSection);
-            this.Controls.Add(this.txtFacultyName);
-            this.Controls.Add(this.lblFacultyName);
-            this.Controls.Add(this.txtFacultyId);
-            this.Controls.Add(this.lblFacultyID);
+            this.Controls.Add(this.lblFaculty);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtSubjectName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtSubjectId);
-            this.Controls.Add(this.lblSubjectId);
+            this.Controls.Add(this.lblSubject);
             this.Controls.Add(this.dgvLoading);
             this.Controls.Add(this.btnSearchLoad);
             this.Controls.Add(this.btnCancelLoad);
@@ -336,27 +312,25 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblSubjectId;
+        private System.Windows.Forms.Label lblSubject;
         private System.Windows.Forms.DataGridView dgvLoading;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtSubjectName;
-        private System.Windows.Forms.TextBox txtSubjectId;
         private System.Windows.Forms.Button btnSearchLoad;
         private System.Windows.Forms.Button btnCancelLoad;
         private System.Windows.Forms.Button btnRemoveLoad;
         private System.Windows.Forms.Button btnEditLoad;
         private System.Windows.Forms.Button btnSaveLoad;
         private System.Windows.Forms.PictureBox imgBackToMain2;
-        private System.Windows.Forms.Label lblFacultyID;
-        private System.Windows.Forms.TextBox txtFacultyId;
-        private System.Windows.Forms.Label lblFacultyName;
-        private System.Windows.Forms.TextBox txtFacultyName;
+        private System.Windows.Forms.Label lblFaculty;
         private System.Windows.Forms.Label lblSection;
-        private System.Windows.Forms.TextBox txtSection;
         private System.Windows.Forms.TextBox txtSearchLoad;
         private System.Windows.Forms.Label lblFacultyMembers;
+        private System.Windows.Forms.ComboBox cmbSubject;
+        private System.Windows.Forms.ComboBox cmbFaculty;
+        private System.Windows.Forms.ComboBox cmbProgram;
+        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.ComboBox cmbDepartment;
     }
 }

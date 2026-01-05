@@ -66,7 +66,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.btnSearchSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSearchSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchSubject.Location = new System.Drawing.Point(516, 287);
-            this.btnSearchSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchSubject.Name = "btnSearchSubject";
             this.btnSearchSubject.Size = new System.Drawing.Size(127, 49);
             this.btnSearchSubject.TabIndex = 5;
@@ -80,7 +80,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.btnDeleteSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnDeleteSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteSubject.Location = new System.Drawing.Point(363, 287);
-            this.btnDeleteSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteSubject.Name = "btnDeleteSubject";
             this.btnDeleteSubject.Size = new System.Drawing.Size(127, 49);
             this.btnDeleteSubject.TabIndex = 2;
@@ -94,7 +94,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.btnEditSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnEditSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditSubject.Location = new System.Drawing.Point(209, 287);
-            this.btnEditSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditSubject.Name = "btnEditSubject";
             this.btnEditSubject.Size = new System.Drawing.Size(127, 49);
             this.btnEditSubject.TabIndex = 1;
@@ -110,7 +110,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.btnAddSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSubject.ForeColor = System.Drawing.Color.Black;
             this.btnAddSubject.Location = new System.Drawing.Point(56, 287);
-            this.btnAddSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddSubject.Name = "btnAddSubject";
             this.btnAddSubject.Size = new System.Drawing.Size(127, 49);
             this.btnAddSubject.TabIndex = 0;
@@ -126,7 +126,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.panel3.Controls.Add(this.imgBackToMain);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(-4, -1);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1075, 78);
             this.panel3.TabIndex = 3;
@@ -136,7 +136,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.imgBackToMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgBackToMain.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain.Image")));
             this.imgBackToMain.Location = new System.Drawing.Point(991, 16);
-            this.imgBackToMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgBackToMain.Margin = new System.Windows.Forms.Padding(4);
             this.imgBackToMain.Name = "imgBackToMain";
             this.imgBackToMain.Size = new System.Drawing.Size(80, 43);
             this.imgBackToMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -166,7 +166,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.dgvSubjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubjects.Location = new System.Drawing.Point(16, 356);
-            this.dgvSubjects.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSubjects.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSubjects.Name = "dgvSubjects";
             this.dgvSubjects.RowHeadersWidth = 51;
             this.dgvSubjects.Size = new System.Drawing.Size(1035, 183);
@@ -187,7 +187,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // txtCode
             // 
             this.txtCode.Location = new System.Drawing.Point(176, 84);
-            this.txtCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(185, 22);
             this.txtCode.TabIndex = 8;
@@ -206,7 +206,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(176, 128);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(185, 22);
             this.txtTitle.TabIndex = 10;
@@ -217,7 +217,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(667, 84);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(351, 196);
             this.pictureBox1.TabIndex = 11;
@@ -249,11 +249,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(651, 303);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(181, 22);
             this.txtSearch.TabIndex = 18;
-            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp_1);
             // 
             // lblSubjectOffering
             // 
@@ -293,7 +292,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // txtLaboratoryUnits
             // 
             this.txtLaboratoryUnits.Location = new System.Drawing.Point(516, 145);
-            this.txtLaboratoryUnits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLaboratoryUnits.Margin = new System.Windows.Forms.Padding(4);
             this.txtLaboratoryUnits.Name = "txtLaboratoryUnits";
             this.txtLaboratoryUnits.Size = new System.Drawing.Size(132, 22);
             this.txtLaboratoryUnits.TabIndex = 24;
@@ -301,7 +300,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // txtLectureUnits
             // 
             this.txtLectureUnits.Location = new System.Drawing.Point(516, 101);
-            this.txtLectureUnits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLectureUnits.Margin = new System.Windows.Forms.Padding(4);
             this.txtLectureUnits.Name = "txtLectureUnits";
             this.txtLectureUnits.Size = new System.Drawing.Size(132, 22);
             this.txtLectureUnits.TabIndex = 25;
@@ -310,7 +309,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(176, 174);
-            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(185, 24);
             this.cmbDepartment.TabIndex = 26;
@@ -320,11 +319,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             this.cmbProgram.FormattingEnabled = true;
             this.cmbProgram.Location = new System.Drawing.Point(176, 218);
-            this.cmbProgram.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbProgram.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProgram.Name = "cmbProgram";
             this.cmbProgram.Size = new System.Drawing.Size(185, 24);
             this.cmbProgram.TabIndex = 27;
-            this.cmbProgram.SelectedIndexChanged += new System.EventHandler(this.cmbProgram_SelectedIndexChanged);
             // 
             // Subject
             // 
@@ -353,7 +351,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.Controls.Add(this.btnAddSubject);
             this.Controls.Add(this.btnDeleteSubject);
             this.Controls.Add(this.btnEditSubject);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Subject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subject";
