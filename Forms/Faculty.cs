@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
-    public partial class Class_schedule : Form
+    public partial class Faculty : Form
     {
-        public Class_schedule()
+        public Faculty()
         {
             InitializeComponent();
-        }
-
-        private void lblRoomAssignment_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -164,3 +164,7 @@ C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedules.resources
+C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
+C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAssignment.resources
+C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Rooms.resources
+C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedules.resources

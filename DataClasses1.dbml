@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Schooldb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=pogitayo;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=desktop-rfr1dk9;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString3" Provider="System.Data.SqlClient" />
   <Table Name="dbo.log_in" Member="log_ins">
     <Type Name="log_in">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -43,6 +43,8 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="tblFacultyLoading_tblSchedule" Member="tblSchedules" ThisKey="LoadID" OtherKey="LoadID" Type="tblSchedule" />
       <Association Name="tblFacultyLoading_tblRoomAssignment" Member="tblRoomAssignments" ThisKey="LoadID" OtherKey="LoadID" Type="tblRoomAssignment" />
+      <Association Name="tblFacultyLoading_tblRoomAssignment1" Member="tblRoomAssignment1s" ThisKey="LoadID" OtherKey="LoadID" Type="tblRoomAssignment1" />
+      <Association Name="tblFacultyLoading_tblSchedule1" Member="tblSchedule1s" ThisKey="LoadID" OtherKey="LoadID" Type="tblSchedule1" />
       <Association Name="tblFaculty_tblFacultyLoading" Member="tblFaculty" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFaculty" IsForeignKey="true" />
       <Association Name="tblsubjectOffering_tblFacultyLoading" Member="tblsubjectOffering" ThisKey="offeringId" OtherKey="offeringId" Type="tblsubjectOffering" IsForeignKey="true" />
     </Type>
@@ -66,6 +68,7 @@
       <Column Name="EndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
       <Association Name="tblFacultyLoading_tblSchedule" Member="tblFacultyLoading" ThisKey="LoadID" OtherKey="LoadID" Type="tblFacultyLoading" IsForeignKey="true" />
       <Association Name="tblRoom_tblSchedule" Member="tblRoom" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom" IsForeignKey="true" />
+      <Association Name="tblRoom1_tblSchedule" Member="tblRoom1" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblsubject" Member="tblsubjects">
@@ -107,6 +110,8 @@
       <Column Name="Capacity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tblRoom_tblSchedule" Member="tblSchedules" ThisKey="RoomID" OtherKey="RoomID" Type="tblSchedule" />
       <Association Name="tblRoom_tblRoomAssignment" Member="tblRoomAssignments" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoomAssignment" />
+      <Association Name="tblRoom_tblRoomAssignment1" Member="tblRoomAssignment1s" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoomAssignment1" />
+      <Association Name="tblRoom_tblSchedule1" Member="tblSchedule1s" ThisKey="RoomID" OtherKey="RoomID" Type="tblSchedule1" />
     </Type>
   </Table>
   <Table Name="dbo.tblRoomAssignment" Member="tblRoomAssignments">
@@ -119,6 +124,44 @@
       <Column Name="EndTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="tblFacultyLoading_tblRoomAssignment" Member="tblFacultyLoading" ThisKey="LoadID" OtherKey="LoadID" Type="tblFacultyLoading" IsForeignKey="true" />
       <Association Name="tblRoom_tblRoomAssignment" Member="tblRoom" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom" IsForeignKey="true" />
+      <Association Name="tblRoom1_tblRoomAssignment" Member="tblRoom1" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom1" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRoomAssignment" Member="tblRoomAssignment1s">
+    <Type Name="tblRoomAssignment1">
+      <Column Name="AssignmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblFacultyLoading_tblRoomAssignment1" Member="tblFacultyLoading" ThisKey="LoadID" OtherKey="LoadID" Type="tblFacultyLoading" IsForeignKey="true" />
+      <Association Name="tblRoom_tblRoomAssignment1" Member="tblRoom" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom" IsForeignKey="true" />
+      <Association Name="tblRoom1_tblRoomAssignment1" Member="tblRoom1" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom1" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRooms" Member="tblRoom1s">
+    <Type Name="tblRoom1">
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RoomType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblRoom1_tblSchedule" Member="tblSchedules" ThisKey="RoomID" OtherKey="RoomID" Type="tblSchedule" />
+      <Association Name="tblRoom1_tblRoomAssignment" Member="tblRoomAssignments" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoomAssignment" />
+      <Association Name="tblRoom1_tblRoomAssignment1" Member="tblRoomAssignment1s" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoomAssignment1" />
+      <Association Name="tblRoom1_tblSchedule1" Member="tblSchedule1s" ThisKey="RoomID" OtherKey="RoomID" Type="tblSchedule1" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSchedule" Member="tblSchedule1s">
+    <Type Name="tblSchedule1">
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DayOfWeek" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="tblFacultyLoading_tblSchedule1" Member="tblFacultyLoading" ThisKey="LoadID" OtherKey="LoadID" Type="tblFacultyLoading" IsForeignKey="true" />
+      <Association Name="tblRoom_tblSchedule1" Member="tblRoom" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom" IsForeignKey="true" />
+      <Association Name="tblRoom1_tblSchedule1" Member="tblRoom1" ThisKey="RoomID" OtherKey="RoomID" Type="tblRoom1" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.Admin_Login" Method="Admin_Login">

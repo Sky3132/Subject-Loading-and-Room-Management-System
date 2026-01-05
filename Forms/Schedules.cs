@@ -41,5 +41,15 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
 
         }
+
+        private void Schedules_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvsched_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

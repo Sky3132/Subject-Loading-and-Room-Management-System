@@ -240,5 +240,15 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             rooms.Show();
             this.Hide();
         }
+
+        private void lblRoomAssignment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

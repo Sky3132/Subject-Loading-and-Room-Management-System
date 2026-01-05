@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedules));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblRoomAssignment = new System.Windows.Forms.Label();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -52,9 +51,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.sched = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsched)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -63,7 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.panel3.Controls.Add(this.lblRoomAssignment);
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(-19, -1);
@@ -72,22 +74,10 @@
             this.panel3.TabIndex = 18;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // lblRoomAssignment
-            // 
-            this.lblRoomAssignment.AutoSize = true;
-            this.lblRoomAssignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomAssignment.ForeColor = System.Drawing.Color.Transparent;
-            this.lblRoomAssignment.Location = new System.Drawing.Point(291, 13);
-            this.lblRoomAssignment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRoomAssignment.Name = "lblRoomAssignment";
-            this.lblRoomAssignment.Size = new System.Drawing.Size(255, 26);
-            this.lblRoomAssignment.TabIndex = 34;
-            this.lblRoomAssignment.Text = "Schedule Management";
-            // 
             // imgBackToMain2
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
+            this.imgBackToMain2.Location = new System.Drawing.Point(737, 13);
             this.imgBackToMain2.Name = "imgBackToMain2";
             this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -118,20 +108,21 @@
             // dgvsched
             // 
             this.dgvsched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvsched.Location = new System.Drawing.Point(-7, 314);
+            this.dgvsched.Location = new System.Drawing.Point(12, 283);
             this.dgvsched.Margin = new System.Windows.Forms.Padding(2);
             this.dgvsched.Name = "dgvsched";
             this.dgvsched.RowHeadersWidth = 51;
             this.dgvsched.RowTemplate.Height = 24;
-            this.dgvsched.Size = new System.Drawing.Size(816, 144);
+            this.dgvsched.Size = new System.Drawing.Size(775, 156);
             this.dgvsched.TabIndex = 27;
+            this.dgvsched.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsched_CellContentClick);
             // 
             // btnEditSubject
             // 
             this.btnEditSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnEditSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditSubject.Location = new System.Drawing.Point(138, 258);
+            this.btnEditSubject.Location = new System.Drawing.Point(164, 227);
             this.btnEditSubject.Name = "btnEditSubject";
             this.btnEditSubject.Size = new System.Drawing.Size(95, 40);
             this.btnEditSubject.TabIndex = 28;
@@ -143,7 +134,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(14, 258);
+            this.button2.Location = new System.Drawing.Point(40, 227);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 40);
             this.button2.TabIndex = 30;
@@ -155,7 +146,7 @@
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(265, 258);
+            this.button3.Location = new System.Drawing.Point(291, 227);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 40);
             this.button3.TabIndex = 31;
@@ -295,17 +286,43 @@
             this.sched.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.sched.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sched.ForeColor = System.Drawing.Color.Blue;
-            this.sched.Location = new System.Drawing.Point(629, 267);
+            this.sched.Location = new System.Drawing.Point(702, 247);
             this.sched.Name = "sched";
             this.sched.Size = new System.Drawing.Size(84, 20);
             this.sched.TabIndex = 45;
             this.sched.Text = "Schedules";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Perpetua Titling MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(363, 13);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 27);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "SCHEDULE";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(525, 70);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(263, 159);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
             // 
             // Schedules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.sched);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -328,10 +345,12 @@
             this.Controls.Add(this.panel3);
             this.Name = "Schedules";
             this.Text = "Schedules";
+            this.Load += new System.EventHandler(this.Schedules_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsched)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +359,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblRoomAssignment;
         private System.Windows.Forms.PictureBox imgBackToMain2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -362,5 +380,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label sched;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

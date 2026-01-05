@@ -66,10 +66,19 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void InserttblRoomAssignment(tblRoomAssignment instance);
     partial void UpdatetblRoomAssignment(tblRoomAssignment instance);
     partial void DeletetblRoomAssignment(tblRoomAssignment instance);
+    partial void InserttblRoomAssignment1(tblRoomAssignment1 instance);
+    partial void UpdatetblRoomAssignment1(tblRoomAssignment1 instance);
+    partial void DeletetblRoomAssignment1(tblRoomAssignment1 instance);
+    partial void InserttblRoom1(tblRoom1 instance);
+    partial void UpdatetblRoom1(tblRoom1 instance);
+    partial void DeletetblRoom1(tblRoom1 instance);
+    partial void InserttblSchedule1(tblSchedule1 instance);
+    partial void UpdatetblSchedule1(tblSchedule1 instance);
+    partial void DeletetblSchedule1(tblSchedule1 instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString, mappingSource)
+				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -191,6 +200,30 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			get
 			{
 				return this.GetTable<tblRoomAssignment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblRoomAssignment1> tblRoomAssignment1s
+		{
+			get
+			{
+				return this.GetTable<tblRoomAssignment1>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblRoom1> tblRoom1s
+		{
+			get
+			{
+				return this.GetTable<tblRoom1>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblSchedule1> tblSchedule1s
+		{
+			get
+			{
+				return this.GetTable<tblSchedule1>();
 			}
 		}
 		
@@ -940,6 +973,10 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
 		
+		private EntitySet<tblRoomAssignment1> _tblRoomAssignment1s;
+		
+		private EntitySet<tblSchedule1> _tblSchedule1s;
+		
 		private EntityRef<tblFaculty> _tblFaculty;
 		
 		private EntityRef<tblsubjectOffering> _tblsubjectOffering;
@@ -964,6 +1001,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		{
 			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
 			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
+			this._tblRoomAssignment1s = new EntitySet<tblRoomAssignment1>(new Action<tblRoomAssignment1>(this.attach_tblRoomAssignment1s), new Action<tblRoomAssignment1>(this.detach_tblRoomAssignment1s));
+			this._tblSchedule1s = new EntitySet<tblSchedule1>(new Action<tblSchedule1>(this.attach_tblSchedule1s), new Action<tblSchedule1>(this.detach_tblSchedule1s));
 			this._tblFaculty = default(EntityRef<tblFaculty>);
 			this._tblsubjectOffering = default(EntityRef<tblsubjectOffering>);
 			OnCreated();
@@ -1103,6 +1142,32 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblRoomAssignment1", Storage="_tblRoomAssignment1s", ThisKey="LoadID", OtherKey="LoadID")]
+		public EntitySet<tblRoomAssignment1> tblRoomAssignment1s
+		{
+			get
+			{
+				return this._tblRoomAssignment1s;
+			}
+			set
+			{
+				this._tblRoomAssignment1s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblSchedule1", Storage="_tblSchedule1s", ThisKey="LoadID", OtherKey="LoadID")]
+		public EntitySet<tblSchedule1> tblSchedule1s
+		{
+			get
+			{
+				return this._tblSchedule1s;
+			}
+			set
+			{
+				this._tblSchedule1s.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFaculty_tblFacultyLoading", Storage="_tblFaculty", ThisKey="FacultyID", OtherKey="FacultyID", IsForeignKey=true)]
 		public tblFaculty tblFaculty
 		{
@@ -1210,6 +1275,30 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		}
 		
 		private void detach_tblRoomAssignments(tblRoomAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = null;
+		}
+		
+		private void attach_tblRoomAssignment1s(tblRoomAssignment1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = this;
+		}
+		
+		private void detach_tblRoomAssignment1s(tblRoomAssignment1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = null;
+		}
+		
+		private void attach_tblSchedule1s(tblSchedule1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = this;
+		}
+		
+		private void detach_tblSchedule1s(tblSchedule1 entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblFacultyLoading = null;
@@ -1417,6 +1506,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private EntityRef<tblRoom> _tblRoom;
 		
+		private EntityRef<tblRoom1> _tblRoom1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1439,6 +1530,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		{
 			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
 			this._tblRoom = default(EntityRef<tblRoom>);
+			this._tblRoom1 = default(EntityRef<tblRoom1>);
 			OnCreated();
 		}
 		
@@ -1497,7 +1589,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			{
 				if ((this._RoomID != value))
 				{
-					if (this._tblRoom.HasLoadedOrAssignedValue)
+					if ((this._tblRoom.HasLoadedOrAssignedValue || this._tblRoom1.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1634,6 +1726,40 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 						this._RoomID = default(int);
 					}
 					this.SendPropertyChanged("tblRoom");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblSchedule", Storage="_tblRoom1", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
+		public tblRoom1 tblRoom1
+		{
+			get
+			{
+				return this._tblRoom1.Entity;
+			}
+			set
+			{
+				tblRoom1 previousValue = this._tblRoom1.Entity;
+				if (((previousValue != value) 
+							|| (this._tblRoom1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblRoom1.Entity = null;
+						previousValue.tblSchedules.Remove(this);
+					}
+					this._tblRoom1.Entity = value;
+					if ((value != null))
+					{
+						value.tblSchedules.Add(this);
+						this._RoomID = value.RoomID;
+					}
+					else
+					{
+						this._RoomID = default(int);
+					}
+					this.SendPropertyChanged("tblRoom1");
 				}
 			}
 		}
@@ -2289,6 +2415,10 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
 		
+		private EntitySet<tblRoomAssignment1> _tblRoomAssignment1s;
+		
+		private EntitySet<tblSchedule1> _tblSchedule1s;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2307,6 +2437,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		{
 			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
 			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
+			this._tblRoomAssignment1s = new EntitySet<tblRoomAssignment1>(new Action<tblRoomAssignment1>(this.attach_tblRoomAssignment1s), new Action<tblRoomAssignment1>(this.detach_tblRoomAssignment1s));
+			this._tblSchedule1s = new EntitySet<tblSchedule1>(new Action<tblSchedule1>(this.attach_tblSchedule1s), new Action<tblSchedule1>(this.detach_tblSchedule1s));
 			OnCreated();
 		}
 		
@@ -2416,6 +2548,32 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblRoomAssignment1", Storage="_tblRoomAssignment1s", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblRoomAssignment1> tblRoomAssignment1s
+		{
+			get
+			{
+				return this._tblRoomAssignment1s;
+			}
+			set
+			{
+				this._tblRoomAssignment1s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblSchedule1", Storage="_tblSchedule1s", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblSchedule1> tblSchedule1s
+		{
+			get
+			{
+				return this._tblSchedule1s;
+			}
+			set
+			{
+				this._tblSchedule1s.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2459,6 +2617,30 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			this.SendPropertyChanging();
 			entity.tblRoom = null;
 		}
+		
+		private void attach_tblRoomAssignment1s(tblRoomAssignment1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = this;
+		}
+		
+		private void detach_tblRoomAssignment1s(tblRoomAssignment1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = null;
+		}
+		
+		private void attach_tblSchedule1s(tblSchedule1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = this;
+		}
+		
+		private void detach_tblSchedule1s(tblSchedule1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRoomAssignment")]
@@ -2483,6 +2665,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private EntityRef<tblRoom> _tblRoom;
 		
+		private EntityRef<tblRoom1> _tblRoom1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2505,6 +2689,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		{
 			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
 			this._tblRoom = default(EntityRef<tblRoom>);
+			this._tblRoom1 = default(EntityRef<tblRoom1>);
 			OnCreated();
 		}
 		
@@ -2563,7 +2748,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			{
 				if ((this._RoomID != value))
 				{
-					if (this._tblRoom.HasLoadedOrAssignedValue)
+					if ((this._tblRoom.HasLoadedOrAssignedValue || this._tblRoom1.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -2700,6 +2885,864 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 						this._RoomID = default(int);
 					}
 					this.SendPropertyChanged("tblRoom");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblRoomAssignment", Storage="_tblRoom1", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
+		public tblRoom1 tblRoom1
+		{
+			get
+			{
+				return this._tblRoom1.Entity;
+			}
+			set
+			{
+				tblRoom1 previousValue = this._tblRoom1.Entity;
+				if (((previousValue != value) 
+							|| (this._tblRoom1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblRoom1.Entity = null;
+						previousValue.tblRoomAssignments.Remove(this);
+					}
+					this._tblRoom1.Entity = value;
+					if ((value != null))
+					{
+						value.tblRoomAssignments.Add(this);
+						this._RoomID = value.RoomID;
+					}
+					else
+					{
+						this._RoomID = default(int);
+					}
+					this.SendPropertyChanged("tblRoom1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRoomAssignment")]
+	public partial class tblRoomAssignment1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AssignmentID;
+		
+		private int _LoadID;
+		
+		private int _RoomID;
+		
+		private string _Day;
+		
+		private string _StartTime;
+		
+		private string _EndTime;
+		
+		private EntityRef<tblFacultyLoading> _tblFacultyLoading;
+		
+		private EntityRef<tblRoom> _tblRoom;
+		
+		private EntityRef<tblRoom1> _tblRoom1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAssignmentIDChanging(int value);
+    partial void OnAssignmentIDChanged();
+    partial void OnLoadIDChanging(int value);
+    partial void OnLoadIDChanged();
+    partial void OnRoomIDChanging(int value);
+    partial void OnRoomIDChanged();
+    partial void OnDayChanging(string value);
+    partial void OnDayChanged();
+    partial void OnStartTimeChanging(string value);
+    partial void OnStartTimeChanged();
+    partial void OnEndTimeChanging(string value);
+    partial void OnEndTimeChanged();
+    #endregion
+		
+		public tblRoomAssignment1()
+		{
+			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
+			this._tblRoom = default(EntityRef<tblRoom>);
+			this._tblRoom1 = default(EntityRef<tblRoom1>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssignmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AssignmentID
+		{
+			get
+			{
+				return this._AssignmentID;
+			}
+			set
+			{
+				if ((this._AssignmentID != value))
+				{
+					this.OnAssignmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._AssignmentID = value;
+					this.SendPropertyChanged("AssignmentID");
+					this.OnAssignmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoadID", DbType="Int NOT NULL")]
+		public int LoadID
+		{
+			get
+			{
+				return this._LoadID;
+			}
+			set
+			{
+				if ((this._LoadID != value))
+				{
+					if (this._tblFacultyLoading.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLoadIDChanging(value);
+					this.SendPropertyChanging();
+					this._LoadID = value;
+					this.SendPropertyChanged("LoadID");
+					this.OnLoadIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomID", DbType="Int NOT NULL")]
+		public int RoomID
+		{
+			get
+			{
+				return this._RoomID;
+			}
+			set
+			{
+				if ((this._RoomID != value))
+				{
+					if ((this._tblRoom.HasLoadedOrAssignedValue || this._tblRoom1.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRoomIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoomID = value;
+					this.SendPropertyChanged("RoomID");
+					this.OnRoomIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Day", DbType="NVarChar(50)")]
+		public string Day
+		{
+			get
+			{
+				return this._Day;
+			}
+			set
+			{
+				if ((this._Day != value))
+				{
+					this.OnDayChanging(value);
+					this.SendPropertyChanging();
+					this._Day = value;
+					this.SendPropertyChanged("Day");
+					this.OnDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="NVarChar(50)")]
+		public string StartTime
+		{
+			get
+			{
+				return this._StartTime;
+			}
+			set
+			{
+				if ((this._StartTime != value))
+				{
+					this.OnStartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._StartTime = value;
+					this.SendPropertyChanged("StartTime");
+					this.OnStartTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="NVarChar(50)")]
+		public string EndTime
+		{
+			get
+			{
+				return this._EndTime;
+			}
+			set
+			{
+				if ((this._EndTime != value))
+				{
+					this.OnEndTimeChanging(value);
+					this.SendPropertyChanging();
+					this._EndTime = value;
+					this.SendPropertyChanged("EndTime");
+					this.OnEndTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblRoomAssignment1", Storage="_tblFacultyLoading", ThisKey="LoadID", OtherKey="LoadID", IsForeignKey=true)]
+		public tblFacultyLoading tblFacultyLoading
+		{
+			get
+			{
+				return this._tblFacultyLoading.Entity;
+			}
+			set
+			{
+				tblFacultyLoading previousValue = this._tblFacultyLoading.Entity;
+				if (((previousValue != value) 
+							|| (this._tblFacultyLoading.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblFacultyLoading.Entity = null;
+						previousValue.tblRoomAssignment1s.Remove(this);
+					}
+					this._tblFacultyLoading.Entity = value;
+					if ((value != null))
+					{
+						value.tblRoomAssignment1s.Add(this);
+						this._LoadID = value.LoadID;
+					}
+					else
+					{
+						this._LoadID = default(int);
+					}
+					this.SendPropertyChanged("tblFacultyLoading");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblRoomAssignment1", Storage="_tblRoom", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
+		public tblRoom tblRoom
+		{
+			get
+			{
+				return this._tblRoom.Entity;
+			}
+			set
+			{
+				tblRoom previousValue = this._tblRoom.Entity;
+				if (((previousValue != value) 
+							|| (this._tblRoom.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblRoom.Entity = null;
+						previousValue.tblRoomAssignment1s.Remove(this);
+					}
+					this._tblRoom.Entity = value;
+					if ((value != null))
+					{
+						value.tblRoomAssignment1s.Add(this);
+						this._RoomID = value.RoomID;
+					}
+					else
+					{
+						this._RoomID = default(int);
+					}
+					this.SendPropertyChanged("tblRoom");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblRoomAssignment1", Storage="_tblRoom1", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
+		public tblRoom1 tblRoom1
+		{
+			get
+			{
+				return this._tblRoom1.Entity;
+			}
+			set
+			{
+				tblRoom1 previousValue = this._tblRoom1.Entity;
+				if (((previousValue != value) 
+							|| (this._tblRoom1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblRoom1.Entity = null;
+						previousValue.tblRoomAssignment1s.Remove(this);
+					}
+					this._tblRoom1.Entity = value;
+					if ((value != null))
+					{
+						value.tblRoomAssignment1s.Add(this);
+						this._RoomID = value.RoomID;
+					}
+					else
+					{
+						this._RoomID = default(int);
+					}
+					this.SendPropertyChanged("tblRoom1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRooms")]
+	public partial class tblRoom1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RoomID;
+		
+		private string _RoomName;
+		
+		private string _RoomType;
+		
+		private EntitySet<tblSchedule> _tblSchedules;
+		
+		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
+		
+		private EntitySet<tblRoomAssignment1> _tblRoomAssignment1s;
+		
+		private EntitySet<tblSchedule1> _tblSchedule1s;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRoomIDChanging(int value);
+    partial void OnRoomIDChanged();
+    partial void OnRoomNameChanging(string value);
+    partial void OnRoomNameChanged();
+    partial void OnRoomTypeChanging(string value);
+    partial void OnRoomTypeChanged();
+    #endregion
+		
+		public tblRoom1()
+		{
+			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
+			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
+			this._tblRoomAssignment1s = new EntitySet<tblRoomAssignment1>(new Action<tblRoomAssignment1>(this.attach_tblRoomAssignment1s), new Action<tblRoomAssignment1>(this.detach_tblRoomAssignment1s));
+			this._tblSchedule1s = new EntitySet<tblSchedule1>(new Action<tblSchedule1>(this.attach_tblSchedule1s), new Action<tblSchedule1>(this.detach_tblSchedule1s));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RoomID
+		{
+			get
+			{
+				return this._RoomID;
+			}
+			set
+			{
+				if ((this._RoomID != value))
+				{
+					this.OnRoomIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoomID = value;
+					this.SendPropertyChanged("RoomID");
+					this.OnRoomIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RoomName
+		{
+			get
+			{
+				return this._RoomName;
+			}
+			set
+			{
+				if ((this._RoomName != value))
+				{
+					this.OnRoomNameChanging(value);
+					this.SendPropertyChanging();
+					this._RoomName = value;
+					this.SendPropertyChanged("RoomName");
+					this.OnRoomNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomType", DbType="NVarChar(50)")]
+		public string RoomType
+		{
+			get
+			{
+				return this._RoomType;
+			}
+			set
+			{
+				if ((this._RoomType != value))
+				{
+					this.OnRoomTypeChanging(value);
+					this.SendPropertyChanging();
+					this._RoomType = value;
+					this.SendPropertyChanged("RoomType");
+					this.OnRoomTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblSchedule", Storage="_tblSchedules", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblSchedule> tblSchedules
+		{
+			get
+			{
+				return this._tblSchedules;
+			}
+			set
+			{
+				this._tblSchedules.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblRoomAssignment", Storage="_tblRoomAssignments", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblRoomAssignment> tblRoomAssignments
+		{
+			get
+			{
+				return this._tblRoomAssignments;
+			}
+			set
+			{
+				this._tblRoomAssignments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblRoomAssignment1", Storage="_tblRoomAssignment1s", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblRoomAssignment1> tblRoomAssignment1s
+		{
+			get
+			{
+				return this._tblRoomAssignment1s;
+			}
+			set
+			{
+				this._tblRoomAssignment1s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblSchedule1", Storage="_tblSchedule1s", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblSchedule1> tblSchedule1s
+		{
+			get
+			{
+				return this._tblSchedule1s;
+			}
+			set
+			{
+				this._tblSchedule1s.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblSchedules(tblSchedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = this;
+		}
+		
+		private void detach_tblSchedules(tblSchedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = null;
+		}
+		
+		private void attach_tblRoomAssignments(tblRoomAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = this;
+		}
+		
+		private void detach_tblRoomAssignments(tblRoomAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = null;
+		}
+		
+		private void attach_tblRoomAssignment1s(tblRoomAssignment1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = this;
+		}
+		
+		private void detach_tblRoomAssignment1s(tblRoomAssignment1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = null;
+		}
+		
+		private void attach_tblSchedule1s(tblSchedule1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = this;
+		}
+		
+		private void detach_tblSchedule1s(tblSchedule1 entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSchedule")]
+	public partial class tblSchedule1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ScheduleID;
+		
+		private int _LoadID;
+		
+		private int _RoomID;
+		
+		private string _DayOfWeek;
+		
+		private System.TimeSpan _StartTime;
+		
+		private System.TimeSpan _EndTime;
+		
+		private EntityRef<tblFacultyLoading> _tblFacultyLoading;
+		
+		private EntityRef<tblRoom> _tblRoom;
+		
+		private EntityRef<tblRoom1> _tblRoom1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnScheduleIDChanging(int value);
+    partial void OnScheduleIDChanged();
+    partial void OnLoadIDChanging(int value);
+    partial void OnLoadIDChanged();
+    partial void OnRoomIDChanging(int value);
+    partial void OnRoomIDChanged();
+    partial void OnDayOfWeekChanging(string value);
+    partial void OnDayOfWeekChanged();
+    partial void OnStartTimeChanging(System.TimeSpan value);
+    partial void OnStartTimeChanged();
+    partial void OnEndTimeChanging(System.TimeSpan value);
+    partial void OnEndTimeChanged();
+    #endregion
+		
+		public tblSchedule1()
+		{
+			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
+			this._tblRoom = default(EntityRef<tblRoom>);
+			this._tblRoom1 = default(EntityRef<tblRoom1>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ScheduleID
+		{
+			get
+			{
+				return this._ScheduleID;
+			}
+			set
+			{
+				if ((this._ScheduleID != value))
+				{
+					this.OnScheduleIDChanging(value);
+					this.SendPropertyChanging();
+					this._ScheduleID = value;
+					this.SendPropertyChanged("ScheduleID");
+					this.OnScheduleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoadID", DbType="Int NOT NULL")]
+		public int LoadID
+		{
+			get
+			{
+				return this._LoadID;
+			}
+			set
+			{
+				if ((this._LoadID != value))
+				{
+					if (this._tblFacultyLoading.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLoadIDChanging(value);
+					this.SendPropertyChanging();
+					this._LoadID = value;
+					this.SendPropertyChanged("LoadID");
+					this.OnLoadIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomID", DbType="Int NOT NULL")]
+		public int RoomID
+		{
+			get
+			{
+				return this._RoomID;
+			}
+			set
+			{
+				if ((this._RoomID != value))
+				{
+					if ((this._tblRoom.HasLoadedOrAssignedValue || this._tblRoom1.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRoomIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoomID = value;
+					this.SendPropertyChanged("RoomID");
+					this.OnRoomIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayOfWeek", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string DayOfWeek
+		{
+			get
+			{
+				return this._DayOfWeek;
+			}
+			set
+			{
+				if ((this._DayOfWeek != value))
+				{
+					this.OnDayOfWeekChanging(value);
+					this.SendPropertyChanging();
+					this._DayOfWeek = value;
+					this.SendPropertyChanged("DayOfWeek");
+					this.OnDayOfWeekChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="Time NOT NULL")]
+		public System.TimeSpan StartTime
+		{
+			get
+			{
+				return this._StartTime;
+			}
+			set
+			{
+				if ((this._StartTime != value))
+				{
+					this.OnStartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._StartTime = value;
+					this.SendPropertyChanged("StartTime");
+					this.OnStartTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="Time NOT NULL")]
+		public System.TimeSpan EndTime
+		{
+			get
+			{
+				return this._EndTime;
+			}
+			set
+			{
+				if ((this._EndTime != value))
+				{
+					this.OnEndTimeChanging(value);
+					this.SendPropertyChanging();
+					this._EndTime = value;
+					this.SendPropertyChanged("EndTime");
+					this.OnEndTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblSchedule1", Storage="_tblFacultyLoading", ThisKey="LoadID", OtherKey="LoadID", IsForeignKey=true)]
+		public tblFacultyLoading tblFacultyLoading
+		{
+			get
+			{
+				return this._tblFacultyLoading.Entity;
+			}
+			set
+			{
+				tblFacultyLoading previousValue = this._tblFacultyLoading.Entity;
+				if (((previousValue != value) 
+							|| (this._tblFacultyLoading.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblFacultyLoading.Entity = null;
+						previousValue.tblSchedule1s.Remove(this);
+					}
+					this._tblFacultyLoading.Entity = value;
+					if ((value != null))
+					{
+						value.tblSchedule1s.Add(this);
+						this._LoadID = value.LoadID;
+					}
+					else
+					{
+						this._LoadID = default(int);
+					}
+					this.SendPropertyChanged("tblFacultyLoading");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblSchedule1", Storage="_tblRoom", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
+		public tblRoom tblRoom
+		{
+			get
+			{
+				return this._tblRoom.Entity;
+			}
+			set
+			{
+				tblRoom previousValue = this._tblRoom.Entity;
+				if (((previousValue != value) 
+							|| (this._tblRoom.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblRoom.Entity = null;
+						previousValue.tblSchedule1s.Remove(this);
+					}
+					this._tblRoom.Entity = value;
+					if ((value != null))
+					{
+						value.tblSchedule1s.Add(this);
+						this._RoomID = value.RoomID;
+					}
+					else
+					{
+						this._RoomID = default(int);
+					}
+					this.SendPropertyChanged("tblRoom");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom1_tblSchedule1", Storage="_tblRoom1", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
+		public tblRoom1 tblRoom1
+		{
+			get
+			{
+				return this._tblRoom1.Entity;
+			}
+			set
+			{
+				tblRoom1 previousValue = this._tblRoom1.Entity;
+				if (((previousValue != value) 
+							|| (this._tblRoom1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblRoom1.Entity = null;
+						previousValue.tblSchedule1s.Remove(this);
+					}
+					this._tblRoom1.Entity = value;
+					if ((value != null))
+					{
+						value.tblSchedule1s.Add(this);
+						this._RoomID = value.RoomID;
+					}
+					else
+					{
+						this._RoomID = default(int);
+					}
+					this.SendPropertyChanged("tblRoom1");
 				}
 			}
 		}

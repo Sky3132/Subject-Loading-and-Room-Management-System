@@ -166,5 +166,20 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             // Hide the current form (the Main menu or Dashboard)
             this.Hide();
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomAssignment));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblRoomAssignment = new System.Windows.Forms.Label();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAssignName = new System.Windows.Forms.Label();
@@ -47,9 +46,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtStartTime = new System.Windows.Forms.TextBox();
             this.txtEndTime = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -58,33 +60,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.panel3.Controls.Add(this.lblRoomAssignment);
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(0, 1);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1117, 78);
+            this.panel3.Size = new System.Drawing.Size(806, 63);
             this.panel3.TabIndex = 17;
-            // 
-            // lblRoomAssignment
-            // 
-            this.lblRoomAssignment.AutoSize = true;
-            this.lblRoomAssignment.Font = new System.Drawing.Font("Perpetua Titling MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomAssignment.ForeColor = System.Drawing.Color.Transparent;
-            this.lblRoomAssignment.Location = new System.Drawing.Point(401, 16);
-            this.lblRoomAssignment.Name = "lblRoomAssignment";
-            this.lblRoomAssignment.Size = new System.Drawing.Size(326, 33);
-            this.lblRoomAssignment.TabIndex = 34;
-            this.lblRoomAssignment.Text = "ROOMS ASSIGNMENT";
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // imgBackToMain2
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(967, 16);
-            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(4);
+            this.imgBackToMain2.Location = new System.Drawing.Point(722, 13);
             this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(108, 48);
+            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgBackToMain2.TabIndex = 33;
             this.imgBackToMain2.TabStop = false;
@@ -96,10 +86,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(401, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(301, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 32);
+            this.label1.Size = new System.Drawing.Size(19, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = " ";
             // 
@@ -107,9 +96,10 @@
             // 
             this.lblAssignName.AutoSize = true;
             this.lblAssignName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssignName.Location = new System.Drawing.Point(28, 119);
+            this.lblAssignName.Location = new System.Drawing.Point(46, 95);
+            this.lblAssignName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAssignName.Name = "lblAssignName";
-            this.lblAssignName.Size = new System.Drawing.Size(102, 20);
+            this.lblAssignName.Size = new System.Drawing.Size(86, 17);
             this.lblAssignName.TabIndex = 18;
             this.lblAssignName.Text = "Room Name";
             // 
@@ -117,36 +107,40 @@
             // 
             this.lblFacultyName.AutoSize = true;
             this.lblFacultyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFacultyName.Location = new System.Drawing.Point(213, 119);
+            this.lblFacultyName.Location = new System.Drawing.Point(185, 95);
+            this.lblFacultyName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFacultyName.Name = "lblFacultyName";
-            this.lblFacultyName.Size = new System.Drawing.Size(112, 20);
+            this.lblFacultyName.Size = new System.Drawing.Size(94, 17);
             this.lblFacultyName.TabIndex = 19;
             this.lblFacultyName.Text = "Faculty Name";
             // 
             // cmbFacultyAssign
             // 
             this.cmbFacultyAssign.FormattingEnabled = true;
-            this.cmbFacultyAssign.Location = new System.Drawing.Point(217, 142);
+            this.cmbFacultyAssign.Location = new System.Drawing.Point(188, 113);
+            this.cmbFacultyAssign.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbFacultyAssign.Name = "cmbFacultyAssign";
-            this.cmbFacultyAssign.Size = new System.Drawing.Size(152, 24);
+            this.cmbFacultyAssign.Size = new System.Drawing.Size(115, 21);
             this.cmbFacultyAssign.TabIndex = 21;
             // 
             // cmbRoom
             // 
             this.cmbRoom.FormattingEnabled = true;
-            this.cmbRoom.Location = new System.Drawing.Point(32, 142);
+            this.cmbRoom.Location = new System.Drawing.Point(49, 113);
+            this.cmbRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbRoom.Name = "cmbRoom";
-            this.cmbRoom.Size = new System.Drawing.Size(152, 24);
+            this.cmbRoom.Size = new System.Drawing.Size(115, 21);
             this.cmbRoom.TabIndex = 22;
             // 
             // dgvAssignments
             // 
             this.dgvAssignments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssignments.Location = new System.Drawing.Point(0, 361);
+            this.dgvAssignments.Location = new System.Drawing.Point(11, 277);
+            this.dgvAssignments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvAssignments.Name = "dgvAssignments";
             this.dgvAssignments.RowHeadersWidth = 51;
             this.dgvAssignments.RowTemplate.Height = 24;
-            this.dgvAssignments.Size = new System.Drawing.Size(1113, 236);
+            this.dgvAssignments.Size = new System.Drawing.Size(778, 162);
             this.dgvAssignments.TabIndex = 23;
             this.dgvAssignments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAssignments_CellClick);
             // 
@@ -157,10 +151,9 @@
             this.btnSaveAssign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveAssign.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveAssign.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveAssign.Location = new System.Drawing.Point(32, 285);
-            this.btnSaveAssign.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveAssign.Location = new System.Drawing.Point(49, 214);
             this.btnSaveAssign.Name = "btnSaveAssign";
-            this.btnSaveAssign.Size = new System.Drawing.Size(127, 49);
+            this.btnSaveAssign.Size = new System.Drawing.Size(95, 40);
             this.btnSaveAssign.TabIndex = 26;
             this.btnSaveAssign.Text = "Save";
             this.btnSaveAssign.UseVisualStyleBackColor = false;
@@ -171,10 +164,9 @@
             this.btnRemoveAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveAssign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRemoveAssign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveAssign.Location = new System.Drawing.Point(339, 285);
-            this.btnRemoveAssign.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemoveAssign.Location = new System.Drawing.Point(275, 214);
             this.btnRemoveAssign.Name = "btnRemoveAssign";
-            this.btnRemoveAssign.Size = new System.Drawing.Size(127, 49);
+            this.btnRemoveAssign.Size = new System.Drawing.Size(95, 40);
             this.btnRemoveAssign.TabIndex = 28;
             this.btnRemoveAssign.Text = "Remove";
             this.btnRemoveAssign.UseVisualStyleBackColor = false;
@@ -185,10 +177,9 @@
             this.btnEditAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditAssign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnEditAssign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditAssign.Location = new System.Drawing.Point(185, 285);
-            this.btnEditAssign.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditAssign.Location = new System.Drawing.Point(164, 214);
             this.btnEditAssign.Name = "btnEditAssign";
-            this.btnEditAssign.Size = new System.Drawing.Size(127, 49);
+            this.btnEditAssign.Size = new System.Drawing.Size(89, 40);
             this.btnEditAssign.TabIndex = 27;
             this.btnEditAssign.Text = "Edit";
             this.btnEditAssign.UseVisualStyleBackColor = false;
@@ -198,27 +189,30 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(391, 119);
+            this.label2.Location = new System.Drawing.Point(318, 95);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 20);
+            this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 29;
             this.label2.Text = "Day";
             // 
             // cmbDay
             // 
             this.cmbDay.FormattingEnabled = true;
-            this.cmbDay.Location = new System.Drawing.Point(395, 142);
+            this.cmbDay.Location = new System.Drawing.Point(321, 113);
+            this.cmbDay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbDay.Name = "cmbDay";
-            this.cmbDay.Size = new System.Drawing.Size(152, 24);
+            this.cmbDay.Size = new System.Drawing.Size(115, 21);
             this.cmbDay.TabIndex = 30;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 187);
+            this.label3.Location = new System.Drawing.Point(46, 150);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 20);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 31;
             this.label3.Text = "Start TIme";
             // 
@@ -226,31 +220,61 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(213, 187);
+            this.label4.Location = new System.Drawing.Point(185, 150);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 20);
+            this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 32;
             this.label4.Text = "End Time";
             // 
             // txtStartTime
             // 
-            this.txtStartTime.Location = new System.Drawing.Point(32, 210);
+            this.txtStartTime.Location = new System.Drawing.Point(49, 169);
+            this.txtStartTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtStartTime.Name = "txtStartTime";
-            this.txtStartTime.Size = new System.Drawing.Size(105, 22);
+            this.txtStartTime.Size = new System.Drawing.Size(80, 20);
             this.txtStartTime.TabIndex = 33;
             // 
             // txtEndTime
             // 
-            this.txtEndTime.Location = new System.Drawing.Point(217, 210);
+            this.txtEndTime.Location = new System.Drawing.Point(188, 169);
+            this.txtEndTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEndTime.Name = "txtEndTime";
-            this.txtEndTime.Size = new System.Drawing.Size(105, 22);
+            this.txtEndTime.Size = new System.Drawing.Size(80, 20);
             this.txtEndTime.TabIndex = 34;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(291, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(249, 26);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "ROOMS ASSIGNMENT";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(502, 97);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(263, 159);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 36;
+            this.pictureBox1.TabStop = false;
             // 
             // RoomAssignment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 594);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtEndTime);
             this.Controls.Add(this.txtStartTime);
             this.Controls.Add(this.label4);
@@ -266,13 +290,16 @@
             this.Controls.Add(this.lblFacultyName);
             this.Controls.Add(this.lblAssignName);
             this.Controls.Add(this.panel3);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RoomAssignment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoomAssignment";
             this.Load += new System.EventHandler(this.RoomAssignment_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,7 +308,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblRoomAssignment;
         private System.Windows.Forms.PictureBox imgBackToMain2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblAssignName;
@@ -298,5 +324,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtStartTime;
         private System.Windows.Forms.TextBox txtEndTime;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

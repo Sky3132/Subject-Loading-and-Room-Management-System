@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Class_schedule));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblRoomAssignment = new System.Windows.Forms.Label();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvsched = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsched)).BeginInit();
@@ -45,25 +45,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.panel3.Controls.Add(this.lblRoomAssignment);
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(-19, -2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(838, 55);
             this.panel3.TabIndex = 19;
-            // 
-            // lblRoomAssignment
-            // 
-            this.lblRoomAssignment.AutoSize = true;
-            this.lblRoomAssignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomAssignment.ForeColor = System.Drawing.Color.Transparent;
-            this.lblRoomAssignment.Location = new System.Drawing.Point(291, 13);
-            this.lblRoomAssignment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRoomAssignment.Name = "lblRoomAssignment";
-            this.lblRoomAssignment.Size = new System.Drawing.Size(185, 26);
-            this.lblRoomAssignment.TabIndex = 34;
-            this.lblRoomAssignment.Text = "Class Schedule ";
             // 
             // imgBackToMain2
             // 
@@ -90,13 +78,25 @@
             // dgvsched
             // 
             this.dgvsched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvsched.Location = new System.Drawing.Point(3, 55);
+            this.dgvsched.Location = new System.Drawing.Point(11, 67);
             this.dgvsched.Margin = new System.Windows.Forms.Padding(2);
             this.dgvsched.Name = "dgvsched";
             this.dgvsched.RowHeadersWidth = 51;
             this.dgvsched.RowTemplate.Height = 24;
-            this.dgvsched.Size = new System.Drawing.Size(816, 258);
+            this.dgvsched.Size = new System.Drawing.Size(778, 246);
             this.dgvsched.TabIndex = 28;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Perpetua Titling MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(325, 13);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(210, 27);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "CLASS SCHEDULE";
             // 
             // Class_schedule
             // 
@@ -119,9 +119,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblRoomAssignment;
         private System.Windows.Forms.PictureBox imgBackToMain2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvsched;
+        private System.Windows.Forms.Label label9;
     }
 }

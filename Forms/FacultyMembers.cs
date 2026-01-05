@@ -243,5 +243,55 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             SearchFaculty(txtSearchMembers.Text.Trim());
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchMembers_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaxLoad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFmemberUnits_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFmembersDept_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFmemberFname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFmemberLname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFacultyId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvFaculty_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
