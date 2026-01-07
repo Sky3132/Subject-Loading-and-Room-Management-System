@@ -21,12 +21,9 @@
             this.lblFmembersDept = new System.Windows.Forms.Label();
             this.txtFmemberFname = new System.Windows.Forms.TextBox();
             this.lblFmemberFname = new System.Windows.Forms.Label();
-            this.txtFacultyId = new System.Windows.Forms.TextBox();
-            this.lblFmemberID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFaculty = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRemoveLoad = new System.Windows.Forms.Button();
             this.btnEditLoad = new System.Windows.Forms.Button();
@@ -35,12 +32,15 @@
             this.txtFmemberLname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSearchMember = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
+            this.lblFmemberID = new System.Windows.Forms.Label();
+            this.txtFacultyId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaculty)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFmembersDept
@@ -53,16 +53,14 @@
             this.lblFmembersDept.Size = new System.Drawing.Size(72, 15);
             this.lblFmembersDept.TabIndex = 48;
             this.lblFmembersDept.Text = "Department";
-           
             // 
             // txtFmemberFname
             // 
             this.txtFmemberFname.Location = new System.Drawing.Point(34, 132);
-            this.txtFmemberFname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFmemberFname.Margin = new System.Windows.Forms.Padding(2);
             this.txtFmemberFname.Name = "txtFmemberFname";
             this.txtFmemberFname.Size = new System.Drawing.Size(137, 20);
             this.txtFmemberFname.TabIndex = 59;
-          
             // 
             // lblFmemberFname
             // 
@@ -73,25 +71,6 @@
             this.lblFmemberFname.Size = new System.Drawing.Size(57, 13);
             this.lblFmemberFname.TabIndex = 1;
             this.lblFmemberFname.Text = "First Name";
-            // 
-            // txtFacultyId
-            // 
-            this.txtFacultyId.Location = new System.Drawing.Point(36, 87);
-            this.txtFacultyId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtFacultyId.Name = "txtFacultyId";
-            this.txtFacultyId.Size = new System.Drawing.Size(135, 20);
-            this.txtFacultyId.TabIndex = 61;
-          
-            // 
-            // lblFmemberID
-            // 
-            this.lblFmemberID.AutoSize = true;
-            this.lblFmemberID.Location = new System.Drawing.Point(33, 73);
-            this.lblFmemberID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFmemberID.Name = "lblFmemberID";
-            this.lblFmemberID.Size = new System.Drawing.Size(58, 13);
-            this.lblFmemberID.TabIndex = 0;
-            this.lblFmemberID.Text = "ID Number";
             // 
             // label2
             // 
@@ -104,14 +83,13 @@
             // 
             this.dgvFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFaculty.Location = new System.Drawing.Point(11, 289);
-            this.dgvFaculty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvFaculty.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFaculty.Name = "dgvFaculty";
             this.dgvFaculty.RowHeadersWidth = 51;
             this.dgvFaculty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFaculty.Size = new System.Drawing.Size(776, 150);
             this.dgvFaculty.TabIndex = 57;
             this.dgvFaculty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaculty_CellClick);
-          
             // 
             // panel3
             // 
@@ -119,22 +97,10 @@
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(1, 1);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(797, 63);
             this.panel3.TabIndex = 58;
-            // 
-            // imgBackToMain2
-            // 
-            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(716, 10);
-            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
-            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgBackToMain2.TabIndex = 0;
-            this.imgBackToMain2.TabStop = false;
-            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
             // 
             // label1
             // 
@@ -153,7 +119,7 @@
             this.btnRemoveLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRemoveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveLoad.Location = new System.Drawing.Point(258, 235);
-            this.btnRemoveLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveLoad.Name = "btnRemoveLoad";
             this.btnRemoveLoad.Size = new System.Drawing.Size(95, 40);
             this.btnRemoveLoad.TabIndex = 56;
@@ -166,7 +132,7 @@
             this.btnEditLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnEditLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditLoad.Location = new System.Drawing.Point(147, 235);
-            this.btnEditLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditLoad.Name = "btnEditLoad";
             this.btnEditLoad.Size = new System.Drawing.Size(95, 40);
             this.btnEditLoad.TabIndex = 55;
@@ -177,18 +143,17 @@
             // txtSearchMembers
             // 
             this.txtSearchMembers.Location = new System.Drawing.Point(481, 246);
-            this.txtSearchMembers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearchMembers.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchMembers.Name = "txtSearchMembers";
             this.txtSearchMembers.Size = new System.Drawing.Size(136, 20);
             this.txtSearchMembers.TabIndex = 52;
-       
             // 
             // btnFmembersAdd
             // 
             this.btnFmembersAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnFmembersAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFmembersAdd.Location = new System.Drawing.Point(36, 235);
-            this.btnFmembersAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFmembersAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnFmembersAdd.Name = "btnFmembersAdd";
             this.btnFmembersAdd.Size = new System.Drawing.Size(95, 40);
             this.btnFmembersAdd.TabIndex = 54;
@@ -199,11 +164,10 @@
             // txtFmemberLname
             // 
             this.txtFmemberLname.Location = new System.Drawing.Point(34, 177);
-            this.txtFmemberLname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFmemberLname.Margin = new System.Windows.Forms.Padding(2);
             this.txtFmemberLname.Name = "txtFmemberLname";
             this.txtFmemberLname.Size = new System.Drawing.Size(137, 20);
             this.txtFmemberLname.TabIndex = 65;
-        
             // 
             // label3
             // 
@@ -219,11 +183,23 @@
             // 
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(206, 87);
-            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(138, 21);
             this.cmbDepartment.TabIndex = 53;
-          
+            // 
+            // btnSearchMember
+            // 
+            this.btnSearchMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnSearchMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchMember.Location = new System.Drawing.Point(372, 235);
+            this.btnSearchMember.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearchMember.Name = "btnSearchMember";
+            this.btnSearchMember.Size = new System.Drawing.Size(95, 40);
+            this.btnSearchMember.TabIndex = 63;
+            this.btnSearchMember.Text = "Search";
+            this.btnSearchMember.UseVisualStyleBackColor = false;
+            this.btnSearchMember.Click += new System.EventHandler(this.btnSearchMember_Click);
             // 
             // pictureBox1
             // 
@@ -234,20 +210,36 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 62;
             this.pictureBox1.TabStop = false;
-       
             // 
-            // btnSearchMember
+            // imgBackToMain2
             // 
-            this.btnSearchMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnSearchMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchMember.Location = new System.Drawing.Point(372, 235);
-            this.btnSearchMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSearchMember.Name = "btnSearchMember";
-            this.btnSearchMember.Size = new System.Drawing.Size(95, 40);
-            this.btnSearchMember.TabIndex = 63;
-            this.btnSearchMember.Text = "Search";
-            this.btnSearchMember.UseVisualStyleBackColor = false;
-            this.btnSearchMember.Click += new System.EventHandler(this.btnSearchMember_Click);
+            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
+            this.imgBackToMain2.Location = new System.Drawing.Point(716, 10);
+            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(2);
+            this.imgBackToMain2.Name = "imgBackToMain2";
+            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
+            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBackToMain2.TabIndex = 0;
+            this.imgBackToMain2.TabStop = false;
+            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
+            // 
+            // lblFmemberID
+            // 
+            this.lblFmemberID.AutoSize = true;
+            this.lblFmemberID.Location = new System.Drawing.Point(33, 73);
+            this.lblFmemberID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFmemberID.Name = "lblFmemberID";
+            this.lblFmemberID.Size = new System.Drawing.Size(58, 13);
+            this.lblFmemberID.TabIndex = 0;
+            this.lblFmemberID.Text = "ID Number";
+            // 
+            // txtFacultyId
+            // 
+            this.txtFacultyId.Location = new System.Drawing.Point(36, 87);
+            this.txtFacultyId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFacultyId.Name = "txtFacultyId";
+            this.txtFacultyId.Size = new System.Drawing.Size(135, 20);
+            this.txtFacultyId.TabIndex = 61;
             // 
             // FacultyMembers
             // 
@@ -270,15 +262,15 @@
             this.Controls.Add(this.txtFmemberFname);
             this.Controls.Add(this.txtFmemberLname);
             this.Controls.Add(this.txtFacultyId);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FacultyMembers";
             this.Text = "Faculty Members";
             this.Load += new System.EventHandler(this.FacultyMembers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaculty)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,8 +280,6 @@
         private System.Windows.Forms.Label lblFmembersDept;
         private System.Windows.Forms.TextBox txtFmemberFname;
         private System.Windows.Forms.Label lblFmemberFname;
-        private System.Windows.Forms.TextBox txtFacultyId;
-        private System.Windows.Forms.Label lblFmemberID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvFaculty;
         private System.Windows.Forms.Panel panel3;
@@ -304,5 +294,7 @@
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSearchMember;
+        private System.Windows.Forms.Label lblFmemberID;
+        private System.Windows.Forms.TextBox txtFacultyId;
     }
 }

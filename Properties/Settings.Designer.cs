@@ -66,5 +66,16 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties {
                 return ((string)(this["SchooldbConnectionString3"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=desktop-rfr1dk9;Initial Catalog=Schooldb;Integrated Security=True;Con" +
+            "nect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        public string SchooldbConnectionString4 {
+            get {
+                return ((string)(this["SchooldbConnectionString4"]));
+            }
+        }
     }
 }

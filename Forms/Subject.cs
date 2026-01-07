@@ -298,5 +298,65 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             main.Show();
             this.Hide();
         }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSubjectProgram_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSubjectDepartment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSubjectTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbProgram_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSubjectCode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLaboratoryUnits_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLectureUnits_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }   
 }

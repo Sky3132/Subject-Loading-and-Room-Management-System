@@ -33,13 +33,16 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.imgHomeNoDashboard = new System.Windows.Forms.PictureBox();
+            this.btnSubject = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDepartments = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.btnSchedules = new System.Windows.Forms.Button();
             this.btnRooms = new System.Windows.Forms.Button();
             this.btnFacultyLoading = new System.Windows.Forms.Button();
-            this.btnSubject = new System.Windows.Forms.Button();
+            this.mainContentPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHomeNoDashboard)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,37 +65,65 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.imgHomeNoDashboard);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(806, 63);
             this.panel1.TabIndex = 1;
+            // 
+            // imgHomeNoDashboard
+            // 
+            this.imgHomeNoDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgHomeNoDashboard.Image = global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.home__2_;
+            this.imgHomeNoDashboard.Location = new System.Drawing.Point(751, 19);
+            this.imgHomeNoDashboard.Name = "imgHomeNoDashboard";
+            this.imgHomeNoDashboard.Size = new System.Drawing.Size(37, 26);
+            this.imgHomeNoDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgHomeNoDashboard.TabIndex = 1;
+            this.imgHomeNoDashboard.TabStop = false;
+            this.imgHomeNoDashboard.Click += new System.EventHandler(this.imgHomeNoDashboard_Click);
+            // 
+            // btnSubject
+            // 
+            this.btnSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubject.ForeColor = System.Drawing.Color.Black;
+            this.btnSubject.Location = new System.Drawing.Point(13, 57);
+            this.btnSubject.Name = "btnSubject";
+            this.btnSubject.Size = new System.Drawing.Size(143, 40);
+            this.btnSubject.TabIndex = 0;
+            this.btnSubject.Text = "Subject";
+            this.btnSubject.UseVisualStyleBackColor = false;
+            this.btnSubject.Click += new System.EventHandler(this.btnSubject_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.panel2.Controls.Add(this.btnDepartments);
+            this.panel2.Controls.Add(this.btnDashboard);
             this.panel2.Controls.Add(this.btnSchedules);
             this.panel2.Controls.Add(this.btnRooms);
             this.panel2.Controls.Add(this.btnFacultyLoading);
             this.panel2.Controls.Add(this.btnSubject);
-            this.panel2.Location = new System.Drawing.Point(-1, 63);
+            this.panel2.Location = new System.Drawing.Point(0, 63);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 389);
             this.panel2.TabIndex = 2;
             // 
-            // btnDepartments
+            // btnDashboard
             // 
-            this.btnDepartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnDepartments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDepartments.Location = new System.Drawing.Point(13, 11);
-            this.btnDepartments.Name = "btnDepartments";
-            this.btnDepartments.Size = new System.Drawing.Size(143, 40);
-            this.btnDepartments.TabIndex = 5;
-            this.btnDepartments.Text = "Dashboard";
-            this.btnDepartments.UseVisualStyleBackColor = false;
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Location = new System.Drawing.Point(13, 11);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(143, 40);
+            this.btnDashboard.TabIndex = 5;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnSchedules
             // 
@@ -129,19 +160,17 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.btnFacultyLoading.UseVisualStyleBackColor = false;
             this.btnFacultyLoading.Click += new System.EventHandler(this.btnFacultyLoading_Click);
             // 
-            // btnSubject
+            // mainContentPanel
             // 
-            this.btnSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubject.ForeColor = System.Drawing.Color.Black;
-            this.btnSubject.Location = new System.Drawing.Point(13, 57);
-            this.btnSubject.Name = "btnSubject";
-            this.btnSubject.Size = new System.Drawing.Size(143, 40);
-            this.btnSubject.TabIndex = 0;
-            this.btnSubject.Text = "Subject";
-            this.btnSubject.UseVisualStyleBackColor = false;
-            this.btnSubject.Click += new System.EventHandler(this.btnSubject_Click);
+            this.mainContentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainContentPanel.AutoSize = true;
+            this.mainContentPanel.Location = new System.Drawing.Point(169, 63);
+            this.mainContentPanel.Name = "mainContentPanel";
+            this.mainContentPanel.Size = new System.Drawing.Size(637, 392);
+            this.mainContentPanel.TabIndex = 3;
+            this.mainContentPanel.Visible = false;
             // 
             // Main
             // 
@@ -152,13 +181,16 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.mainContentPanel);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHomeNoDashboard)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -167,11 +199,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnSubject;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnSchedules;
         private System.Windows.Forms.Button btnRooms;
         private System.Windows.Forms.Button btnFacultyLoading;
-        private System.Windows.Forms.Button btnDepartments;
-        private System.Windows.Forms.Button btnSubject;
+        private System.Windows.Forms.Panel mainContentPanel;
+        private System.Windows.Forms.PictureBox imgHomeNoDashboard;
     }
 }

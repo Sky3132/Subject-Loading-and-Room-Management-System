@@ -21,5 +21,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
                 throw new Exception("Capacity must be a valid number greater than 0.");
             }
         }
+        // Inside Managers/RoomManager.cs
+        public int GetCount()
+        {
+            using (DataClasses1DataContext db = new DataClasses1DataContext())
+            {
+                // This counts how many rooms are in your database table
+                return db.tblRooms.Count();
+            }
+        }
     }
 }

@@ -30,5 +30,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
                 if (isUsed) throw new Exception("Subject is currently assigned to a schedule.");
             }
         }
+        // Inside SubjectManager.cs
+        public int GetCount()
+        {
+            // This uses your DataContext to count the subjects in the database
+            using (DataClasses1DataContext db = new DataClasses1DataContext())
+            {
+                return db.tblsubjects.Count();
+            }
+        }
     }
 }

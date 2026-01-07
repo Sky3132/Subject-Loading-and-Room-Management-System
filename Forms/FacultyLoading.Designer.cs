@@ -32,9 +32,7 @@
             this.lblSubject = new System.Windows.Forms.Label();
             this.dgvLoading = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSearchLoad = new System.Windows.Forms.Button();
             this.btnCancelLoad = new System.Windows.Forms.Button();
             this.btnRemoveLoad = new System.Windows.Forms.Button();
@@ -49,10 +47,12 @@
             this.cmbProgram = new System.Windows.Forms.ComboBox();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoading)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSubject
@@ -71,7 +71,7 @@
             this.dgvLoading.Location = new System.Drawing.Point(12, 289);
             this.dgvLoading.Name = "dgvLoading";
             this.dgvLoading.RowHeadersWidth = 51;
-            this.dgvLoading.Size = new System.Drawing.Size(776, 149);
+            this.dgvLoading.Size = new System.Drawing.Size(769, 149);
             this.dgvLoading.TabIndex = 19;
             this.dgvLoading.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoading_CellClick);
             // 
@@ -86,17 +86,6 @@
             this.panel3.Size = new System.Drawing.Size(806, 63);
             this.panel3.TabIndex = 15;
             // 
-            // imgBackToMain2
-            // 
-            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
-            this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
-            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgBackToMain2.TabIndex = 33;
-            this.imgBackToMain2.TabStop = false;
-            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -108,17 +97,6 @@
             this.label1.Size = new System.Drawing.Size(233, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "FACULTY LOADING";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(504, 74);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(277, 153);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnSearchLoad
             // 
@@ -194,7 +172,7 @@
             // 
             this.lblSection.AutoSize = true;
             this.lblSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSection.Location = new System.Drawing.Point(39, 150);
+            this.lblSection.Location = new System.Drawing.Point(39, 182);
             this.lblSection.Name = "lblSection";
             this.lblSection.Size = new System.Drawing.Size(55, 15);
             this.lblSection.TabIndex = 30;
@@ -224,48 +202,71 @@
             // 
             this.cmbSubject.FormattingEnabled = true;
             this.cmbSubject.Location = new System.Drawing.Point(176, 73);
-            this.cmbSubject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbSubject.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSubject.Name = "cmbSubject";
-            this.cmbSubject.Size = new System.Drawing.Size(114, 21);
+            this.cmbSubject.Size = new System.Drawing.Size(140, 21);
             this.cmbSubject.TabIndex = 34;
             // 
             // cmbFaculty
             // 
             this.cmbFaculty.FormattingEnabled = true;
             this.cmbFaculty.Location = new System.Drawing.Point(176, 108);
-            this.cmbFaculty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbFaculty.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFaculty.Name = "cmbFaculty";
-            this.cmbFaculty.Size = new System.Drawing.Size(114, 21);
+            this.cmbFaculty.Size = new System.Drawing.Size(140, 21);
             this.cmbFaculty.TabIndex = 35;
             // 
             // cmbProgram
             // 
             this.cmbProgram.FormattingEnabled = true;
-            this.cmbProgram.Location = new System.Drawing.Point(176, 149);
-            this.cmbProgram.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbProgram.Location = new System.Drawing.Point(176, 181);
+            this.cmbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProgram.Name = "cmbProgram";
-            this.cmbProgram.Size = new System.Drawing.Size(114, 21);
+            this.cmbProgram.Size = new System.Drawing.Size(140, 21);
             this.cmbProgram.TabIndex = 36;
             // 
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(39, 185);
+            this.lblDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartment.Location = new System.Drawing.Point(39, 144);
             this.lblDepartment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(62, 13);
+            this.lblDepartment.Size = new System.Drawing.Size(72, 15);
             this.lblDepartment.TabIndex = 37;
             this.lblDepartment.Text = "Department";
+            this.lblDepartment.Click += new System.EventHandler(this.lblDepartment_Click);
             // 
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(176, 183);
-            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDepartment.Location = new System.Drawing.Point(176, 142);
+            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(114, 21);
+            this.cmbDepartment.Size = new System.Drawing.Size(140, 21);
             this.cmbDepartment.TabIndex = 38;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(504, 74);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(277, 153);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // imgBackToMain2
+            // 
+            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
+            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
+            this.imgBackToMain2.Name = "imgBackToMain2";
+            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
+            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBackToMain2.TabIndex = 33;
+            this.imgBackToMain2.TabStop = false;
+            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
             // 
             // FacultyLoading
             // 
@@ -297,8 +298,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoading)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

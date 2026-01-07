@@ -393,7 +393,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void lblDepartment_Click(object sender, EventArgs e)
         {
 
         }

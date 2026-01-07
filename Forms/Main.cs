@@ -36,5 +36,23 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             roomassign.Show();
             this.Hide();
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            mainContentPanel.Controls.Clear();
+            ucDashboard myDash = new ucDashboard();
+
+            // This ensures the dashboard stretches WITH the panel
+            myDash.Dock = DockStyle.Fill;
+
+            mainContentPanel.Controls.Add(myDash);
+            mainContentPanel.Visible = true;
+            mainContentPanel.BringToFront();
+        }
+
+        private void imgHomeNoDashboard_Click(object sender, EventArgs e)
+        {
+            mainContentPanel.Visible = false;
+        }
     }
 }

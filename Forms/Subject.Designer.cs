@@ -169,35 +169,39 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             this.lblSubjectCode.AutoSize = true;
             this.lblSubjectCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectCode.Location = new System.Drawing.Point(39, 69);
+            this.lblSubjectCode.Location = new System.Drawing.Point(34, 78);
             this.lblSubjectCode.Name = "lblSubjectCode";
             this.lblSubjectCode.Size = new System.Drawing.Size(36, 15);
             this.lblSubjectCode.TabIndex = 7;
             this.lblSubjectCode.Text = "Code";
+            this.lblSubjectCode.Click += new System.EventHandler(this.lblSubjectCode_Click);
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(132, 68);
+            this.txtCode.Location = new System.Drawing.Point(127, 77);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(140, 20);
             this.txtCode.TabIndex = 8;
+            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
             // lblSubjectTitle
             // 
             this.lblSubjectTitle.AutoSize = true;
             this.lblSubjectTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectTitle.Location = new System.Drawing.Point(39, 105);
+            this.lblSubjectTitle.Location = new System.Drawing.Point(34, 114);
             this.lblSubjectTitle.Name = "lblSubjectTitle";
             this.lblSubjectTitle.Size = new System.Drawing.Size(30, 15);
             this.lblSubjectTitle.TabIndex = 9;
             this.lblSubjectTitle.Text = "Title";
+            this.lblSubjectTitle.Click += new System.EventHandler(this.lblSubjectTitle_Click);
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(132, 104);
+            this.txtTitle.Location = new System.Drawing.Point(127, 113);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(140, 20);
             this.txtTitle.TabIndex = 10;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
             // 
             // pictureBox1
             // 
@@ -214,21 +218,23 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // 
             this.lblSubjectDepartment.AutoSize = true;
             this.lblSubjectDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectDepartment.Location = new System.Drawing.Point(39, 141);
+            this.lblSubjectDepartment.Location = new System.Drawing.Point(34, 150);
             this.lblSubjectDepartment.Name = "lblSubjectDepartment";
             this.lblSubjectDepartment.Size = new System.Drawing.Size(72, 15);
             this.lblSubjectDepartment.TabIndex = 13;
             this.lblSubjectDepartment.Text = "Department";
+            this.lblSubjectDepartment.Click += new System.EventHandler(this.lblSubjectDepartment_Click);
             // 
             // lblSubjectProgram
             // 
             this.lblSubjectProgram.AutoSize = true;
             this.lblSubjectProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectProgram.Location = new System.Drawing.Point(39, 174);
+            this.lblSubjectProgram.Location = new System.Drawing.Point(34, 183);
             this.lblSubjectProgram.Name = "lblSubjectProgram";
             this.lblSubjectProgram.Size = new System.Drawing.Size(55, 15);
             this.lblSubjectProgram.TabIndex = 14;
             this.lblSubjectProgram.Text = "Program";
+            this.lblSubjectProgram.Click += new System.EventHandler(this.lblSubjectProgram_Click);
             // 
             // txtSearch
             // 
@@ -255,51 +261,57 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(283, 84);
+            this.label2.Location = new System.Drawing.Point(286, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Lecture Units";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(283, 120);
+            this.label3.Location = new System.Drawing.Point(286, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Laboratory Units";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtLaboratoryUnits
             // 
-            this.txtLaboratoryUnits.Location = new System.Drawing.Point(387, 118);
+            this.txtLaboratoryUnits.Location = new System.Drawing.Point(390, 118);
             this.txtLaboratoryUnits.Name = "txtLaboratoryUnits";
             this.txtLaboratoryUnits.Size = new System.Drawing.Size(100, 20);
             this.txtLaboratoryUnits.TabIndex = 24;
+            this.txtLaboratoryUnits.TextChanged += new System.EventHandler(this.txtLaboratoryUnits_TextChanged);
             // 
             // txtLectureUnits
             // 
-            this.txtLectureUnits.Location = new System.Drawing.Point(387, 82);
+            this.txtLectureUnits.Location = new System.Drawing.Point(390, 82);
             this.txtLectureUnits.Name = "txtLectureUnits";
             this.txtLectureUnits.Size = new System.Drawing.Size(100, 20);
             this.txtLectureUnits.TabIndex = 25;
+            this.txtLectureUnits.TextChanged += new System.EventHandler(this.txtLectureUnits_TextChanged);
             // 
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(132, 141);
+            this.cmbDepartment.Location = new System.Drawing.Point(127, 150);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(140, 21);
             this.cmbDepartment.TabIndex = 26;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             this.cmbDepartment.SelectionChangeCommitted += new System.EventHandler(this.cmbDepartment_SelectionChangeCommitted_1);
             // 
             // cmbProgram
             // 
             this.cmbProgram.FormattingEnabled = true;
-            this.cmbProgram.Location = new System.Drawing.Point(132, 177);
+            this.cmbProgram.Location = new System.Drawing.Point(127, 186);
             this.cmbProgram.Name = "cmbProgram";
             this.cmbProgram.Size = new System.Drawing.Size(140, 21);
             this.cmbProgram.TabIndex = 27;
+            this.cmbProgram.SelectedIndexChanged += new System.EventHandler(this.cmbProgram_SelectedIndexChanged);
             // 
             // Subject
             // 
