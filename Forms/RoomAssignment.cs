@@ -7,7 +7,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class RoomAssignment : Form
     {
-        // Variable to track which assignment is selected for Editing/Removing
         private int _selectedAssignmentId = -1;
 
         public RoomAssignment()
@@ -27,19 +26,17 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
-                    // FEATURE: Room inventory management
                     cmbRoom.DataSource = db.tblRooms.Select(r => new {
                         r.RoomID,
-                        DisplayName = $"{r.RoomName} ({r.RoomType} - Cap: {r.Capacity})"
+                        DisplayName = r.RoomName
                     }).ToList();
                     cmbRoom.DisplayMember = "DisplayName";
                     cmbRoom.ValueMember = "RoomID";
 
-                    // Loading Faculty Loading Data
                     var loadingData = db.tblFacultyLoadings.Select(fl => new {
                         fl.LoadID,
                         DisplayText = fl.tblFaculty.FirstName + " " + fl.tblFaculty.LastName +
-                                      " | " + fl.tblsubjectOffering.tblsubject.Code
+                                      " (" + fl.tblsubjectOffering.tblsubject.Code + ")"
                     }).ToList();
 
                     cmbFacultyAssign.DataSource = loadingData;
@@ -60,32 +57,41 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 if (cmbFacultyAssign.SelectedValue == null || cmbRoom.SelectedValue == null)
                     throw new Exception("Please select both a Room and Faculty Load.");
 
+                if (chkListDays.CheckedItems.Count == 0)
+                    throw new Exception("Please select at least one day.");
+
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     int selectedRoomId = (int)cmbRoom.SelectedValue;
-                    string day = cmbDay.Text;
                     string start = txtStartTime.Text;
                     string end = txtEndTime.Text;
 
-                    // FEATURE: Conflict detection system
-                    var conflict = db.tblRoomAssignments.Any(a =>
-                        a.RoomID == selectedRoomId &&
-                        a.Day == day &&
-                        ((start.CompareTo(a.StartTime) >= 0 && start.CompareTo(a.EndTime) < 0) ||
-                         (end.CompareTo(a.StartTime) > 0 && end.CompareTo(a.EndTime) <= 0)));
+                    // Combine all selected days into a single string (e.g., "Monday,Tuesday,Wednesday")
+                    string selectedDays = string.Join(",", chkListDays.CheckedItems.Cast<string>());
 
-                    if (conflict)
+                    // FEATURE: Conflict detection system - Check each selected day for conflicts
+                    foreach (string day in chkListDays.CheckedItems)
                     {
-                        MessageBox.Show("CONFLICT DETECTED: This room is already occupied during this time.",
-                                        "Scheduling Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        var conflict = db.tblRoomAssignments.Any(a =>
+                            a.RoomID == selectedRoomId &&
+                            a.Day.Contains(day) &&
+                            ((start.CompareTo(a.StartTime) >= 0 && start.CompareTo(a.EndTime) < 0) ||
+                             (end.CompareTo(a.StartTime) > 0 && end.CompareTo(a.EndTime) <= 0)));
+
+                        if (conflict)
+                        {
+                            MessageBox.Show($"CONFLICT DETECTED: {day} - This room is already occupied during this time.",
+                                            "Scheduling Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
 
+                    // Create a SINGLE assignment with all days combined
                     tblRoomAssignment newAssign = new tblRoomAssignment
                     {
                         LoadID = (int)cmbFacultyAssign.SelectedValue,
                         RoomID = selectedRoomId,
-                        Day = day,
+                        Day = selectedDays,  // Store as comma-separated: "Monday,Tuesday,Wednesday"
                         StartTime = start,
                         EndTime = end
                     };
@@ -93,7 +99,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     db.tblRoomAssignments.InsertOnSubmit(newAssign);
                     db.SubmitChanges();
 
-                    MessageBox.Show("Room successfully assigned!");
+                    MessageBox.Show("Room successfully assigned for selected days!");
                     LoadAssignmentsGrid();
                     ClearInputs();
                 }
@@ -101,12 +107,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        // --- NEW: EDIT LOGIC ---
         private void btnEditAssign_Click_1(object sender, EventArgs e)
         {
             try
             {
                 if (_selectedAssignmentId == -1) throw new Exception("Please select an assignment from the list first.");
+
+                if (chkListDays.CheckedItems.Count == 0)
+                    throw new Exception("Please select at least one day.");
 
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
@@ -114,27 +122,30 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     if (assign != null)
                     {
                         int roomId = (int)cmbRoom.SelectedValue;
-                        string day = cmbDay.Text;
                         string start = txtStartTime.Text;
                         string end = txtEndTime.Text;
+                        string selectedDays = string.Join(",", chkListDays.CheckedItems.Cast<string>());
 
-                        // Conflict Check (Ignores the record we are currently editing)
-                        var conflict = db.tblRoomAssignments.Any(a =>
-                            a.AssignmentID != _selectedAssignmentId &&
-                            a.RoomID == roomId &&
-                            a.Day == day &&
-                            ((start.CompareTo(a.StartTime) >= 0 && start.CompareTo(a.EndTime) < 0) ||
-                             (end.CompareTo(a.StartTime) > 0 && end.CompareTo(a.EndTime) <= 0)));
-
-                        if (conflict)
+                        // Conflict Check for new days (Ignores the record we are currently editing)
+                        foreach (string day in chkListDays.CheckedItems)
                         {
-                            MessageBox.Show("Conflict detected! Room is busy at this new time.");
-                            return;
+                            var conflict = db.tblRoomAssignments.Any(a =>
+                                a.AssignmentID != _selectedAssignmentId &&
+                                a.RoomID == roomId &&
+                                a.Day.Contains(day) &&
+                                ((start.CompareTo(a.StartTime) >= 0 && start.CompareTo(a.EndTime) < 0) ||
+                                 (end.CompareTo(a.StartTime) > 0 && end.CompareTo(a.EndTime) <= 0)));
+
+                            if (conflict)
+                            {
+                                MessageBox.Show($"Conflict detected on {day}! Room is busy at this new time.");
+                                return;
+                            }
                         }
 
                         assign.RoomID = roomId;
                         assign.LoadID = (int)cmbFacultyAssign.SelectedValue;
-                        assign.Day = day;
+                        assign.Day = selectedDays;  // Update with new days
                         assign.StartTime = start;
                         assign.EndTime = end;
 
@@ -148,7 +159,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        // --- NEW: REMOVE LOGIC ---
         private void btnRemoveAssign_Click(object sender, EventArgs e)
         {
             try
@@ -174,7 +184,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        // --- NEW: SELECTION LOGIC ---
         private void dgvAssignments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -182,15 +191,29 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 var row = dgvAssignments.Rows[e.RowIndex];
                 _selectedAssignmentId = (int)row.Cells["ID"].Value;
 
-                // Set the controls to match the selected row
-                cmbDay.Text = row.Cells["Day"].Value?.ToString();
-
-                string fullTime = row.Cells["Time"].Value?.ToString();
-                if (!string.IsNullOrEmpty(fullTime) && fullTime.Contains(" - "))
+                // Get the days from the selected row (e.g., "Monday,Tuesday,Wednesday")
+                string daysInRow = row.Cells["Day"].Value?.ToString();
+                UncheckAllDays();
+                
+                if (!string.IsNullOrEmpty(daysInRow))
                 {
-                    var times = fullTime.Split(new string[] { " - " }, StringSplitOptions.None);
-                    txtStartTime.Text = times[0];
-                    txtEndTime.Text = times[1];
+                    // Split the days and check each one
+                    var daysList = daysInRow.Split(',').Select(d => d.Trim()).ToList();
+                    foreach (string day in daysList)
+                    {
+                        int dayIndex = chkListDays.Items.IndexOf(day);
+                        if (dayIndex >= 0)
+                            chkListDays.SetItemChecked(dayIndex, true);
+                    }
+                }
+
+                // Parse the merged Time Period column (e.g., "10:00AM-12:00PM")
+                string timePeriod = row.Cells["TimePeriod"].Value?.ToString();
+                if (!string.IsNullOrEmpty(timePeriod) && timePeriod.Contains("-"))
+                {
+                    var times = timePeriod.Split('-');
+                    txtStartTime.Text = times[0].Trim();
+                    txtEndTime.Text = times[1].Trim();
                 }
 
                 // Match the ComboBoxes to the database values
@@ -217,10 +240,60 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     Faculty = a.tblFacultyLoading.tblFaculty.FirstName + " " + a.tblFacultyLoading.tblFaculty.LastName,
                     Subject = a.tblFacultyLoading.tblsubjectOffering.tblsubject.Code,
                     Day = a.Day,
-                    Time = a.StartTime + " - " + a.EndTime
-                }).OrderBy(x => x.Day).ThenBy(x => x.Time).ToList();
+                    TimePeriod = a.StartTime + "-" + a.EndTime
+                }).OrderBy(x => x.Day).ThenBy(x => x.TimePeriod).ToList();
 
                 if (dgvAssignments.Columns["ID"] != null) dgvAssignments.Columns["ID"].Visible = false;
+            }
+        }
+
+        /// <summary>
+        /// Opens the room availability calendar for visual scheduling
+        /// FEATURE: Visual room availability calendar
+        /// </summary>
+        private void btnViewCalendar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int roomId = -1;
+                
+                // If a room is selected in the combo box, pass it to the calendar
+                if (cmbRoom.SelectedValue != null && int.TryParse(cmbRoom.SelectedValue.ToString(), out int selectedRoomId))
+                {
+                    roomId = selectedRoomId;
+                }
+
+                RoomAvailabilityCalendar calendar = new RoomAvailabilityCalendar(roomId);
+                calendar.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening calendar: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Opens the room utilization report
+        /// FEATURE: Room utilization reports
+        /// </summary>
+        private void btnViewReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RoomUtilizationReport report = new RoomUtilizationReport();
+                report.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening report: " + ex.Message);
+            }
+        }
+
+        private void UncheckAllDays()
+        {
+            for (int i = 0; i < chkListDays.Items.Count; i++)
+            {
+                chkListDays.SetItemChecked(i, false);
             }
         }
 
@@ -229,11 +302,12 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             _selectedAssignmentId = -1;
             cmbRoom.SelectedIndex = -1;
             cmbFacultyAssign.SelectedIndex = -1;
-            cmbDay.SelectedIndex = -1;
+            UncheckAllDays();
             txtStartTime.Clear();
             txtEndTime.Clear();
             dgvAssignments.ClearSelection();
         }
+
         private void imgBackToMain2_Click(object sender, EventArgs e)
         {
             Rooms rooms = new Rooms();
@@ -247,6 +321,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

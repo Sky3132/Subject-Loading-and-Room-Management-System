@@ -8,7 +8,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class Rooms : Form
     {
-        // Reference count will increase once this is built
         private RoomManager _roomMgr = new RoomManager();
 
         public Rooms()
@@ -50,14 +49,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
-                // Calling the Validate method in RoomManager
-                _roomMgr.Validate(txtRoomNum.Text, txtRoomType.Text, txtRoomCapacity.Text);
+                // Validate inputs: RoomName is required, Type and Capacity are required
+                _roomMgr.Validate(txtRoomName.Text, txtRoomType.Text, txtRoomCapacity.Text);
 
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     tblRoom room = new tblRoom
                     {
-                        RoomName = txtRoomNum.Text.Trim(),
+                        RoomName = txtRoomName.Text.Trim(),
                         RoomType = txtRoomType.Text.Trim(),
                         Capacity = int.Parse(txtRoomCapacity.Text)
                     };
@@ -77,7 +76,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             try
             {
                 if (dgvRooms.SelectedRows.Count == 0) throw new Exception("Please select a room to edit.");
-                _roomMgr.Validate(txtRoomNum.Text, txtRoomType.Text, txtRoomCapacity.Text);
+                _roomMgr.Validate(txtRoomName.Text, txtRoomType.Text, txtRoomCapacity.Text);
 
                 int selectedId = (int)dgvRooms.SelectedRows[0].Cells["ID"].Value;
 
@@ -86,7 +85,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     var room = db.tblRooms.FirstOrDefault(r => r.RoomID == selectedId);
                     if (room != null)
                     {
-                        room.RoomName = txtRoomNum.Text.Trim();
+                        room.RoomName = txtRoomName.Text.Trim();
                         room.RoomType = txtRoomType.Text.Trim();
                         room.Capacity = int.Parse(txtRoomCapacity.Text);
                         db.SubmitChanges();
@@ -128,21 +127,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             if (e.RowIndex >= 0)
             {
                 var row = dgvRooms.Rows[e.RowIndex];
-                txtRoomNum.Text = row.Cells["Number"].Value?.ToString();
                 txtRoomName.Text = row.Cells["Number"].Value?.ToString();
                 txtRoomType.Text = row.Cells["Type"].Value?.ToString();
                 txtRoomCapacity.Text = row.Cells["Capacity"].Value?.ToString();
             }
         }
 
-        private void txtRoomName_TextChanged(object sender, EventArgs e)
-        {
-            txtRoomNum.Text = txtRoomName.Text;
-        }
-
         private void ClearInputs()
         {
-            txtRoomNum.Clear();
             txtRoomName.Clear();
             txtRoomType.Clear();
             txtRoomCapacity.Clear();
@@ -159,11 +151,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private void lblRoomAssignment_Click(object sender, EventArgs e)
         {
             RoomAssignment roomAssignForm = new RoomAssignment();
-
-            // Show the RoomAssignment form
             roomAssignForm.Show();
-
-            // Hide the current form (the Main menu or Dashboard)
             this.Hide();
         }
 

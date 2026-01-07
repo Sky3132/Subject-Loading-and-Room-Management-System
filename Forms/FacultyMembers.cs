@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using __Subject_Loading_and_Room_Assignment_Monitoring_System.Models;
-// Import the Managers namespace to use FacultyManager
 using __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers;
 
 namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
@@ -14,7 +13,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
     public partial class FacultyMembers : Form
     {
         ConnectionString connect = new ConnectionString();
-        // Initialize the FacultyManager to handle validation rules
         FacultyManager _facultyMgr = new FacultyManager();
 
         public FacultyMembers()
@@ -53,8 +51,28 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                                           DepartmentID = f.DepartmentID
                                       };
 
-                    dgvFaculty.DataSource = facultyList.ToList();
+                    var facultyData = facultyList.ToList();
+                    
+                    // Add Remaining Units column
+                    var facultyWithRemaining = facultyData.Select(f => new
+                    {
+                        f.ID,
+                        f.FirstName,
+                        f.LastName,
+                        f.Department,
+                        f.CurrentLoad,
+                        f.MaxLoad,
+                        RemainingUnits = f.MaxLoad - f.CurrentLoad,
+                        f.DepartmentID
+                    }).ToList();
 
+                    dgvFaculty.DataSource = facultyWithRemaining;
+
+                    // Hide unnecessary columns
+                    if (dgvFaculty.Columns["ID"] != null)
+                        dgvFaculty.Columns["ID"].Visible = false;
+                    if (dgvFaculty.Columns["MaxLoad"] != null)
+                        dgvFaculty.Columns["MaxLoad"].Visible = false;
                     if (dgvFaculty.Columns["DepartmentID"] != null)
                         dgvFaculty.Columns["DepartmentID"].Visible = false;
                 }
@@ -83,8 +101,28 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                                    DepartmentID = f.DepartmentID
                                };
 
-                dgvFaculty.DataSource = filtered.ToList();
+                var filteredData = filtered.ToList();
+                
+                // Add Remaining Units column
+                var filteredWithRemaining = filteredData.Select(f => new
+                {
+                    f.ID,
+                    f.FirstName,
+                    f.LastName,
+                    f.Department,
+                    f.CurrentLoad,
+                    f.MaxLoad,
+                    RemainingUnits = f.MaxLoad - f.CurrentLoad,
+                    f.DepartmentID
+                }).ToList();
 
+                dgvFaculty.DataSource = filteredWithRemaining;
+
+                // Hide unnecessary columns
+                if (dgvFaculty.Columns["ID"] != null)
+                    dgvFaculty.Columns["ID"].Visible = false;
+                if (dgvFaculty.Columns["MaxLoad"] != null)
+                    dgvFaculty.Columns["MaxLoad"].Visible = false;
                 if (dgvFaculty.Columns["DepartmentID"] != null)
                     dgvFaculty.Columns["DepartmentID"].Visible = false;
             }
@@ -105,20 +143,16 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
-                // 1. Pack UI data into the Model
                 FacultyMember newMember = new FacultyMember
                 {
                     FirstName = txtFmemberFname.Text,
                     LastName = txtFmemberLname.Text,
                     DepartmentID = cmbDepartment.SelectedValue != null ? Convert.ToInt32(cmbDepartment.SelectedValue) : 0,
-                    MaxLoad = string.IsNullOrEmpty(txtMaxLoad.Text) ? 18 : Convert.ToInt32(txtMaxLoad.Text)
+                    MaxLoad = 18
                 };
 
-                // 2. USE THE MANAGER: Validate the data before saving
-                // This will throw an exception if names are null or department is invalid
                 _facultyMgr.Validate(newMember);
 
-                // 3. Save to Database if validation passes
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     tblFaculty dbEntry = new tblFaculty
@@ -132,14 +166,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     db.tblFaculties.InsertOnSubmit(dbEntry);
                     db.SubmitChanges();
 
-                    MessageBox.Show("Faculty added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Faculty added successfully with Max Load of 18 units!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadFaculty();
                     ClearFields();
                 }
             }
             catch (Exception ex)
             {
-                // Any 'throw new Exception' from FacultyManager will be caught here
                 MessageBox.Show(ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -152,7 +185,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
                 int facultyID = Convert.ToInt32(dgvFaculty.SelectedRows[0].Cells["ID"].Value);
 
-                // 1. Pack UI data for validation
                 FacultyMember updatedData = new FacultyMember
                 {
                     FirstName = txtFmemberFname.Text,
@@ -160,7 +192,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     DepartmentID = cmbDepartment.SelectedValue != null ? Convert.ToInt32(cmbDepartment.SelectedValue) : 0
                 };
 
-                // 2. USE THE MANAGER: Validate the updated data
                 _facultyMgr.Validate(updatedData);
 
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
@@ -171,7 +202,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                         faculty.FirstName = updatedData.FirstName;
                         faculty.LastName = updatedData.LastName;
                         faculty.DepartmentID = updatedData.DepartmentID;
-                        faculty.MaxLoad = int.TryParse(txtMaxLoad.Text, out int mLoad) ? mLoad : 18;
 
                         db.SubmitChanges();
                         MessageBox.Show("Updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -194,7 +224,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 txtFacultyId.Text = row.Cells["ID"].Value?.ToString();
                 txtFmemberFname.Text = row.Cells["FirstName"].Value?.ToString();
                 txtFmemberLname.Text = row.Cells["LastName"].Value?.ToString();
-                txtMaxLoad.Text = row.Cells["MaxLoad"].Value?.ToString();
 
                 if (row.Cells["DepartmentID"].Value != null)
                     cmbDepartment.SelectedValue = row.Cells["DepartmentID"].Value;
@@ -228,7 +257,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             txtFacultyId.Clear();
             txtFmemberFname.Clear();
             txtFmemberLname.Clear();
-            txtMaxLoad.Clear();
             cmbDepartment.SelectedIndex = -1;
         }
 
@@ -250,11 +278,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         }
 
         private void txtSearchMembers_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMaxLoad_TextChanged(object sender, EventArgs e)
         {
 
         }

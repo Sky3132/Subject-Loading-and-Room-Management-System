@@ -24,8 +24,6 @@
             this.txtFacultyId = new System.Windows.Forms.TextBox();
             this.lblFmemberID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtMaxLoad = new System.Windows.Forms.TextBox();
-            this.lblFmemberUnits = new System.Windows.Forms.Label();
             this.dgvFaculty = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
@@ -55,7 +53,7 @@
             this.lblFmembersDept.Size = new System.Drawing.Size(72, 15);
             this.lblFmembersDept.TabIndex = 48;
             this.lblFmembersDept.Text = "Department";
-            this.lblFmembersDept.Click += new System.EventHandler(this.lblFmembersDept_Click);
+           
             // 
             // txtFmemberFname
             // 
@@ -64,7 +62,7 @@
             this.txtFmemberFname.Name = "txtFmemberFname";
             this.txtFmemberFname.Size = new System.Drawing.Size(137, 20);
             this.txtFmemberFname.TabIndex = 59;
-            this.txtFmemberFname.TextChanged += new System.EventHandler(this.txtFmemberFname_TextChanged);
+          
             // 
             // lblFmemberFname
             // 
@@ -83,7 +81,7 @@
             this.txtFacultyId.Name = "txtFacultyId";
             this.txtFacultyId.Size = new System.Drawing.Size(135, 20);
             this.txtFacultyId.TabIndex = 61;
-            this.txtFacultyId.TextChanged += new System.EventHandler(this.txtFacultyId_TextChanged);
+          
             // 
             // lblFmemberID
             // 
@@ -102,25 +100,6 @@
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 0;
             // 
-            // txtMaxLoad
-            // 
-            this.txtMaxLoad.Location = new System.Drawing.Point(206, 132);
-            this.txtMaxLoad.Name = "txtMaxLoad";
-            this.txtMaxLoad.Size = new System.Drawing.Size(138, 20);
-            this.txtMaxLoad.TabIndex = 40;
-            this.txtMaxLoad.TextChanged += new System.EventHandler(this.txtMaxLoad_TextChanged);
-            // 
-            // lblFmemberUnits
-            // 
-            this.lblFmemberUnits.AutoSize = true;
-            this.lblFmemberUnits.Location = new System.Drawing.Point(204, 115);
-            this.lblFmemberUnits.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFmemberUnits.Name = "lblFmemberUnits";
-            this.lblFmemberUnits.Size = new System.Drawing.Size(75, 13);
-            this.lblFmemberUnits.TabIndex = 49;
-            this.lblFmemberUnits.Text = "Units (Max 18)";
-            this.lblFmemberUnits.Click += new System.EventHandler(this.lblFmemberUnits_Click);
-            // 
             // dgvFaculty
             // 
             this.dgvFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -132,7 +111,7 @@
             this.dgvFaculty.Size = new System.Drawing.Size(776, 150);
             this.dgvFaculty.TabIndex = 57;
             this.dgvFaculty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaculty_CellClick);
-            this.dgvFaculty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaculty_CellContentClick);
+          
             // 
             // panel3
             // 
@@ -202,7 +181,7 @@
             this.txtSearchMembers.Name = "txtSearchMembers";
             this.txtSearchMembers.Size = new System.Drawing.Size(136, 20);
             this.txtSearchMembers.TabIndex = 52;
-            this.txtSearchMembers.TextChanged += new System.EventHandler(this.txtSearchMembers_TextChanged);
+       
             // 
             // btnFmembersAdd
             // 
@@ -224,7 +203,7 @@
             this.txtFmemberLname.Name = "txtFmemberLname";
             this.txtFmemberLname.Size = new System.Drawing.Size(137, 20);
             this.txtFmemberLname.TabIndex = 65;
-            this.txtFmemberLname.TextChanged += new System.EventHandler(this.txtFmemberLname_TextChanged);
+        
             // 
             // label3
             // 
@@ -244,7 +223,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(138, 21);
             this.cmbDepartment.TabIndex = 53;
-            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+          
             // 
             // pictureBox1
             // 
@@ -255,7 +234,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 62;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+       
             // 
             // btnSearchMember
             // 
@@ -281,7 +260,6 @@
             this.Controls.Add(this.lblFmemberFname);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblFmembersDept);
-            this.Controls.Add(this.lblFmemberUnits);
             this.Controls.Add(this.txtSearchMembers);
             this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.btnFmembersAdd);
@@ -292,7 +270,6 @@
             this.Controls.Add(this.txtFmemberFname);
             this.Controls.Add(this.txtFmemberLname);
             this.Controls.Add(this.txtFacultyId);
-            this.Controls.Add(this.txtMaxLoad);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FacultyMembers";
             this.Text = "Faculty Members";
@@ -314,8 +291,6 @@
         private System.Windows.Forms.TextBox txtFacultyId;
         private System.Windows.Forms.Label lblFmemberID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMaxLoad;
-        private System.Windows.Forms.Label lblFmemberUnits;
         private System.Windows.Forms.DataGridView dgvFaculty;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox imgBackToMain2;

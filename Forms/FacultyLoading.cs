@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers;
 
 namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class FacultyLoading : Form
     {
         private int selectedLoadID = 0;
+        private FacultyManager _facultyMgr = new FacultyManager();
 
         public FacultyLoading()
         {
@@ -102,6 +104,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
                 dgvLoading.DataSource = data.ToList();
 
+                // Hide unnecessary columns
+                if (dgvLoading.Columns["LoadID"] != null) dgvLoading.Columns["LoadID"].Visible = false;
                 if (dgvLoading.Columns["FacultyID"] != null) dgvLoading.Columns["FacultyID"].Visible = false;
                 if (dgvLoading.Columns["OfferingID"] != null) dgvLoading.Columns["OfferingID"].Visible = false;
             }
@@ -117,28 +121,95 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
             using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
+                int facultyID = (int)cmbFaculty.SelectedValue;
+                int offeringID = (int)cmbSubject.SelectedValue;
+
+                // Get the subject units for the subject being assigned
+                var subjectOffering = db.tblsubjectOfferings
+                    .Where(o => o.offeringId == offeringID)
+                    .Select(o => o.tblsubject)
+                    .FirstOrDefault();
+
+                if (subjectOffering == null)
+                {
+                    MessageBox.Show("Selected subject not found.");
+                    return;
+                }
+
+                int newSubjectUnits = subjectOffering.LectureUnits + subjectOffering.LaboratoryUnits;
+
+                // Get faculty information
+                var faculty = db.tblFaculties.FirstOrDefault(f => f.FacultyID == facultyID);
+                if (faculty == null)
+                {
+                    MessageBox.Show("Selected faculty not found.");
+                    return;
+                }
+
+                int maxLoad = faculty.MaxLoad ?? 18;
+
+                // Calculate current load (excluding the record being edited, if applicable)
+                int currentLoad = db.tblFacultyLoadings
+                    .Where(l => l.FacultyID == facultyID && l.LoadID != selectedLoadID)
+                    .Sum(l => (int?)(l.tblsubjectOffering.tblsubject.LectureUnits +
+                                    l.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0;
+
+                // Calculate what the total would be after this assignment
+                int projectedLoad = currentLoad + newSubjectUnits;
+
+                // Check if faculty would exceed maximum load
+                if (projectedLoad > maxLoad)
+                {
+                    MessageBox.Show(
+                        $"Cannot assign this subject. Faculty load will exceed maximum.\n\n" +
+                        $"Faculty: {faculty.FirstName} {faculty.LastName}\n" +
+                        $"Current Load (other subjects): {currentLoad} units\n" +
+                        $"New Subject Units: {newSubjectUnits} units\n" +
+                        $"Projected Total: {projectedLoad} units\n" +
+                        $"Maximum Allowed: {maxLoad} units\n\n" +
+                        $"Excess: {projectedLoad - maxLoad} units",
+                        "Load Exceeds Maximum",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+
+                // Validation passed - proceed with save
                 tblFacultyLoading record;
                 if (selectedLoadID == 0)
                 {
+                    // Adding new record
                     record = new tblFacultyLoading();
                     db.tblFacultyLoadings.InsertOnSubmit(record);
                 }
                 else
                 {
-                    record = db.tblFacultyLoadings.First(l => l.LoadID == selectedLoadID);
+                    // Editing existing record
+                    record = db.tblFacultyLoadings.FirstOrDefault(l => l.LoadID == selectedLoadID);
+                    if (record == null)
+                    {
+                        MessageBox.Show("Record not found.");
+                        return;
+                    }
                 }
 
-                record.FacultyID = (int)cmbFaculty.SelectedValue;
-                record.offeringId = (int)cmbSubject.SelectedValue;
-
-                // Saving the name of the program to the Section column
+                record.FacultyID = facultyID;
+                record.offeringId = offeringID;
                 record.Section = cmbProgram.Text;
                 record.Status = "Approved";
 
-                db.SubmitChanges();
-                MessageBox.Show("Saved successfully!");
-                ClearFields();
-                LoadDataGrid();
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Saved successfully!");
+                    ClearFields();
+                    LoadDataGrid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving record: " + ex.Message);
+                }
             }
         }
 
@@ -244,7 +315,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
                 dgvLoading.DataSource = data.ToList();
 
-                // Ensure columns stay hidden
+                // Hide unnecessary columns
+                if (dgvLoading.Columns["LoadID"] != null) dgvLoading.Columns["LoadID"].Visible = false;
                 if (dgvLoading.Columns["FacultyID"] != null) dgvLoading.Columns["FacultyID"].Visible = false;
                 if (dgvLoading.Columns["OfferingID"] != null) dgvLoading.Columns["OfferingID"].Visible = false;
             }

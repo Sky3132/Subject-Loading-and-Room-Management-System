@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core Models\RoomModel.cs" />
+    <Compile Include="Core Models\RoomUtilizationModel.cs" />
     <Compile Include="Core Models\ScheduleModel.cs" />
     <Compile Include="Core Models\SubjectModel.cs" />
     <Compile Include="Core Models\UserModel.cs" />
@@ -75,11 +76,23 @@
     <Compile Include="Forms\RoomAssignment.Designer.cs">
       <DependentUpon>RoomAssignment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RoomAvailabilityCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RoomAvailabilityCalendar.Designer.cs">
+      <DependentUpon>RoomAvailabilityCalendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Rooms.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Rooms.Designer.cs">
       <DependentUpon>Rooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RoomUtilizationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RoomUtilizationReport.Designer.cs">
+      <DependentUpon>RoomUtilizationReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Schedules.cs">
       <SubType>Form</SubType>
@@ -166,8 +179,14 @@
     <EmbeddedResource Include="Forms\RoomAssignment.resx">
       <DependentUpon>RoomAssignment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RoomAvailabilityCalendar.resx">
+      <DependentUpon>RoomAvailabilityCalendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rooms.resx">
       <DependentUpon>Rooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RoomUtilizationReport.resx">
+      <DependentUpon>RoomUtilizationReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Schedules.resx">
       <DependentUpon>Schedules.cs</DependentUpon>
