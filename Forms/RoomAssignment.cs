@@ -26,10 +26,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
-                    // We use .ToList() first to bring data into memory so C# can handle the "VC" string formatting
                     var rooms = db.tblRooms.ToList().Select(r => new {
                         r.RoomID,
-                        // Formats the display as "ROOM1 - MAIN" or "ROOM2 - VC"
                         DisplayName = r.RoomName + " - " + (r.Campus == "Visayan" ? "VC" : r.Campus.ToUpper())
                     }).ToList();
 
@@ -67,20 +65,21 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     int selectedRoomId = (int)cmbRoom.SelectedValue;
-                    string start = txtStartTime.Text;
-                    string end = txtEndTime.Text;
-
-                    // Combine all selected days into a single string (e.g., "Monday,Tuesday,Wednesday")
+                    DateTime newStart = DateTime.Parse(txtStartTime.Text);
+                    DateTime newEnd = DateTime.Parse(txtEndTime.Text);
                     string selectedDays = string.Join(",", chkListDays.CheckedItems.Cast<string>());
 
-                    // FEATURE: Conflict detection system - Check each selected day for conflicts
                     foreach (string day in chkListDays.CheckedItems)
                     {
-                        var conflict = db.tblRoomAssignments.Any(a =>
-                            a.RoomID == selectedRoomId &&
-                            a.Day.Contains(day) &&
-                            ((start.CompareTo(a.StartTime) >= 0 && start.CompareTo(a.EndTime) < 0) ||
-                             (end.CompareTo(a.StartTime) > 0 && end.CompareTo(a.EndTime) <= 0)));
+                        var roomAssignments = db.tblRoomAssignments
+                            .Where(a => a.RoomID == selectedRoomId && a.Day.Contains(day))
+                            .ToList();
+
+                        bool conflict = roomAssignments.Any(a => {
+                            DateTime existStart = DateTime.Parse(a.StartTime);
+                            DateTime existEnd = DateTime.Parse(a.EndTime);
+                            return (newStart < existEnd && newEnd > existStart);
+                        });
 
                         if (conflict)
                         {
@@ -90,14 +89,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                         }
                     }
 
-                    // Create a SINGLE assignment with all days combined
                     tblRoomAssignment newAssign = new tblRoomAssignment
                     {
                         LoadID = (int)cmbFacultyAssign.SelectedValue,
                         RoomID = selectedRoomId,
-                        Day = selectedDays,  // Store as comma-separated: "Monday,Tuesday,Wednesday"
-                        StartTime = start,
-                        EndTime = end
+                        Day = selectedDays,
+                        StartTime = txtStartTime.Text,
+                        EndTime = txtEndTime.Text
                     };
 
                     db.tblRoomAssignments.InsertOnSubmit(newAssign);
@@ -126,19 +124,21 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     if (assign != null)
                     {
                         int roomId = (int)cmbRoom.SelectedValue;
-                        string start = txtStartTime.Text;
-                        string end = txtEndTime.Text;
+                        DateTime newStart = DateTime.Parse(txtStartTime.Text);
+                        DateTime newEnd = DateTime.Parse(txtEndTime.Text);
                         string selectedDays = string.Join(",", chkListDays.CheckedItems.Cast<string>());
 
-                        // Conflict Check for new days (Ignores the record we are currently editing)
                         foreach (string day in chkListDays.CheckedItems)
                         {
-                            var conflict = db.tblRoomAssignments.Any(a =>
-                                a.AssignmentID != _selectedAssignmentId &&
-                                a.RoomID == roomId &&
-                                a.Day.Contains(day) &&
-                                ((start.CompareTo(a.StartTime) >= 0 && start.CompareTo(a.EndTime) < 0) ||
-                                 (end.CompareTo(a.StartTime) > 0 && end.CompareTo(a.EndTime) <= 0)));
+                            var roomAssignments = db.tblRoomAssignments
+                                .Where(a => a.AssignmentID != _selectedAssignmentId && a.RoomID == roomId && a.Day.Contains(day))
+                                .ToList();
+
+                            bool conflict = roomAssignments.Any(a => {
+                                DateTime existStart = DateTime.Parse(a.StartTime);
+                                DateTime existEnd = DateTime.Parse(a.EndTime);
+                                return (newStart < existEnd && newEnd > existStart);
+                            });
 
                             if (conflict)
                             {
@@ -149,9 +149,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
                         assign.RoomID = roomId;
                         assign.LoadID = (int)cmbFacultyAssign.SelectedValue;
-                        assign.Day = selectedDays;  // Update with new days
-                        assign.StartTime = start;
-                        assign.EndTime = end;
+                        assign.Day = selectedDays;
+                        assign.StartTime = txtStartTime.Text;
+                        assign.EndTime = txtEndTime.Text;
 
                         db.SubmitChanges();
                         MessageBox.Show("Assignment updated successfully!");
@@ -195,13 +195,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 var row = dgvAssignments.Rows[e.RowIndex];
                 _selectedAssignmentId = (int)row.Cells["ID"].Value;
 
-                // Get the days from the selected row (e.g., "Monday,Tuesday,Wednesday")
                 string daysInRow = row.Cells["Day"].Value?.ToString();
                 UncheckAllDays();
-                
+
                 if (!string.IsNullOrEmpty(daysInRow))
                 {
-                    // Split the days and check each one
                     var daysList = daysInRow.Split(',').Select(d => d.Trim()).ToList();
                     foreach (string day in daysList)
                     {
@@ -211,7 +209,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     }
                 }
 
-                // Parse the merged Time Period column (e.g., "10:00AM-12:00PM")
                 string timePeriod = row.Cells["TimePeriod"].Value?.ToString();
                 if (!string.IsNullOrEmpty(timePeriod) && timePeriod.Contains("-"))
                 {
@@ -220,7 +217,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     txtEndTime.Text = times[1].Trim();
                 }
 
-                // Match the ComboBoxes to the database values
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     var assign = db.tblRoomAssignments.FirstOrDefault(a => a.AssignmentID == _selectedAssignmentId);
@@ -251,10 +247,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             }
         }
 
-        /// <summary>
-        /// Opens the room availability calendar for visual scheduling
-        /// FEATURE: Visual room availability calendar
-        /// </summary>
         private void btnViewCalendar_Click(object sender, EventArgs e)
         {
             RoomAvailabilityCalendar calendar = new RoomAvailabilityCalendar();
@@ -262,13 +254,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.Hide();
         }
 
-        /// <summary>
-        /// Opens the room utilization report
-        /// FEATURE: Room utilization reports
-        /// </summary>
         private void btnViewReport_Click(object sender, EventArgs e)
         {
-           RoomUtilizationReport report = new RoomUtilizationReport();
+            RoomUtilizationReport report = new RoomUtilizationReport();
             report.Show();
             this.Hide();
         }

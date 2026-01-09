@@ -71,23 +71,39 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
+                // 1. Basic Validation
+                if (string.IsNullOrWhiteSpace(txtRoomName.Text))
+                    throw new Exception("Please enter a Room Name.");
                 if (cmbRoomType.SelectedIndex == -1)
                     throw new Exception("Please select a room type.");
-
                 if (!rbMain.Checked && !rbVisayan.Checked)
-                    throw new Exception("Please select a campus (Main or Visayan).");
+                    throw new Exception("Please select a campus.");
 
-                _roomMgr.Validate(txtRoomName.Text, cmbRoomType.SelectedItem.ToString(), txtRoomCapacity.Text);
+                string name = txtRoomName.Text.Trim();
+                string campus = GetSelectedCampus();
 
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
+                    // 2. DUPLICATE CHECK: Look for same Name AND same Campus
+                    bool exists = db.tblRooms.Any(r => r.RoomName.ToLower() == name.ToLower()
+                                                    && r.Campus == campus);
+
+                    if (exists)
+                    {
+                        MessageBox.Show($"Room '{name}' already exists in the {campus} campus.",
+                                        "Duplicate Room", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Stop the process
+                    }
+
+                    // 3. Save if no duplicate found
                     tblRoom room = new tblRoom
                     {
-                        RoomName = txtRoomName.Text.Trim(),
+                        RoomName = name,
                         RoomType = cmbRoomType.SelectedItem.ToString(),
                         Capacity = int.Parse(txtRoomCapacity.Text),
-                        Campus = GetSelectedCampus() // SAVES CAMPUS TO DB
+                        Campus = campus
                     };
+
                     db.tblRooms.InsertOnSubmit(room);
                     db.SubmitChanges();
 
