@@ -175,3 +175,4 @@ C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debu
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
+C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources

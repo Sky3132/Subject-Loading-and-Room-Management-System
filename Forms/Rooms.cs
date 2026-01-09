@@ -18,7 +18,20 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private void Rooms_Load(object sender, EventArgs e)
         {
             dgvRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            LoadRoomTypes();
             LoadRooms();
+        }
+
+        private void LoadRoomTypes()
+        {
+            try
+            {
+                // Load room types into combo box
+                cmbRoomType.Items.Clear();
+                cmbRoomType.Items.AddRange(new object[] { "Classroom", "ChemLab", "ComLab", "Drawing Room", "Drafting Room" });
+                cmbRoomType.SelectedIndex = -1;
+            }
+            catch (Exception ex) { MessageBox.Show("Error loading room types: " + ex.Message); }
         }
 
         private void LoadRooms()
@@ -50,14 +63,17 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             try
             {
                 // Validate inputs: RoomName is required, Type and Capacity are required
-                _roomMgr.Validate(txtRoomName.Text, txtRoomType.Text, txtRoomCapacity.Text);
+                if (cmbRoomType.SelectedIndex == -1)
+                    throw new Exception("Please select a room type.");
+
+                _roomMgr.Validate(txtRoomName.Text, cmbRoomType.SelectedItem.ToString(), txtRoomCapacity.Text);
 
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
                     tblRoom room = new tblRoom
                     {
                         RoomName = txtRoomName.Text.Trim(),
-                        RoomType = txtRoomType.Text.Trim(),
+                        RoomType = cmbRoomType.SelectedItem.ToString(),
                         Capacity = int.Parse(txtRoomCapacity.Text)
                     };
                     db.tblRooms.InsertOnSubmit(room);
@@ -75,8 +91,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
-                if (dgvRooms.SelectedRows.Count == 0) throw new Exception("Please select a room to edit.");
-                _roomMgr.Validate(txtRoomName.Text, txtRoomType.Text, txtRoomCapacity.Text);
+                if (dgvRooms.SelectedRows.Count == 0) 
+                    throw new Exception("Please select a room to edit.");
+
+                if (cmbRoomType.SelectedIndex == -1)
+                    throw new Exception("Please select a room type.");
+
+                _roomMgr.Validate(txtRoomName.Text, cmbRoomType.SelectedItem.ToString(), txtRoomCapacity.Text);
 
                 int selectedId = (int)dgvRooms.SelectedRows[0].Cells["ID"].Value;
 
@@ -86,7 +107,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     if (room != null)
                     {
                         room.RoomName = txtRoomName.Text.Trim();
-                        room.RoomType = txtRoomType.Text.Trim();
+                        room.RoomType = cmbRoomType.SelectedItem.ToString();
                         room.Capacity = int.Parse(txtRoomCapacity.Text);
                         db.SubmitChanges();
                         MessageBox.Show("Room updated successfully.");
@@ -102,7 +123,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
-                if (dgvRooms.SelectedRows.Count == 0) throw new Exception("Please select a room to remove.");
+                if (dgvRooms.SelectedRows.Count == 0) 
+                    throw new Exception("Please select a room to remove.");
+
                 if (MessageBox.Show("Delete this room?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     int selectedId = (int)dgvRooms.SelectedRows[0].Cells["ID"].Value;
@@ -128,7 +151,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 var row = dgvRooms.Rows[e.RowIndex];
                 txtRoomName.Text = row.Cells["Number"].Value?.ToString();
-                txtRoomType.Text = row.Cells["Type"].Value?.ToString();
+                cmbRoomType.SelectedItem = row.Cells["Type"].Value?.ToString();
                 txtRoomCapacity.Text = row.Cells["Capacity"].Value?.ToString();
             }
         }
@@ -136,7 +159,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private void ClearInputs()
         {
             txtRoomName.Clear();
-            txtRoomType.Clear();
+            cmbRoomType.SelectedIndex = -1;
             txtRoomCapacity.Clear();
             dgvRooms.ClearSelection();
         }

@@ -181,7 +181,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
-                if (dgvFaculty.SelectedRows.Count == 0) return;
+                if (dgvFaculty.SelectedRows.Count == 0)
+                    throw new Exception("Please select a faculty member to edit.");
 
                 int facultyID = Convert.ToInt32(dgvFaculty.SelectedRows[0].Cells["ID"].Value);
 
@@ -221,7 +222,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvFaculty.Rows[e.RowIndex];
-                txtFacultyId.Text = row.Cells["ID"].Value?.ToString();
                 txtFmemberFname.Text = row.Cells["FirstName"].Value?.ToString();
                 txtFmemberLname.Text = row.Cells["LastName"].Value?.ToString();
 
@@ -232,8 +232,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private void btnRemoveMember_Click(object sender, EventArgs e)
         {
-            if (dgvFaculty.SelectedRows.Count > 0)
+            try
             {
+                if (dgvFaculty.SelectedRows.Count == 0)
+                    throw new Exception("Please select a faculty member to delete.");
+
                 if (MessageBox.Show("Delete this faculty?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int facultyID = Convert.ToInt32(dgvFaculty.SelectedRows[0].Cells["ID"].Value);
@@ -250,11 +253,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ClearFields()
         {
-            txtFacultyId.Clear();
             txtFmemberFname.Clear();
             txtFmemberLname.Clear();
             cmbDepartment.SelectedIndex = -1;
@@ -270,51 +276,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private void btnSearchMember_Click(object sender, EventArgs e)
         {
             SearchFaculty(txtSearchMembers.Text.Trim());
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearchMembers_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFmemberUnits_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFmembersDept_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFmemberFname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFmemberLname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFacultyId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvFaculty_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

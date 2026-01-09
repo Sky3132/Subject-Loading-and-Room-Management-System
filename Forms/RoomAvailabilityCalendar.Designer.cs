@@ -15,121 +15,187 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomAvailabilityCalendar));
-            this.dataGridViewCalendar = new System.Windows.Forms.DataGridView();
+            this.monthCalendarRooms = new System.Windows.Forms.MonthCalendar();
+            this.dgvRoomDetails = new System.Windows.Forms.DataGridView();
+            this.lblMonthYear = new System.Windows.Forms.Label();
+            this.lblSelectedDate = new System.Windows.Forms.Label();
+            this.btnPreviousMonth = new System.Windows.Forms.Button();
+            this.btnNextMonth = new System.Windows.Forms.Button();
+            this.btnToday = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlHeader = new System.Windows.Forms.Panel();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).BeginInit();
-            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoomDetails)).BeginInit();
+            this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewCalendar
+            // monthCalendarRooms
             // 
-            this.dataGridViewCalendar.AllowUserToAddRows = false;
-            this.dataGridViewCalendar.AllowUserToDeleteRows = false;
-            this.dataGridViewCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCalendar.Location = new System.Drawing.Point(12, 85);
-            this.dataGridViewCalendar.Name = "dataGridViewCalendar";
-            this.dataGridViewCalendar.RowHeadersWidth = 80;
-            this.dataGridViewCalendar.Size = new System.Drawing.Size(1070, 365);
-            this.dataGridViewCalendar.TabIndex = 0;
+            this.monthCalendarRooms.Location = new System.Drawing.Point(12, 100);
+            this.monthCalendarRooms.Name = "monthCalendarRooms";
+            this.monthCalendarRooms.TabIndex = 1;
+            this.monthCalendarRooms.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendarRooms_DateSelected);
+            // 
+            // dgvRoomDetails
+            // 
+            this.dgvRoomDetails.AllowUserToAddRows = false;
+            this.dgvRoomDetails.AllowUserToDeleteRows = false;
+            this.dgvRoomDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoomDetails.Location = new System.Drawing.Point(520, 100);
+            this.dgvRoomDetails.Name = "dgvRoomDetails";
+            this.dgvRoomDetails.ReadOnly = true;
+            this.dgvRoomDetails.RowHeadersWidth = 51;
+            this.dgvRoomDetails.Size = new System.Drawing.Size(560, 400);
+            this.dgvRoomDetails.TabIndex = 8;
+            // 
+            // lblMonthYear
+            // 
+            this.lblMonthYear.AutoSize = true;
+            this.lblMonthYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonthYear.Location = new System.Drawing.Point(12, 75);
+            this.lblMonthYear.Name = "lblMonthYear";
+            this.lblMonthYear.Size = new System.Drawing.Size(144, 25);
+            this.lblMonthYear.TabIndex = 2;
+            this.lblMonthYear.Text = "January 2025";
+            // 
+            // lblSelectedDate
+            // 
+            this.lblSelectedDate.AutoSize = true;
+            this.lblSelectedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedDate.Location = new System.Drawing.Point(520, 75);
+            this.lblSelectedDate.Name = "lblSelectedDate";
+            this.lblSelectedDate.Size = new System.Drawing.Size(210, 24);
+            this.lblSelectedDate.TabIndex = 7;
+            this.lblSelectedDate.Text = "Date: January 1, 2025";
+            // 
+            // btnPreviousMonth
+            // 
+            this.btnPreviousMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnPreviousMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreviousMonth.Location = new System.Drawing.Point(12, 319);
+            this.btnPreviousMonth.Name = "btnPreviousMonth";
+            this.btnPreviousMonth.Size = new System.Drawing.Size(100, 35);
+            this.btnPreviousMonth.TabIndex = 3;
+            this.btnPreviousMonth.Text = "< Previous";
+            this.btnPreviousMonth.UseVisualStyleBackColor = false;
+            this.btnPreviousMonth.Click += new System.EventHandler(this.btnPreviousMonth_Click);
+            // 
+            // btnNextMonth
+            // 
+            this.btnNextMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnNextMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextMonth.Location = new System.Drawing.Point(118, 319);
+            this.btnNextMonth.Name = "btnNextMonth";
+            this.btnNextMonth.Size = new System.Drawing.Size(100, 35);
+            this.btnNextMonth.TabIndex = 4;
+            this.btnNextMonth.Text = "Next >";
+            this.btnNextMonth.UseVisualStyleBackColor = false;
+            this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
+            // 
+            // btnToday
+            // 
+            this.btnToday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToday.ForeColor = System.Drawing.Color.Black;
+            this.btnToday.Location = new System.Drawing.Point(17, 380);
+            this.btnToday.Name = "btnToday";
+            this.btnToday.Size = new System.Drawing.Size(100, 35);
+            this.btnToday.TabIndex = 5;
+            this.btnToday.Text = "Today";
+            this.btnToday.UseVisualStyleBackColor = false;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(12, 460);
+            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.Location = new System.Drawing.Point(123, 380);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(100, 40);
-            this.btnRefresh.TabIndex = 1;
+            this.btnRefresh.Size = new System.Drawing.Size(100, 35);
+            this.btnRefresh.TabIndex = 6;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // panel3
+            // lblTitle
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(370, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(488, 32);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "ROOM AVAILABILITY CALENDAR";
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.AutoSize = true;
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.imgBackToMain2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(-1, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1104, 78);
-            this.panel3.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(294, 16);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(488, 32);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "ROOM AVAILABILITY CALENDAR";
+            this.pnlHeader.AutoSize = true;
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+            this.pnlHeader.Controls.Add(this.imgBackToMain2);
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1100, 70);
+            this.pnlHeader.TabIndex = 0;
             // 
             // imgBackToMain2
             // 
-            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(963, 16);
-            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(4);
+            this.imgBackToMain2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imgBackToMain2.Location = new System.Drawing.Point(1050, 10);
             this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(108, 48);
+            this.imgBackToMain2.Size = new System.Drawing.Size(40, 40);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgBackToMain2.TabIndex = 33;
+            this.imgBackToMain2.TabIndex = 1;
             this.imgBackToMain2.TabStop = false;
             this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(401, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = " ";
             // 
             // RoomAvailabilityCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 520);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(1100, 520);
+            this.Controls.Add(this.dgvRoomDetails);
+            this.Controls.Add(this.lblSelectedDate);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.dataGridViewCalendar);
+            this.Controls.Add(this.btnToday);
+            this.Controls.Add(this.btnNextMonth);
+            this.Controls.Add(this.btnPreviousMonth);
+            this.Controls.Add(this.lblMonthYear);
+            this.Controls.Add(this.monthCalendarRooms);
+            this.Controls.Add(this.pnlHeader);
             this.Name = "RoomAvailabilityCalendar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Room Availability Calendar";
             this.Load += new System.EventHandler(this.RoomAvailabilityCalendar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoomDetails)).EndInit();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private System.Windows.Forms.DataGridView dataGridViewCalendar;
+       
+
+        private System.Windows.Forms.MonthCalendar monthCalendarRooms;
+        private System.Windows.Forms.DataGridView dgvRoomDetails;
+        private System.Windows.Forms.Label lblMonthYear;
+        private System.Windows.Forms.Label lblSelectedDate;
+        private System.Windows.Forms.Button btnPreviousMonth;
+        private System.Windows.Forms.Button btnNextMonth;
+        private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.PictureBox imgBackToMain2;
-        private System.Windows.Forms.Label label1;
     }
 }
