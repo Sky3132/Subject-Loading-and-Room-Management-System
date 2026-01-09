@@ -19,8 +19,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.dgvUtilization = new System.Windows.Forms.DataGridView();
             this.btnExportReport = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.txtSummary = new System.Windows.Forms.TextBox();
-            this.lblSummary = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
@@ -39,7 +37,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.dgvUtilization.Name = "dgvUtilization";
             this.dgvUtilization.ReadOnly = true;
             this.dgvUtilization.RowHeadersWidth = 51;
-            this.dgvUtilization.Size = new System.Drawing.Size(1057, 236);
+            this.dgvUtilization.Size = new System.Drawing.Size(1057, 300);
             this.dgvUtilization.TabIndex = 0;
             // 
             // btnExportReport
@@ -47,7 +45,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.btnExportReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnExportReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportReport.Location = new System.Drawing.Point(12, 370);
+            this.btnExportReport.Location = new System.Drawing.Point(15, 436);
             this.btnExportReport.Name = "btnExportReport";
             this.btnExportReport.Size = new System.Drawing.Size(120, 40);
             this.btnExportReport.TabIndex = 1;
@@ -60,36 +58,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(140, 370);
+            this.btnRefresh.Location = new System.Drawing.Point(143, 436);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(100, 40);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // txtSummary
-            // 
-            this.txtSummary.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtSummary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSummary.Location = new System.Drawing.Point(77, 438);
-            this.txtSummary.Multiline = true;
-            this.txtSummary.Name = "txtSummary";
-            this.txtSummary.ReadOnly = true;
-            this.txtSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSummary.Size = new System.Drawing.Size(900, 120);
-            this.txtSummary.TabIndex = 4;
-            // 
-            // lblSummary
-            // 
-            this.lblSummary.AutoSize = true;
-            this.lblSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSummary.Location = new System.Drawing.Point(12, 410);
-            this.lblSummary.Name = "lblSummary";
-            this.lblSummary.Size = new System.Drawing.Size(179, 20);
-            this.lblSummary.TabIndex = 5;
-            this.lblSummary.Text = "Summary Statistics:";
             // 
             // panel3
             // 
@@ -104,6 +79,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1075, 78);
             this.panel3.TabIndex = 18;
+         
             // 
             // label5
             // 
@@ -150,8 +126,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 570);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.lblSummary);
-            this.Controls.Add(this.txtSummary);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnExportReport);
             this.Controls.Add(this.dgvUtilization);
@@ -170,8 +144,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private System.Windows.Forms.DataGridView dgvUtilization;
         private System.Windows.Forms.Button btnExportReport;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.TextBox txtSummary;
-        private System.Windows.Forms.Label lblSummary;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox imgBackToMain2;

@@ -3,6 +3,7 @@ CREATE TABLE [dbo].[tblRooms] (
     [RoomName] NVARCHAR (50) NOT NULL,
     [RoomType] NVARCHAR (50) NULL,
     [Capacity] INT           NULL,
+	[Campus] NVARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([RoomID] ASC)
 );
 

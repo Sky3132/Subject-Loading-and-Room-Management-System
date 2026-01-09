@@ -15,6 +15,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomAvailabilityCalendar));
             this.monthCalendarRooms = new System.Windows.Forms.MonthCalendar();
             this.dgvRoomDetails = new System.Windows.Forms.DataGridView();
             this.lblMonthYear = new System.Windows.Forms.Label();
@@ -25,10 +26,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.btnRefresh = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomDetails)).BeginInit();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // monthCalendarRooms
@@ -127,7 +128,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(370, 20);
+            this.lblTitle.Location = new System.Drawing.Point(372, 20);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(488, 32);
             this.lblTitle.TabIndex = 0;
@@ -139,23 +140,24 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeader.AutoSize = true;
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.pnlHeader.Controls.Add(this.imgBackToMain2);
+            this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1100, 70);
+            this.pnlHeader.Size = new System.Drawing.Size(1104, 70);
             this.pnlHeader.TabIndex = 0;
             // 
-            // imgBackToMain2
+            // pictureBox1
             // 
-            this.imgBackToMain2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgBackToMain2.Location = new System.Drawing.Point(1050, 10);
-            this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(40, 40);
-            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgBackToMain2.TabIndex = 1;
-            this.imgBackToMain2.TabStop = false;
-            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(992, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(108, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 34;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // RoomAvailabilityCalendar
             // 
@@ -178,7 +180,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomDetails)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +198,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.PictureBox imgBackToMain2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

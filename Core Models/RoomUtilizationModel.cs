@@ -14,6 +14,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Core_Models
     {
         public int RoomID { get; set; }
         public string RoomName { get; set; }
+        public string Campus { get; set; }
         public int Capacity { get; set; }
         public string Type { get; set; }
         public int AssignmentsCount { get; set; }

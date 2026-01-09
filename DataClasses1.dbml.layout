@@ -111,36 +111,36 @@
         <elementListCompartment Id="1a75e7ff-c7c3-44a8-8ebd-fd4c3ce517e4" absoluteBounds="5.89, 3.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a06dc817-1186-41ff-b470-4772c01e73b7" absoluteBounds="13.5, 12.75, 2.625, 1.5785953776041666">
-      <DataClassMoniker Name="/DataClasses1DataContext/tblRoom" />
-      <nestedChildShapes>
-        <elementListCompartment Id="96215da9-9498-4d2c-bf0e-d447a8a73cc5" absoluteBounds="13.515, 13.21, 2.5949999999999998, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(13.5 : 13.5392976888021); (12.9583358333333 : 13.5392976888021 : JumpStart); (12.7916691666667 : 13.5392976888021 : JumpEnd); (12.25 : 13.5392976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DataClasses1DataContext/tblRoom/tblRoom_tblSchedule" />
-      <nodes>
-        <classShapeMoniker Id="a06dc817-1186-41ff-b470-4772c01e73b7" />
-        <classShapeMoniker Id="c2e0683c-1914-4b61-bf88-73cdd4fe5b92" />
-      </nodes>
-    </associationConnector>
     <classShape Id="d23683be-a751-4a1c-90c8-feed0bd26e82" absoluteBounds="11.875, 15, 2, 1.9631982421875">
       <DataClassMoniker Name="/DataClasses1DataContext/tblRoomAssignment" />
       <nestedChildShapes>
         <elementListCompartment Id="dd7b9c3d-15af-41c7-bacc-fa97592e36d0" absoluteBounds="11.89, 15.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(12.25 : 11.7344251074219); (12.8750025 : 11.7344251074219); (12.8750025 : 15)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(12.25 : 11.7344251074219); (12.8750025 : 11.7344251074219); (12.8750025 : 15)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClasses1DataContext/tblFacultyLoading/tblFacultyLoading_tblRoomAssignment" />
       <nodes>
         <classShapeMoniker Id="8893bb32-fe1c-42ee-86e0-af638e107e3d" />
         <classShapeMoniker Id="d23683be-a751-4a1c-90c8-feed0bd26e82" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(13.6875 : 14.3285953776042); (13.6875 : 15)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <classShape Id="89e6a48d-3f6d-4680-8ad1-53911a1f7398" absoluteBounds="14.5, 13.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClasses1DataContext/tblRoom" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ccd31a8-fdc9-4ca2-ba3d-435096e4cc21" absoluteBounds="14.515, 14.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.5 : 14.1690991210937); (12.9583358333333 : 14.1690991210937 : JumpStart); (12.7916691666667 : 14.1690991210937 : JumpEnd); (12.25 : 14.1690991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/tblRoom/tblRoom_tblSchedule" />
+      <nodes>
+        <classShapeMoniker Id="89e6a48d-3f6d-4680-8ad1-53911a1f7398" />
+        <classShapeMoniker Id="c2e0683c-1914-4b61-bf88-73cdd4fe5b92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 15.3229484049479); (13.875 : 15.3229484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClasses1DataContext/tblRoom/tblRoom_tblRoomAssignment" />
       <nodes>
-        <classShapeMoniker Id="a06dc817-1186-41ff-b470-4772c01e73b7" />
+        <classShapeMoniker Id="89e6a48d-3f6d-4680-8ad1-53911a1f7398" />
         <classShapeMoniker Id="d23683be-a751-4a1c-90c8-feed0bd26e82" />
       </nodes>
     </associationConnector>

@@ -52,6 +52,9 @@
     <Compile Include="Core Models\ScheduleModel.cs" />
     <Compile Include="Core Models\SubjectModel.cs" />
     <Compile Include="Core Models\UserModel.cs" />
+    <Compile Include="DataClasses1.cs">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Class schedule.cs">
       <SubType>Form</SubType>
     </Compile>

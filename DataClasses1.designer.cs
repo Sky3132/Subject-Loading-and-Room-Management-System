@@ -60,16 +60,16 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InserttblRoom(tblRoom instance);
-    partial void UpdatetblRoom(tblRoom instance);
-    partial void DeletetblRoom(tblRoom instance);
     partial void InserttblRoomAssignment(tblRoomAssignment instance);
     partial void UpdatetblRoomAssignment(tblRoomAssignment instance);
     partial void DeletetblRoomAssignment(tblRoomAssignment instance);
+    partial void InserttblRoom(tblRoom instance);
+    partial void UpdatetblRoom(tblRoom instance);
+    partial void DeletetblRoom(tblRoom instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString4, mappingSource)
+				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -178,19 +178,19 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
-		public System.Data.Linq.Table<tblRoom> tblRooms
-		{
-			get
-			{
-				return this.GetTable<tblRoom>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblRoomAssignment> tblRoomAssignments
 		{
 			get
 			{
 				return this.GetTable<tblRoomAssignment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblRoom> tblRooms
+		{
+			get
+			{
+				return this.GetTable<tblRoom>();
 			}
 		}
 		
@@ -2271,196 +2271,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRooms")]
-	public partial class tblRoom : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _RoomID;
-		
-		private string _RoomName;
-		
-		private string _RoomType;
-		
-		private System.Nullable<int> _Capacity;
-		
-		private EntitySet<tblSchedule> _tblSchedules;
-		
-		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRoomIDChanging(int value);
-    partial void OnRoomIDChanged();
-    partial void OnRoomNameChanging(string value);
-    partial void OnRoomNameChanged();
-    partial void OnRoomTypeChanging(string value);
-    partial void OnRoomTypeChanged();
-    partial void OnCapacityChanging(System.Nullable<int> value);
-    partial void OnCapacityChanged();
-    #endregion
-		
-		public tblRoom()
-		{
-			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
-			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int RoomID
-		{
-			get
-			{
-				return this._RoomID;
-			}
-			set
-			{
-				if ((this._RoomID != value))
-				{
-					this.OnRoomIDChanging(value);
-					this.SendPropertyChanging();
-					this._RoomID = value;
-					this.SendPropertyChanged("RoomID");
-					this.OnRoomIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string RoomName
-		{
-			get
-			{
-				return this._RoomName;
-			}
-			set
-			{
-				if ((this._RoomName != value))
-				{
-					this.OnRoomNameChanging(value);
-					this.SendPropertyChanging();
-					this._RoomName = value;
-					this.SendPropertyChanged("RoomName");
-					this.OnRoomNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomType", DbType="NVarChar(50)")]
-		public string RoomType
-		{
-			get
-			{
-				return this._RoomType;
-			}
-			set
-			{
-				if ((this._RoomType != value))
-				{
-					this.OnRoomTypeChanging(value);
-					this.SendPropertyChanging();
-					this._RoomType = value;
-					this.SendPropertyChanged("RoomType");
-					this.OnRoomTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capacity", DbType="Int")]
-		public System.Nullable<int> Capacity
-		{
-			get
-			{
-				return this._Capacity;
-			}
-			set
-			{
-				if ((this._Capacity != value))
-				{
-					this.OnCapacityChanging(value);
-					this.SendPropertyChanging();
-					this._Capacity = value;
-					this.SendPropertyChanged("Capacity");
-					this.OnCapacityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblSchedule", Storage="_tblSchedules", ThisKey="RoomID", OtherKey="RoomID")]
-		public EntitySet<tblSchedule> tblSchedules
-		{
-			get
-			{
-				return this._tblSchedules;
-			}
-			set
-			{
-				this._tblSchedules.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblRoomAssignment", Storage="_tblRoomAssignments", ThisKey="RoomID", OtherKey="RoomID")]
-		public EntitySet<tblRoomAssignment> tblRoomAssignments
-		{
-			get
-			{
-				return this._tblRoomAssignments;
-			}
-			set
-			{
-				this._tblRoomAssignments.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tblSchedules(tblSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblRoom = this;
-		}
-		
-		private void detach_tblSchedules(tblSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblRoom = null;
-		}
-		
-		private void attach_tblRoomAssignments(tblRoomAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblRoom = this;
-		}
-		
-		private void detach_tblRoomAssignments(tblRoomAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblRoom = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRoomAssignment")]
 	public partial class tblRoomAssignment : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2722,6 +2532,220 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRooms")]
+	public partial class tblRoom : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RoomID;
+		
+		private string _RoomName;
+		
+		private string _RoomType;
+		
+		private System.Nullable<int> _Capacity;
+		
+		private string _Campus;
+		
+		private EntitySet<tblSchedule> _tblSchedules;
+		
+		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRoomIDChanging(int value);
+    partial void OnRoomIDChanged();
+    partial void OnRoomNameChanging(string value);
+    partial void OnRoomNameChanged();
+    partial void OnRoomTypeChanging(string value);
+    partial void OnRoomTypeChanged();
+    partial void OnCapacityChanging(System.Nullable<int> value);
+    partial void OnCapacityChanged();
+    partial void OnCampusChanging(string value);
+    partial void OnCampusChanged();
+    #endregion
+		
+		public tblRoom()
+		{
+			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
+			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RoomID
+		{
+			get
+			{
+				return this._RoomID;
+			}
+			set
+			{
+				if ((this._RoomID != value))
+				{
+					this.OnRoomIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoomID = value;
+					this.SendPropertyChanged("RoomID");
+					this.OnRoomIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RoomName
+		{
+			get
+			{
+				return this._RoomName;
+			}
+			set
+			{
+				if ((this._RoomName != value))
+				{
+					this.OnRoomNameChanging(value);
+					this.SendPropertyChanging();
+					this._RoomName = value;
+					this.SendPropertyChanged("RoomName");
+					this.OnRoomNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomType", DbType="NVarChar(50)")]
+		public string RoomType
+		{
+			get
+			{
+				return this._RoomType;
+			}
+			set
+			{
+				if ((this._RoomType != value))
+				{
+					this.OnRoomTypeChanging(value);
+					this.SendPropertyChanging();
+					this._RoomType = value;
+					this.SendPropertyChanged("RoomType");
+					this.OnRoomTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capacity", DbType="Int")]
+		public System.Nullable<int> Capacity
+		{
+			get
+			{
+				return this._Capacity;
+			}
+			set
+			{
+				if ((this._Capacity != value))
+				{
+					this.OnCapacityChanging(value);
+					this.SendPropertyChanging();
+					this._Capacity = value;
+					this.SendPropertyChanged("Capacity");
+					this.OnCapacityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Campus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Campus
+		{
+			get
+			{
+				return this._Campus;
+			}
+			set
+			{
+				if ((this._Campus != value))
+				{
+					this.OnCampusChanging(value);
+					this.SendPropertyChanging();
+					this._Campus = value;
+					this.SendPropertyChanged("Campus");
+					this.OnCampusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblSchedule", Storage="_tblSchedules", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblSchedule> tblSchedules
+		{
+			get
+			{
+				return this._tblSchedules;
+			}
+			set
+			{
+				this._tblSchedules.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblRoomAssignment", Storage="_tblRoomAssignments", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<tblRoomAssignment> tblRoomAssignments
+		{
+			get
+			{
+				return this._tblRoomAssignments;
+			}
+			set
+			{
+				this._tblRoomAssignments.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblSchedules(tblSchedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = this;
+		}
+		
+		private void detach_tblSchedules(tblSchedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = null;
+		}
+		
+		private void attach_tblRoomAssignments(tblRoomAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = this;
+		}
+		
+		private void detach_tblRoomAssignments(tblRoomAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblRoom = null;
 		}
 	}
 	

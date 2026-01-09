@@ -26,10 +26,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
-                    cmbRoom.DataSource = db.tblRooms.Select(r => new {
+                    // We use .ToList() first to bring data into memory so C# can handle the "VC" string formatting
+                    var rooms = db.tblRooms.ToList().Select(r => new {
                         r.RoomID,
-                        DisplayName = r.RoomName
+                        // Formats the display as "ROOM1 - MAIN" or "ROOM2 - VC"
+                        DisplayName = r.RoomName + " - " + (r.Campus == "Visayan" ? "VC" : r.Campus.ToUpper())
                     }).ToList();
+
+                    cmbRoom.DataSource = rooms;
                     cmbRoom.DisplayMember = "DisplayName";
                     cmbRoom.ValueMember = "RoomID";
 
@@ -47,7 +51,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     cmbFacultyAssign.SelectedIndex = -1;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Error loading dropdowns: " + ex.Message); }
         }
 
         private void btnSaveAssign_Click(object sender, EventArgs e)
@@ -253,23 +257,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         /// </summary>
         private void btnViewCalendar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int roomId = -1;
-                
-                // If a room is selected in the combo box, pass it to the calendar
-                if (cmbRoom.SelectedValue != null && int.TryParse(cmbRoom.SelectedValue.ToString(), out int selectedRoomId))
-                {
-                    roomId = selectedRoomId;
-                }
-
-                RoomAvailabilityCalendar calendar = new RoomAvailabilityCalendar(roomId);
-                calendar.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening calendar: " + ex.Message);
-            }
+            RoomAvailabilityCalendar calendar = new RoomAvailabilityCalendar();
+            calendar.Show();
+            this.Hide();
         }
 
         /// <summary>
@@ -278,15 +268,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         /// </summary>
         private void btnViewReport_Click(object sender, EventArgs e)
         {
-            try
-            {
-                RoomUtilizationReport report = new RoomUtilizationReport();
-                report.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening report: " + ex.Message);
-            }
+           RoomUtilizationReport report = new RoomUtilizationReport();
+            report.Show();
+            this.Hide();
         }
 
         private void UncheckAllDays()
