@@ -148,6 +148,76 @@ VALUES
 ('2nd Semester', '2024-2025', 2);
 
 /* ================================
+   TABLE: tblFaculty
+   Purpose: Stores instructor details (Designation removed)
+================================ */
+CREATE TABLE tblFaculty (
+    FacultyID INT IDENTITY(1,1) PRIMARY KEY,
+    FirstName NVARCHAR(50) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    DepartmentID INT, 
+    ContactNo NVARCHAR(15),
+    CONSTRAINT FK_Faculty_Department 
+        FOREIGN KEY (DepartmentID) REFERENCES tblDepartment(DepartmentID)
+);
+
+/* ================================
+   TABLE: tblFacultyLoading
+   Purpose: Bridge table linking Faculty to a specific Subject Offering
+================================ */
+CREATE TABLE tblFacultyLoading (
+    LoadID INT IDENTITY(1,1) PRIMARY KEY,
+    FacultyID INT NOT NULL,
+    offeringId INT NOT NULL, -- Correctly references the offering instance
+    Section NVARCHAR(50) NOT NULL,
+    CONSTRAINT FK_Load_Faculty FOREIGN KEY (FacultyID) 
+        REFERENCES tblFaculty(FacultyID),
+    CONSTRAINT FK_Load_Offering FOREIGN KEY (offeringId) 
+        REFERENCES tblsubjectOffering(offeringId)
+);
+
+/* ================================
+   TABLE: tblRooms (REQUIRED for Monitoring)
+================================ */
+CREATE TABLE [dbo].[tblRooms] (
+    [RoomID]   INT           IDENTITY (1, 1) NOT NULL,
+    [RoomName] NVARCHAR (50) NOT NULL,
+    [RoomType] NVARCHAR (50) NULL,
+    [Capacity] INT           NULL,
+	[Campus] NVARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([RoomID] ASC)
+);
+
+CREATE TABLE [dbo].[tblRoomAssignment] (
+    [AssignmentID] INT IDENTITY (1, 1) NOT NULL,
+    [LoadID]       INT NOT NULL, -- Links to Faculty Loading Table
+    [RoomID]       INT NOT NULL, -- Links to your tblRooms
+    [Day]          NVARCHAR (50) NULL,
+    [StartTime]    NVARCHAR (50) NULL,
+    [EndTime]      NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([AssignmentID] ASC),
+    -- Create the Relationship to Faculty Loading
+    CONSTRAINT [FK_tblRoomAssignment_ToFacultyLoading] FOREIGN KEY ([LoadID]) 
+        REFERENCES [dbo].[tblFacultyLoading] ([LoadID]),
+    -- Create the Relationship to Rooms
+    CONSTRAINT [FK_tblRoomAssignment_ToRooms] FOREIGN KEY ([RoomID]) 
+        REFERENCES [dbo].[tblRooms] ([RoomID])
+);
+/* ================================
+   TABLE: tblSchedule (REQUIRED for Conflict Detection)
+================================ */
+CREATE TABLE [dbo].[tblSchedule] (
+    [ScheduleID] INT           IDENTITY (1, 1) NOT NULL,
+    [LoadID]     INT           NOT NULL,
+    [RoomID]     INT           NOT NULL,
+    [DayOfWeek]  NVARCHAR (20) NOT NULL,
+    [StartTime]  TIME (7)      NOT NULL,
+    [EndTime]    TIME (7)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([ScheduleID] ASC),
+    CONSTRAINT [FK_Sched_Load] FOREIGN KEY ([LoadID]) REFERENCES [dbo].[tblFacultyLoading] ([LoadID]),
+    CONSTRAINT [FK_Sched_Room] FOREIGN KEY ([RoomID]) REFERENCES [dbo].[tblRooms] ([RoomID])
+);
+/* ================================
    VERIFY DATA
 ================================ */
 SELECT * FROM roles;
@@ -160,3 +230,6 @@ SELECT * FROM tblsubject;
 SELECT * FROM tblsubjectOffering
 SELECT * FROM tblFaculty;
 SELECT * FROM tblFacultyLoading;
+SELECT * FROM tblRooms;
+SELECT * FROM tblRoomAssignment;
+SELECT * FROM tblSchedule;
