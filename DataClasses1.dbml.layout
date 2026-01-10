@@ -117,7 +117,7 @@
         <elementListCompartment Id="dd7b9c3d-15af-41c7-bacc-fa97592e36d0" absoluteBounds="11.89, 15.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(12.25 : 11.7344251074219); (12.8750025 : 11.7344251074219); (12.8750025 : 15)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12.25 : 11.7344251074219); (12.8750025 : 11.7344251074219); (12.8750025 : 15)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/tblFacultyLoading/tblFacultyLoading_tblRoomAssignment" />
       <nodes>
         <classShapeMoniker Id="8893bb32-fe1c-42ee-86e0-af638e107e3d" />
@@ -130,14 +130,14 @@
         <elementListCompartment Id="9ccd31a8-fdc9-4ca2-ba3d-435096e4cc21" absoluteBounds="14.515, 14.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(14.5 : 14.1690991210937); (12.9583358333333 : 14.1690991210937 : JumpStart); (12.7916691666667 : 14.1690991210937 : JumpEnd); (12.25 : 14.1690991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(14.5 : 14.1690991210937); (12.9583358333333 : 14.1690991210937 : JumpStart); (12.7916691666667 : 14.1690991210937 : JumpEnd); (12.25 : 14.1690991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/tblRoom/tblRoom_tblSchedule" />
       <nodes>
         <classShapeMoniker Id="89e6a48d-3f6d-4680-8ad1-53911a1f7398" />
         <classShapeMoniker Id="c2e0683c-1914-4b61-bf88-73cdd4fe5b92" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(14.5 : 15.3229484049479); (13.875 : 15.3229484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(14.5 : 15.3229484049479); (13.875 : 15.3229484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/tblRoom/tblRoom_tblRoomAssignment" />
       <nodes>
         <classShapeMoniker Id="89e6a48d-3f6d-4680-8ad1-53911a1f7398" />

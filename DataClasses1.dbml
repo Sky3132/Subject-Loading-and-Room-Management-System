@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Schooldb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=pogitayo;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=desktop-rfr1dk9;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString5" Provider="System.Data.SqlClient" />
   <Table Name="dbo.log_in" Member="log_ins">
     <Type Name="log_in">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -170,15 +170,6 @@
       <Column Name="ProgramName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GetSubjectOffering" Method="GetSubjectOffering">
-    <ElementType Name="GetSubjectOfferingResult">
-      <Column Name="offeringId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="subjectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Semester" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SchoolYear" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Subject" Type="System.String" DbType="NVarChar(63)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GetSubjectsWithDepartment" Method="GetSubjectsWithDepartment">
     <ElementType Name="GetSubjectsWithDepartmentResult">
       <Column Name="subjectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -191,12 +182,6 @@
       <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.InsertSubjectOffering" Method="InsertSubjectOffering">
-    <Parameter Name="Semester" Parameter="semester" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="SubjectId" Parameter="subjectId" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.InsertSubjects" Method="InsertSubjects">
     <Parameter Name="Code" Parameter="code" Type="System.Int32" DbType="Int" />
@@ -233,6 +218,12 @@
     <Parameter Name="SubjectId" Parameter="subjectId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Semester" Parameter="semester" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertSubjectOffering" Method="InsertSubjectOffering">
+    <Parameter Name="Semester" Parameter="semester" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SubjectId" Parameter="subjectId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

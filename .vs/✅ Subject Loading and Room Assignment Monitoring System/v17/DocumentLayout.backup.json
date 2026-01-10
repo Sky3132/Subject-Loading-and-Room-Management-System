@@ -1,38 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\",
+  "WorkspaceRootPath": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\forms\\facultyloading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\facultyloading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\forms\\facultymembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\facultymembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\rooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\rooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\takeda\\source\\repos\\subject-loading-and-room-management-system\\forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\rooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\rooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\rooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomutilizationreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomutilizationreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomutilizationreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\dataclasses1.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:dataclasses1.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\forms\\subjectoffering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\subjectoffering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\core models\\connectionstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:core models\\connectionstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\rooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\rooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomavailabilitycalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomutilizationreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomutilizationreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\roomutilizationreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomutilizationreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\dataclasses1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:dataclasses1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,34 +66,105 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FacultyLoading.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyLoading.cs",
+              "RelativeDocumentMoniker": "Forms\\FacultyLoading.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyLoading.cs [Design]",
+              "RelativeToolTip": "Forms\\FacultyLoading.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T13:12:45.052Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "FacultyMembers.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyMembers.cs",
+              "RelativeDocumentMoniker": "Forms\\FacultyMembers.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyMembers.cs [Design]",
+              "RelativeToolTip": "Forms\\FacultyMembers.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T13:12:38.609Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SubjectOffering.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\SubjectOffering.cs",
+              "RelativeDocumentMoniker": "Forms\\SubjectOffering.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\SubjectOffering.cs",
+              "RelativeToolTip": "Forms\\SubjectOffering.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAIA6wE0AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T13:00:11.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DataClasses1.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\DataClasses1.cs",
+              "RelativeDocumentMoniker": "DataClasses1.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\DataClasses1.cs",
+              "RelativeToolTip": "DataClasses1.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T12:59:33.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DataClasses1.dbml",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\DataClasses1.dbml",
+              "RelativeDocumentMoniker": "DataClasses1.dbml",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\DataClasses1.dbml",
+              "RelativeToolTip": "DataClasses1.dbml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
+              "WhenOpened": "2026-01-10T12:58:43.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ConnectionString.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\ConnectionString.cs",
+              "RelativeDocumentMoniker": "Core Models\\ConnectionString.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\ConnectionString.cs",
+              "RelativeToolTip": "Core Models\\ConnectionString.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T12:25:09.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "RoomAvailabilityCalendar.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs",
               "RelativeDocumentMoniker": "Forms\\RoomAvailabilityCalendar.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs [Design]",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs [Design]",
               "RelativeToolTip": "Forms\\RoomAvailabilityCalendar.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T15:59:30.965Z"
+              "WhenOpened": "2026-01-09T15:59:30.965Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "Rooms.cs",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs",
               "RelativeDocumentMoniker": "Forms\\Rooms.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs",
               "RelativeToolTip": "Forms\\Rooms.cs",
               "ViewState": "AgIAAOQAAAAAAAAAAAAUwHIAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -78,11 +173,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Rooms.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs",
               "RelativeDocumentMoniker": "Forms\\Rooms.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs [Design]",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs [Design]",
               "RelativeToolTip": "Forms\\Rooms.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T15:45:36.272Z",
@@ -90,11 +185,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "RoomAssignment.cs",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
               "RelativeDocumentMoniker": "Forms\\RoomAssignment.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
               "RelativeToolTip": "Forms\\RoomAssignment.cs",
               "ViewState": "AgIAAJ8AAAAAAAAAAAAAACEBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -103,11 +198,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RoomAssignment.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
               "RelativeDocumentMoniker": "Forms\\RoomAssignment.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs [Design]",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs [Design]",
               "RelativeToolTip": "Forms\\RoomAssignment.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T15:10:14.738Z",
@@ -115,11 +210,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "RoomAvailabilityCalendar.cs",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs",
               "RelativeDocumentMoniker": "Forms\\RoomAvailabilityCalendar.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAvailabilityCalendar.cs",
               "RelativeToolTip": "Forms\\RoomAvailabilityCalendar.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAkwHQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -128,26 +223,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "RoomUtilizationReport.cs",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs",
               "RelativeDocumentMoniker": "Forms\\RoomUtilizationReport.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs",
               "RelativeToolTip": "Forms\\RoomUtilizationReport.cs",
               "ViewState": "AgIAAJwAAAAAAAAAAAAewOIAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T04:52:16.73Z"
+              "WhenOpened": "2026-01-09T04:52:16.73Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "RoomUtilizationReport.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs",
               "RelativeDocumentMoniker": "Forms\\RoomUtilizationReport.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs [Design]",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomUtilizationReport.cs [Design]",
               "RelativeToolTip": "Forms\\RoomUtilizationReport.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T04:52:13.321Z"
+              "WhenOpened": "2026-01-09T04:52:13.321Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
