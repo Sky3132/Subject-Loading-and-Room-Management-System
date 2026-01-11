@@ -927,6 +927,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private EntitySet<tblsubject> _tblsubjects;
 		
+		private EntitySet<tblFacultyLoading> _tblFacultyLoadings;
+		
 		private EntityRef<tblDepartment> _tblDepartment;
 		
     #region Extensibility Method Definitions
@@ -944,6 +946,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		public tblProgram()
 		{
 			this._tblsubjects = new EntitySet<tblsubject>(new Action<tblsubject>(this.attach_tblsubjects), new Action<tblsubject>(this.detach_tblsubjects));
+			this._tblFacultyLoadings = new EntitySet<tblFacultyLoading>(new Action<tblFacultyLoading>(this.attach_tblFacultyLoadings), new Action<tblFacultyLoading>(this.detach_tblFacultyLoadings));
 			this._tblDepartment = default(EntityRef<tblDepartment>);
 			OnCreated();
 		}
@@ -1025,6 +1028,19 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblProgram_tblFacultyLoading", Storage="_tblFacultyLoadings", ThisKey="ProgramID", OtherKey="ProgramID")]
+		public EntitySet<tblFacultyLoading> tblFacultyLoadings
+		{
+			get
+			{
+				return this._tblFacultyLoadings;
+			}
+			set
+			{
+				this._tblFacultyLoadings.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblDepartment_tblProgram", Storage="_tblDepartment", ThisKey="DepartmentID", OtherKey="DepartmentID", IsForeignKey=true)]
 		public tblDepartment tblDepartment
 		{
@@ -1086,6 +1102,18 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		}
 		
 		private void detach_tblsubjects(tblsubject entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblProgram = null;
+		}
+		
+		private void attach_tblFacultyLoadings(tblFacultyLoading entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblProgram = this;
+		}
+		
+		private void detach_tblFacultyLoadings(tblFacultyLoading entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblProgram = null;
@@ -2436,9 +2464,13 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private string _Section;
 		
+		private System.Nullable<int> _ProgramID;
+		
 		private EntitySet<tblSchedule> _tblSchedules;
 		
 		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
+		
+		private EntityRef<tblProgram> _tblProgram;
 		
 		private EntityRef<tblFaculty> _tblFaculty;
 		
@@ -2456,12 +2488,15 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void OnofferingIdChanged();
     partial void OnSectionChanging(string value);
     partial void OnSectionChanged();
+    partial void OnProgramIDChanging(System.Nullable<int> value);
+    partial void OnProgramIDChanged();
     #endregion
 		
 		public tblFacultyLoading()
 		{
 			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
 			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
+			this._tblProgram = default(EntityRef<tblProgram>);
 			this._tblFaculty = default(EntityRef<tblFaculty>);
 			this._tblsubjectOffering = default(EntityRef<tblsubjectOffering>);
 			OnCreated();
@@ -2555,6 +2590,30 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProgramID", DbType="Int")]
+		public System.Nullable<int> ProgramID
+		{
+			get
+			{
+				return this._ProgramID;
+			}
+			set
+			{
+				if ((this._ProgramID != value))
+				{
+					if (this._tblProgram.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProgramIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProgramID = value;
+					this.SendPropertyChanged("ProgramID");
+					this.OnProgramIDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblSchedule", Storage="_tblSchedules", ThisKey="LoadID", OtherKey="LoadID")]
 		public EntitySet<tblSchedule> tblSchedules
 		{
@@ -2578,6 +2637,40 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			set
 			{
 				this._tblRoomAssignments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblProgram_tblFacultyLoading", Storage="_tblProgram", ThisKey="ProgramID", OtherKey="ProgramID", IsForeignKey=true)]
+		public tblProgram tblProgram
+		{
+			get
+			{
+				return this._tblProgram.Entity;
+			}
+			set
+			{
+				tblProgram previousValue = this._tblProgram.Entity;
+				if (((previousValue != value) 
+							|| (this._tblProgram.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblProgram.Entity = null;
+						previousValue.tblFacultyLoadings.Remove(this);
+					}
+					this._tblProgram.Entity = value;
+					if ((value != null))
+					{
+						value.tblFacultyLoadings.Add(this);
+						this._ProgramID = value.ProgramID;
+					}
+					else
+					{
+						this._ProgramID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblProgram");
+				}
 			}
 		}
 		

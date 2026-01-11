@@ -143,18 +143,33 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             try
             {
-                FacultyMember newMember = new FacultyMember
-                {
-                    FirstName = txtFmemberFname.Text,
-                    LastName = txtFmemberLname.Text,
-                    DepartmentID = cmbDepartment.SelectedValue != null ? Convert.ToInt32(cmbDepartment.SelectedValue) : 0,
-                    MaxLoad = 18
-                };
-
-                _facultyMgr.Validate(newMember);
+                string fName = txtFmemberFname.Text.Trim();
+                string lName = txtFmemberLname.Text.Trim();
 
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
+                    // 1. DUPLICATE CHECK: Look for existing name
+                    bool exists = db.tblFaculties.Any(f => f.FirstName.ToLower() == fName.ToLower()
+                                                        && f.LastName.ToLower() == lName.ToLower());
+
+                    if (exists)
+                    {
+                        MessageBox.Show("This faculty member already exists!", "Duplicate Detected",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // Stop the method here
+                    }
+
+                    // 2. Prepare the data if no duplicate is found
+                    FacultyMember newMember = new FacultyMember
+                    {
+                        FirstName = fName,
+                        LastName = lName,
+                        DepartmentID = cmbDepartment.SelectedValue != null ? Convert.ToInt32(cmbDepartment.SelectedValue) : 0,
+                        MaxLoad = 18
+                    };
+
+                    _facultyMgr.Validate(newMember);
+
                     tblFaculty dbEntry = new tblFaculty
                     {
                         FirstName = newMember.FirstName,
@@ -166,14 +181,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     db.tblFaculties.InsertOnSubmit(dbEntry);
                     db.SubmitChanges();
 
-                    MessageBox.Show("Faculty added successfully with Max Load of 18 units!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Faculty added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadFaculty();
                     ClearFields();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

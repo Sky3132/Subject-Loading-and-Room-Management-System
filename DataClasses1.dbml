@@ -40,6 +40,7 @@
       <Column Name="ProgramName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tblProgram_tblsubject" Member="tblsubjects" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblsubject" />
+      <Association Name="tblProgram_tblFacultyLoading" Member="tblFacultyLoadings" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblFacultyLoading" />
       <Association Name="tblDepartment_tblProgram" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
     </Type>
   </Table>
@@ -114,8 +115,10 @@
       <Column Name="FacultyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="offeringId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tblFacultyLoading_tblSchedule" Member="tblSchedules" ThisKey="LoadID" OtherKey="LoadID" Type="tblSchedule" />
       <Association Name="tblFacultyLoading_tblRoomAssignment" Member="tblRoomAssignments" ThisKey="LoadID" OtherKey="LoadID" Type="tblRoomAssignment" />
+      <Association Name="tblProgram_tblFacultyLoading" Member="tblProgram" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblProgram" IsForeignKey="true" />
       <Association Name="tblFaculty_tblFacultyLoading" Member="tblFaculty" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFaculty" IsForeignKey="true" />
       <Association Name="tblsubjectOffering_tblFacultyLoading" Member="tblsubjectOffering" ThisKey="offeringId" OtherKey="offeringId" Type="tblsubjectOffering" IsForeignKey="true" />
     </Type>
