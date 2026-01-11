@@ -88,8 +88,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                                Faculty = load.tblFaculty.FirstName + " " + load.tblFaculty.LastName,
                                SubjectCode = load.tblsubjectOffering.tblsubject.Code,
                                SubjectTitle = load.tblsubjectOffering.tblsubject.Title,
-                               Units = load.tblsubjectOffering.tblsubject.LectureUnits +
-                                       load.tblsubjectOffering.tblsubject.LaboratoryUnits,
+                               Units = (int)load.tblsubjectOffering.tblsubject.LectureUnits +
+                                       (int)load.tblsubjectOffering.tblsubject.LaboratoryUnits,
                                Section = load.Section,
                                FacultyID = load.FacultyID,
                                OfferingID = load.offeringId
@@ -129,7 +129,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                     return;
                 }
 
-                int newSubjectUnits = subjectOffering.LectureUnits + subjectOffering.LaboratoryUnits;
+                int newSubjectUnits = (int)subjectOffering.LectureUnits + (int)subjectOffering.LaboratoryUnits;
 
                 var faculty = db.tblFaculties.FirstOrDefault(f => f.FacultyID == facultyID);
                 if (faculty == null)
@@ -183,7 +183,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 record.FacultyID = facultyID;
                 record.offeringId = offeringID;
                 record.Section = cmbProgram.Text;
-                record.Status = "Approved";
 
                 try
                 {
@@ -267,8 +266,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                                Faculty = fullName,
                                SubjectCode = subjectCode,
                                SubjectTitle = load.tblsubjectOffering.tblsubject.Title,
-                               Units = load.tblsubjectOffering.tblsubject.LectureUnits +
-                                       load.tblsubjectOffering.tblsubject.LaboratoryUnits,
+                               Units = (int)load.tblsubjectOffering.tblsubject.LectureUnits +
+                                       (int)load.tblsubjectOffering.tblsubject.LaboratoryUnits,
                                Section = load.Section,
                                FacultyID = load.FacultyID,
                                OfferingID = load.offeringId

@@ -42,9 +42,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void InserttblFaculty(tblFaculty instance);
     partial void UpdatetblFaculty(tblFaculty instance);
     partial void DeletetblFaculty(tblFaculty instance);
-    partial void InserttblFacultyLoading(tblFacultyLoading instance);
-    partial void UpdatetblFacultyLoading(tblFacultyLoading instance);
-    partial void DeletetblFacultyLoading(tblFacultyLoading instance);
     partial void InserttblProgram(tblProgram instance);
     partial void UpdatetblProgram(tblProgram instance);
     partial void DeletetblProgram(tblProgram instance);
@@ -66,6 +63,9 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void InserttblRoom(tblRoom instance);
     partial void UpdatetblRoom(tblRoom instance);
     partial void DeletetblRoom(tblRoom instance);
+    partial void InserttblFacultyLoading(tblFacultyLoading instance);
+    partial void UpdatetblFacultyLoading(tblFacultyLoading instance);
+    partial void DeletetblFacultyLoading(tblFacultyLoading instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -130,14 +130,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
-		public System.Data.Linq.Table<tblFacultyLoading> tblFacultyLoadings
-		{
-			get
-			{
-				return this.GetTable<tblFacultyLoading>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblProgram> tblPrograms
 		{
 			get
@@ -191,6 +183,14 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			get
 			{
 				return this.GetTable<tblRoom>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblFacultyLoading> tblFacultyLoadings
+		{
+			get
+			{
+				return this.GetTable<tblFacultyLoading>();
 			}
 		}
 		
@@ -250,25 +250,11 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			return ((ISingleResult<GetProgramsByDepartmentResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetSubjectOffering")]
-		public ISingleResult<GetSubjectOfferingResult> GetSubjectOffering()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<GetSubjectOfferingResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetSubjectsWithDepartment")]
 		public ISingleResult<GetSubjectsWithDepartmentResult> GetSubjectsWithDepartment()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<GetSubjectsWithDepartmentResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSubjectOffering")]
-		public int InsertSubjectOffering([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Semester", DbType="NVarChar(50)")] string semester, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="NVarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubjectId", DbType="Int")] System.Nullable<int> subjectId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), semester, schoolYear, subjectId);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSubjects")]
@@ -303,6 +289,13 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		public int UpdateSubjectOffering([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OfferingId", DbType="Int")] System.Nullable<int> offeringId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubjectId", DbType="Int")] System.Nullable<int> subjectId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Semester", DbType="NVarChar(50)")] string semester, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="NVarChar(50)")] string schoolYear)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), offeringId, subjectId, semester, schoolYear);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSubjectOffering")]
+		public int InsertSubjectOffering([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Semester", DbType="NVarChar(50)")] string semester, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="NVarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubjectId", DbType="Int")] System.Nullable<int> subjectId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), semester, schoolYear, subjectId);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -920,302 +913,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFacultyLoading")]
-	public partial class tblFacultyLoading : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LoadID;
-		
-		private int _FacultyID;
-		
-		private int _offeringId;
-		
-		private string _Section;
-		
-		private string _Status;
-		
-		private EntitySet<tblSchedule> _tblSchedules;
-		
-		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
-		
-		private EntityRef<tblFaculty> _tblFaculty;
-		
-		private EntityRef<tblsubjectOffering> _tblsubjectOffering;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLoadIDChanging(int value);
-    partial void OnLoadIDChanged();
-    partial void OnFacultyIDChanging(int value);
-    partial void OnFacultyIDChanged();
-    partial void OnofferingIdChanging(int value);
-    partial void OnofferingIdChanged();
-    partial void OnSectionChanging(string value);
-    partial void OnSectionChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public tblFacultyLoading()
-		{
-			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
-			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
-			this._tblFaculty = default(EntityRef<tblFaculty>);
-			this._tblsubjectOffering = default(EntityRef<tblsubjectOffering>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoadID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int LoadID
-		{
-			get
-			{
-				return this._LoadID;
-			}
-			set
-			{
-				if ((this._LoadID != value))
-				{
-					this.OnLoadIDChanging(value);
-					this.SendPropertyChanging();
-					this._LoadID = value;
-					this.SendPropertyChanged("LoadID");
-					this.OnLoadIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacultyID", DbType="Int NOT NULL")]
-		public int FacultyID
-		{
-			get
-			{
-				return this._FacultyID;
-			}
-			set
-			{
-				if ((this._FacultyID != value))
-				{
-					if (this._tblFaculty.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFacultyIDChanging(value);
-					this.SendPropertyChanging();
-					this._FacultyID = value;
-					this.SendPropertyChanged("FacultyID");
-					this.OnFacultyIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_offeringId", DbType="Int NOT NULL")]
-		public int offeringId
-		{
-			get
-			{
-				return this._offeringId;
-			}
-			set
-			{
-				if ((this._offeringId != value))
-				{
-					if (this._tblsubjectOffering.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnofferingIdChanging(value);
-					this.SendPropertyChanging();
-					this._offeringId = value;
-					this.SendPropertyChanged("offeringId");
-					this.OnofferingIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Section", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Section
-		{
-			get
-			{
-				return this._Section;
-			}
-			set
-			{
-				if ((this._Section != value))
-				{
-					this.OnSectionChanging(value);
-					this.SendPropertyChanging();
-					this._Section = value;
-					this.SendPropertyChanged("Section");
-					this.OnSectionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(20)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblSchedule", Storage="_tblSchedules", ThisKey="LoadID", OtherKey="LoadID")]
-		public EntitySet<tblSchedule> tblSchedules
-		{
-			get
-			{
-				return this._tblSchedules;
-			}
-			set
-			{
-				this._tblSchedules.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblRoomAssignment", Storage="_tblRoomAssignments", ThisKey="LoadID", OtherKey="LoadID")]
-		public EntitySet<tblRoomAssignment> tblRoomAssignments
-		{
-			get
-			{
-				return this._tblRoomAssignments;
-			}
-			set
-			{
-				this._tblRoomAssignments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFaculty_tblFacultyLoading", Storage="_tblFaculty", ThisKey="FacultyID", OtherKey="FacultyID", IsForeignKey=true)]
-		public tblFaculty tblFaculty
-		{
-			get
-			{
-				return this._tblFaculty.Entity;
-			}
-			set
-			{
-				tblFaculty previousValue = this._tblFaculty.Entity;
-				if (((previousValue != value) 
-							|| (this._tblFaculty.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblFaculty.Entity = null;
-						previousValue.tblFacultyLoadings.Remove(this);
-					}
-					this._tblFaculty.Entity = value;
-					if ((value != null))
-					{
-						value.tblFacultyLoadings.Add(this);
-						this._FacultyID = value.FacultyID;
-					}
-					else
-					{
-						this._FacultyID = default(int);
-					}
-					this.SendPropertyChanged("tblFaculty");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblsubjectOffering_tblFacultyLoading", Storage="_tblsubjectOffering", ThisKey="offeringId", OtherKey="offeringId", IsForeignKey=true)]
-		public tblsubjectOffering tblsubjectOffering
-		{
-			get
-			{
-				return this._tblsubjectOffering.Entity;
-			}
-			set
-			{
-				tblsubjectOffering previousValue = this._tblsubjectOffering.Entity;
-				if (((previousValue != value) 
-							|| (this._tblsubjectOffering.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblsubjectOffering.Entity = null;
-						previousValue.tblFacultyLoadings.Remove(this);
-					}
-					this._tblsubjectOffering.Entity = value;
-					if ((value != null))
-					{
-						value.tblFacultyLoadings.Add(this);
-						this._offeringId = value.offeringId;
-					}
-					else
-					{
-						this._offeringId = default(int);
-					}
-					this.SendPropertyChanged("tblsubjectOffering");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tblSchedules(tblSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblFacultyLoading = this;
-		}
-		
-		private void detach_tblSchedules(tblSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblFacultyLoading = null;
-		}
-		
-		private void attach_tblRoomAssignments(tblRoomAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblFacultyLoading = this;
-		}
-		
-		private void detach_tblRoomAssignments(tblRoomAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblFacultyLoading = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblProgram")]
 	public partial class tblProgram : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1413,9 +1110,9 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private System.TimeSpan _EndTime;
 		
-		private EntityRef<tblFacultyLoading> _tblFacultyLoading;
-		
 		private EntityRef<tblRoom> _tblRoom;
+		
+		private EntityRef<tblFacultyLoading> _tblFacultyLoading;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1437,8 +1134,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		public tblSchedule()
 		{
-			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
 			this._tblRoom = default(EntityRef<tblRoom>);
+			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
 			OnCreated();
 		}
 		
@@ -1570,40 +1267,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblSchedule", Storage="_tblFacultyLoading", ThisKey="LoadID", OtherKey="LoadID", IsForeignKey=true)]
-		public tblFacultyLoading tblFacultyLoading
-		{
-			get
-			{
-				return this._tblFacultyLoading.Entity;
-			}
-			set
-			{
-				tblFacultyLoading previousValue = this._tblFacultyLoading.Entity;
-				if (((previousValue != value) 
-							|| (this._tblFacultyLoading.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblFacultyLoading.Entity = null;
-						previousValue.tblSchedules.Remove(this);
-					}
-					this._tblFacultyLoading.Entity = value;
-					if ((value != null))
-					{
-						value.tblSchedules.Add(this);
-						this._LoadID = value.LoadID;
-					}
-					else
-					{
-						this._LoadID = default(int);
-					}
-					this.SendPropertyChanged("tblFacultyLoading");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblSchedule", Storage="_tblRoom", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
 		public tblRoom tblRoom
 		{
@@ -1634,6 +1297,40 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 						this._RoomID = default(int);
 					}
 					this.SendPropertyChanged("tblRoom");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblSchedule", Storage="_tblFacultyLoading", ThisKey="LoadID", OtherKey="LoadID", IsForeignKey=true)]
+		public tblFacultyLoading tblFacultyLoading
+		{
+			get
+			{
+				return this._tblFacultyLoading.Entity;
+			}
+			set
+			{
+				tblFacultyLoading previousValue = this._tblFacultyLoading.Entity;
+				if (((previousValue != value) 
+							|| (this._tblFacultyLoading.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblFacultyLoading.Entity = null;
+						previousValue.tblSchedules.Remove(this);
+					}
+					this._tblFacultyLoading.Entity = value;
+					if ((value != null))
+					{
+						value.tblSchedules.Add(this);
+						this._LoadID = value.LoadID;
+					}
+					else
+					{
+						this._LoadID = default(int);
+					}
+					this.SendPropertyChanged("tblFacultyLoading");
 				}
 			}
 		}
@@ -1677,8 +1374,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private int _ProgramID;
 		
-		private System.Nullable<int> _Units;
-		
 		private EntitySet<tblsubjectOffering> _tblsubjectOfferings;
 		
 		private EntityRef<tblProgram> _tblProgram;
@@ -1699,8 +1394,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void OnLaboratoryUnitsChanged();
     partial void OnProgramIDChanging(int value);
     partial void OnProgramIDChanged();
-    partial void OnUnitsChanging(System.Nullable<int> value);
-    partial void OnUnitsChanged();
     #endregion
 		
 		public tblsubject()
@@ -1830,26 +1523,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 					this._ProgramID = value;
 					this.SendPropertyChanged("ProgramID");
 					this.OnProgramIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Units", DbType="Int")]
-		public System.Nullable<int> Units
-		{
-			get
-			{
-				return this._Units;
-			}
-			set
-			{
-				if ((this._Units != value))
-				{
-					this.OnUnitsChanging(value);
-					this.SendPropertyChanging();
-					this._Units = value;
-					this.SendPropertyChanged("Units");
-					this.OnUnitsChanged();
 				}
 			}
 		}
@@ -2289,9 +1962,9 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private string _EndTime;
 		
-		private EntityRef<tblFacultyLoading> _tblFacultyLoading;
-		
 		private EntityRef<tblRoom> _tblRoom;
+		
+		private EntityRef<tblFacultyLoading> _tblFacultyLoading;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2313,8 +1986,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		public tblRoomAssignment()
 		{
-			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
 			this._tblRoom = default(EntityRef<tblRoom>);
+			this._tblFacultyLoading = default(EntityRef<tblFacultyLoading>);
 			OnCreated();
 		}
 		
@@ -2446,40 +2119,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblRoomAssignment", Storage="_tblFacultyLoading", ThisKey="LoadID", OtherKey="LoadID", IsForeignKey=true)]
-		public tblFacultyLoading tblFacultyLoading
-		{
-			get
-			{
-				return this._tblFacultyLoading.Entity;
-			}
-			set
-			{
-				tblFacultyLoading previousValue = this._tblFacultyLoading.Entity;
-				if (((previousValue != value) 
-							|| (this._tblFacultyLoading.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblFacultyLoading.Entity = null;
-						previousValue.tblRoomAssignments.Remove(this);
-					}
-					this._tblFacultyLoading.Entity = value;
-					if ((value != null))
-					{
-						value.tblRoomAssignments.Add(this);
-						this._LoadID = value.LoadID;
-					}
-					else
-					{
-						this._LoadID = default(int);
-					}
-					this.SendPropertyChanged("tblFacultyLoading");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRoom_tblRoomAssignment", Storage="_tblRoom", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
 		public tblRoom tblRoom
 		{
@@ -2510,6 +2149,40 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 						this._RoomID = default(int);
 					}
 					this.SendPropertyChanged("tblRoom");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblRoomAssignment", Storage="_tblFacultyLoading", ThisKey="LoadID", OtherKey="LoadID", IsForeignKey=true)]
+		public tblFacultyLoading tblFacultyLoading
+		{
+			get
+			{
+				return this._tblFacultyLoading.Entity;
+			}
+			set
+			{
+				tblFacultyLoading previousValue = this._tblFacultyLoading.Entity;
+				if (((previousValue != value) 
+							|| (this._tblFacultyLoading.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblFacultyLoading.Entity = null;
+						previousValue.tblRoomAssignments.Remove(this);
+					}
+					this._tblFacultyLoading.Entity = value;
+					if ((value != null))
+					{
+						value.tblRoomAssignments.Add(this);
+						this._LoadID = value.LoadID;
+					}
+					else
+					{
+						this._LoadID = default(int);
+					}
+					this.SendPropertyChanged("tblFacultyLoading");
 				}
 			}
 		}
@@ -2749,6 +2422,278 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFacultyLoading")]
+	public partial class tblFacultyLoading : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _LoadID;
+		
+		private int _FacultyID;
+		
+		private int _offeringId;
+		
+		private string _Section;
+		
+		private EntitySet<tblSchedule> _tblSchedules;
+		
+		private EntitySet<tblRoomAssignment> _tblRoomAssignments;
+		
+		private EntityRef<tblFaculty> _tblFaculty;
+		
+		private EntityRef<tblsubjectOffering> _tblsubjectOffering;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLoadIDChanging(int value);
+    partial void OnLoadIDChanged();
+    partial void OnFacultyIDChanging(int value);
+    partial void OnFacultyIDChanged();
+    partial void OnofferingIdChanging(int value);
+    partial void OnofferingIdChanged();
+    partial void OnSectionChanging(string value);
+    partial void OnSectionChanged();
+    #endregion
+		
+		public tblFacultyLoading()
+		{
+			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
+			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
+			this._tblFaculty = default(EntityRef<tblFaculty>);
+			this._tblsubjectOffering = default(EntityRef<tblsubjectOffering>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoadID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int LoadID
+		{
+			get
+			{
+				return this._LoadID;
+			}
+			set
+			{
+				if ((this._LoadID != value))
+				{
+					this.OnLoadIDChanging(value);
+					this.SendPropertyChanging();
+					this._LoadID = value;
+					this.SendPropertyChanged("LoadID");
+					this.OnLoadIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacultyID", DbType="Int NOT NULL")]
+		public int FacultyID
+		{
+			get
+			{
+				return this._FacultyID;
+			}
+			set
+			{
+				if ((this._FacultyID != value))
+				{
+					if (this._tblFaculty.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFacultyIDChanging(value);
+					this.SendPropertyChanging();
+					this._FacultyID = value;
+					this.SendPropertyChanged("FacultyID");
+					this.OnFacultyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_offeringId", DbType="Int NOT NULL")]
+		public int offeringId
+		{
+			get
+			{
+				return this._offeringId;
+			}
+			set
+			{
+				if ((this._offeringId != value))
+				{
+					if (this._tblsubjectOffering.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnofferingIdChanging(value);
+					this.SendPropertyChanging();
+					this._offeringId = value;
+					this.SendPropertyChanged("offeringId");
+					this.OnofferingIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Section", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Section
+		{
+			get
+			{
+				return this._Section;
+			}
+			set
+			{
+				if ((this._Section != value))
+				{
+					this.OnSectionChanging(value);
+					this.SendPropertyChanging();
+					this._Section = value;
+					this.SendPropertyChanged("Section");
+					this.OnSectionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblSchedule", Storage="_tblSchedules", ThisKey="LoadID", OtherKey="LoadID")]
+		public EntitySet<tblSchedule> tblSchedules
+		{
+			get
+			{
+				return this._tblSchedules;
+			}
+			set
+			{
+				this._tblSchedules.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFacultyLoading_tblRoomAssignment", Storage="_tblRoomAssignments", ThisKey="LoadID", OtherKey="LoadID")]
+		public EntitySet<tblRoomAssignment> tblRoomAssignments
+		{
+			get
+			{
+				return this._tblRoomAssignments;
+			}
+			set
+			{
+				this._tblRoomAssignments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFaculty_tblFacultyLoading", Storage="_tblFaculty", ThisKey="FacultyID", OtherKey="FacultyID", IsForeignKey=true)]
+		public tblFaculty tblFaculty
+		{
+			get
+			{
+				return this._tblFaculty.Entity;
+			}
+			set
+			{
+				tblFaculty previousValue = this._tblFaculty.Entity;
+				if (((previousValue != value) 
+							|| (this._tblFaculty.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblFaculty.Entity = null;
+						previousValue.tblFacultyLoadings.Remove(this);
+					}
+					this._tblFaculty.Entity = value;
+					if ((value != null))
+					{
+						value.tblFacultyLoadings.Add(this);
+						this._FacultyID = value.FacultyID;
+					}
+					else
+					{
+						this._FacultyID = default(int);
+					}
+					this.SendPropertyChanged("tblFaculty");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblsubjectOffering_tblFacultyLoading", Storage="_tblsubjectOffering", ThisKey="offeringId", OtherKey="offeringId", IsForeignKey=true)]
+		public tblsubjectOffering tblsubjectOffering
+		{
+			get
+			{
+				return this._tblsubjectOffering.Entity;
+			}
+			set
+			{
+				tblsubjectOffering previousValue = this._tblsubjectOffering.Entity;
+				if (((previousValue != value) 
+							|| (this._tblsubjectOffering.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblsubjectOffering.Entity = null;
+						previousValue.tblFacultyLoadings.Remove(this);
+					}
+					this._tblsubjectOffering.Entity = value;
+					if ((value != null))
+					{
+						value.tblFacultyLoadings.Add(this);
+						this._offeringId = value.offeringId;
+					}
+					else
+					{
+						this._offeringId = default(int);
+					}
+					this.SendPropertyChanged("tblsubjectOffering");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblSchedules(tblSchedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = this;
+		}
+		
+		private void detach_tblSchedules(tblSchedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = null;
+		}
+		
+		private void attach_tblRoomAssignments(tblRoomAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = this;
+		}
+		
+		private void detach_tblRoomAssignments(tblRoomAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFacultyLoading = null;
+		}
+	}
+	
 	public partial class Admin_LoginResult
 	{
 		
@@ -2982,104 +2927,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 				if ((this._ProgramName != value))
 				{
 					this._ProgramName = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GetSubjectOfferingResult
-	{
-		
-		private int _offeringId;
-		
-		private int _subjectId;
-		
-		private string _Semester;
-		
-		private string _SchoolYear;
-		
-		private string _Subject;
-		
-		public GetSubjectOfferingResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_offeringId", DbType="Int NOT NULL")]
-		public int offeringId
-		{
-			get
-			{
-				return this._offeringId;
-			}
-			set
-			{
-				if ((this._offeringId != value))
-				{
-					this._offeringId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_subjectId", DbType="Int NOT NULL")]
-		public int subjectId
-		{
-			get
-			{
-				return this._subjectId;
-			}
-			set
-			{
-				if ((this._subjectId != value))
-				{
-					this._subjectId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Semester", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Semester
-		{
-			get
-			{
-				return this._Semester;
-			}
-			set
-			{
-				if ((this._Semester != value))
-				{
-					this._Semester = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SchoolYear", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SchoolYear
-		{
-			get
-			{
-				return this._SchoolYear;
-			}
-			set
-			{
-				if ((this._SchoolYear != value))
-				{
-					this._SchoolYear = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="NVarChar(63)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
 				}
 			}
 		}

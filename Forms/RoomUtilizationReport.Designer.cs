@@ -33,11 +33,12 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.dgvUtilization.AllowUserToAddRows = false;
             this.dgvUtilization.AllowUserToDeleteRows = false;
             this.dgvUtilization.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUtilization.Location = new System.Drawing.Point(12, 114);
+            this.dgvUtilization.Location = new System.Drawing.Point(9, 93);
+            this.dgvUtilization.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvUtilization.Name = "dgvUtilization";
             this.dgvUtilization.ReadOnly = true;
             this.dgvUtilization.RowHeadersWidth = 51;
-            this.dgvUtilization.Size = new System.Drawing.Size(1057, 300);
+            this.dgvUtilization.Size = new System.Drawing.Size(793, 244);
             this.dgvUtilization.TabIndex = 0;
             // 
             // btnExportReport
@@ -45,9 +46,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.btnExportReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnExportReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportReport.Location = new System.Drawing.Point(15, 436);
+            this.btnExportReport.Location = new System.Drawing.Point(11, 354);
+            this.btnExportReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExportReport.Name = "btnExportReport";
-            this.btnExportReport.Size = new System.Drawing.Size(120, 40);
+            this.btnExportReport.Size = new System.Drawing.Size(90, 32);
             this.btnExportReport.TabIndex = 1;
             this.btnExportReport.Text = "Export (CSV)";
             this.btnExportReport.UseVisualStyleBackColor = false;
@@ -58,9 +60,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(143, 436);
+            this.btnRefresh.Location = new System.Drawing.Point(107, 354);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(100, 40);
+            this.btnRefresh.Size = new System.Drawing.Size(75, 32);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -75,11 +78,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(2, 1);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1075, 78);
+            this.panel3.Size = new System.Drawing.Size(806, 63);
             this.panel3.TabIndex = 18;
-         
             // 
             // label5
             // 
@@ -88,20 +89,18 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(349, 16);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(262, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(358, 32);
+            this.label5.Size = new System.Drawing.Size(280, 26);
             this.label5.TabIndex = 35;
             this.label5.Text = "ROOM UTILITY REPORT";
             // 
             // imgBackToMain2
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(963, 16);
-            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(4);
+            this.imgBackToMain2.Location = new System.Drawing.Point(722, 13);
             this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(108, 48);
+            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgBackToMain2.TabIndex = 33;
             this.imgBackToMain2.TabStop = false;
@@ -113,23 +112,24 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(401, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(301, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 32);
+            this.label1.Size = new System.Drawing.Size(19, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = " ";
             // 
             // RoomUtilizationReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 570);
+            this.ClientSize = new System.Drawing.Size(811, 463);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnExportReport);
             this.Controls.Add(this.dgvUtilization);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RoomUtilizationReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Room Utilization Report";
             this.Load += new System.EventHandler(this.RoomUtilizationReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUtilization)).EndInit();
