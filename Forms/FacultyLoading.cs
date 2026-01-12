@@ -115,60 +115,109 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
             using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
+                int facultyId = (int)cmbFaculty.SelectedValue;
+                int offeringId = (int)cmbSubject.SelectedValue;
+                int programId = (int)cmbProgram.SelectedValue;
+
+                // NEW: GLOBAL SUBJECT ASSIGNMENT CHECK
+                // This ensures the subject isn't already assigned to ANY faculty member
+                bool isAlreadyAssigned = db.tblFacultyLoadings.Any(l => l.offeringId == offeringId);
+                if (isAlreadyAssigned)
+                {
+                    MessageBox.Show("This subject offering is already assigned to a faculty member. It cannot be assigned again.");
+                    return;
+                }
+
+                // OVERLOAD CHECK
+                var subjectUnits = db.tblsubjectOfferings
+                    .Where(o => o.offeringId == offeringId)
+                    .Select(o => (int)o.tblsubject.LectureUnits + (int)o.tblsubject.LaboratoryUnits)
+                    .FirstOrDefault();
+
+                if (_facultyMgr.IsOverloaded(facultyId, subjectUnits))
+                {
+                    MessageBox.Show("Cannot assign subject. This will exceed the faculty member's maximum unit load!");
+                    return;
+                }
+
+                // SAVE RECORD
                 tblFacultyLoading record = new tblFacultyLoading
                 {
-                    FacultyID = (int)cmbFaculty.SelectedValue,
-                    offeringId = (int)cmbSubject.SelectedValue,
-                    ProgramID = (int)cmbProgram.SelectedValue,
+                    FacultyID = facultyId,
+                    offeringId = offeringId,
+                    ProgramID = programId,
                     Section = cmbProgram.Text
                 };
 
                 db.tblFacultyLoadings.InsertOnSubmit(record);
+                db.SubmitChanges();
 
-                try
-                {
-                    db.SubmitChanges();
-                    MessageBox.Show("New record saved successfully!");
-                    ClearFields();
-                    LoadDataGrid();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error saving: " + ex.Message);
-                }
+                MessageBox.Show("New record saved successfully!");
+                ClearFields();
+                LoadDataGrid();
             }
         }
 
         // EDIT BUTTON: Now handles the UPDATE logic
         private void btnEditLoad_Click(object sender, EventArgs e)
         {
+            // 1. Check if a record is selected in the DataGrid
             if (selectedLoadID == 0)
             {
                 MessageBox.Show("Please select a record from the list to update.");
                 return;
             }
 
+            // 2. FIXED: Check for nulls BEFORE assigning to variables to prevent NullReferenceException
+            if (cmbFaculty.SelectedValue == null || cmbSubject.SelectedValue == null || cmbProgram.SelectedValue == null)
+            {
+                MessageBox.Show("Please complete all selections before updating.");
+                return;
+            }
+
             using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
+                // Safe to cast now because we verified they are not null
+                int facultyId = (int)cmbFaculty.SelectedValue;
+                int offeringId = (int)cmbSubject.SelectedValue;
+                int programId = (int)cmbProgram.SelectedValue;
+
+                // 3. GLOBAL CHECK: Is ANOTHER record using this subject?
+                bool isTakenByOther = db.tblFacultyLoadings.Any(l =>
+                    l.offeringId == offeringId &&
+                    l.LoadID != selectedLoadID);
+
+                if (isTakenByOther)
+                {
+                    MessageBox.Show("Cannot update. This subject is already assigned to another faculty member.");
+                    return;
+                }
+
+                // 4. OVERLOAD CHECK
+                var subjectUnits = db.tblsubjectOfferings
+                    .Where(o => o.offeringId == offeringId)
+                    .Select(o => (int)o.tblsubject.LectureUnits + (int)o.tblsubject.LaboratoryUnits)
+                    .FirstOrDefault();
+
+                if (_facultyMgr.IsOverloaded(facultyId, subjectUnits))
+                {
+                    MessageBox.Show("Update blocked: This assignment exceeds the faculty member's maximum units.");
+                    return;
+                }
+
+                // 5. UPDATE RECORD
                 var record = db.tblFacultyLoadings.FirstOrDefault(l => l.LoadID == selectedLoadID);
                 if (record != null)
                 {
-                    record.FacultyID = (int)cmbFaculty.SelectedValue;
-                    record.offeringId = (int)cmbSubject.SelectedValue;
-                    record.ProgramID = (int)cmbProgram.SelectedValue;
+                    record.FacultyID = facultyId;
+                    record.offeringId = offeringId;
+                    record.ProgramID = programId;
                     record.Section = cmbProgram.Text;
 
-                    try
-                    {
-                        db.SubmitChanges();
-                        MessageBox.Show("Record updated successfully!");
-                        ClearFields();
-                        LoadDataGrid();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error updating: " + ex.Message);
-                    }
+                    db.SubmitChanges();
+                    MessageBox.Show("Record updated successfully!");
+                    ClearFields();
+                    LoadDataGrid();
                 }
             }
         }

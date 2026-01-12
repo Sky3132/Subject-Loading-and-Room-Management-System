@@ -151,16 +151,19 @@ VALUES
    TABLE: tblFaculty
    Purpose: Stores instructor details (Designation removed)
 ================================ */
-CREATE TABLE tblFaculty (
-    FacultyID INT IDENTITY(1,1) PRIMARY KEY,
-    FirstName NVARCHAR(50) NOT NULL,
-    LastName NVARCHAR(50) NOT NULL,
-    DepartmentID INT,
-    MaxLoad INT NOT NULL,
-    ContactNo NVARCHAR(15),
-    CONSTRAINT FK_Faculty_Department 
-        FOREIGN KEY (DepartmentID) REFERENCES tblDepartment(DepartmentID)
+CREATE TABLE [dbo].[tblFaculty] (
+    [FacultyID]    INT           IDENTITY (1, 1) NOT NULL,
+    [FirstName]    NVARCHAR (50) NOT NULL,
+    [LastName]     NVARCHAR (50) NOT NULL,
+    [DepartmentID] INT           NULL,
+    [MaxLoad]      INT           NOT NULL,
+    [ContactNo]    NVARCHAR (15) NULL,
+    [Hours]        INT           NULL,
+    PRIMARY KEY CLUSTERED ([FacultyID] ASC),
+    CONSTRAINT [FK_Faculty_Department] FOREIGN KEY ([DepartmentID]) REFERENCES [dbo].[tblDepartment] ([DepartmentID])
 );
+
+
 
 /* ================================
    TABLE: tblFacultyLoading

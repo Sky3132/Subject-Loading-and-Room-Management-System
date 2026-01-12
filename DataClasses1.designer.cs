@@ -39,9 +39,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void InserttblDepartment(tblDepartment instance);
     partial void UpdatetblDepartment(tblDepartment instance);
     partial void DeletetblDepartment(tblDepartment instance);
-    partial void InserttblFaculty(tblFaculty instance);
-    partial void UpdatetblFaculty(tblFaculty instance);
-    partial void DeletetblFaculty(tblFaculty instance);
     partial void InserttblProgram(tblProgram instance);
     partial void UpdatetblProgram(tblProgram instance);
     partial void DeletetblProgram(tblProgram instance);
@@ -66,6 +63,9 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     partial void InserttblFacultyLoading(tblFacultyLoading instance);
     partial void UpdatetblFacultyLoading(tblFacultyLoading instance);
     partial void DeletetblFacultyLoading(tblFacultyLoading instance);
+    partial void InserttblFaculty(tblFaculty instance);
+    partial void UpdatetblFaculty(tblFaculty instance);
+    partial void DeletetblFaculty(tblFaculty instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -119,14 +119,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			get
 			{
 				return this.GetTable<tblDepartment>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblFaculty> tblFaculties
-		{
-			get
-			{
-				return this.GetTable<tblFaculty>();
 			}
 		}
 		
@@ -191,6 +183,14 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			get
 			{
 				return this.GetTable<tblFacultyLoading>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblFaculty> tblFaculties
+		{
+			get
+			{
+				return this.GetTable<tblFaculty>();
 			}
 		}
 		
@@ -530,9 +530,9 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private string _DepartmentName;
 		
-		private EntitySet<tblFaculty> _tblFaculties;
-		
 		private EntitySet<tblProgram> _tblPrograms;
+		
+		private EntitySet<tblFaculty> _tblFaculties;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -546,8 +546,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		public tblDepartment()
 		{
-			this._tblFaculties = new EntitySet<tblFaculty>(new Action<tblFaculty>(this.attach_tblFaculties), new Action<tblFaculty>(this.detach_tblFaculties));
 			this._tblPrograms = new EntitySet<tblProgram>(new Action<tblProgram>(this.attach_tblPrograms), new Action<tblProgram>(this.detach_tblPrograms));
+			this._tblFaculties = new EntitySet<tblFaculty>(new Action<tblFaculty>(this.attach_tblFaculties), new Action<tblFaculty>(this.detach_tblFaculties));
 			OnCreated();
 		}
 		
@@ -591,19 +591,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblDepartment_tblFaculty", Storage="_tblFaculties", ThisKey="DepartmentID", OtherKey="DepartmentID")]
-		public EntitySet<tblFaculty> tblFaculties
-		{
-			get
-			{
-				return this._tblFaculties;
-			}
-			set
-			{
-				this._tblFaculties.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblDepartment_tblProgram", Storage="_tblPrograms", ThisKey="DepartmentID", OtherKey="DepartmentID")]
 		public EntitySet<tblProgram> tblPrograms
 		{
@@ -617,6 +604,19 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblDepartment_tblFaculty", Storage="_tblFaculties", ThisKey="DepartmentID", OtherKey="DepartmentID")]
+		public EntitySet<tblFaculty> tblFaculties
+		{
+			get
+			{
+				return this._tblFaculties;
+			}
+			set
+			{
+				this._tblFaculties.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -635,18 +635,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_tblFaculties(tblFaculty entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblDepartment = this;
-		}
-		
-		private void detach_tblFaculties(tblFaculty entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblDepartment = null;
 		}
 		
 		private void attach_tblPrograms(tblProgram entity)
@@ -660,256 +648,17 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			this.SendPropertyChanging();
 			entity.tblDepartment = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFaculty")]
-	public partial class tblFaculty : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _FacultyID;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private System.Nullable<int> _DepartmentID;
-		
-		private string _ContactNo;
-		
-		private System.Nullable<int> _MaxLoad;
-		
-		private EntitySet<tblFacultyLoading> _tblFacultyLoadings;
-		
-		private EntityRef<tblDepartment> _tblDepartment;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnFacultyIDChanging(int value);
-    partial void OnFacultyIDChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnDepartmentIDChanging(System.Nullable<int> value);
-    partial void OnDepartmentIDChanged();
-    partial void OnContactNoChanging(string value);
-    partial void OnContactNoChanged();
-    partial void OnMaxLoadChanging(System.Nullable<int> value);
-    partial void OnMaxLoadChanged();
-    #endregion
-		
-		public tblFaculty()
-		{
-			this._tblFacultyLoadings = new EntitySet<tblFacultyLoading>(new Action<tblFacultyLoading>(this.attach_tblFacultyLoadings), new Action<tblFacultyLoading>(this.detach_tblFacultyLoadings));
-			this._tblDepartment = default(EntityRef<tblDepartment>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacultyID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int FacultyID
-		{
-			get
-			{
-				return this._FacultyID;
-			}
-			set
-			{
-				if ((this._FacultyID != value))
-				{
-					this.OnFacultyIDChanging(value);
-					this.SendPropertyChanging();
-					this._FacultyID = value;
-					this.SendPropertyChanged("FacultyID");
-					this.OnFacultyIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int")]
-		public System.Nullable<int> DepartmentID
-		{
-			get
-			{
-				return this._DepartmentID;
-			}
-			set
-			{
-				if ((this._DepartmentID != value))
-				{
-					if (this._tblDepartment.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDepartmentIDChanging(value);
-					this.SendPropertyChanging();
-					this._DepartmentID = value;
-					this.SendPropertyChanged("DepartmentID");
-					this.OnDepartmentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNo", DbType="NVarChar(15)")]
-		public string ContactNo
-		{
-			get
-			{
-				return this._ContactNo;
-			}
-			set
-			{
-				if ((this._ContactNo != value))
-				{
-					this.OnContactNoChanging(value);
-					this.SendPropertyChanging();
-					this._ContactNo = value;
-					this.SendPropertyChanged("ContactNo");
-					this.OnContactNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaxLoad", DbType="Int")]
-		public System.Nullable<int> MaxLoad
-		{
-			get
-			{
-				return this._MaxLoad;
-			}
-			set
-			{
-				if ((this._MaxLoad != value))
-				{
-					this.OnMaxLoadChanging(value);
-					this.SendPropertyChanging();
-					this._MaxLoad = value;
-					this.SendPropertyChanged("MaxLoad");
-					this.OnMaxLoadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFaculty_tblFacultyLoading", Storage="_tblFacultyLoadings", ThisKey="FacultyID", OtherKey="FacultyID")]
-		public EntitySet<tblFacultyLoading> tblFacultyLoadings
-		{
-			get
-			{
-				return this._tblFacultyLoadings;
-			}
-			set
-			{
-				this._tblFacultyLoadings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblDepartment_tblFaculty", Storage="_tblDepartment", ThisKey="DepartmentID", OtherKey="DepartmentID", IsForeignKey=true)]
-		public tblDepartment tblDepartment
-		{
-			get
-			{
-				return this._tblDepartment.Entity;
-			}
-			set
-			{
-				tblDepartment previousValue = this._tblDepartment.Entity;
-				if (((previousValue != value) 
-							|| (this._tblDepartment.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblDepartment.Entity = null;
-						previousValue.tblFaculties.Remove(this);
-					}
-					this._tblDepartment.Entity = value;
-					if ((value != null))
-					{
-						value.tblFaculties.Add(this);
-						this._DepartmentID = value.DepartmentID;
-					}
-					else
-					{
-						this._DepartmentID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tblDepartment");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tblFacultyLoadings(tblFacultyLoading entity)
+		private void attach_tblFaculties(tblFaculty entity)
 		{
 			this.SendPropertyChanging();
-			entity.tblFaculty = this;
+			entity.tblDepartment = this;
 		}
 		
-		private void detach_tblFacultyLoadings(tblFacultyLoading entity)
+		private void detach_tblFaculties(tblFaculty entity)
 		{
 			this.SendPropertyChanging();
-			entity.tblFaculty = null;
+			entity.tblDepartment = null;
 		}
 	}
 	
@@ -2472,9 +2221,9 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		
 		private EntityRef<tblProgram> _tblProgram;
 		
-		private EntityRef<tblFaculty> _tblFaculty;
-		
 		private EntityRef<tblsubjectOffering> _tblsubjectOffering;
+		
+		private EntityRef<tblFaculty> _tblFaculty;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2497,8 +2246,8 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			this._tblSchedules = new EntitySet<tblSchedule>(new Action<tblSchedule>(this.attach_tblSchedules), new Action<tblSchedule>(this.detach_tblSchedules));
 			this._tblRoomAssignments = new EntitySet<tblRoomAssignment>(new Action<tblRoomAssignment>(this.attach_tblRoomAssignments), new Action<tblRoomAssignment>(this.detach_tblRoomAssignments));
 			this._tblProgram = default(EntityRef<tblProgram>);
-			this._tblFaculty = default(EntityRef<tblFaculty>);
 			this._tblsubjectOffering = default(EntityRef<tblsubjectOffering>);
+			this._tblFaculty = default(EntityRef<tblFaculty>);
 			OnCreated();
 		}
 		
@@ -2674,40 +2423,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFaculty_tblFacultyLoading", Storage="_tblFaculty", ThisKey="FacultyID", OtherKey="FacultyID", IsForeignKey=true)]
-		public tblFaculty tblFaculty
-		{
-			get
-			{
-				return this._tblFaculty.Entity;
-			}
-			set
-			{
-				tblFaculty previousValue = this._tblFaculty.Entity;
-				if (((previousValue != value) 
-							|| (this._tblFaculty.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblFaculty.Entity = null;
-						previousValue.tblFacultyLoadings.Remove(this);
-					}
-					this._tblFaculty.Entity = value;
-					if ((value != null))
-					{
-						value.tblFacultyLoadings.Add(this);
-						this._FacultyID = value.FacultyID;
-					}
-					else
-					{
-						this._FacultyID = default(int);
-					}
-					this.SendPropertyChanged("tblFaculty");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblsubjectOffering_tblFacultyLoading", Storage="_tblsubjectOffering", ThisKey="offeringId", OtherKey="offeringId", IsForeignKey=true)]
 		public tblsubjectOffering tblsubjectOffering
 		{
@@ -2738,6 +2453,40 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 						this._offeringId = default(int);
 					}
 					this.SendPropertyChanged("tblsubjectOffering");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFaculty_tblFacultyLoading", Storage="_tblFaculty", ThisKey="FacultyID", OtherKey="FacultyID", IsForeignKey=true)]
+		public tblFaculty tblFaculty
+		{
+			get
+			{
+				return this._tblFaculty.Entity;
+			}
+			set
+			{
+				tblFaculty previousValue = this._tblFaculty.Entity;
+				if (((previousValue != value) 
+							|| (this._tblFaculty.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblFaculty.Entity = null;
+						previousValue.tblFacultyLoadings.Remove(this);
+					}
+					this._tblFaculty.Entity = value;
+					if ((value != null))
+					{
+						value.tblFacultyLoadings.Add(this);
+						this._FacultyID = value.FacultyID;
+					}
+					else
+					{
+						this._FacultyID = default(int);
+					}
+					this.SendPropertyChanged("tblFaculty");
 				}
 			}
 		}
@@ -2784,6 +2533,281 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		{
 			this.SendPropertyChanging();
 			entity.tblFacultyLoading = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFaculty")]
+	public partial class tblFaculty : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _FacultyID;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private System.Nullable<int> _DepartmentID;
+		
+		private int _MaxLoad;
+		
+		private string _ContactNo;
+		
+		private System.Nullable<int> _Hours;
+		
+		private EntitySet<tblFacultyLoading> _tblFacultyLoadings;
+		
+		private EntityRef<tblDepartment> _tblDepartment;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFacultyIDChanging(int value);
+    partial void OnFacultyIDChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnDepartmentIDChanging(System.Nullable<int> value);
+    partial void OnDepartmentIDChanged();
+    partial void OnMaxLoadChanging(int value);
+    partial void OnMaxLoadChanged();
+    partial void OnContactNoChanging(string value);
+    partial void OnContactNoChanged();
+    partial void OnHoursChanging(System.Nullable<int> value);
+    partial void OnHoursChanged();
+    #endregion
+		
+		public tblFaculty()
+		{
+			this._tblFacultyLoadings = new EntitySet<tblFacultyLoading>(new Action<tblFacultyLoading>(this.attach_tblFacultyLoadings), new Action<tblFacultyLoading>(this.detach_tblFacultyLoadings));
+			this._tblDepartment = default(EntityRef<tblDepartment>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacultyID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int FacultyID
+		{
+			get
+			{
+				return this._FacultyID;
+			}
+			set
+			{
+				if ((this._FacultyID != value))
+				{
+					this.OnFacultyIDChanging(value);
+					this.SendPropertyChanging();
+					this._FacultyID = value;
+					this.SendPropertyChanged("FacultyID");
+					this.OnFacultyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int")]
+		public System.Nullable<int> DepartmentID
+		{
+			get
+			{
+				return this._DepartmentID;
+			}
+			set
+			{
+				if ((this._DepartmentID != value))
+				{
+					if (this._tblDepartment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDepartmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._DepartmentID = value;
+					this.SendPropertyChanged("DepartmentID");
+					this.OnDepartmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaxLoad", DbType="Int NOT NULL")]
+		public int MaxLoad
+		{
+			get
+			{
+				return this._MaxLoad;
+			}
+			set
+			{
+				if ((this._MaxLoad != value))
+				{
+					this.OnMaxLoadChanging(value);
+					this.SendPropertyChanging();
+					this._MaxLoad = value;
+					this.SendPropertyChanged("MaxLoad");
+					this.OnMaxLoadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNo", DbType="NVarChar(15)")]
+		public string ContactNo
+		{
+			get
+			{
+				return this._ContactNo;
+			}
+			set
+			{
+				if ((this._ContactNo != value))
+				{
+					this.OnContactNoChanging(value);
+					this.SendPropertyChanging();
+					this._ContactNo = value;
+					this.SendPropertyChanged("ContactNo");
+					this.OnContactNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hours", DbType="Int")]
+		public System.Nullable<int> Hours
+		{
+			get
+			{
+				return this._Hours;
+			}
+			set
+			{
+				if ((this._Hours != value))
+				{
+					this.OnHoursChanging(value);
+					this.SendPropertyChanging();
+					this._Hours = value;
+					this.SendPropertyChanged("Hours");
+					this.OnHoursChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFaculty_tblFacultyLoading", Storage="_tblFacultyLoadings", ThisKey="FacultyID", OtherKey="FacultyID")]
+		public EntitySet<tblFacultyLoading> tblFacultyLoadings
+		{
+			get
+			{
+				return this._tblFacultyLoadings;
+			}
+			set
+			{
+				this._tblFacultyLoadings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblDepartment_tblFaculty", Storage="_tblDepartment", ThisKey="DepartmentID", OtherKey="DepartmentID", IsForeignKey=true)]
+		public tblDepartment tblDepartment
+		{
+			get
+			{
+				return this._tblDepartment.Entity;
+			}
+			set
+			{
+				tblDepartment previousValue = this._tblDepartment.Entity;
+				if (((previousValue != value) 
+							|| (this._tblDepartment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblDepartment.Entity = null;
+						previousValue.tblFaculties.Remove(this);
+					}
+					this._tblDepartment.Entity = value;
+					if ((value != null))
+					{
+						value.tblFaculties.Add(this);
+						this._DepartmentID = value.DepartmentID;
+					}
+					else
+					{
+						this._DepartmentID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblDepartment");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblFacultyLoadings(tblFacultyLoading entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFaculty = this;
+		}
+		
+		private void detach_tblFacultyLoadings(tblFacultyLoading entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFaculty = null;
 		}
 	}
 	

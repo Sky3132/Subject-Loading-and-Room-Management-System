@@ -40,41 +40,37 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                                       select new
                                       {
                                           ID = f.FacultyID,
-                                          FirstName = f.FirstName,
-                                          LastName = f.LastName,
+                                          f.FirstName,
+                                          f.LastName,
                                           Department = d.DepartmentName,
-                                          CurrentLoad = db.tblFacultyLoadings
+                                          // Logic: Sum of units = Hours
+                                          TotalUnits = db.tblFacultyLoadings
                                               .Where(load => load.FacultyID == f.FacultyID)
                                               .Sum(load => (int?)(load.tblsubjectOffering.tblsubject.LectureUnits +
                                                                  load.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0,
-                                          MaxLoad = f.MaxLoad ?? 18,
-                                          DepartmentID = f.DepartmentID
+                                          MaxLoad = (int?)(f.MaxLoad) ?? 18,
+                                          f.DepartmentID
                                       };
 
                     var facultyData = facultyList.ToList();
-                    
-                    // Add Remaining Units column
-                    var facultyWithRemaining = facultyData.Select(f => new
+
+                    dgvFaculty.DataSource = facultyData.Select(f => new
                     {
                         f.ID,
                         f.FirstName,
                         f.LastName,
                         f.Department,
-                        f.CurrentLoad,
+                        CurrentLoad = f.TotalUnits,
                         f.MaxLoad,
-                        RemainingUnits = f.MaxLoad - f.CurrentLoad,
+                        // Per your request: Hours equals the total units
+                        Hours = f.TotalUnits,
+                        RemainingUnits = f.MaxLoad - f.TotalUnits,
                         f.DepartmentID
                     }).ToList();
 
-                    dgvFaculty.DataSource = facultyWithRemaining;
-
-                    // Hide unnecessary columns
-                    if (dgvFaculty.Columns["ID"] != null)
-                        dgvFaculty.Columns["ID"].Visible = false;
-                    if (dgvFaculty.Columns["MaxLoad"] != null)
-                        dgvFaculty.Columns["MaxLoad"].Visible = false;
-                    if (dgvFaculty.Columns["DepartmentID"] != null)
-                        dgvFaculty.Columns["DepartmentID"].Visible = false;
+                    // Hide configuration columns
+                    if (dgvFaculty.Columns["ID"] != null) dgvFaculty.Columns["ID"].Visible = false;
+                    if (dgvFaculty.Columns["DepartmentID"] != null) dgvFaculty.Columns["DepartmentID"].Visible = false;
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error loading faculty: " + ex.Message); }
@@ -93,38 +89,38 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                                    FirstName = f.FirstName,
                                    LastName = f.LastName,
                                    Department = d.DepartmentName,
-                                   CurrentLoad = db.tblFacultyLoadings
+                                   // FIX: Added (int?) cast to prevent CS0019 error
+                                   TotalUnits = db.tblFacultyLoadings
                                         .Where(l => l.FacultyID == f.FacultyID)
                                         .Sum(l => (int?)(l.tblsubjectOffering.tblsubject.LectureUnits +
-                                                        l.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0,
-                                   MaxLoad = f.MaxLoad ?? 18,
+                                                         l.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0,
+                                   MaxLoad = f.MaxLoad,
                                    DepartmentID = f.DepartmentID
                                };
 
                 var filteredData = filtered.ToList();
-                
-                // Add Remaining Units column
-                var filteredWithRemaining = filteredData.Select(f => new
+
+                // Transform to include Hours and Remaining Units
+                var filteredFinal = filteredData.Select(f => new
                 {
                     f.ID,
                     f.FirstName,
                     f.LastName,
                     f.Department,
-                    f.CurrentLoad,
+                    CurrentLoad = f.TotalUnits,
+                    // Total Units = Hours per your requirement
+                    Hours = f.TotalUnits,
                     f.MaxLoad,
-                    RemainingUnits = f.MaxLoad - f.CurrentLoad,
+                    RemainingUnits = f.MaxLoad - f.TotalUnits,
                     f.DepartmentID
                 }).ToList();
 
-                dgvFaculty.DataSource = filteredWithRemaining;
+                dgvFaculty.DataSource = filteredFinal;
 
-                // Hide unnecessary columns
-                if (dgvFaculty.Columns["ID"] != null)
-                    dgvFaculty.Columns["ID"].Visible = false;
-                if (dgvFaculty.Columns["MaxLoad"] != null)
-                    dgvFaculty.Columns["MaxLoad"].Visible = false;
-                if (dgvFaculty.Columns["DepartmentID"] != null)
-                    dgvFaculty.Columns["DepartmentID"].Visible = false;
+                // Hide configuration columns
+                if (dgvFaculty.Columns["ID"] != null) dgvFaculty.Columns["ID"].Visible = false;
+                if (dgvFaculty.Columns["MaxLoad"] != null) dgvFaculty.Columns["MaxLoad"].Visible = false;
+                if (dgvFaculty.Columns["DepartmentID"] != null) dgvFaculty.Columns["DepartmentID"].Visible = false;
             }
         }
 

@@ -18,20 +18,8 @@
     <Type Name="tblDepartment">
       <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="tblDepartment_tblFaculty" Member="tblFaculties" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblFaculty" />
       <Association Name="tblDepartment_tblProgram" Member="tblPrograms" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblProgram" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblFaculty" Member="tblFaculties">
-    <Type Name="tblFaculty">
-      <Column Name="FacultyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ContactNo" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="MaxLoad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="tblFaculty_tblFacultyLoading" Member="tblFacultyLoadings" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFacultyLoading" />
-      <Association Name="tblDepartment_tblFaculty" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
+      <Association Name="tblDepartment_tblFaculty" Member="tblFaculties" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblFaculty" />
     </Type>
   </Table>
   <Table Name="dbo.tblProgram" Member="tblPrograms">
@@ -119,8 +107,21 @@
       <Association Name="tblFacultyLoading_tblSchedule" Member="tblSchedules" ThisKey="LoadID" OtherKey="LoadID" Type="tblSchedule" />
       <Association Name="tblFacultyLoading_tblRoomAssignment" Member="tblRoomAssignments" ThisKey="LoadID" OtherKey="LoadID" Type="tblRoomAssignment" />
       <Association Name="tblProgram_tblFacultyLoading" Member="tblProgram" ThisKey="ProgramID" OtherKey="ProgramID" Type="tblProgram" IsForeignKey="true" />
-      <Association Name="tblFaculty_tblFacultyLoading" Member="tblFaculty" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFaculty" IsForeignKey="true" />
       <Association Name="tblsubjectOffering_tblFacultyLoading" Member="tblsubjectOffering" ThisKey="offeringId" OtherKey="offeringId" Type="tblsubjectOffering" IsForeignKey="true" />
+      <Association Name="tblFaculty_tblFacultyLoading" Member="tblFaculty" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFaculty" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFaculty" Member="tblFaculties">
+    <Type Name="tblFaculty">
+      <Column Name="FacultyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxLoad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactNo" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Hours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblFaculty_tblFacultyLoading" Member="tblFacultyLoadings" ThisKey="FacultyID" OtherKey="FacultyID" Type="tblFacultyLoading" />
+      <Association Name="tblDepartment_tblFaculty" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.Admin_Login" Method="Admin_Login">

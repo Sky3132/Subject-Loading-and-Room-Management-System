@@ -28,14 +28,16 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
                 var faculty = db.tblFaculties.FirstOrDefault(f => f.FacultyID == facultyId);
                 if (faculty == null) return false;
 
-                // Calculate current load from the database
+                // FIX: The sum result must be treated as nullable for ?? to work
                 int currentLoad = db.tblFacultyLoadings
                     .Where(l => l.FacultyID == facultyId)
                     .Sum(l => (int?)(l.tblsubjectOffering.tblsubject.LectureUnits +
-                                    l.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0;
+                                     l.tblsubjectOffering.tblsubject.LaboratoryUnits)) ?? 0;
 
-                // Check if (Current + New) > Max Allowed
-                return (currentLoad + newUnits) > (faculty.MaxLoad ?? 18);
+                // Ensure MaxLoad is also handled safely
+                int maxAllowed = faculty.MaxLoad;
+
+                return (currentLoad + newUnits) > maxAllowed;
             }
         }
     }
