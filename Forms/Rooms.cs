@@ -1,4 +1,5 @@
 ﻿using __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers;
+using __Subject_Loading_and_Room_Assignment_Monitoring_System.Core_Models;
 using System;
 using System.Data;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class Rooms : Form
     {
+        // OOP: Encapsulating logic within the Manager
         private RoomManager _roomMgr = new RoomManager();
 
         public Rooms()
@@ -19,100 +21,68 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             dgvRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             LoadRoomTypes();
-            LoadRooms();
+            RefreshGrid();
+        }
+
+        private void RefreshGrid()
+        {
+            try
+            {
+                // UI layer calling Business Logic layer
+                dgvRooms.DataSource = _roomMgr.GetRoomsGrid();
+
+                if (dgvRooms.Columns["ID"] != null)
+                    dgvRooms.Columns["ID"].Visible = false;
+
+                // Update search combobox based on current data
+                using (var db = new DataClasses1DataContext())
+                {
+                    cmbSearchRoom.DataSource = db.tblRooms.Select(r => r.RoomName).ToList();
+                    cmbSearchRoom.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Error refreshing data: " + ex.Message); }
         }
 
         private void LoadRoomTypes()
         {
-            try
-            {
-                cmbRoomType.Items.Clear();
-                cmbRoomType.Items.AddRange(new object[] { "Classroom", "ChemLab", "ComLab", "Drawing Room", "Drafting Room" });
-                cmbRoomType.SelectedIndex = -1;
-            }
-            catch (Exception ex) { MessageBox.Show("Error loading room types: " + ex.Message); }
+            cmbRoomType.Items.Clear();
+            cmbRoomType.Items.AddRange(new object[] { "Classroom", "ChemLab", "ComLab", "Drawing Room", "Drafting Room" });
+            cmbRoomType.SelectedIndex = -1;
         }
 
-        private void LoadRooms()
-        {
-            try
-            {
-                using (DataClasses1DataContext db = new DataClasses1DataContext())
-                {
-                    var roomData = db.tblRooms.ToList();
-
-                    // UPDATED: Added Campus to the DataGrid display
-                    dgvRooms.DataSource = roomData.Select(r => new {
-                        ID = r.RoomID,
-                        Number = r.RoomName,
-                        Type = r.RoomType,
-                        Capacity = r.Capacity,
-                        Campus = r.Campus // Displays "Main" or "Visayan" in the table
-                    }).ToList();
-
-                    if (dgvRooms.Columns["ID"] != null) dgvRooms.Columns["ID"].Visible = false;
-
-                    cmbSearchRoom.DataSource = roomData.Select(r => r.RoomName).ToList();
-                    cmbSearchRoom.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex) { MessageBox.Show("Error loading rooms: " + ex.Message); }
-        }
-
-        // Helper to get text from RadioButtons
         private string GetSelectedCampus()
         {
             if (rbMain.Checked) return "Main";
             if (rbVisayan.Checked) return "Visayan";
-            return "";
+            return null;
         }
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1. Basic Validation
-                if (string.IsNullOrWhiteSpace(txtRoomName.Text))
-                    throw new Exception("Please enter a Room Name.");
-                if (cmbRoomType.SelectedIndex == -1)
-                    throw new Exception("Please select a room type.");
-                if (!rbMain.Checked && !rbVisayan.Checked)
-                    throw new Exception("Please select a campus.");
-
-                string name = txtRoomName.Text.Trim();
-                string campus = GetSelectedCampus();
-
-                using (DataClasses1DataContext db = new DataClasses1DataContext())
+                // 1. Pack UI data into the Model
+                var newRoom = new Room
                 {
-                    // 2. DUPLICATE CHECK: Look for same Name AND same Campus
-                    bool exists = db.tblRooms.Any(r => r.RoomName.ToLower() == name.ToLower()
-                                                    && r.Campus == campus);
+                    RoomName = txtRoomName.Text.Trim(),
+                    RoomType = cmbRoomType.SelectedItem?.ToString(),
+                    Capacity = int.TryParse(txtRoomCapacity.Text, out int cap) ? cap : 0,
+                    Campus = GetSelectedCampus()
+                };
 
-                    if (exists)
-                    {
-                        MessageBox.Show($"Room '{name}' already exists in the {campus} campus.",
-                                        "Duplicate Room", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Stop the process
-                    }
+                // 2. Delegate logic to Manager (Validation + Duplicate Check + Saving)
+                _roomMgr.Validate(newRoom);
+                _roomMgr.AddRoom(newRoom);
 
-                    // 3. Save if no duplicate found
-                    tblRoom room = new tblRoom
-                    {
-                        RoomName = name,
-                        RoomType = cmbRoomType.SelectedItem.ToString(),
-                        Capacity = int.Parse(txtRoomCapacity.Text),
-                        Campus = campus
-                    };
-
-                    db.tblRooms.InsertOnSubmit(room);
-                    db.SubmitChanges();
-
-                    MessageBox.Show("Room added successfully.");
-                    LoadRooms();
-                    ClearInputs();
-                }
+                MessageBox.Show("Room added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefreshGrid();
+                ClearInputs();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnEditRoom_Click(object sender, EventArgs e)
@@ -122,26 +92,23 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 if (dgvRooms.SelectedRows.Count == 0)
                     throw new Exception("Please select a room to edit.");
 
-                int selectedId = (int)dgvRooms.SelectedRows[0].Cells["ID"].Value;
-
-                using (DataClasses1DataContext db = new DataClasses1DataContext())
+                var updatedRoom = new Room
                 {
-                    var room = db.tblRooms.FirstOrDefault(r => r.RoomID == selectedId);
-                    if (room != null)
-                    {
-                        room.RoomName = txtRoomName.Text.Trim();
-                        room.RoomType = cmbRoomType.SelectedItem.ToString();
-                        room.Capacity = int.Parse(txtRoomCapacity.Text);
-                        room.Campus = GetSelectedCampus(); // UPDATES CAMPUS IN DB
+                    RoomID = (int)dgvRooms.SelectedRows[0].Cells["ID"].Value,
+                    RoomName = txtRoomName.Text.Trim(),
+                    RoomType = cmbRoomType.SelectedItem?.ToString(),
+                    Capacity = int.TryParse(txtRoomCapacity.Text, out int cap) ? cap : 0,
+                    Campus = GetSelectedCampus()
+                };
 
-                        db.SubmitChanges();
-                        MessageBox.Show("Room updated successfully.");
-                        LoadRooms();
-                        ClearInputs();
-                    }
-                }
+                _roomMgr.Validate(updatedRoom);
+                _roomMgr.UpdateRoom(updatedRoom);
+
+                MessageBox.Show("Room updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefreshGrid();
+                ClearInputs();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         private void btnRemoveRoom_Click(object sender, EventArgs e)
@@ -149,41 +116,28 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             try
             {
                 if (dgvRooms.SelectedRows.Count == 0)
-                    throw new Exception("Please select a room from the list to remove.");
+                    throw new Exception("Please select a room to remove.");
 
-                if (MessageBox.Show("Are you sure you want to delete this room?", "Confirm Deletion",
+                if (MessageBox.Show("Are you sure you want to delete this room?", "Confirm",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    int selectedId = (int)dgvRooms.SelectedRows[0].Cells["ID"].Value;
+                    int id = (int)dgvRooms.SelectedRows[0].Cells["ID"].Value;
+                    _roomMgr.DeleteRoom(id);
 
-                    using (DataClasses1DataContext db = new DataClasses1DataContext())
-                    {
-                        var room = db.tblRooms.FirstOrDefault(r => r.RoomID == selectedId);
-                        if (room != null)
-                        {
-                            db.tblRooms.DeleteOnSubmit(room);
-                            db.SubmitChanges();
-
-                            MessageBox.Show("Room removed successfully.");
-                            LoadRooms();
-                            ClearInputs();
-                        }
-                    }
+                    MessageBox.Show("Room removed successfully.");
+                    RefreshGrid();
+                    ClearInputs();
                 }
             }
             catch (Exception ex)
             {
-                // UPDATED: Custom message for Foreign Key conflicts
+                // Custom handling for Foreign Key conflicts
                 if (ex.Message.Contains("FK_") || ex.Message.Contains("REFERENCE constraint"))
                 {
-                    MessageBox.Show("This room cannot be deleted because it is currently assigned to a class in Room Assignments. " +
-                                    "\n\nPlease remove those assignments first.",
+                    MessageBox.Show("This room is currently in use in Room Assignments and cannot be deleted.",
                                     "Room In Use", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
+                else { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -196,7 +150,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 cmbRoomType.SelectedItem = row.Cells["Type"].Value?.ToString();
                 txtRoomCapacity.Text = row.Cells["Capacity"].Value?.ToString();
 
-                // UPDATED: Selects the correct RadioButton based on the row clicked
                 string campus = row.Cells["Campus"].Value?.ToString();
                 if (campus == "Main") rbMain.Checked = true;
                 else if (campus == "Visayan") rbVisayan.Checked = true;
@@ -208,12 +161,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             txtRoomName.Clear();
             cmbRoomType.SelectedIndex = -1;
             txtRoomCapacity.Clear();
-            rbMain.Checked = false;   // Resets Campus selection
+            rbMain.Checked = false;
             rbVisayan.Checked = false;
             dgvRooms.ClearSelection();
         }
 
-        // ... Navigation and other events remain the same ...
         private void imgBackToMain2_Click(object sender, EventArgs e)
         {
             Main main = new Main();
@@ -221,67 +173,18 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             this.Hide();
         }
 
-        private void lblRoomAssignment_Click(object sender, EventArgs e)
-        {
-            RoomAssignment roomAssignForm = new RoomAssignment();
-            roomAssignForm.Show();
-            this.Hide();
-        }
-
         private void btnSearchRoom_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (DataClasses1DataContext db = new DataClasses1DataContext())
-                {
-                    // Start with all rooms
-                    var query = db.tblRooms.AsQueryable();
+            // You can move the search logic to RoomManager as well to be fully OOP
+            RefreshGrid(); // For now, this resets/reloads. 
+            // In a full OOP setup, you'd pass search params to _roomMgr.GetRoomsGrid(searchName, type, campus)
+        }
 
-                    // 1. Filter by Room Name (from ComboBox or Text)
-                    string searchName = cmbSearchRoom.Text.Trim();
-                    if (!string.IsNullOrEmpty(searchName))
-                    {
-                        query = query.Where(r => r.RoomName.Contains(searchName));
-                    }
-
-                    // 2. Filter by Room Type
-                    if (cmbRoomType.SelectedIndex != -1)
-                    {
-                        string searchType = cmbRoomType.SelectedItem.ToString();
-                        query = query.Where(r => r.RoomType == searchType);
-                    }
-
-                    // 3. Filter by Campus
-                    string selectedCampus = GetSelectedCampus();
-                    if (!string.IsNullOrEmpty(selectedCampus))
-                    {
-                        query = query.Where(r => r.Campus == selectedCampus);
-                    }
-
-                    // Execute search
-                    var results = query.ToList();
-
-                    if (results.Count == 0)
-                    {
-                        MessageBox.Show("No rooms found matching those criteria.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadRooms(); // Reset to show all if nothing found
-                        return;
-                    }
-
-                    // Bind results to grid
-                    dgvRooms.DataSource = results.Select(r => new {
-                        ID = r.RoomID,
-                        Number = r.RoomName,
-                        Type = r.RoomType,
-                        Capacity = r.Capacity,
-                        Campus = r.Campus
-                    }).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error during multi-criteria search: " + ex.Message);
-            }
+        private void lblRoomAssignment_Click(object sender, EventArgs e)
+        {
+            RoomAssignment assign = new RoomAssignment();
+            assign.Show();
+            this.Hide();
         }
     }
 }

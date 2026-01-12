@@ -20,12 +20,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private ScheduleManager _manager = new ScheduleManager();
         private int selectedScheduleID = 0;
 
-
-        // KEEP THIS - It works perfectly for your UI
         private void LoadDayAndTimeCombos()
         {
+            // Clears existing items to prevent duplicates if method is called twice
+            cmbSchedDay.Items.Clear();
             cmbSchedDay.Items.AddRange(new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" });
 
+            cmbSchedStart.Items.Clear();
+            cmbSchedEnd.Items.Clear();
             for (int hour = 7; hour <= 23; hour++)
             {
                 string time = DateTime.Today.AddHours(hour).ToString("h:mm tt");
@@ -38,11 +40,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             LoadDayAndTimeCombos();
 
-            // Load Combined Data
+            // Load Subject/Faculty list
             cmbSchedSubject.DataSource = _manager.GetSubjectFacultyCombo();
             cmbSchedSubject.DisplayMember = "DisplayText";
             cmbSchedSubject.ValueMember = "LoadID";
 
+            // UPDATED: This now loads the unique rooms in "ROOM - CAMPUS" format
+            // Ensure your ScheduleManager.GetRoomSectionCombo() uses 'DISTINCT' in its SQL
             cmbSchedRoom.DataSource = _manager.GetRoomSectionCombo();
             cmbSchedRoom.DisplayMember = "DisplayText";
             cmbSchedRoom.ValueMember = "RoomID";
@@ -50,16 +54,12 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             RefreshGrid();
         }
 
-
         private void btnSchedSave_Click(object sender, EventArgs e)
         {
             try
             {
                 var model = GetModelFromUI();
-
-                // This triggers the HasConflict check inside the manager
                 _manager.Validate(model);
-
                 _manager.Save(model);
 
                 MessageBox.Show("Schedule saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -68,10 +68,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             }
             catch (Exception ex)
             {
-                // This shows the "Duplicate/Conflict Detected" message with a Warning Icon
                 MessageBox.Show(ex.Message, "Schedule Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
         private void btnSchedUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -83,11 +83,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 }
 
                 var model = GetModelFromUI();
-
-                // 1. Validate logic (Conflict check)
                 _manager.Validate(model);
-
-                // 2. Call Update
                 _manager.Update(model);
 
                 MessageBox.Show("Schedule updated successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -111,7 +107,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 try
                 {
                     _manager.Remove(selectedScheduleID);
-                    selectedScheduleID = 0; // Reset after delete
+                    selectedScheduleID = 0;
                     RefreshGrid();
                     MessageBox.Show("Schedule removed.");
                 }
@@ -119,15 +115,20 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             }
         }
 
-
         private void RefreshGrid()
         {
-            //Load the data
             dgvSchedule.DataSource = _manager.GetGridData();
-            // Formats the StartTime column (adjust the index/name to match your grid)
+
+            // Formatting the RoomName column in the grid
+            if (dgvSchedule.Columns["RoomName"] != null)
+            {
+                dgvSchedule.Columns["RoomName"].HeaderText = "Room & Campus";
+                dgvSchedule.Columns["RoomName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+
             dgvSchedule.Columns["StartTime"].DefaultCellStyle.Format = "hh:mm tt";
             dgvSchedule.Columns["EndTime"].DefaultCellStyle.Format = "hh:mm tt";
-            // HIDE THE IDs (Use the Column Names from your SQL/DataTable)
+
             if (dgvSchedule.Columns.Count > 0)
             {
                 dgvSchedule.Columns["ScheduleID"].Visible = false;
@@ -138,6 +139,17 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private ScheduleModel GetModelFromUI()
         {
+            // Validates selections before processing to prevent crashes
+            if (cmbSchedSubject.SelectedValue == null || cmbSchedRoom.SelectedValue == null)
+            {
+                throw new Exception("Please ensure both a Subject and a Room are selected.");
+            }
+
+            if (string.IsNullOrEmpty(cmbSchedStart.Text) || string.IsNullOrEmpty(cmbSchedEnd.Text))
+            {
+                throw new Exception("Please select both Start and End times.");
+            }
+
             return new ScheduleModel
             {
                 ScheduleID = selectedScheduleID,
@@ -145,26 +157,17 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 RoomID = (int)cmbSchedRoom.SelectedValue,
                 DayOfWeek = cmbSchedDay.Text,
                 StartTime = DateTime.Parse(cmbSchedStart.Text).TimeOfDay,
-                EndTime   = DateTime.Parse(cmbSchedEnd.Text).TimeOfDay
+                EndTime = DateTime.Parse(cmbSchedEnd.Text).TimeOfDay
             };
-        }
-
-        private void lblOpenClassSched_Click(object sender, EventArgs e)
-        {
-            Class_schedule classSched = new Class_schedule();
-            classSched.Show();
-            this.Hide();
         }
 
         private void dgvSchedule_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Check if we are formatting the StartTime or EndTime columns
             if (dgvSchedule.Columns[e.ColumnIndex].Name == "StartTime" ||
                 dgvSchedule.Columns[e.ColumnIndex].Name == "EndTime")
             {
                 if (e.Value is TimeSpan ts)
                 {
-                    // Convert TimeSpan to a dummy DateTime to use AM/PM formatting
                     e.Value = DateTime.Today.Add(ts).ToString("h:mm tt");
                     e.FormattingApplied = true;
                 }
@@ -176,36 +179,25 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvSchedule.Rows[e.RowIndex];
-
-                // 1. Capture the ID
                 selectedScheduleID = Convert.ToInt32(row.Cells["ScheduleID"].Value);
 
-                // 2. Set the Combos
                 cmbSchedSubject.SelectedValue = row.Cells["LoadID"].Value;
                 cmbSchedRoom.SelectedValue = row.Cells["RoomID"].Value;
                 cmbSchedDay.Text = row.Cells["DayOfWeek"].Value.ToString();
 
-                // 3. Format the Times back to strings
                 if (row.Cells["StartTime"].Value is TimeSpan start &&
                     row.Cells["EndTime"].Value is TimeSpan end)
                 {
-                    // Using .ToLower() matches "7:00 am" exactly as it appears in your ComboBox
-                    cmbSchedStart.Text = DateTime.Today.Add(start).ToString("h:mm tt").ToLower();
-                    cmbSchedEnd.Text = DateTime.Today.Add(end).ToString("h:mm tt").ToLower();
+                    // Match the case-sensitive "am/pm" format of your dropdown items
+                    cmbSchedStart.Text = DateTime.Today.Add(start).ToString("h:mm tt");
+                    cmbSchedEnd.Text = DateTime.Today.Add(end).ToString("h:mm tt");
                 }
             }
         }
+
+        private void imgBackToMain2_Click(object sender, EventArgs e)
+        {
+     
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

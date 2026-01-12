@@ -167,14 +167,12 @@ C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAssignment.resources
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Rooms.resources
 C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedules.resources
 C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
 C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
 C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
 C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
@@ -192,3 +190,5 @@ C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedule.resources
+C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedule.resources
+C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config

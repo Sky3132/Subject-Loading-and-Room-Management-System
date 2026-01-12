@@ -22,7 +22,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
             if (m.RoomID <= 0) throw new Exception("Please select a Room.");
             if (string.IsNullOrEmpty(m.DayOfWeek)) throw new Exception("Please select a Day.");
             if (m.StartTime >= m.EndTime) throw new Exception("End Time must be later than Start Time.");
-            // Check for conflicts using the existing logic
+
             if (HasConflict(m))
             {
                 throw new Exception("Schedule Conflict: The Room or Faculty is already occupied at this time.");
@@ -33,17 +33,15 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
         {
             using (SqlConnection conn = new SqlConnection(connStr.connection))
             {
-                // This query checks if the Room OR the Faculty is busy on the same Day 
-                // AND their times overlap with the new Start/End time.
                 string sql = @"SELECT COUNT(*) FROM tblSchedule 
-                       WHERE DayOfWeek = @Day 
-                       AND ScheduleID <> @ID
-                       AND (RoomID = @RoomID OR LoadID = @LoadID)
-                       AND (
-                            (@Start >= StartTime AND @Start < EndTime) OR 
-                            (@End > StartTime AND @End <= EndTime) OR 
-                            (StartTime >= @Start AND StartTime < @End)
-                       )";
+                               WHERE DayOfWeek = @Day 
+                               AND ScheduleID <> @ID
+                               AND (RoomID = @RoomID OR LoadID = @LoadID)
+                               AND (
+                                    (@Start >= StartTime AND @Start < EndTime) OR 
+                                    (@End > StartTime AND @End <= EndTime) OR 
+                                    (StartTime >= @Start AND StartTime < @End)
+                               )";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@ID", m.ScheduleID);
@@ -55,25 +53,44 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
 
                 conn.Open();
                 int count = (int)cmd.ExecuteScalar();
-                return count > 0; // If count > 0, there is a duplicate/conflict
+                return count > 0;
             }
         }
 
         public DataTable GetSubjectFacultyCombo()
         {
-            /* ... Your existing SQL code ... */
             return FetchData("SELECT L.LoadID, (sub.Title + ' — ' + F.FirstName + ' ' + F.LastName) AS DisplayText FROM tblFacultyLoading L JOIN tblsubjectOffering O ON L.offeringId = O.offeringId JOIN tblsubject sub ON O.subjectId = sub.subjectId JOIN tblFaculty F ON L.FacultyID = F.FacultyID");
         }
 
+        // FIXED: Column name changed from 'Number' to 'RoomName' to match your database schema
         public DataTable GetRoomSectionCombo()
         {
-            return FetchData("SELECT DISTINCT R.RoomID, (R.RoomName + ' (Section: ' + L.Section + ')') AS DisplayText FROM tblRooms R JOIN tblFacultyLoading L ON 1 = 1");
+            string query = @"
+                SELECT DISTINCT 
+                    RoomID, 
+                    RoomName + ' - ' + 
+                    CASE 
+                        WHEN Campus = 'Visayan' THEN 'VC' 
+                        ELSE Campus 
+                    END AS DisplayText
+                FROM tblRooms";
+
+            return FetchData(query);
         }
 
         public DataTable GetGridData()
         {
-            /* ... Your existing SQL code ... */
-            return FetchData("SELECT S.ScheduleID, S.LoadID, S.RoomID, sub.Title AS Subject, (F.FirstName + ' ' + F.LastName) AS Faculty, R.RoomName, L.Section, S.DayOfWeek, S.StartTime, S.EndTime FROM tblSchedule S JOIN tblFacultyLoading L ON S.LoadID = L.LoadID JOIN tblFaculty F ON L.FacultyID = F.FacultyID JOIN tblRooms R ON S.RoomID = R.RoomID JOIN tblsubjectOffering O ON L.offeringId = O.offeringId JOIN tblsubject sub ON O.subjectId = sub.subjectId");
+            string sql = @"SELECT S.ScheduleID, S.LoadID, S.RoomID, sub.Title AS Subject, 
+                           (F.FirstName + ' ' + F.LastName) AS Faculty, 
+                           (R.RoomName + ' [' + R.Campus + ']') AS RoomName, 
+                           L.Section, S.DayOfWeek, S.StartTime, S.EndTime 
+                           FROM tblSchedule S 
+                           JOIN tblFacultyLoading L ON S.LoadID = L.LoadID 
+                           JOIN tblFaculty F ON L.FacultyID = F.FacultyID 
+                           JOIN tblRooms R ON S.RoomID = R.RoomID 
+                           JOIN tblsubjectOffering O ON L.offeringId = O.offeringId 
+                           JOIN tblsubject sub ON O.subjectId = sub.subjectId";
+            return FetchData(sql);
         }
 
         private DataTable FetchData(string sql)
@@ -89,20 +106,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
 
         public void Save(ScheduleModel m)
         {
-            using (SqlConnection conn = new SqlConnection(connStr.connection))
-            {
-                string sql = "INSERT INTO tblSchedule (LoadID, RoomID, DayOfWeek, StartTime, EndTime) VALUES (@LoadID, @RoomID, @Day, @Start, @End)";
-                ExecuteCommand(sql, m);
-            }
+            string sql = "INSERT INTO tblSchedule (LoadID, RoomID, DayOfWeek, StartTime, EndTime) VALUES (@LoadID, @RoomID, @Day, @Start, @End)";
+            ExecuteCommand(sql, m);
         }
 
         public void Update(ScheduleModel m)
         {
-            using (SqlConnection conn = new SqlConnection(connStr.connection))
-            {
-                string sql = "UPDATE tblSchedule SET LoadID=@LoadID, RoomID=@RoomID, DayOfWeek=@Day, StartTime=@Start, EndTime=@End WHERE ScheduleID=@ID";
-                ExecuteCommand(sql, m);
-            }
+            string sql = "UPDATE tblSchedule SET LoadID=@LoadID, RoomID=@RoomID, DayOfWeek=@Day, StartTime=@Start, EndTime=@End WHERE ScheduleID=@ID";
+            ExecuteCommand(sql, m);
         }
 
         public void Remove(int id)
@@ -132,7 +143,4 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
             }
         }
     }
-
 }
-
-

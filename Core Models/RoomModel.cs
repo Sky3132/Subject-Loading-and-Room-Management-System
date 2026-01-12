@@ -13,5 +13,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Core_Models
         public string RoomName { get; set; }
         public int Capacity { get; set; }
         public string RoomType { get; set; }
+        public string Campus { get; set; } // Added to match UI
     }
 }
