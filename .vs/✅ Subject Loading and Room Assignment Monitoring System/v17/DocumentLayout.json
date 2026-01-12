@@ -3,11 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\core models\\connectionstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:core models\\connectionstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\forms\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -23,8 +19,28 @@
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:managers\\schedulemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\managers\\subjectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:managers\\subjectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\interfaces\\isubjectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:interfaces\\isubjectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\core models\\subjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:core models\\subjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\qhtf\\source\\repos\\subject-loading-and-room-management-system\\core models\\connectionstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:core models\\connectionstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\core models\\schedulemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -63,24 +79,8 @@
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:interfaces\\ischedulemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\interfaces\\isubjectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:interfaces\\isubjectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\core models\\subjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:core models\\subjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\class schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\class schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\forms\\subject.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -183,6 +183,133 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Schedules.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
+              "RelativeDocumentMoniker": "Forms\\Schedules.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs [Design]",
+              "RelativeToolTip": "Forms\\Schedules.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T12:40:51.196Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SubjectModel.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\SubjectModel.cs",
+              "RelativeDocumentMoniker": "Core Models\\SubjectModel.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\SubjectModel.cs",
+              "RelativeToolTip": "Core Models\\SubjectModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T14:49:40.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Subject.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs",
+              "RelativeDocumentMoniker": "Forms\\Subject.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs [Design]",
+              "RelativeToolTip": "Forms\\Subject.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:28:27.907Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ISubjectManager.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Interfaces\\ISubjectManager.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ISubjectManager.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Interfaces\\ISubjectManager.cs",
+              "RelativeToolTip": "Interfaces\\ISubjectManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T14:42:55.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs",
+              "RelativeDocumentMoniker": "Forms\\Subject.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs",
+              "RelativeToolTip": "Forms\\Subject.cs",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAgwCUBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:28:28.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Schedules.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
+              "RelativeDocumentMoniker": "Forms\\Schedules.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
+              "RelativeToolTip": "Forms\\Schedules.cs",
+              "ViewState": "AgIAALwAAAAAAAAAAAAowDUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T12:42:14.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ScheduleManager.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\ScheduleManager.cs",
+              "RelativeDocumentMoniker": "Managers\\ScheduleManager.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\ScheduleManager.cs",
+              "RelativeToolTip": "Managers\\ScheduleManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:33:10.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Schedules.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\Schedules.Designer.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.Designer.cs",
+              "RelativeToolTip": "Forms\\Schedules.Designer.cs",
+              "ViewState": "AgIAABMBAAAAAAAAAADwv/4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:37:20.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SubjectManager.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\SubjectManager.cs",
+              "RelativeDocumentMoniker": "Managers\\SubjectManager.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\SubjectManager.cs",
+              "RelativeToolTip": "Managers\\SubjectManager.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T14:42:32.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ScheduleModel.cs",
+              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\ScheduleModel.cs",
+              "RelativeDocumentMoniker": "Core Models\\ScheduleModel.cs",
+              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\ScheduleModel.cs",
+              "RelativeToolTip": "Core Models\\ScheduleModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:32:14.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ConnectionString.cs",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\ConnectionString.cs",
               "RelativeDocumentMoniker": "Core Models\\ConnectionString.cs",
@@ -195,31 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Schedules.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
-              "RelativeDocumentMoniker": "Forms\\Schedules.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs [Design]",
-              "RelativeToolTip": "Forms\\Schedules.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T12:40:51.196Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Schedules.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
-              "RelativeDocumentMoniker": "Forms\\Schedules.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
-              "RelativeToolTip": "Forms\\Schedules.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAowCYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T12:42:14.666Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "FacultyScheduleForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyScheduleForm.cs",
               "RelativeDocumentMoniker": "Forms\\FacultyScheduleForm.cs",
@@ -230,55 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ScheduleManager.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\ScheduleManager.cs",
-              "RelativeDocumentMoniker": "Managers\\ScheduleManager.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\ScheduleManager.cs",
-              "RelativeToolTip": "Managers\\ScheduleManager.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T13:33:10.366Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ScheduleModel.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\ScheduleModel.cs",
-              "RelativeDocumentMoniker": "Core Models\\ScheduleModel.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\ScheduleModel.cs",
-              "RelativeToolTip": "Core Models\\ScheduleModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T13:32:14.06Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SubjectManager.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\SubjectManager.cs",
-              "RelativeDocumentMoniker": "Managers\\SubjectManager.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Managers\\SubjectManager.cs",
-              "RelativeToolTip": "Managers\\SubjectManager.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T14:42:32.818Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Schedules.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\Schedules.Designer.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.Designer.cs",
-              "RelativeToolTip": "Forms\\Schedules.Designer.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAIwH4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T13:37:20.786Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "FacultyLoading.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyLoading.cs",
               "RelativeDocumentMoniker": "Forms\\FacultyLoading.cs",
@@ -289,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "FacultyMembers.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyMembers.cs",
               "RelativeDocumentMoniker": "Forms\\FacultyMembers.cs",
@@ -300,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "FacultyRoomForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\FacultyRoomForm.cs",
               "RelativeDocumentMoniker": "Forms\\FacultyRoomForm.cs",
@@ -311,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "IScheduleManager.cs",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Interfaces\\IScheduleManager.cs",
               "RelativeDocumentMoniker": "Interfaces\\IScheduleManager.cs",
@@ -323,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "Rooms.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Rooms.cs",
               "RelativeDocumentMoniker": "Forms\\Rooms.cs",
@@ -334,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "RoomAssignment.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
               "RelativeDocumentMoniker": "Forms\\RoomAssignment.cs",
@@ -345,7 +400,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "RequestScheduleChangeForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RequestScheduleChangeForm.cs",
               "RelativeDocumentMoniker": "Forms\\RequestScheduleChangeForm.cs",
@@ -356,31 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ISubjectManager.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Interfaces\\ISubjectManager.cs",
-              "RelativeDocumentMoniker": "Interfaces\\ISubjectManager.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Interfaces\\ISubjectManager.cs",
-              "RelativeToolTip": "Interfaces\\ISubjectManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T14:42:55.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "SubjectModel.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\SubjectModel.cs",
-              "RelativeDocumentMoniker": "Core Models\\SubjectModel.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Core Models\\SubjectModel.cs",
-              "RelativeToolTip": "Core Models\\SubjectModel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T14:49:40.754Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Class schedule.cs [Design]",
               "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Class schedule.cs",
               "RelativeDocumentMoniker": "Forms\\Class schedule.cs",
@@ -399,7 +430,8 @@
               "RelativeToolTip": "Forms\\Subject.Designer.cs",
               "ViewState": "AgIAAHsBAAAAAAAAAAAnwEYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T14:46:37.809Z"
+              "WhenOpened": "2026-01-12T14:46:37.809Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -436,29 +468,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-12T14:40:15.964Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Subject.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs",
-              "RelativeDocumentMoniker": "Forms\\Subject.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs [Design]",
-              "RelativeToolTip": "Forms\\Subject.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T13:28:27.907Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Subject.cs",
-              "DocumentMoniker": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs",
-              "RelativeDocumentMoniker": "Forms\\Subject.cs",
-              "ToolTip": "C:\\Users\\QHTF\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Subject.cs",
-              "RelativeToolTip": "Forms\\Subject.cs",
-              "ViewState": "AgIAAAoBAAAAAAAAAAAIwC0BAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T13:28:28.971Z"
             },
             {
               "$type": "Document",

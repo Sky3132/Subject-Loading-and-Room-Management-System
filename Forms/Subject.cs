@@ -55,8 +55,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
                     cmbDepartment.SelectedIndex = -1; // nothing selected yet
                     cmbProgram.DataSource = null;     // program empty initially
                 }
-
-
             }
         }
         private void Subject_Load_1(object sender, EventArgs e)
@@ -79,10 +77,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
                 txtLaboratoryUnits.Text = row.Cells["LaboratoryUnits"].Value.ToString();
                 txtLectureUnits.Text = row.Cells["LectureUnits"].Value.ToString();
             }
-
-
-
-
         }
         private void LoadComboBoxes()
         {

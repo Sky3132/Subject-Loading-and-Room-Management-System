@@ -113,6 +113,7 @@
             // 
             // dgvSchedule
             // 
+            this.dgvSchedule.AllowUserToAddRows = false;
             this.dgvSchedule.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSchedule.Location = new System.Drawing.Point(14, 283);
@@ -225,9 +226,9 @@
             // cmbSchedRoom
             // 
             this.cmbSchedRoom.FormattingEnabled = true;
-            this.cmbSchedRoom.Location = new System.Drawing.Point(268, 184);
+            this.cmbSchedRoom.Location = new System.Drawing.Point(229, 184);
             this.cmbSchedRoom.Name = "cmbSchedRoom";
-            this.cmbSchedRoom.Size = new System.Drawing.Size(169, 21);
+            this.cmbSchedRoom.Size = new System.Drawing.Size(194, 21);
             this.cmbSchedRoom.TabIndex = 39;
             // 
             // label5
@@ -245,7 +246,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(268, 164);
+            this.label7.Location = new System.Drawing.Point(229, 164);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 17);

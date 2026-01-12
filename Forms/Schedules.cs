@@ -195,11 +195,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 }
             }
         }
-
-        private void cmbSchedSubject_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
