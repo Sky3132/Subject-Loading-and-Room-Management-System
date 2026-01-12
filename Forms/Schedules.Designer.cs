@@ -28,36 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.label9 = new System.Windows.Forms.Label();
-			this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.cmbSchedDay = new System.Windows.Forms.ComboBox();
-			this.dgvSchedule = new System.Windows.Forms.DataGridView();
-			this.btnSchedUpdate = new System.Windows.Forms.Button();
-			this.btnSchedSave = new System.Windows.Forms.Button();
-			this.btnSchedRemove = new System.Windows.Forms.Button();
-			this.label2 = new System.Windows.Forms.Label();
-			this.cmbSchedStart = new System.Windows.Forms.ComboBox();
-			this.cmbSchedEnd = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.cmbSchedSubject = new System.Windows.Forms.ComboBox();
-			this.cmbSchedRoom = new System.Windows.Forms.ComboBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.lblOpenClassSched = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// panel3
-			// 
-			this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbSchedDay = new System.Windows.Forms.ComboBox();
+            this.dgvSchedule = new System.Windows.Forms.DataGridView();
+            this.btnSchedUpdate = new System.Windows.Forms.Button();
+            this.btnSchedSave = new System.Windows.Forms.Button();
+            this.btnSchedRemove = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbSchedStart = new System.Windows.Forms.ComboBox();
+            this.cmbSchedEnd = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbSchedSubject = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblOpenClassSched = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
@@ -65,7 +63,7 @@
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(-25, -1);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1117, 68);
             this.panel3.TabIndex = 18;
@@ -85,7 +83,7 @@
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
             this.imgBackToMain2.Location = new System.Drawing.Point(983, 16);
-            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(4);
             this.imgBackToMain2.Name = "imgBackToMain2";
             this.imgBackToMain2.Size = new System.Drawing.Size(108, 48);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -110,7 +108,7 @@
             // 
             this.cmbSchedDay.FormattingEnabled = true;
             this.cmbSchedDay.Location = new System.Drawing.Point(16, 111);
-            this.cmbSchedDay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSchedDay.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSchedDay.Name = "cmbSchedDay";
             this.cmbSchedDay.Size = new System.Drawing.Size(160, 24);
             this.cmbSchedDay.TabIndex = 19;
@@ -129,7 +127,7 @@
             this.dgvSchedule.Size = new System.Drawing.Size(1033, 192);
             this.dgvSchedule.TabIndex = 27;
             this.dgvSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSchedule_CellClick);
-            this.dgvSchedule.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSchedule_CellFormatting);
+        
             // 
             // btnSchedUpdate
             // 
@@ -137,13 +135,13 @@
             this.btnSchedUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSchedUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSchedUpdate.Location = new System.Drawing.Point(219, 279);
-            this.btnSchedUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSchedUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnSchedUpdate.Name = "btnSchedUpdate";
             this.btnSchedUpdate.Size = new System.Drawing.Size(127, 49);
             this.btnSchedUpdate.TabIndex = 28;
             this.btnSchedUpdate.Text = "Update";
             this.btnSchedUpdate.UseVisualStyleBackColor = false;
-            this.btnSchedUpdate.Click += new System.EventHandler(this.btnSchedUpdate_Click);
+          
             // 
             // btnSchedSave
             // 
@@ -151,13 +149,13 @@
             this.btnSchedSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSchedSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSchedSave.Location = new System.Drawing.Point(53, 279);
-            this.btnSchedSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSchedSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSchedSave.Name = "btnSchedSave";
             this.btnSchedSave.Size = new System.Drawing.Size(127, 49);
             this.btnSchedSave.TabIndex = 30;
             this.btnSchedSave.Text = "Save";
             this.btnSchedSave.UseVisualStyleBackColor = false;
-            this.btnSchedSave.Click += new System.EventHandler(this.btnSchedSave_Click);
+            
             // 
             // btnSchedRemove
             // 
@@ -165,13 +163,13 @@
             this.btnSchedRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSchedRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSchedRemove.Location = new System.Drawing.Point(388, 279);
-            this.btnSchedRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSchedRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnSchedRemove.Name = "btnSchedRemove";
             this.btnSchedRemove.Size = new System.Drawing.Size(127, 49);
             this.btnSchedRemove.TabIndex = 31;
             this.btnSchedRemove.Text = "Remove";
             this.btnSchedRemove.UseVisualStyleBackColor = false;
-            this.btnSchedRemove.Click += new System.EventHandler(this.btnSchedRemove_Click);
+            
             // 
             // label2
             // 
@@ -187,7 +185,7 @@
             // 
             this.cmbSchedStart.FormattingEnabled = true;
             this.cmbSchedStart.Location = new System.Drawing.Point(185, 111);
-            this.cmbSchedStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSchedStart.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSchedStart.Name = "cmbSchedStart";
             this.cmbSchedStart.Size = new System.Drawing.Size(160, 24);
             this.cmbSchedStart.TabIndex = 33;
@@ -196,7 +194,7 @@
             // 
             this.cmbSchedEnd.FormattingEnabled = true;
             this.cmbSchedEnd.Location = new System.Drawing.Point(355, 111);
-            this.cmbSchedEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSchedEnd.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSchedEnd.Name = "cmbSchedEnd";
             this.cmbSchedEnd.Size = new System.Drawing.Size(160, 24);
             this.cmbSchedEnd.TabIndex = 34;
@@ -225,19 +223,10 @@
             // 
             this.cmbSchedSubject.FormattingEnabled = true;
             this.cmbSchedSubject.Location = new System.Drawing.Point(19, 226);
-            this.cmbSchedSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSchedSubject.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSchedSubject.Name = "cmbSchedSubject";
             this.cmbSchedSubject.Size = new System.Drawing.Size(244, 24);
             this.cmbSchedSubject.TabIndex = 37;
-            // 
-            // cmbSchedRoom
-            // 
-            this.cmbSchedRoom.FormattingEnabled = true;
-            this.cmbSchedRoom.Location = new System.Drawing.Point(305, 226);
-            this.cmbSchedRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cmbSchedRoom.Name = "cmbSchedRoom";
-            this.cmbSchedRoom.Size = new System.Drawing.Size(257, 24);
-            this.cmbSchedRoom.TabIndex = 39;
             // 
             // label5
             // 
@@ -248,16 +237,6 @@
             this.label5.Size = new System.Drawing.Size(151, 20);
             this.label5.TabIndex = 41;
             this.label5.Text = "Subject - Members";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(305, 202);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 20);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Room";
             // 
             // lblOpenClassSched
             // 
@@ -272,7 +251,6 @@
             this.lblOpenClassSched.Size = new System.Drawing.Size(105, 25);
             this.lblOpenClassSched.TabIndex = 45;
             this.lblOpenClassSched.Text = "Schedules";
-           
             // 
             // pictureBox1
             // 
@@ -281,7 +259,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(700, 86);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(351, 196);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -295,9 +273,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblOpenClassSched);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbSchedRoom);
             this.Controls.Add(this.cmbSchedSubject);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -310,7 +286,7 @@
             this.Controls.Add(this.dgvSchedule);
             this.Controls.Add(this.cmbSchedDay);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Schedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedules";
@@ -341,9 +317,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbSchedSubject;
-        private System.Windows.Forms.ComboBox cmbSchedRoom;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblOpenClassSched;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;

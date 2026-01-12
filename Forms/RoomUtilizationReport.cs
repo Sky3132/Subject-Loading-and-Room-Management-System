@@ -26,51 +26,58 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
+                    // 1. Fetch all rooms
                     var rooms = db.tblRooms.ToList();
-                    var assignments = db.tblRoomAssignments.ToList();
 
-                    var utilization = rooms.Select(r => new RoomUtilizationData
+                    // 2. Fetch all schedule data linked to assignments
+                    var scheduleData = (from ra in db.tblRoomAssignments
+                                        join s in db.tblSchedules on ra.LoadID equals s.LoadID
+                                        select new
+                                        {
+                                            ra.RoomID,
+                                            s.DayOfWeek,
+                                            s.StartTime,
+                                            s.EndTime
+                                        }).ToList();
+
+                    // 3. Process the data for the report
+                    var utilization = rooms.Select(r =>
                     {
-                        RoomID = r.RoomID,
-                        RoomName = r.RoomName,
-                        Campus = r.Campus ?? "N/A", // Pulls Campus from database
-                        Capacity = r.Capacity ?? 0,
-                        Type = !string.IsNullOrEmpty(r.RoomType) ? r.RoomType : "Unknown",
-                        AssignmentsCount = assignments.Count(a => a.RoomID == r.RoomID),
-                        TotalHoursAssigned = CalculateTotalHours(r.RoomID, assignments),
-                        UtilizationPercentage = CalculateUtilization(r.RoomID, assignments),
-                        AssignedDays = GetAssignedDays(r.RoomID, assignments)
+                        var roomScheds = scheduleData.Where(s => s.RoomID == r.RoomID).ToList();
+
+                        double totalHours = 0;
+                        var daysSet = new HashSet<string>();
+
+                        foreach (var s in roomScheds)
+                        {
+                            // Calculate duration in hours
+                            double diff = (s.EndTime - s.StartTime).TotalHours;
+                            if (diff > 0) totalHours += diff;
+                            if (!string.IsNullOrEmpty(s.DayOfWeek)) daysSet.Add(s.DayOfWeek);
+                        }
+
+                        // Assuming a standard 60-hour academic week (12 hours/day * 5 days)
+                        double weeklyCapacity = 60.0;
+                        double percentage = (totalHours / weeklyCapacity) * 100;
+
+                        return new RoomUtilizationData
+                        {
+                            RoomID = r.RoomID,
+                            RoomName = r.RoomName,
+                            Campus = r.Campus ?? "N/A",
+                            Capacity = r.Capacity ?? 0,
+                            Type = !string.IsNullOrEmpty(r.RoomType) ? r.RoomType : "Unknown",
+                            AssignmentsCount = roomScheds.Count,
+                            TotalHoursAssigned = Math.Round(totalHours, 2),
+                            UtilizationPercentage = percentage > 100 ? 100 : Math.Round(percentage, 2),
+                            AssignedDays = daysSet.Count
+                        };
                     }).OrderByDescending(x => x.UtilizationPercentage).ToList();
 
-                    // Bind data to grid
+                    // 4. Bind and Format
                     dgvUtilization.DataSource = null;
                     dgvUtilization.DataSource = utilization;
-
-                    // 1. Hide the RoomID column
-                    if (dgvUtilization.Columns["RoomID"] != null)
-                    {
-                        dgvUtilization.Columns["RoomID"].Visible = false;
-                    }
-
-                    // 2. Position Campus next to Room Name
-                    if (dgvUtilization.Columns["Campus"] != null)
-                    {
-                        dgvUtilization.Columns["Campus"].DisplayIndex = 1;
-                    }
-
-                    // 3. Rename the column to clarify the "42 hours" calculation
-                    if (dgvUtilization.Columns["TotalHoursAssigned"] != null)
-                    {
-                        dgvUtilization.Columns["TotalHoursAssigned"].HeaderText = "TotalHoursAssigned(Weekly)";
-                    }
-
-                    // 4. Format percentage column
-                    if (dgvUtilization.Columns["UtilizationPercentage"] != null)
-                    {
-                        dgvUtilization.Columns["UtilizationPercentage"].DefaultCellStyle.Format = "0.00\"%\"";
-                    }
-
-                    dgvUtilization.AutoResizeColumns();
+                    FormatGridView();
                 }
             }
             catch (Exception ex)
@@ -79,140 +86,27 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             }
         }
 
-        private double CalculateTotalHours(int roomId, List<tblRoomAssignment> assignments)
+        private void FormatGridView()
         {
-            double totalHours = 0;
-            var roomAssignments = assignments.Where(a => a.RoomID == roomId).ToList();
+            if (dgvUtilization.Columns["RoomID"] != null)
+                dgvUtilization.Columns["RoomID"].Visible = false;
 
-            foreach (var assignment in roomAssignments)
+            if (dgvUtilization.Columns["Campus"] != null)
+                dgvUtilization.Columns["Campus"].DisplayIndex = 1;
+
+            if (dgvUtilization.Columns["TotalHoursAssigned"] != null)
+                dgvUtilization.Columns["TotalHoursAssigned"].HeaderText = "Weekly Hours";
+
+            if (dgvUtilization.Columns["UtilizationPercentage"] != null)
             {
-                try
-                {
-                    if (string.IsNullOrEmpty(assignment.Day) ||
-                        string.IsNullOrEmpty(assignment.StartTime) ||
-                        string.IsNullOrEmpty(assignment.EndTime))
-                        continue;
-
-                    var days = assignment.Day.Split(',').Length;
-                    var startTime = TimeSpan.Parse(ConvertTo24Hour(assignment.StartTime));
-                    var endTime = TimeSpan.Parse(ConvertTo24Hour(assignment.EndTime));
-
-                    double hours = endTime.TotalHours - startTime.TotalHours;
-
-                    if (hours > 0)
-                    {
-                        totalHours += hours * days;
-                    }
-                }
-                catch { }
+                dgvUtilization.Columns["UtilizationPercentage"].HeaderText = "Utilization %";
+                dgvUtilization.Columns["UtilizationPercentage"].DefaultCellStyle.Format = "0.00'%'";
             }
-            return Math.Round(totalHours, 2);
+
+            dgvUtilization.AutoResizeColumns();
         }
 
-        private string ConvertTo24Hour(string time12Hour)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(time12Hour)) return "00:00";
-                return DateTime.Parse(time12Hour.Trim()).ToString("HH:mm");
-            }
-            catch { return "00:00"; }
-        }
-
-        private double CalculateUtilization(int roomId, List<tblRoomAssignment> assignments)
-        {
-            try
-            {
-                int assignmentCount = assignments.Count(a => a.RoomID == roomId);
-                int totalAssignments = assignments.Count;
-                return totalAssignments == 0 ? 0.0 : (assignmentCount * 100.0) / totalAssignments;
-            }
-            catch { return 0.0; }
-        }
-
-        private int GetAssignedDays(int roomId, List<tblRoomAssignment> assignments)
-        {
-            try
-            {
-                var daysSet = new HashSet<string>();
-                var roomAssignments = assignments.Where(a => a.RoomID == roomId).ToList();
-
-                foreach (var assignment in roomAssignments)
-                {
-                    if (!string.IsNullOrEmpty(assignment.Day))
-                    {
-                        var days = assignment.Day.Split(',').Select(d => d.Trim());
-                        foreach (var day in days)
-                        {
-                            if (!string.IsNullOrEmpty(day)) daysSet.Add(day);
-                        }
-                    }
-                }
-                return daysSet.Count;
-            }
-            catch { return 0; }
-        }
-
-        private void btnExportReport_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvUtilization.Rows.Count == 0)
-                {
-                    MessageBox.Show("No data to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog
-                {
-                    Filter = "CSV files (*.csv)|*.csv",
-                    DefaultExt = "csv",
-                    FileName = $"RoomUtilizationReport_{DateTime.Now:yyyy-MM-dd}"
-                };
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToCSV(saveFileDialog.FileName);
-                    MessageBox.Show("Report exported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error exporting report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ExportToCSV(string filePath)
-        {
-            try
-            {
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filePath, false, System.Text.Encoding.UTF8))
-                {
-                    var headers = new List<string>();
-                    foreach (DataGridViewColumn column in dgvUtilization.Columns)
-                    {
-                        headers.Add(column.HeaderText);
-                    }
-                    sw.WriteLine(string.Join(",", headers.Select(h => $"\"{h}\"")));
-
-                    foreach (DataGridViewRow row in dgvUtilization.Rows)
-                    {
-                        var cells = new List<string>();
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            string value = cell.Value?.ToString() ?? "";
-                            value = $"\"{value.Replace("\"", "\"\"")}\"";
-                            cells.Add(value);
-                        }
-                        sw.WriteLine(string.Join(",", cells));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("CSV export failed: " + ex.Message);
-            }
-        }
+        // --- Event Handlers ---
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -220,11 +114,37 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             MessageBox.Show("Report refreshed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void btnExportReport_Click(object sender, EventArgs e)
+        {
+            if (dgvUtilization.Rows.Count == 0) return;
+
+            SaveFileDialog sfd = new SaveFileDialog { Filter = "CSV|*.csv", FileName = $"Utilization_{DateTime.Now:yyyyMMdd}" };
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                ExportToCSV(sfd.FileName);
+                MessageBox.Show("Export Complete!");
+            }
+        }
+
+        private void ExportToCSV(string filePath)
+        {
+            using (var sw = new System.IO.StreamWriter(filePath))
+            {
+                var headers = dgvUtilization.Columns.Cast<DataGridViewColumn>().Select(c => $"\"{c.HeaderText}\"");
+                sw.WriteLine(string.Join(",", headers));
+
+                foreach (DataGridViewRow row in dgvUtilization.Rows)
+                {
+                    var cells = row.Cells.Cast<DataGridViewCell>().Select(c => $"\"{c.Value?.ToString().Replace("\"", "\"\"")}\"");
+                    sw.WriteLine(string.Join(",", cells));
+                }
+            }
+        }
+
         private void imgBackToMain2_Click(object sender, EventArgs e)
         {
-            RoomAssignment assign = new RoomAssignment();
-            assign.Show();
             this.Hide();
+            new RoomAssignment().Show();
         }
     }
 }

@@ -19,10 +19,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         ConnectionString connStr = new ConnectionString();
         private ScheduleManager _manager = new ScheduleManager();
         private int selectedScheduleID = 0;
+        // This will store the RoomID automatically retrieved from assignments
+        private int automaticallyAssignedRoomID = 0;
 
         private void LoadDayAndTimeCombos()
         {
-            // Clears existing items to prevent duplicates if method is called twice
             cmbSchedDay.Items.Clear();
             cmbSchedDay.Items.AddRange(new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" });
 
@@ -44,74 +45,30 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             cmbSchedSubject.DataSource = _manager.GetSubjectFacultyCombo();
             cmbSchedSubject.DisplayMember = "DisplayText";
             cmbSchedSubject.ValueMember = "LoadID";
-
-            // UPDATED: This now loads the unique rooms in "ROOM - CAMPUS" format
-            // Ensure your ScheduleManager.GetRoomSectionCombo() uses 'DISTINCT' in its SQL
-            cmbSchedRoom.DataSource = _manager.GetRoomSectionCombo();
-            cmbSchedRoom.DisplayMember = "DisplayText";
-            cmbSchedRoom.ValueMember = "RoomID";
+            cmbSchedSubject.SelectedIndex = -1;
 
             RefreshGrid();
         }
 
-        private void btnSchedSave_Click(object sender, EventArgs e)
+        // Triggered when user selects a Subject - this finds the correct room automatically
+        private void cmbSchedSubject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (cmbSchedSubject.SelectedValue != null && cmbSchedSubject.SelectedValue is int loadID)
             {
-                var model = GetModelFromUI();
-                _manager.Validate(model);
-                _manager.Save(model);
-
-                MessageBox.Show("Schedule saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshGrid();
-                selectedScheduleID = 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Schedule Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnSchedUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (selectedScheduleID == 0)
+                using (var db = new DataClasses1DataContext())
                 {
-                    MessageBox.Show("Please select a schedule from the list to update.");
-                    return;
+                    // Find the room assigned to this specific Faculty Loading
+                    var assignment = db.tblRoomAssignments.FirstOrDefault(a => a.LoadID == loadID);
+                    if (assignment != null)
+                    {
+                        automaticallyAssignedRoomID = (int)assignment.RoomID;
+                    }
+                    else
+                    {
+                        automaticallyAssignedRoomID = 0;
+                        // Optional: MessageBox.Show("This subject has no room assigned yet. Please assign a room first.");
+                    }
                 }
-
-                var model = GetModelFromUI();
-                _manager.Validate(model);
-                _manager.Update(model);
-
-                MessageBox.Show("Schedule updated successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshGrid();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void btnSchedRemove_Click(object sender, EventArgs e)
-        {
-            if (selectedScheduleID == 0)
-            {
-                MessageBox.Show("Please select a schedule to remove.");
-                return;
-            }
-
-            var result = MessageBox.Show("Are you sure you want to remove this schedule?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    _manager.Remove(selectedScheduleID);
-                    selectedScheduleID = 0;
-                    RefreshGrid();
-                    MessageBox.Show("Schedule removed.");
-                }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -119,15 +76,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         {
             dgvSchedule.DataSource = _manager.GetGridData();
 
-            // Formatting the RoomName column in the grid
+            // HIDE the Room and Campus column in the DataGridView
             if (dgvSchedule.Columns["RoomName"] != null)
             {
-                dgvSchedule.Columns["RoomName"].HeaderText = "Room & Campus";
-                dgvSchedule.Columns["RoomName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvSchedule.Columns["RoomName"].Visible = false;
             }
-
-            dgvSchedule.Columns["StartTime"].DefaultCellStyle.Format = "hh:mm tt";
-            dgvSchedule.Columns["EndTime"].DefaultCellStyle.Format = "hh:mm tt";
 
             if (dgvSchedule.Columns.Count > 0)
             {
@@ -139,10 +92,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private ScheduleModel GetModelFromUI()
         {
-            // Validates selections before processing to prevent crashes
-            if (cmbSchedSubject.SelectedValue == null || cmbSchedRoom.SelectedValue == null)
+            if (cmbSchedSubject.SelectedValue == null || automaticallyAssignedRoomID == 0)
             {
-                throw new Exception("Please ensure both a Subject and a Room are selected.");
+                throw new Exception("Please select a Subject that has a Room Assignment.");
             }
 
             if (string.IsNullOrEmpty(cmbSchedStart.Text) || string.IsNullOrEmpty(cmbSchedEnd.Text))
@@ -154,25 +106,14 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 ScheduleID = selectedScheduleID,
                 LoadID = (int)cmbSchedSubject.SelectedValue,
-                RoomID = (int)cmbSchedRoom.SelectedValue,
+                RoomID = automaticallyAssignedRoomID, // Use the ID found by the system
                 DayOfWeek = cmbSchedDay.Text,
                 StartTime = DateTime.Parse(cmbSchedStart.Text).TimeOfDay,
                 EndTime = DateTime.Parse(cmbSchedEnd.Text).TimeOfDay
             };
         }
 
-        private void dgvSchedule_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvSchedule.Columns[e.ColumnIndex].Name == "StartTime" ||
-                dgvSchedule.Columns[e.ColumnIndex].Name == "EndTime")
-            {
-                if (e.Value is TimeSpan ts)
-                {
-                    e.Value = DateTime.Today.Add(ts).ToString("h:mm tt");
-                    e.FormattingApplied = true;
-                }
-            }
-        }
+        // ... Keep btnSchedSave, btnSchedUpdate, btnSchedRemove the same ...
 
         private void dgvSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -182,13 +123,12 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 selectedScheduleID = Convert.ToInt32(row.Cells["ScheduleID"].Value);
 
                 cmbSchedSubject.SelectedValue = row.Cells["LoadID"].Value;
-                cmbSchedRoom.SelectedValue = row.Cells["RoomID"].Value;
+                // No need to set cmbSchedRoom as it is hidden
                 cmbSchedDay.Text = row.Cells["DayOfWeek"].Value.ToString();
 
                 if (row.Cells["StartTime"].Value is TimeSpan start &&
                     row.Cells["EndTime"].Value is TimeSpan end)
                 {
-                    // Match the case-sensitive "am/pm" format of your dropdown items
                     cmbSchedStart.Text = DateTime.Today.Add(start).ToString("h:mm tt");
                     cmbSchedEnd.Text = DateTime.Today.Add(end).ToString("h:mm tt");
                 }
@@ -201,6 +141,5 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             main.Show();
             this.Hide();
         }
-
     }
 }

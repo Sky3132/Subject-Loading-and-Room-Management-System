@@ -2,47 +2,55 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers
+namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Managers.OOMDemo.Managers
 {
-    namespace OOMDemo.Managers
+    public abstract class BaseManager
     {
-        public abstract class BaseManager
+        // 1. Database-level Filtering Logic
+        // This takes any list and filters it based on the properties you choose
+        public List<T> FilterList<T>(List<T> source, string term, params Func<T, string>[] properties)
         {
-            // Shared Search Logic
-            public bool PerformVisualSearch(DataGridView dgv, string term)
-            {
-                bool matchFound = false;
-                // Convert once here to save memory/speed
-                string lowerTerm = term.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(term)) return source;
 
-                foreach (DataGridViewRow row in dgv.Rows)
+            string lowerTerm = term.Trim().ToLower();
+
+            return source.Where(item => properties.Any(prop =>
+                prop(item) != null && prop(item).ToLower().Contains(lowerTerm)
+            )).ToList();
+        }
+
+        // 2. Visual Highlighting Logic
+        public bool PerformVisualSearch(DataGridView dgv, string term)
+        {
+            bool matchFound = false;
+            string lowerTerm = term.Trim().ToLower();
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
+                    if (!string.IsNullOrEmpty(lowerTerm) &&
+                        cell.Value != null &&
+                        cell.Value.ToString().ToLower().Contains(lowerTerm))
                     {
-                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(lowerTerm))
-                        {
-                            cell.Style.BackColor = Color.Yellow;
-                            matchFound = true;
-                        }
-                        else
-                        {
-                            cell.Style.BackColor = Color.White;
-                        }
+                        cell.Style.BackColor = Color.Yellow;
+                        matchFound = true;
+                    }
+                    else
+                    {
+                        cell.Style.BackColor = Color.White;
                     }
                 }
-                return matchFound;
             }
+            return matchFound;
+        }
 
-            // Shared Validation Helper (Encapsulation)
-            protected void EnsureNotNull(string value, string fieldName)
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new Exception($"{fieldName} cannot be empty.");
-            }
+        protected void EnsureNotNull(string value, string fieldName)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                throw new Exception($"{fieldName} cannot be empty.");
         }
     }
 }

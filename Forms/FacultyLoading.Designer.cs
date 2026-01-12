@@ -59,9 +59,10 @@
             // 
             this.lblSubject.AutoSize = true;
             this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubject.Location = new System.Drawing.Point(39, 74);
+            this.lblSubject.Location = new System.Drawing.Point(52, 91);
+            this.lblSubject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(113, 15);
+            this.lblSubject.Size = new System.Drawing.Size(137, 18);
             this.lblSubject.TabIndex = 20;
             this.lblSubject.Text = "Subject Code - Title";
             // 
@@ -69,10 +70,11 @@
             // 
             this.dgvLoading.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLoading.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLoading.Location = new System.Drawing.Point(12, 289);
+            this.dgvLoading.Location = new System.Drawing.Point(16, 356);
+            this.dgvLoading.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvLoading.Name = "dgvLoading";
             this.dgvLoading.RowHeadersWidth = 51;
-            this.dgvLoading.Size = new System.Drawing.Size(769, 149);
+            this.dgvLoading.Size = new System.Drawing.Size(1025, 183);
             this.dgvLoading.TabIndex = 19;
             this.dgvLoading.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoading_CellClick);
             // 
@@ -82,17 +84,19 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(-7, -1);
+            this.panel3.Location = new System.Drawing.Point(-9, -1);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(806, 63);
+            this.panel3.Size = new System.Drawing.Size(1075, 78);
             this.panel3.TabIndex = 15;
             // 
             // imgBackToMain2
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
+            this.imgBackToMain2.Location = new System.Drawing.Point(967, 16);
+            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
+            this.imgBackToMain2.Size = new System.Drawing.Size(108, 48);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgBackToMain2.TabIndex = 33;
             this.imgBackToMain2.TabStop = false;
@@ -104,9 +108,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(301, 26);
+            this.label1.Location = new System.Drawing.Point(401, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 26);
+            this.label1.Size = new System.Drawing.Size(294, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "FACULTY LOADING";
             // 
@@ -114,9 +119,10 @@
             // 
             this.btnSearchLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSearchLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchLoad.Location = new System.Drawing.Point(436, 233);
+            this.btnSearchLoad.Location = new System.Drawing.Point(581, 287);
+            this.btnSearchLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearchLoad.Name = "btnSearchLoad";
-            this.btnSearchLoad.Size = new System.Drawing.Size(91, 40);
+            this.btnSearchLoad.Size = new System.Drawing.Size(121, 49);
             this.btnSearchLoad.TabIndex = 18;
             this.btnSearchLoad.Text = "Search";
             this.btnSearchLoad.UseVisualStyleBackColor = false;
@@ -126,21 +132,22 @@
             // 
             this.btnCancelLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnCancelLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelLoad.Location = new System.Drawing.Point(234, 233);
+            this.btnCancelLoad.Location = new System.Drawing.Point(312, 287);
+            this.btnCancelLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelLoad.Name = "btnCancelLoad";
-            this.btnCancelLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnCancelLoad.Size = new System.Drawing.Size(127, 49);
             this.btnCancelLoad.TabIndex = 17;
             this.btnCancelLoad.Text = "Cancel";
             this.btnCancelLoad.UseVisualStyleBackColor = false;
-            this.btnCancelLoad.Click += new System.EventHandler(this.btnCancelLoad_Click);
             // 
             // btnRemoveLoad
             // 
             this.btnRemoveLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRemoveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveLoad.Location = new System.Drawing.Point(335, 233);
+            this.btnRemoveLoad.Location = new System.Drawing.Point(447, 287);
+            this.btnRemoveLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemoveLoad.Name = "btnRemoveLoad";
-            this.btnRemoveLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnRemoveLoad.Size = new System.Drawing.Size(127, 49);
             this.btnRemoveLoad.TabIndex = 14;
             this.btnRemoveLoad.Text = "Remove";
             this.btnRemoveLoad.UseVisualStyleBackColor = false;
@@ -150,9 +157,10 @@
             // 
             this.btnEditLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnEditLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditLoad.Location = new System.Drawing.Point(133, 233);
+            this.btnEditLoad.Location = new System.Drawing.Point(177, 287);
+            this.btnEditLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditLoad.Name = "btnEditLoad";
-            this.btnEditLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnEditLoad.Size = new System.Drawing.Size(127, 49);
             this.btnEditLoad.TabIndex = 13;
             this.btnEditLoad.Text = "Edit";
             this.btnEditLoad.UseVisualStyleBackColor = false;
@@ -162,9 +170,10 @@
             // 
             this.btnSaveLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSaveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveLoad.Location = new System.Drawing.Point(32, 233);
+            this.btnSaveLoad.Location = new System.Drawing.Point(43, 287);
+            this.btnSaveLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveLoad.Name = "btnSaveLoad";
-            this.btnSaveLoad.Size = new System.Drawing.Size(95, 40);
+            this.btnSaveLoad.Size = new System.Drawing.Size(127, 49);
             this.btnSaveLoad.TabIndex = 16;
             this.btnSaveLoad.Text = "Save";
             this.btnSaveLoad.UseVisualStyleBackColor = false;
@@ -174,9 +183,10 @@
             // 
             this.lblFaculty.AutoSize = true;
             this.lblFaculty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFaculty.Location = new System.Drawing.Point(39, 109);
+            this.lblFaculty.Location = new System.Drawing.Point(52, 134);
+            this.lblFaculty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFaculty.Name = "lblFaculty";
-            this.lblFaculty.Size = new System.Drawing.Size(104, 15);
+            this.lblFaculty.Size = new System.Drawing.Size(126, 18);
             this.lblFaculty.TabIndex = 26;
             this.lblFaculty.Text = "Faculty ID - Name";
             // 
@@ -184,17 +194,19 @@
             // 
             this.lblSection.AutoSize = true;
             this.lblSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSection.Location = new System.Drawing.Point(39, 182);
+            this.lblSection.Location = new System.Drawing.Point(52, 224);
+            this.lblSection.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(55, 15);
+            this.lblSection.Size = new System.Drawing.Size(66, 18);
             this.lblSection.TabIndex = 30;
             this.lblSection.Text = "Program";
             // 
             // txtSearchLoad
             // 
-            this.txtSearchLoad.Location = new System.Drawing.Point(533, 244);
+            this.txtSearchLoad.Location = new System.Drawing.Point(711, 300);
+            this.txtSearchLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearchLoad.Name = "txtSearchLoad";
-            this.txtSearchLoad.Size = new System.Drawing.Size(108, 20);
+            this.txtSearchLoad.Size = new System.Drawing.Size(143, 22);
             this.txtSearchLoad.TabIndex = 32;
             // 
             // lblFacultyMembers
@@ -202,78 +214,76 @@
             this.lblFacultyMembers.AutoSize = true;
             this.lblFacultyMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFacultyMembers.ForeColor = System.Drawing.Color.Blue;
-            this.lblFacultyMembers.Location = new System.Drawing.Point(651, 242);
-            this.lblFacultyMembers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFacultyMembers.Location = new System.Drawing.Point(868, 298);
             this.lblFacultyMembers.Name = "lblFacultyMembers";
-            this.lblFacultyMembers.Size = new System.Drawing.Size(130, 20);
+            this.lblFacultyMembers.Size = new System.Drawing.Size(162, 25);
             this.lblFacultyMembers.TabIndex = 33;
             this.lblFacultyMembers.Text = "Faculty Members";
-            this.lblFacultyMembers.Click += new System.EventHandler(this.lblFacultyMembers_Click);
+            this.lblFacultyMembers.Click += new System.EventHandler(this.lblFacultyMembers_Click_1);
             // 
             // cmbSubject
             // 
             this.cmbSubject.FormattingEnabled = true;
-            this.cmbSubject.Location = new System.Drawing.Point(176, 73);
-            this.cmbSubject.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbSubject.Location = new System.Drawing.Point(235, 90);
+            this.cmbSubject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSubject.Name = "cmbSubject";
-            this.cmbSubject.Size = new System.Drawing.Size(140, 21);
+            this.cmbSubject.Size = new System.Drawing.Size(185, 24);
             this.cmbSubject.TabIndex = 34;
             // 
             // cmbFaculty
             // 
             this.cmbFaculty.FormattingEnabled = true;
-            this.cmbFaculty.Location = new System.Drawing.Point(176, 108);
-            this.cmbFaculty.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbFaculty.Location = new System.Drawing.Point(235, 133);
+            this.cmbFaculty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbFaculty.Name = "cmbFaculty";
-            this.cmbFaculty.Size = new System.Drawing.Size(140, 21);
+            this.cmbFaculty.Size = new System.Drawing.Size(185, 24);
             this.cmbFaculty.TabIndex = 35;
             // 
             // cmbProgram
             // 
             this.cmbProgram.FormattingEnabled = true;
-            this.cmbProgram.Location = new System.Drawing.Point(176, 181);
-            this.cmbProgram.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbProgram.Location = new System.Drawing.Point(235, 223);
+            this.cmbProgram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbProgram.Name = "cmbProgram";
-            this.cmbProgram.Size = new System.Drawing.Size(140, 21);
+            this.cmbProgram.Size = new System.Drawing.Size(185, 24);
             this.cmbProgram.TabIndex = 36;
             // 
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
             this.lblDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartment.Location = new System.Drawing.Point(39, 144);
-            this.lblDepartment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDepartment.Location = new System.Drawing.Point(52, 177);
             this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(72, 15);
+            this.lblDepartment.Size = new System.Drawing.Size(85, 18);
             this.lblDepartment.TabIndex = 37;
             this.lblDepartment.Text = "Department";
-            this.lblDepartment.Click += new System.EventHandler(this.lblDepartment_Click);
             // 
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(176, 142);
-            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbDepartment.Location = new System.Drawing.Point(235, 175);
+            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(140, 21);
+            this.cmbDepartment.Size = new System.Drawing.Size(185, 24);
             this.cmbDepartment.TabIndex = 38;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(504, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(672, 91);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(277, 153);
+            this.pictureBox1.Size = new System.Drawing.Size(369, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
             // FacultyLoading
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 450);
+            this.ClientSize = new System.Drawing.Size(1057, 554);
             this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.lblDepartment);
             this.Controls.Add(this.cmbProgram);
@@ -292,6 +302,7 @@
             this.Controls.Add(this.btnSaveLoad);
             this.Controls.Add(this.btnRemoveLoad);
             this.Controls.Add(this.btnEditLoad);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FacultyLoading";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FacultyLoading";

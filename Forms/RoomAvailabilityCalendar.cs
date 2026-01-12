@@ -58,12 +58,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             {
                 using (DataClasses1DataContext db = new DataClasses1DataContext())
                 {
+                    // 1. Get the day of the week for the selected calendar date
                     string dayName = selectedDate.ToString("dddd");
                     var allRooms = db.tblRooms.ToList();
-                    var assignmentsForDay = db.tblRoomAssignments
-                        .Where(a => a.Day.Contains(dayName))
-                        .ToList();
 
+                    // 2. Fetch all assignments and their associated schedules
                     var roomDetails = new List<dynamic>();
 
                     foreach (var room in allRooms)
@@ -71,45 +70,50 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                         if (_selectedRoomId > 0 && room.RoomID != _selectedRoomId)
                             continue;
 
-                        var roomAssignments = assignmentsForDay.Where(a => a.RoomID == room.RoomID).ToList();
+                        // 3. Find assignments for this specific room where the schedule matches the selected day
+                        var activeAssignments = (from ra in db.tblRoomAssignments
+                                                 join s in db.tblSchedules on ra.LoadID equals s.LoadID
+                                                 where ra.RoomID == room.RoomID && s.DayOfWeek == dayName
+                                                 select new { ra, s }).ToList();
 
-                        // Format the Room Name to include Campus
                         string displayRoomName = $"{room.RoomName} ({room.Campus})";
 
-                        if (roomAssignments.Count == 0)
+                        if (activeAssignments.Count == 0)
                         {
-                            // Available Room logic
+                            // Available Logic
                             roomDetails.Add(new
                             {
-                                Room = displayRoomName, // Updated with Campus
+                                Room = displayRoomName,
                                 RoomType = room.RoomType,
                                 Capacity = room.Capacity ?? 0,
                                 Faculty = "AVAILABLE",
-                                Subject = "",           // Merged field remains empty
-                                TimeSlot = "",          // Requirement: Blank if available
+                                Subject = "",
+                                TimeSlot = "",
                                 Status = "Available"
                             });
                         }
                         else
                         {
-                            // Occupied Room logic
-                            foreach (var assignment in roomAssignments)
+                            // Occupied Logic - will trigger red formatting
+                            foreach (var item in activeAssignments)
                             {
-                                var facultyLoading = db.tblFacultyLoadings.FirstOrDefault(fl => fl.LoadID == assignment.LoadID);
+                                var facultyLoading = db.tblFacultyLoadings.FirstOrDefault(fl => fl.LoadID == item.ra.LoadID);
                                 var faculty = facultyLoading?.tblFaculty;
                                 var subjectObj = facultyLoading?.tblsubjectOffering?.tblsubject;
 
-                                // Requirement: Merge Code and Title (e.g., IT20 - 3099)
                                 string mergedSubject = subjectObj != null ? $"{subjectObj.Code} - {subjectObj.Title}" : "Unknown";
+
+                                // Format times from the Schedule table
+                                string timeRange = $"{DateTime.Today.Add(item.s.StartTime):hh:mm tt} - {DateTime.Today.Add(item.s.EndTime):hh:mm tt}";
 
                                 roomDetails.Add(new
                                 {
-                                    Room = displayRoomName, // Updated with Campus
+                                    Room = displayRoomName,
                                     RoomType = room.RoomType,
                                     Capacity = room.Capacity ?? 0,
                                     Faculty = faculty != null ? $"{faculty.FirstName} {faculty.LastName}" : "Unknown",
                                     Subject = mergedSubject,
-                                    TimeSlot = $"{assignment.StartTime} - {assignment.EndTime}",
+                                    TimeSlot = timeRange,
                                     Status = "Occupied"
                                 });
                             }
@@ -118,13 +122,19 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
                     dgvRoomDetails.DataSource = roomDetails.OrderBy(r => r.Room).ToList();
 
-                    // Apply conditional formatting
+                    // 4. Apply the colors (Green for Available, Red for Occupied)
                     foreach (DataGridViewRow row in dgvRoomDetails.Rows)
                     {
                         if (row.Cells["Status"].Value.ToString() == "Available")
+                        {
                             row.DefaultCellStyle.BackColor = Color.LightGreen;
+                            row.DefaultCellStyle.ForeColor = Color.Black;
+                        }
                         else
-                            row.DefaultCellStyle.BackColor = Color.LightCoral;
+                        {
+                            row.DefaultCellStyle.BackColor = Color.LightCoral; // This is the "Red" light-up
+                            row.DefaultCellStyle.ForeColor = Color.White;
+                        }
                     }
 
                     lblSelectedDate.Text = $"Date: {selectedDate:dddd, MMMM dd, yyyy}";
