@@ -192,3 +192,43 @@ C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
 C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedule.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyDashboardForm.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyMembers.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyRoomForm.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAssignment.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Rooms.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedule.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyForm.resources
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Buffers.dll
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Memory.dll
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Buffers.xml
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Memory.xml
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-Final\obj\Debug\_ Subjec.8D3606FA.Up2Date
