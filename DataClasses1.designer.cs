@@ -69,7 +69,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString6, mappingSource)
+				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString7, mappingSource)
 		{
 			OnCreated();
 		}
@@ -199,13 +199,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
 			return ((ISingleResult<Admin_LoginResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Admin_Login")]
-		public ISingleResult<Admin_LoginResult1> Admin_Login1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
-			return ((ISingleResult<Admin_LoginResult1>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteSubject")]
@@ -2835,68 +2828,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		private System.Nullable<int> _Roleid;
 		
 		public Admin_LoginResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this._UserId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this._Username = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Roleid", DbType="Int")]
-		public System.Nullable<int> Roleid
-		{
-			get
-			{
-				return this._Roleid;
-			}
-			set
-			{
-				if ((this._Roleid != value))
-				{
-					this._Roleid = value;
-				}
-			}
-		}
-	}
-	
-	public partial class Admin_LoginResult1
-	{
-		
-		private int _UserId;
-		
-		private string _Username;
-		
-		private System.Nullable<int> _Roleid;
-		
-		public Admin_LoginResult1()
 		{
 		}
 		

@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomAssignment));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnViewReport = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnViewCalendar = new System.Windows.Forms.Button();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnViewReport = new System.Windows.Forms.Button();
+            this.btnViewCalendar = new System.Windows.Forms.Button();
             this.lblAssignName = new System.Windows.Forms.Label();
             this.lblFacultyName = new System.Windows.Forms.Label();
             this.cmbFacultyAssign = new System.Windows.Forms.ComboBox();
@@ -70,20 +70,6 @@
             this.panel3.Size = new System.Drawing.Size(806, 67);
             this.panel3.TabIndex = 17;
             // 
-            // btnViewReport
-            // 
-            this.btnViewReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewReport.ForeColor = System.Drawing.Color.Black;
-            this.btnViewReport.Location = new System.Drawing.Point(654, 249);
-            this.btnViewReport.Name = "btnViewReport";
-            this.btnViewReport.Size = new System.Drawing.Size(108, 29);
-            this.btnViewReport.TabIndex = 38;
-            this.btnViewReport.Text = "View Report";
-            this.btnViewReport.UseVisualStyleBackColor = false;
-            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -96,20 +82,6 @@
             this.label5.Size = new System.Drawing.Size(249, 26);
             this.label5.TabIndex = 35;
             this.label5.Text = "ROOMS ASSIGNMENT";
-            // 
-            // btnViewCalendar
-            // 
-            this.btnViewCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
-            this.btnViewCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewCalendar.ForeColor = System.Drawing.Color.Black;
-            this.btnViewCalendar.Location = new System.Drawing.Point(530, 249);
-            this.btnViewCalendar.Name = "btnViewCalendar";
-            this.btnViewCalendar.Size = new System.Drawing.Size(108, 29);
-            this.btnViewCalendar.TabIndex = 37;
-            this.btnViewCalendar.Text = "View Calendar";
-            this.btnViewCalendar.UseVisualStyleBackColor = false;
-            this.btnViewCalendar.Click += new System.EventHandler(this.btnViewCalendar_Click);
             // 
             // imgBackToMain2
             // 
@@ -133,6 +105,32 @@
             this.label1.Size = new System.Drawing.Size(19, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = " ";
+            // 
+            // btnViewReport
+            // 
+            this.btnViewReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewReport.ForeColor = System.Drawing.Color.Black;
+            this.btnViewReport.Location = new System.Drawing.Point(654, 249);
+            this.btnViewReport.Name = "btnViewReport";
+            this.btnViewReport.Size = new System.Drawing.Size(108, 29);
+            this.btnViewReport.TabIndex = 38;
+            this.btnViewReport.Text = "View Report";
+            this.btnViewReport.UseVisualStyleBackColor = false;
+            // 
+            // btnViewCalendar
+            // 
+            this.btnViewCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
+            this.btnViewCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewCalendar.ForeColor = System.Drawing.Color.Black;
+            this.btnViewCalendar.Location = new System.Drawing.Point(530, 249);
+            this.btnViewCalendar.Name = "btnViewCalendar";
+            this.btnViewCalendar.Size = new System.Drawing.Size(108, 29);
+            this.btnViewCalendar.TabIndex = 37;
+            this.btnViewCalendar.Text = "View Calendar";
+            this.btnViewCalendar.UseVisualStyleBackColor = false;
             // 
             // lblAssignName
             // 
@@ -160,7 +158,7 @@
             // 
             this.cmbFacultyAssign.FormattingEnabled = true;
             this.cmbFacultyAssign.Location = new System.Drawing.Point(188, 113);
-            this.cmbFacultyAssign.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbFacultyAssign.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFacultyAssign.Name = "cmbFacultyAssign";
             this.cmbFacultyAssign.Size = new System.Drawing.Size(115, 21);
             this.cmbFacultyAssign.TabIndex = 21;
@@ -169,16 +167,17 @@
             // 
             this.cmbRoom.FormattingEnabled = true;
             this.cmbRoom.Location = new System.Drawing.Point(49, 113);
-            this.cmbRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRoom.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRoom.Name = "cmbRoom";
             this.cmbRoom.Size = new System.Drawing.Size(115, 21);
             this.cmbRoom.TabIndex = 22;
             // 
             // dgvAssignments
             // 
+            this.dgvAssignments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAssignments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAssignments.Location = new System.Drawing.Point(11, 288);
-            this.dgvAssignments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAssignments.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAssignments.Name = "dgvAssignments";
             this.dgvAssignments.RowHeadersWidth = 51;
             this.dgvAssignments.RowTemplate.Height = 24;
@@ -249,7 +248,7 @@
             "Friday",
             "Saturday"});
             this.chkListDays.Location = new System.Drawing.Point(321, 113);
-            this.chkListDays.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkListDays.Margin = new System.Windows.Forms.Padding(2);
             this.chkListDays.Name = "chkListDays";
             this.chkListDays.Size = new System.Drawing.Size(122, 64);
             this.chkListDays.TabIndex = 30;
@@ -279,7 +278,7 @@
             // txtStartTime
             // 
             this.txtStartTime.Location = new System.Drawing.Point(49, 169);
-            this.txtStartTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStartTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtStartTime.Name = "txtStartTime";
             this.txtStartTime.Size = new System.Drawing.Size(80, 20);
             this.txtStartTime.TabIndex = 33;
@@ -287,7 +286,7 @@
             // txtEndTime
             // 
             this.txtEndTime.Location = new System.Drawing.Point(188, 169);
-            this.txtEndTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEndTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtEndTime.Name = "txtEndTime";
             this.txtEndTime.Size = new System.Drawing.Size(80, 20);
             this.txtEndTime.TabIndex = 34;
@@ -328,7 +327,7 @@
             this.Controls.Add(this.lblFacultyName);
             this.Controls.Add(this.lblAssignName);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RoomAssignment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoomAssignment";

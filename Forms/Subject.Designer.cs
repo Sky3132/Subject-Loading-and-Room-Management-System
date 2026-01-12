@@ -184,7 +184,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.lblSubjectCode.Size = new System.Drawing.Size(44, 18);
             this.lblSubjectCode.TabIndex = 7;
             this.lblSubjectCode.Text = "Code";
-            this.lblSubjectCode.Click += new System.EventHandler(this.lblSubjectCode_Click);
             // 
             // txtCode
             // 
@@ -193,7 +192,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(185, 22);
             this.txtCode.TabIndex = 8;
-            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
             // lblSubjectTitle
             // 
@@ -205,7 +203,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.lblSubjectTitle.Size = new System.Drawing.Size(35, 18);
             this.lblSubjectTitle.TabIndex = 9;
             this.lblSubjectTitle.Text = "Title";
-            this.lblSubjectTitle.Click += new System.EventHandler(this.lblSubjectTitle_Click);
             // 
             // txtTitle
             // 
@@ -214,7 +211,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(185, 22);
             this.txtTitle.TabIndex = 10;
-            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
             // 
             // pictureBox1
             // 
@@ -238,7 +234,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.lblSubjectDepartment.Size = new System.Drawing.Size(85, 18);
             this.lblSubjectDepartment.TabIndex = 13;
             this.lblSubjectDepartment.Text = "Department";
-            this.lblSubjectDepartment.Click += new System.EventHandler(this.lblSubjectDepartment_Click);
             // 
             // lblSubjectProgram
             // 
@@ -250,7 +245,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.lblSubjectProgram.Size = new System.Drawing.Size(66, 18);
             this.lblSubjectProgram.TabIndex = 14;
             this.lblSubjectProgram.Text = "Program";
-            this.lblSubjectProgram.Click += new System.EventHandler(this.lblSubjectProgram_Click);
             // 
             // txtSearch
             // 
@@ -285,7 +279,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 20;
             this.label2.Text = "Lecture Units";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -296,7 +289,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.label3.Size = new System.Drawing.Size(105, 16);
             this.label3.TabIndex = 21;
             this.label3.Text = "Laboratory Units";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtLaboratoryUnits
             // 
@@ -305,7 +297,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.txtLaboratoryUnits.Name = "txtLaboratoryUnits";
             this.txtLaboratoryUnits.Size = new System.Drawing.Size(132, 22);
             this.txtLaboratoryUnits.TabIndex = 24;
-            this.txtLaboratoryUnits.TextChanged += new System.EventHandler(this.txtLaboratoryUnits_TextChanged);
             // 
             // txtLectureUnits
             // 
@@ -314,7 +305,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.txtLectureUnits.Name = "txtLectureUnits";
             this.txtLectureUnits.Size = new System.Drawing.Size(132, 22);
             this.txtLectureUnits.TabIndex = 25;
-            this.txtLectureUnits.TextChanged += new System.EventHandler(this.txtLectureUnits_TextChanged);
             // 
             // cmbDepartment
             // 
@@ -324,7 +314,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(185, 24);
             this.cmbDepartment.TabIndex = 26;
-            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             this.cmbDepartment.SelectionChangeCommitted += new System.EventHandler(this.cmbDepartment_SelectionChangeCommitted_1);
             // 
             // cmbProgram
@@ -335,7 +324,6 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.cmbProgram.Name = "cmbProgram";
             this.cmbProgram.Size = new System.Drawing.Size(185, 24);
             this.cmbProgram.TabIndex = 27;
-            this.cmbProgram.SelectedIndexChanged += new System.EventHandler(this.cmbProgram_SelectedIndexChanged);
             // 
             // Subject
             // 

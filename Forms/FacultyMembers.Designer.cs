@@ -55,7 +55,7 @@
             // txtFmemberFname
             // 
             this.txtFmemberFname.Location = new System.Drawing.Point(36, 87);
-            this.txtFmemberFname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFmemberFname.Margin = new System.Windows.Forms.Padding(2);
             this.txtFmemberFname.Name = "txtFmemberFname";
             this.txtFmemberFname.Size = new System.Drawing.Size(137, 20);
             this.txtFmemberFname.TabIndex = 59;
@@ -79,9 +79,10 @@
             // 
             // dgvFaculty
             // 
+            this.dgvFaculty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFaculty.Location = new System.Drawing.Point(11, 289);
-            this.dgvFaculty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvFaculty.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFaculty.Name = "dgvFaculty";
             this.dgvFaculty.RowHeadersWidth = 51;
             this.dgvFaculty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -95,7 +96,7 @@
             this.panel3.Controls.Add(this.imgBackToMain2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(1, 1);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(797, 63);
             this.panel3.TabIndex = 58;
@@ -104,7 +105,7 @@
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
             this.imgBackToMain2.Location = new System.Drawing.Point(716, 10);
-            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgBackToMain2.Margin = new System.Windows.Forms.Padding(2);
             this.imgBackToMain2.Name = "imgBackToMain2";
             this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -129,7 +130,7 @@
             this.btnRemoveLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnRemoveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveLoad.Location = new System.Drawing.Point(258, 235);
-            this.btnRemoveLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveLoad.Name = "btnRemoveLoad";
             this.btnRemoveLoad.Size = new System.Drawing.Size(95, 40);
             this.btnRemoveLoad.TabIndex = 56;
@@ -142,7 +143,7 @@
             this.btnEditLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnEditLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditLoad.Location = new System.Drawing.Point(147, 235);
-            this.btnEditLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditLoad.Name = "btnEditLoad";
             this.btnEditLoad.Size = new System.Drawing.Size(95, 40);
             this.btnEditLoad.TabIndex = 55;
@@ -153,7 +154,7 @@
             // txtSearchMembers
             // 
             this.txtSearchMembers.Location = new System.Drawing.Point(481, 246);
-            this.txtSearchMembers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearchMembers.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchMembers.Name = "txtSearchMembers";
             this.txtSearchMembers.Size = new System.Drawing.Size(136, 20);
             this.txtSearchMembers.TabIndex = 52;
@@ -163,7 +164,7 @@
             this.btnFmembersAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnFmembersAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFmembersAdd.Location = new System.Drawing.Point(36, 235);
-            this.btnFmembersAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFmembersAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnFmembersAdd.Name = "btnFmembersAdd";
             this.btnFmembersAdd.Size = new System.Drawing.Size(95, 40);
             this.btnFmembersAdd.TabIndex = 54;
@@ -174,7 +175,7 @@
             // txtFmemberLname
             // 
             this.txtFmemberLname.Location = new System.Drawing.Point(36, 132);
-            this.txtFmemberLname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFmemberLname.Margin = new System.Windows.Forms.Padding(2);
             this.txtFmemberLname.Name = "txtFmemberLname";
             this.txtFmemberLname.Size = new System.Drawing.Size(137, 20);
             this.txtFmemberLname.TabIndex = 65;
@@ -193,7 +194,7 @@
             // 
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(206, 87);
-            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(138, 21);
             this.cmbDepartment.TabIndex = 53;
@@ -203,7 +204,7 @@
             this.btnSearchMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(201)))), ((int)(((byte)(76)))));
             this.btnSearchMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchMember.Location = new System.Drawing.Point(372, 235);
-            this.btnSearchMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchMember.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchMember.Name = "btnSearchMember";
             this.btnSearchMember.Size = new System.Drawing.Size(95, 40);
             this.btnSearchMember.TabIndex = 63;
@@ -240,7 +241,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtFmemberFname);
             this.Controls.Add(this.txtFmemberLname);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FacultyMembers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Faculty Members";

@@ -2,10 +2,6 @@
    DATABASE: Schooldb
    Purpose: Main database for school system
 ================================ */
-IF DB_ID('Schooldb') IS NOT NULL
-    DROP DATABASE Schooldb;
-GO
-
 CREATE DATABASE Schooldb;
 GO
 
@@ -169,17 +165,17 @@ CREATE TABLE [dbo].[tblFaculty] (
    TABLE: tblFacultyLoading
    Purpose: Bridge table linking Faculty to a specific Subject Offering
 ================================ */
-CREATE TABLE tblFacultyLoading (
-    LoadID INT IDENTITY(1,1) PRIMARY KEY,
-    FacultyID INT NOT NULL,
-    offeringId INT NOT NULL, -- Correctly references the offering instance
-    Section NVARCHAR(50) NOT NULL,
-    CONSTRAINT FK_Load_Faculty FOREIGN KEY (FacultyID) 
-        REFERENCES tblFaculty(FacultyID),
-    CONSTRAINT FK_Load_Offering FOREIGN KEY (offeringId) 
-        REFERENCES tblsubjectOffering(offeringId)
+CREATE TABLE [dbo].[tblFacultyLoading] (
+    [LoadID]     INT           IDENTITY (1, 1) NOT NULL,
+    [FacultyID]  INT           NOT NULL,
+    [offeringId] INT           NOT NULL,
+    [Section]    NVARCHAR (50) NOT NULL,
+    [ProgramID]  INT           NULL,
+    PRIMARY KEY CLUSTERED ([LoadID] ASC),
+    CONSTRAINT [FK_Load_Faculty] FOREIGN KEY ([FacultyID]) REFERENCES [dbo].[tblFaculty] ([FacultyID]),
+    CONSTRAINT [FK_Load_Offering] FOREIGN KEY ([offeringId]) REFERENCES [dbo].[tblsubjectOffering] ([offeringId]),
+    CONSTRAINT [FK_FacultyLoading_Program] FOREIGN KEY ([ProgramID]) REFERENCES [dbo].[tblProgram] ([ProgramID])
 );
-
 /* ================================
    TABLE: tblRooms (REQUIRED for Monitoring)
 ================================ */

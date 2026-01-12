@@ -57,8 +57,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
 
         private void btnSchedules_Click(object sender, EventArgs e)
         {
-            Schedules sched = new Schedules();
-            sched.Tag = this; // This stores the Main form reference for the back button
+             Schedule sched = new Schedule();
+            //sched.Tag = this; // This stores the Main form reference for the back button
             sched.Show();
             this.Hide();
         }

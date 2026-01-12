@@ -13,7 +13,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class Class_schedule : Form
     {
-            string connStr = @"Server=pogitayo; Database=Schooldb; Integrated Security=True;";
+        ConnectionString connStr = new ConnectionString();
         public Class_schedule()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         }
         private void RefreshClassSchedGrid()
         {
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connStr.connection))
             {
                 // This is the FIX: You MUST have "INNER JOIN tblFacultyLoading L" 
                 // before you can use "L.Section"

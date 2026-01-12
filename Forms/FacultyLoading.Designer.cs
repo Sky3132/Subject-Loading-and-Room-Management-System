@@ -32,6 +32,7 @@
             this.lblSubject = new System.Windows.Forms.Label();
             this.dgvLoading = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearchLoad = new System.Windows.Forms.Button();
             this.btnCancelLoad = new System.Windows.Forms.Button();
@@ -48,11 +49,10 @@
             this.lblDepartment = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoading)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSubject
@@ -67,6 +67,7 @@
             // 
             // dgvLoading
             // 
+            this.dgvLoading.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLoading.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoading.Location = new System.Drawing.Point(12, 289);
             this.dgvLoading.Name = "dgvLoading";
@@ -85,6 +86,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(806, 63);
             this.panel3.TabIndex = 15;
+            // 
+            // imgBackToMain2
+            // 
+            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
+            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
+            this.imgBackToMain2.Name = "imgBackToMain2";
+            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
+            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBackToMain2.TabIndex = 33;
+            this.imgBackToMain2.TabStop = false;
+            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
             // 
             // label1
             // 
@@ -257,17 +269,6 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
-            // imgBackToMain2
-            // 
-            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
-            this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
-            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgBackToMain2.TabIndex = 33;
-            this.imgBackToMain2.TabStop = false;
-            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
-            // 
             // FacultyLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,8 +299,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoading)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

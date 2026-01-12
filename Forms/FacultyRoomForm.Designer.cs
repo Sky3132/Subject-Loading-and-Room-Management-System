@@ -93,6 +93,7 @@
             // 
             // dgvFaculty
             // 
+            this.dgvFaculty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFaculty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ROOM,

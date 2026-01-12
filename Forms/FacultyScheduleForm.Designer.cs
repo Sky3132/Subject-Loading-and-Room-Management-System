@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacultyScheduleForm));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvFaculty = new System.Windows.Forms.DataGridView();
             this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +56,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(838, 60);
             this.panel3.TabIndex = 21;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(31, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 39);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
             // 
             // label9
             // 
@@ -81,18 +91,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = " ";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(31, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 39);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            // 
             // dgvFaculty
             // 
+            this.dgvFaculty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFaculty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SUBJECT,
