@@ -47,13 +47,15 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         }
         private void imgBackToMain2_Click(object sender, EventArgs e)
         {
-            // Find the original Schedules form we stored in the Tag
-            if (this.Tag is Form mainSched)
-            {
-                mainSched.Show(); // Bring the first form back
-            }
-            this.Close(); // Close this viewing form
-        }
+			Schedule main = new Schedule();
+			main.Show();
+			this.Hide();// Find the original Schedules form we stored in the Tag
+			if (this.Tag is Form mainSched)
+			{
+				mainSched.Show(); // Bring the first form back
+			}
+			this.Close(); // Close this viewing form
+		}
 
         private void dgvsched_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

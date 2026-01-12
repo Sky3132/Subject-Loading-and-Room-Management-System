@@ -28,94 +28,145 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Class_schedule));
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvsched = new System.Windows.Forms.DataGridView();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvsched)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Class_schedule));
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.label9 = new System.Windows.Forms.Label();
+			this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.dgvsched = new System.Windows.Forms.DataGridView();
+			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvsched)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// panel3
+			// 
+			this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.AutoSize = true;
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.imgBackToMain2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(-19, -2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(838, 55);
-            this.panel3.TabIndex = 19;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(325, 13);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(226, 26);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "CLASS SCHEDULE";
-            // 
-            // imgBackToMain2
-            // 
-            this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
-            this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
-            this.imgBackToMain2.Name = "imgBackToMain2";
-            this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
-            this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgBackToMain2.TabIndex = 33;
-            this.imgBackToMain2.TabStop = false;
-            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(301, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = " ";
-            // 
-            // dgvsched
-            // 
-            this.dgvsched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvsched.Location = new System.Drawing.Point(11, 67);
-            this.dgvsched.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgvsched.Name = "dgvsched";
-            this.dgvsched.RowHeadersWidth = 51;
-            this.dgvsched.RowTemplate.Height = 24;
-            this.dgvsched.Size = new System.Drawing.Size(778, 246);
-            this.dgvsched.TabIndex = 28;
-            this.dgvsched.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsched_CellContentClick);
-            // 
-            // Class_schedule
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvsched);
-            this.Controls.Add(this.panel3);
-            this.Name = "Class_schedule";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Class_schedule";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvsched)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.panel3.AutoSize = true;
+			this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
+			this.panel3.Controls.Add(this.label9);
+			this.panel3.Controls.Add(this.imgBackToMain2);
+			this.panel3.Controls.Add(this.label1);
+			this.panel3.Location = new System.Drawing.Point(-19, -2);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(838, 55);
+			this.panel3.TabIndex = 19;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.ForeColor = System.Drawing.Color.Transparent;
+			this.label9.Location = new System.Drawing.Point(325, 13);
+			this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(226, 26);
+			this.label9.TabIndex = 36;
+			this.label9.Text = "CLASS SCHEDULE";
+			// 
+			// imgBackToMain2
+			// 
+			this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
+			this.imgBackToMain2.Location = new System.Drawing.Point(725, 13);
+			this.imgBackToMain2.Name = "imgBackToMain2";
+			this.imgBackToMain2.Size = new System.Drawing.Size(81, 39);
+			this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.imgBackToMain2.TabIndex = 33;
+			this.imgBackToMain2.TabStop = false;
+			this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.Transparent;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(301, 13);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(19, 25);
+			this.label1.TabIndex = 0;
+			this.label1.Text = " ";
+			// 
+			// dgvsched
+			// 
+			this.dgvsched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvsched.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+			this.dgvsched.EnableHeadersVisualStyles = false;
+			this.dgvsched.Location = new System.Drawing.Point(11, 67);
+			this.dgvsched.Margin = new System.Windows.Forms.Padding(2);
+			this.dgvsched.Name = "dgvsched";
+			this.dgvsched.RowHeadersWidth = 51;
+			this.dgvsched.RowTemplate.Height = 24;
+			this.dgvsched.Size = new System.Drawing.Size(778, 293);
+			this.dgvsched.TabIndex = 28;
+			this.dgvsched.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsched_CellContentClick);
+			// 
+			// Column7
+			// 
+			this.Column7.HeaderText = "EndTime";
+			this.Column7.Name = "Column7";
+			// 
+			// Column6
+			// 
+			this.Column6.HeaderText = "StartTime";
+			this.Column6.Name = "Column6";
+			// 
+			// Column5
+			// 
+			this.Column5.HeaderText = "DayOfWeek";
+			this.Column5.Name = "Column5";
+			// 
+			// Column4
+			// 
+			this.Column4.HeaderText = "Room";
+			this.Column4.Name = "Column4";
+			// 
+			// Column3
+			// 
+			this.Column3.HeaderText = "Section";
+			this.Column3.Name = "Column3";
+			// 
+			// Column2
+			// 
+			this.Column2.HeaderText = "Faculty";
+			this.Column2.Name = "Column2";
+			// 
+			// Column1
+			// 
+			this.Column1.HeaderText = "Subject";
+			this.Column1.Name = "Column1";
+			// 
+			// Class_schedule
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.dgvsched);
+			this.Controls.Add(this.panel3);
+			this.Name = "Class_schedule";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Class_schedule";
+			this.panel3.ResumeLayout(false);
+			this.panel3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvsched)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -126,5 +177,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvsched;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

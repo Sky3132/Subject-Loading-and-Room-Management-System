@@ -83,7 +83,7 @@
         <elementListCompartment Id="9ccd31a8-fdc9-4ca2-ba3d-435096e4cc21" absoluteBounds="14.515, 14.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(14.5 : 14.1690991210937); (13.3645833333333 : 14.1690991210937 : JumpStart); (13.1979166666667 : 14.1690991210937 : JumpEnd); (12.25 : 14.1690991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(14.5 : 14.1690991210937); (12.25 : 14.1690991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/tblRoom/tblRoom_tblSchedule" />
       <nodes>
         <classShapeMoniker Id="89e6a48d-3f6d-4680-8ad1-53911a1f7398" />
@@ -124,7 +124,7 @@
         <classShapeMoniker Id="70c9e45b-afc9-4b20-87f1-2594068549da" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(17.125 : 5.07859537760417); (17.125 : 11.8266803504232); (13.3645833333333 : 11.8266803504232 : JumpStart); (13.1979166666667 : 11.8266803504232 : JumpEnd); (12.25 : 11.8266803504232)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(17.125 : 5.07859537760417); (17.125 : 11.8266803504232); (12.25 : 11.8266803504232)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/tblsubjectOffering/tblsubjectOffering_tblFacultyLoading" />
       <nodes>
         <classShapeMoniker Id="fcb9315d-5995-43b2-a225-0d5a9ba5be5a" />

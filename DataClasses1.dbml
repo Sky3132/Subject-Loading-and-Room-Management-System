@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Schooldb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=desktop-rfr1dk9;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString7" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=pogitayo;Initial Catalog=Schooldb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings" SettingsPropertyName="SchooldbConnectionString8" Provider="System.Data.SqlClient" />
   <Table Name="dbo.log_in" Member="log_ins">
     <Type Name="log_in">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

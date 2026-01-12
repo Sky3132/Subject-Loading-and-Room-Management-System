@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbSchedDay = new System.Windows.Forms.ComboBox();
-            this.dgvSchedule = new System.Windows.Forms.DataGridView();
-            this.btnSchedUpdate = new System.Windows.Forms.Button();
-            this.btnSchedSave = new System.Windows.Forms.Button();
-            this.btnSchedRemove = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbSchedStart = new System.Windows.Forms.ComboBox();
-            this.cmbSchedEnd = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbSchedSubject = new System.Windows.Forms.ComboBox();
-            this.cmbSchedRoom = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblOpenClassSched = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.label9 = new System.Windows.Forms.Label();
+			this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.cmbSchedDay = new System.Windows.Forms.ComboBox();
+			this.dgvSchedule = new System.Windows.Forms.DataGridView();
+			this.btnSchedUpdate = new System.Windows.Forms.Button();
+			this.btnSchedSave = new System.Windows.Forms.Button();
+			this.btnSchedRemove = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.cmbSchedStart = new System.Windows.Forms.ComboBox();
+			this.cmbSchedEnd = new System.Windows.Forms.ComboBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.cmbSchedSubject = new System.Windows.Forms.ComboBox();
+			this.cmbSchedRoom = new System.Windows.Forms.ComboBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.lblOpenClassSched = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// panel3
+			// 
+			this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(25)))), ((int)(((byte)(46)))));
