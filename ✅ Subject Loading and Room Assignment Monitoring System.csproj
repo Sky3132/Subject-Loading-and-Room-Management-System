@@ -61,11 +61,35 @@
     <Compile Include="Forms\Class schedule.Designer.cs">
       <DependentUpon>Class schedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FacultyDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FacultyDashboardForm.Designer.cs">
+      <DependentUpon>FacultyDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FacultyMembers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FacultyMembers.Designer.cs">
       <DependentUpon>FacultyMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FacultyRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FacultyRoomForm.Designer.cs">
+      <DependentUpon>FacultyRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FacultyScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FacultyScheduleForm.Designer.cs">
+      <DependentUpon>FacultyScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RequestScheduleChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RequestScheduleChangeForm.Designer.cs">
+      <DependentUpon>RequestScheduleChangeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RoomAssignment.cs">
       <SubType>Form</SubType>
@@ -164,11 +188,20 @@
     <EmbeddedResource Include="Forms\Class schedule.resx">
       <DependentUpon>Class schedule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FacultyDashboardForm.resx">
+      <DependentUpon>FacultyDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FacultyLoading.resx">
       <DependentUpon>FacultyLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FacultyMembers.resx">
       <DependentUpon>FacultyMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FacultyRoomForm.resx">
+      <DependentUpon>FacultyRoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FacultyScheduleForm.resx">
+      <DependentUpon>FacultyScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -178,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RequestScheduleChangeForm.resx">
+      <DependentUpon>RequestScheduleChangeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RoomAssignment.resx">
       <DependentUpon>RoomAssignment.cs</DependentUpon>

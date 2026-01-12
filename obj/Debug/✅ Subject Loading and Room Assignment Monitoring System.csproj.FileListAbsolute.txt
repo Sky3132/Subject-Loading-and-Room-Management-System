@@ -180,3 +180,7 @@ C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
 C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
+C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyDashboardForm.resources
+C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyRoomForm.resources
+C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
+C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
