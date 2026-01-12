@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Class_schedule));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.imgBackToMain2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvsched = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackToMain2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsched)).BeginInit();
@@ -53,6 +53,18 @@
             this.panel3.Size = new System.Drawing.Size(838, 55);
             this.panel3.TabIndex = 19;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(325, 13);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(226, 26);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "CLASS SCHEDULE";
+            // 
             // imgBackToMain2
             // 
             this.imgBackToMain2.Image = ((System.Drawing.Image)(resources.GetObject("imgBackToMain2.Image")));
@@ -62,6 +74,7 @@
             this.imgBackToMain2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgBackToMain2.TabIndex = 33;
             this.imgBackToMain2.TabStop = false;
+            this.imgBackToMain2.Click += new System.EventHandler(this.imgBackToMain2_Click);
             // 
             // label1
             // 
@@ -85,18 +98,6 @@
             this.dgvsched.RowTemplate.Height = 24;
             this.dgvsched.Size = new System.Drawing.Size(778, 246);
             this.dgvsched.TabIndex = 28;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Perpetua Titling MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(325, 13);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(210, 27);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "CLASS SCHEDULE";
             // 
             // Class_schedule
             // 

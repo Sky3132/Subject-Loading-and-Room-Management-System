@@ -69,7 +69,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString, mappingSource)
+				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString6, mappingSource)
 		{
 			OnCreated();
 		}
@@ -201,6 +201,13 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			return ((ISingleResult<Admin_LoginResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Admin_Login")]
+		public ISingleResult<Admin_LoginResult1> Admin_Login1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
+			return ((ISingleResult<Admin_LoginResult1>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteSubject")]
 		public int DeleteSubject([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> subjectId)
 		{
@@ -250,11 +257,25 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 			return ((ISingleResult<GetProgramsByDepartmentResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetSubjectOffering")]
+		public ISingleResult<GetSubjectOfferingResult> GetSubjectOffering()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GetSubjectOfferingResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetSubjectsWithDepartment")]
 		public ISingleResult<GetSubjectsWithDepartmentResult> GetSubjectsWithDepartment()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<GetSubjectsWithDepartmentResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSubjectOffering")]
+		public int InsertSubjectOffering([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Semester", DbType="NVarChar(50)")] string semester, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="NVarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubjectId", DbType="Int")] System.Nullable<int> subjectId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), semester, schoolYear, subjectId);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSubjects")]
@@ -289,13 +310,6 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		public int UpdateSubjectOffering([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OfferingId", DbType="Int")] System.Nullable<int> offeringId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubjectId", DbType="Int")] System.Nullable<int> subjectId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Semester", DbType="NVarChar(50)")] string semester, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="NVarChar(50)")] string schoolYear)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), offeringId, subjectId, semester, schoolYear);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSubjectOffering")]
-		public int InsertSubjectOffering([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Semester", DbType="NVarChar(50)")] string semester, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="NVarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubjectId", DbType="Int")] System.Nullable<int> subjectId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), semester, schoolYear, subjectId);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -2873,6 +2887,68 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 		}
 	}
 	
+	public partial class Admin_LoginResult1
+	{
+		
+		private int _UserId;
+		
+		private string _Username;
+		
+		private System.Nullable<int> _Roleid;
+		
+		public Admin_LoginResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
+		public int UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Roleid", DbType="Int")]
+		public System.Nullable<int> Roleid
+		{
+			get
+			{
+				return this._Roleid;
+			}
+			set
+			{
+				if ((this._Roleid != value))
+				{
+					this._Roleid = value;
+				}
+			}
+		}
+	}
+	
 	public partial class GetCodeandTitleResult
 	{
 		
@@ -3044,6 +3120,104 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
 				if ((this._ProgramName != value))
 				{
 					this._ProgramName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetSubjectOfferingResult
+	{
+		
+		private int _offeringId;
+		
+		private int _subjectId;
+		
+		private string _Semester;
+		
+		private string _SchoolYear;
+		
+		private string _Subject;
+		
+		public GetSubjectOfferingResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_offeringId", DbType="Int NOT NULL")]
+		public int offeringId
+		{
+			get
+			{
+				return this._offeringId;
+			}
+			set
+			{
+				if ((this._offeringId != value))
+				{
+					this._offeringId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_subjectId", DbType="Int NOT NULL")]
+		public int subjectId
+		{
+			get
+			{
+				return this._subjectId;
+			}
+			set
+			{
+				if ((this._subjectId != value))
+				{
+					this._subjectId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Semester", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Semester
+		{
+			get
+			{
+				return this._Semester;
+			}
+			set
+			{
+				if ((this._Semester != value))
+				{
+					this._Semester = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SchoolYear", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SchoolYear
+		{
+			get
+			{
+				return this._SchoolYear;
+			}
+			set
+			{
+				if ((this._SchoolYear != value))
+				{
+					this._SchoolYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="NVarChar(63)")]
+		public string Subject
+		{
+			get
+			{
+				return this._Subject;
+			}
+			set
+			{
+				if ((this._Subject != value))
+				{
+					this._Subject = value;
 				}
 			}
 		}

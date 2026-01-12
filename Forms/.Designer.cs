@@ -52,11 +52,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(13, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(370, 26);
+            this.label1.Size = new System.Drawing.Size(375, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "SCHOOL MANAGEMENT SYSTEM";
             // 
@@ -135,6 +135,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
             this.btnSchedules.TabIndex = 3;
             this.btnSchedules.Text = "Schedules";
             this.btnSchedules.UseVisualStyleBackColor = false;
+            this.btnSchedules.Click += new System.EventHandler(this.btnSchedules_Click);
             // 
             // btnRooms
             // 
