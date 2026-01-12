@@ -7,15 +7,32 @@ using System.Threading.Tasks;
 
 namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Models
 {
-    // MODULE 2 & 3: Faculty and Loading
-    public class FacultyMember : User
+    public class FacultyMember : Core_Models.User
     {
+        // Encapsulated Fields
+        private string _firstName;
+        private string _lastName;
+
         public int FacultyID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Department { get; set; } // Add this for the Name
+
+        public string FirstName
+        {
+            get => _firstName;
+            set => _firstName = value?.Trim();
+        }
+
+        public string LastName
+        {
+            get => _lastName;
+            set => _lastName = value?.Trim();
+        }
+
+        public string Department { get; set; }
         public int CurrentLoad { get; set; }
         public int MaxLoad { get; set; }
-        public int DepartmentID { get; set; } // Keep this hidden for logic
+        public int DepartmentID { get; set; }
+
+        // Calculated Property (Logic inside Model)
+        public string FullName => $"{FirstName} {LastName}";
     }
 }

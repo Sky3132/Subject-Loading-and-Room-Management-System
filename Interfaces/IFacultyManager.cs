@@ -10,10 +10,9 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Interfaces
 {
     public interface IFacultyManager
     {
-        // Rule: Check if adding new units will exceed the teacher's limit
-        bool IsOverloaded(int facultyId, int newUnits);
-
-        // Rule: Ensure name and department are valid
         void Validate(Models.FacultyMember faculty);
+        bool IsOverloaded(int facultyId, int newUnits);
+        void AddFaculty(Models.FacultyMember model);
+        void UpdateFaculty(Models.FacultyMember model);
     }
 }

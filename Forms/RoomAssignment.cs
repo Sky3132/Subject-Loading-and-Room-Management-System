@@ -175,8 +175,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 
         private void imgBackToMain2_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
-            main.Show();
+            Rooms room = new Rooms();
+            room.Show();
             this.Hide();
         }
 
