@@ -13,7 +13,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class Schedules : Form
     {       
-            string connStr = @"Server=DESKTOP-CL62R53; Database=Schooldb; Integrated Security=True;";
+            string connStr = @"Server=pogitayo; Database=Schooldb; Integrated Security=True;";
 
             public Schedules()
             {
@@ -224,15 +224,15 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
         private void lblOpenClassSched_Click(object sender, EventArgs e)
         {
             // Use the full namespace so the computer finds the ClassSched form
-            __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ClassSched classForm =
-                new __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ClassSched();
+            __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule classForm =
+                new __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule();
 
             classForm.Tag = this; // Save this form so the back button works
             classForm.Show();
             this.Hide();
         }
     }
-    }
+}
     
     
     

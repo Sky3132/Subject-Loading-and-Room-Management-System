@@ -13,8 +13,8 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
 {
     public partial class Class_schedule : Form
     {
-            string connStr = @"Server=DESKTOP-CL62R53; Database=Schooldb; Integrated Security=True;";
-        public ClassSched()
+            string connStr = @"Server=pogitayo; Database=Schooldb; Integrated Security=True;";
+        public Class_schedule()
         {
             InitializeComponent();
             // This makes the data appear without needing to click anything
@@ -42,7 +42,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 da.Fill(dt);
 
                 // Ensure the DataGrid on this second form is named dgvClassSched
-                dgvClassSched.DataSource = dt;
+                dgvsched.DataSource = dt;
             }
         }
         private void imgBackToMain2_Click(object sender, EventArgs e)
@@ -53,6 +53,11 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 mainSched.Show(); // Bring the first form back
             }
             this.Close(); // Close this viewing form
+        }
+
+        private void dgvsched_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
     }

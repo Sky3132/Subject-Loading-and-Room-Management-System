@@ -13,7 +13,7 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System
      
         public ConnectionString() //CONSTRUCTOR
         {
-            this.connection = "Data Source=DESKTOP-CL62R53;Initial Catalog=Schooldb;Integrated Security=True;";
+            this.connection = "Data Source=pogitayo;Initial Catalog=Schooldb;Integrated Security=True;";
         }
     }
 }
