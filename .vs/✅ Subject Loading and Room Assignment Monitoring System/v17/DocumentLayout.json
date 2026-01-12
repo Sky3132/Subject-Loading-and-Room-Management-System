@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\takeda\\source\\repos\\subject-loading-and-room-management-system\\forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\takeda\\source\\repos\\subject-loading-and-room-management-system\\forms\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\takeda\\source\\repos\\subject-loading-and-room-management-system\\forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\roomassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|c:\\users\\takeda\\source\\repos\\subject-loading-and-room-management-system\\forms\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{402CCFEC-F201-4EDE-9944-80D1A553F04F}|\u2705 Subject Loading and Room Assignment Monitoring System.csproj|solutionrelative:forms\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +18,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -31,26 +35,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RoomAssignment.cs",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
-              "RelativeDocumentMoniker": "Forms\\RoomAssignment.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
-              "RelativeToolTip": "Forms\\RoomAssignment.cs",
-              "ViewState": "AgIAANQBAAAAAAAAAAAswOYBAAAYAAAAAAAAAA==",
+              "Title": "Schedules.cs",
+              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
+              "RelativeDocumentMoniker": "Forms\\Schedules.cs",
+              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
+              "RelativeToolTip": "Forms\\Schedules.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAvwJIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T22:08:53.809Z",
+              "WhenOpened": "2026-01-12T22:44:01.867Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RoomAssignment.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs",
-              "RelativeDocumentMoniker": "Forms\\RoomAssignment.cs",
-              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\RoomAssignment.cs [Design]",
-              "RelativeToolTip": "Forms\\RoomAssignment.cs [Design]",
+              "Title": "Schedules.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs",
+              "RelativeDocumentMoniker": "Forms\\Schedules.cs",
+              "ToolTip": "C:\\Users\\Takeda\\source\\repos\\Subject-Loading-and-Room-Management-System\\Forms\\Schedules.cs [Design]",
+              "RelativeToolTip": "Forms\\Schedules.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T22:08:51.504Z",
+              "WhenOpened": "2026-01-12T22:43:59.458Z",
               "EditorCaption": " [Design]"
             }
           ]

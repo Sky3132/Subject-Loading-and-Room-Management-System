@@ -1,194 +1,39 @@
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-D:\Downloads\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\SUBJECT-TWILA\Subject Loading and Room Assignment Monitoring System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-New\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System-New 1\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\Admin\Source\Repos\Subject-Loading-and-Room-Management-System-UPDATED\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject-Management-project\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\Subject-Management-project\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject-Management-project\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject-Management-project\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject Loading and Room Management System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyMembers.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyMembers.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAssignment.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Rooms.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyMembers.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAssignment.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Rooms.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.pdb
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedules.resources
-C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
-C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAssignment.resources
-C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Rooms.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
-C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
-C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
-C:\Users\QHTF\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyDashboardForm.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyRoomForm.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
-C:\Users\admin\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyDashboardForm.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyRoomForm.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyDashboardForm.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyRoomForm.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
-C:\Users\QHTF\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedule.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedule.resources
-C:\Users\Takeda\Source\Repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.exe.config
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\Subject Loading and Room Assignment Monitoring System.exe.config
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\Subject Loading and Room Assignment Monitoring System.exe
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\Subject Loading and Room Assignment Monitoring System.pdb
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Buffers.dll
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Memory.dll
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Buffers.xml
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Memory.xml
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.AssemblyReference.cache
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Class_schedule.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyDashboardForm.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyForm.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyLoading.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyMembers.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyRoomForm.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.FacultyScheduleForm.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Login.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Main.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Register.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RequestScheduleChangeForm.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAssignment.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomAvailabilityCalendar.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Rooms.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.RoomUtilizationReport.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.Schedule.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Subject.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.SubjectOffering.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Forms.ucDashboard.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Resources.resources
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.GenerateResource.cache
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\✅ Subject Loading and Room Assignment Monitoring System.csproj.CoreCompileInputs.cache
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\_ Subjec.8D3606FA.Up2Date
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\Subject Loading and Room Assignment Monitoring System.exe
+C:\Users\Takeda\source\repos\Subject-Loading-and-Room-Management-System\obj\Debug\Subject Loading and Room Assignment Monitoring System.pdb

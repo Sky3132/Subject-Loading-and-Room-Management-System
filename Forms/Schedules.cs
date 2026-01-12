@@ -141,5 +141,10 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
             main.Show();
             this.Hide();
         }
+
+        private void lblOpenClassSched_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -127,7 +127,6 @@
             this.dgvSchedule.Size = new System.Drawing.Size(1033, 192);
             this.dgvSchedule.TabIndex = 27;
             this.dgvSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSchedule_CellClick);
-        
             // 
             // btnSchedUpdate
             // 
@@ -141,7 +140,6 @@
             this.btnSchedUpdate.TabIndex = 28;
             this.btnSchedUpdate.Text = "Update";
             this.btnSchedUpdate.UseVisualStyleBackColor = false;
-          
             // 
             // btnSchedSave
             // 
@@ -155,7 +153,6 @@
             this.btnSchedSave.TabIndex = 30;
             this.btnSchedSave.Text = "Save";
             this.btnSchedSave.UseVisualStyleBackColor = false;
-            
             // 
             // btnSchedRemove
             // 
@@ -169,7 +166,6 @@
             this.btnSchedRemove.TabIndex = 31;
             this.btnSchedRemove.Text = "Remove";
             this.btnSchedRemove.UseVisualStyleBackColor = false;
-            
             // 
             // label2
             // 
@@ -251,6 +247,7 @@
             this.lblOpenClassSched.Size = new System.Drawing.Size(105, 25);
             this.lblOpenClassSched.TabIndex = 45;
             this.lblOpenClassSched.Text = "Schedules";
+            this.lblOpenClassSched.Click += new System.EventHandler(this.lblOpenClassSched_Click);
             // 
             // pictureBox1
             // 
