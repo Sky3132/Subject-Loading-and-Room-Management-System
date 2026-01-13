@@ -195,6 +195,13 @@ namespace __Subject_Loading_and_Room_Assignment_Monitoring_System.Forms
                 }
             }
         }
+
+        private void imgBackToMain2_Click(object sender, EventArgs e)
+        {
+			Main main = new Main();
+			main.Show();
+			this.Hide();
+		}
     }
 }
 

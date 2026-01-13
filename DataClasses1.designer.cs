@@ -69,7 +69,7 @@ namespace @__Subject_Loading_and_Room_Assignment_Monitoring_System
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString7, mappingSource)
+				base(global::@__Subject_Loading_and_Room_Assignment_Monitoring_System.Properties.Settings.Default.SchooldbConnectionString8, mappingSource)
 		{
 			OnCreated();
 		}
